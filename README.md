@@ -26,7 +26,7 @@ Afterwards, you will find another directory named after the starting time of you
 Therein, you will find three types of files, once for each attack and once for the entire simulation:
 - `*_winlogbeat.jsonl`, containing all logs produced by SOCBED clients during a given time
 - `*_sigma.txt`, containing generated SIGMA alerts from the log-file of the same name in human-readable form
-- `*_sigma.json`containing generated SIGMA alerts from the log-file of the same name in json format for easier parsing
+- `*_sigma.json`, containing generated SIGMA alerts from the log-file of the same name in json format for easier parsing
 
 
 ### Evaluate log files
