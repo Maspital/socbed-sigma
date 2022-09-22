@@ -28,7 +28,7 @@ def parse_args():
 
 
 def get_command(jsonl_input, output):
-    command = ["./chainsaw",
+    command = ["./src/chainsaw",
                "hunt",
                f"{jsonl_input}",
                "--sigma",
