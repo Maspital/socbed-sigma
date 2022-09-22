@@ -1,2 +1,12 @@
+# Ignore PyCharm meta folder
 .idea/
 
+# Ignore produced log directories
+*-*-*T*_*_*Z/
+
+# Ignore specific file formats
+*.jsonl
+*.log
+
+# Ignore created chainsaw binary
+chainsaw

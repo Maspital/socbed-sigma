@@ -1,0 +1,524 @@
+---
+name: Chainsaw's groupless Sigma mappings for Event Logs
+kind: jsonl
+rules: sigma
+
+#exclusions:
+#- System File Execution Location Anomaly
+#- Defense evasion via process reimaging
+#- Exports Registry Key To an Alternate Data Stream
+#- NetNTLM Downgrade Attack
+#- Non Interactive PowerShell
+#- Wuauclt Network Connection
+#- Raw Disk Access Using Illegitimate Tools
+#- Executable in ADS
+#- Space After Filename - macOS
+#- Execution Of Non-Existing File
+#- Execution of Suspicious File Type Extension
+#- Execution from Suspicious Folder
+#- Process Start From Suspicious Folder
+#- Setting Change in Windows Firewall with Advanced Security
+#- Group Modification Logging
+#- WMI Event Subscription
+#- USB Device Plugged
+
+# A mapping marked as "not found" means that this field could not be found in neither the old
+# mapping file[1] (used with logprep) nor the currently generated logs.
+#
+# [1] https://gitlab.fkie.fraunhofer.de/CERTBpol/ki-angriffserkennung/-/blob/master/Daten/Sigma-Studie/misc/winlogbeat-modules-enabled-custom.yml
+
+groups:
+  - name: Sigma
+    timestamp: "@timestamp"
+    filter:
+      Provider: "*"
+    fields:
+      - from: Provider # not found, could be provider_guid?
+        to: winlog.provider_name
+      - name: Event ID
+        from: EventID
+        to: winlog.event_id
+      - name: Record ID
+        from: EventRecordID
+        to: winlog.record_id
+      - name: Computer
+        from: Computer
+        to: winlog.computer_name
+      - name: Event Data
+        from: EventData # not found
+        to: winlog.event_data
+
+      - from: AccessList # not found
+        to: winlog.event_data.AccessList
+        visible: false
+      - from: AccessMask
+        to: winlog.event_data.AccessMask
+        visible: false
+      - from: Accesses # not found
+        to: winlog.event_data.Accesses
+        visible: false
+      - from: AccountName
+        to: winlog.event_data.AccountName
+        visible: false
+      - from: Action
+        to: event.action
+        visible: false
+      - from: Address # not found
+        to: winlog.event_data.Address
+        visible: false
+      - from: AllowedToDelegateTo
+        to: winlog.event_data.AllowedToDelegateTo
+        visible: false
+      - from: Application # not found
+        to: winlog.event_data.Application
+        visible: false
+      - from: ApplicationPath # not found
+        to: winlog.event_data.ApplicationPath
+        visible: false
+      - from: AttributeLDAPDisplayName
+        to: winlog.event_data.AttributeLDAPDisplayName
+        visible: false
+      - from: AttributeValue # not found
+        to: winlog.event_data.AttributeValue
+        visible: false
+      - from: AuditPolicyChanges
+        to: winlog.event_data.AuditPolicyChanges
+        visible: false
+      - from: AuditSourceName # not found
+        to: winlog.event_data.AuditSourceName
+        visible: false
+      - from: AuthenticationPackageName
+        to: winlog.event_data.AuthenticationPackageName
+        visible: false
+      - from: CallTrace
+        to: winlog.event_data.CallTrace
+        visible: false
+      - from: CallerProcessName # not found, maybe "CallingProcessName"?
+        to: winlog.event_data.CallerProcessName
+        visible: false
+      - from: Caption # not found
+        to: winlog.event_data.Caption
+        visible: false
+      - from: CertThumbprint # not found
+        to: winlog.event_data.CertThumbprint
+        visible: false
+      - from: Channel
+        to: winlog.channel
+        visible: false
+      - from: ClassName # not found
+        to: winlog.event_data.ClassName
+        visible: false
+      - from: CommandLine
+        to: process.command_line
+        visible: false
+      - from: Commandline
+        to: process.command_line
+        visible: false
+      - from: Company
+        to: winlog.event_data.Company
+        visible: false
+      - from: ContextInfo # not found
+        to: winlog.event_data.ContextInfo
+        visible: false
+      - from: CurrentDirectory
+        to: process.working_directory
+        visible: false
+      - from: Description
+        to: winlog.event_data.Description
+        visible: false
+      - from: DestAddress  # not found, guessing
+        to: destination.ip
+        visible: false
+      - from: DestPort # not found, guessing
+        to: destination.port
+        visible: false
+      - from: Destination # not found, guessing
+        to: destination
+        visible: false
+      - from: DestinationHostname
+        to: destination.domain
+        visible: false
+      - from: DestinationIp
+        to: destination.ip
+        visible: false
+      - from: DestinationIsIpv6
+        to: winlog.event_data.DestinationIsIpv6
+        visible: false
+      - from: DestinationPort
+        to: destination.port
+        visible: false
+      - from: Details
+        to: winlog.event_data.Details
+        visible: false
+      - from: Device # not found, maybe "Interface" or something like that?
+        to: winlog.event_data.Device
+        visible: false
+      - from: DeviceDescription # not found
+        to: winlog.event_data.DeviceDescription
+        visible: false
+      - from: DeviceName # not found
+        to: winlog.event_data.DeviceName
+        visible: false
+      - from: EngineVersion
+        to: winlog.event_data.EngineVersion
+        visible: false
+      - from: ErrorCode  # not found
+        to: winlog.event_data.ErrorCode
+        visible: false
+      - from: EventType
+        to: event.type
+        visible: false
+      - from: FailureCode
+        to: winlog.event_data.FailureCode
+        visible: false
+      - from: FileName
+        to: file.path
+        visible: false
+      - from: FileVersion
+        to: winlog.event_data.FileVersion
+        visible: false
+      - from: GrantedAccess
+        to: winlog.event_data.GrantedAccess
+        visible: false
+      - from: Hashes
+        to: winlog.event_data.Hashes
+        visible: false
+      - from: HiveName
+        to: winlog.event_data.HiveName
+        visible: false
+      - from: HostApplication # not found
+        to: winlog.event_data.HostApplication
+        visible: false
+      - from: HostName # not found, guessing
+        to: host.name
+        visible: false
+      - from: HostVersion
+        to: winlog.event_data.HostVersion
+        visible: false
+      - from: Image
+        to: process.executable
+        visible: false
+      - from: ImageFileName # not found
+        to: winlog.event_data.ImageFileName
+        visible: false
+      - from: ImageLoaded
+        to: file.path
+        visible: false
+      - from: ImagePath
+        to: winlog.event_data.ImagePath
+        visible: false
+      - from: Imphash
+        to: winlog.event_data.Imphash
+        visible: false
+      - from: Initiated # not found
+        to: winlog.event_data.Initiated
+        visible: false
+      - from: IntegrityLevel
+        to: winlog.event_data.IntegrityLevel
+        visible: false
+      - from: IpAddress
+        to: source.ip
+        visible: false
+      - from: KeyLength
+        to: winlog.event_data.KeyLength
+        visible: false
+      - from: Keywords # not found
+        to: Event.System.Keywords
+        visible: false
+      - from: LayerRTID # not found
+        to: winlog.event_data.LayerRTID
+        visible: false
+      - from: Level
+        to: log.level
+        visible: false
+      - from: LocalName # not found
+        to: winlog.event_data.LocalName
+        visible: false
+      - from: LogonId # not found
+        to: winlog.event_data.LogonId
+        visible: false
+      - from: LogonProcessName
+        to: winlog.event_data.LogonProcessName
+        visible: false
+      - from: LogonType
+        to: winlog.event_data.LogonType
+        visible: false
+      - from: Message
+        to: message
+        visible: false
+      - from: ModifyingApplication # not found
+        to: winlog.event_data.ModifyingApplication
+        visible: false
+      - from: NewName # not found
+        to: winlog.event_data.NewName
+        visible: false
+      - from: NewTargetUserName # not found
+        to: winlog.event_data.NewTargetUserName
+        visible: false
+      - from: NewTemplateContent # not found
+        to: winlog.event_data.NewTemplateContent
+        visible: false
+      - from: NewUacValue # not found
+        to: winlog.event_data.NewUacValue
+        visible: false
+      - from: NewValue # not found
+        to: winlog.event_data.NewValue
+        visible: false
+      - from: ObjectClass
+        to: winlog.event_data.ObjectClass
+        visible: false
+      - from: ObjectName
+        to: winlog.event_data.ObjectName
+        visible: false
+      - from: ObjectServer # not found
+        to: winlog.event_data.ObjectServer
+        visible: false
+      - from: ObjectType
+        to: winlog.event_data.ObjectType
+        visible: false
+      - from: ObjectValueName
+        to: winlog.event_data.ObjectValueName
+        visible: false
+      - from: OldTargetUserName # not found
+        to: winlog.event_data.OldTargetUserName
+        visible: false
+      - from: OldUacValue # not found
+        to: winlog.event_data.OldUacValue
+        visible: false
+      - from: Origin # not found
+        to: winlog.event_data.Origin
+        visible: false
+      - from: OriginalFileName
+        to: winlog.event_data.OriginalFileName
+        visible: false
+      - from: OriginalFilename
+        to: winlog.event_data.OriginalFileName
+        visible: false
+      - from: OriginalName # not found
+        to: winlog.event_data.OriginalName
+        visible: false
+      - from: ParentCommandLine
+        to: process.parent.command_line
+        visible: false
+      - from: ParentImage
+        to: process.parent.executable
+        visible: false
+      - from: ParentUser
+        to: winlog.event_data.ParentUser
+        visible: false
+      - from: PasswordLastSet # not found
+        to: winlog.event_data.PasswordLastSet
+        visible: false
+      - from: Path
+        to: winlog.event_data.Path
+        visible: false
+      - from: Payload # not found
+        to: winlog.event_data.Payload
+        visible: false
+      - from: PipeName
+        to: file.name
+        visible: false
+      - from: PossibleCause # not found
+        to: winlog.event_data.PossibleCause
+        visible: false
+      - from: PrivilegeList # not found
+        to: winlog.event_data.PrivilegeList
+        visible: false
+      - from: ProcessId  # not found, guessing. Could also be "process.thread.id"?
+        to: process.pid
+        visible: false
+      - from: ProcessName
+        to: process.executable
+        visible: false
+      - from: Product
+        to: winlog.event_data.Product
+        visible: false
+      - from: Properties
+        to: winlog.event_data.Properties
+        visible: false
+      - from: ProviderName
+        to: winlog.provider_name
+        visible: false
+      - from: Provider_Name
+        to: winlog.provider_name
+        visible: false
+      - from: QNAME # not found
+        to: winlog.event_data.QNAME
+        visible: false
+      - from: Query # not found
+        to: winlog.event_data.Query
+        visible: false
+      - from: QueryName # not found
+        to: winlog.event_data.QueryName
+        visible: false
+      - from: QueryResults # not found
+        to: winlog.event_data.QueryResults
+        visible: false
+      - from: QueryStatus # not found
+        to: winlog.event_data.QueryStatus
+        visible: false
+      - from: RelativeTargetName # not found
+        to: winlog.event_data.RelativeTargetName
+        visible: false
+      - from: RemoteAddress # not found
+        to: winlog.event_data.RemoteAddress
+        visible: false
+      - from: RemoteName # not found
+        to: winlog.event_data.RemoteName
+        visible: false
+      - from: SamAccountName # not found
+        to: winlog.event_data.SamAccountName
+        visible: false
+      - from: ScriptBlockText # not found
+        to: winlog.event_data.ScriptBlockText
+        visible: false
+      - from: SearchFilter # not found
+        to: winlog.event_data.SearchFilter
+        visible: false
+      - from: ServerName # not found
+        to: winlog.event_data.ServerName
+        visible: false
+      - from: Service # not found
+        to: winlog.event_data.Service
+        visible: false
+      - from: ServiceFileName
+        to: winlog.event_data.ServiceFileName
+        visible: false
+      - from: ServiceName
+        to: winlog.event_data.ServiceName
+        visible: false
+      - from: ServicePrincipalNames # not found
+        to: winlog.event_data.ServicePrincipalNames
+        visible: false
+      - from: ServiceStartType # not found
+        to: winlog.event_data.ServiceStartType
+        visible: false
+      - from: ServiceType # not found
+        to: winlog.event_data.ServiceType
+        visible: false
+      - from: ShareName
+        to: winlog.event_data.ShareName
+        visible: false
+      - from: SidHistory # not found
+        to: winlog.event_data.SidHistory
+        visible: false
+      - from: Signed # not found
+        to: winlog.event_data.Signed
+        visible: false
+      - from: SourceAddress # not found
+        to: winlog.event_data.SourceAddress
+        visible: false
+      - from: SourceImage # not found, guessing
+        to: process.executable
+        visible: false
+      - from: SourceIp
+        to: source.ip
+        visible: false
+      - from: SourcePort
+        to: source.port
+        visible: false
+      - from: Source_Name # not found, guessing from "message" field
+        to: source.domain
+        visible: false
+      - from: StartAddress # not found
+        to: winlog.event_data.StartAddress
+        visible: false
+      - from: StartFunction # not found
+        to: winlog.event_data.StartFunction
+        visible: false
+      - from: StartModule # not found
+        to: winlog.event_data.StartModule
+        visible: false
+      - from: State # not found
+        to: winlog.event_data.State
+        visible: false
+      - from: Status
+        to: winlog.event_data.Status
+        visible: false
+      - from: SubjectDomainName
+        to: user.domain
+        visible: false
+      - from: SubjectLogonId # not found
+        to: winlog.event_data.SubjectLogonId
+        visible: false
+      - from: SubjectUserName
+        to: user.name
+        visible: false
+      - from: SubjectUserSid
+        to: user.id
+        visible: false
+      - from: TargetFilename
+        to: file.path
+        visible: false
+      - from: TargetImage
+        to: winlog.event_data.TargetImage
+        visible: false
+      - from: TargetLogonId # not found
+        to: winlog.event_data.TargetLogonId
+        visible: false
+      - from: TargetName # not found
+        to: winlog.event_data.TargetName
+        visible: false
+      - from: TargetObject
+        to: winlog.event_data.TargetObject
+        visible: false
+      - from: TargetParentProcessId # not found
+        to: winlog.event_data.TargetParentProcessId
+        visible: false
+      - from: TargetPort # not found
+        to: winlog.event_data.TargetPort
+        visible: false
+      - from: TargetServerName # not found
+        to: winlog.event_data.TargetServerName
+        visible: false
+      - from: TargetSid # not found
+        to: winlog.event_data.TargetSid
+        visible: false
+      - from: TargetUserName # not found
+        to: user.name
+        visible: false
+      - from: TargetUserSid # duplicate
+        to: user.id
+        visible: false
+      - from: TaskName # not found
+        to: winlog.event_data.TaskName
+        visible: false
+      - from: TemplateContent # not found
+        to: winlog.event_data.TemplateContent
+        visible: false
+      - from: TicketEncryptionType
+        to: winlog.event_data.TicketEncryptionType
+        visible: false
+      - from: TicketOptions
+        to: winlog.event_data.TicketOptions
+        visible: false
+      - from: Type # not found
+        to: winlog.event_data.type
+        visible: false
+      - from: User
+        to: user.name
+        visible: false
+      - from: UserName
+        to: user.name
+        visible: false
+      - from: Value # not found
+        to: winlog.event_data.Value
+        visible: false
+      - from: Workstation # not found
+        to: winlog.event_data.Workstation
+        visible: false
+      - from: WorkstationName
+        to: source.domain
+        visible: false
+      - from: param1 # not found
+        to: winlog.event_data.param1
+        visible: false
+      - from: param2 # not found
+        to: winlog.event_data.param2
+        visible: false
+      - from: processPath # not found
+        to: winlog.event_data.processPath
+        visible: false
+      - from: sha1 # not found
+        to: winlog.event_data.sha1
+        visible: false

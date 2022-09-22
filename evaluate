@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+# Return YYYY-MM-DDTHH_MM_SSZ (in UTC time)
+isonow () { date -u "+%Y-%m-%dT%H_%M_%SZ"; }
+SIM_NAME="$(isonow)"
+
+# Start simulation, run attacks and get logs
+python src/run_single_simulation.py "$SIM_NAME"
+
+# Process logs using chainsaw
+python src/process_logs.py "$SIM_NAME"
+
+# Count hits
+#TODO properly count and further evaluate resulting hits
