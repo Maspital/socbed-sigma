@@ -51,12 +51,10 @@ def process_logs(sim_id):
         output = f"{sim_id}/{log_file}_sigma.txt"
 
         command = get_command(jsonl_input, output)
-        # print(command)
         call(command)
 
         output = f"{sim_id}/{log_file}_sigma.json"
         command = get_command(jsonl_input, output)
-        # print(command)
         call(command)
 
 
