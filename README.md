@@ -3,12 +3,12 @@
 
 Further instructions assume that your current directory is the base directory of this repository.
 - Install additional dependencies in your SOCBED virtual environment (that you created while installing SOCBED)
-    ```shell
+    ```commandline
     source ~/.virtualenvs/socbed/bin/activate
     pip install elasticsearch elasticsearch-dsl
     ```
 - Download and extract Chainsaw v2.1.0 (find more info about Chainsaw [here](https://github.com/WithSecureLabs/chainsaw))
-    ```shell
+    ```commandline
   wget -O chainsaw.tar.gz https://github.com/WithSecureLabs/chainsaw/releases/download/v2.1.0/chainsaw_x86_64-unknown-linux-gnu.tar.gz
   tar -xf chainsaw.tar.gz
   mv chainsaw/chainsaw src/
@@ -18,7 +18,7 @@ Further instructions assume that your current directory is the base directory of
 
 ### Generating log files and alerts
 This process will take approximately 65 minutes.
-```shell
+```commandline
 source ~/.virtualenvs/socbed/bin/activate
 ./evaluate
 ```
@@ -30,15 +30,17 @@ Therein, you will find three types of files, once for each attack and once for t
 
 
 ### Evaluate log files
+Evaluate and label the created SIGMA alerts for a single file by running
+```commandline
+python src/label_sigma.py <sim_id>/<attack>_sigma.jsonl
+# for example:
+# python src/label_sigma.py 2022-09-23T09_35_12Z/EntireSimulation_sigma.json
+```
+This will produce labeled `.json` files you can use for training or similar purposes.
+
 TODO
-- Determine if all expected alerts have been found
+- Determine why the `Windows PowerShell Web Request` alert appears too often
 - Ensure each expected alert actually originated from the expected source (an attack)
-  - Could be done by checking certain fields
-    - timestamp
-    - CommandLine
-    - Parent or similar (many attacks originate from ssh user)
-    - Details
-    - message (contains a BUNCH of info, probably the best solution)
-  - a lot easier if files produced by chainsaw contain references to the original event
-- Label produced dataset with true/false positive
+  - already mostly accomplished by checking certain fields
+  - maybe extend by also looking at timestamps?
 - Include syslog events for suricata alerts?
