@@ -2,6 +2,7 @@
 
 from datetime import datetime
 from time import time
+from pathlib import Path
 
 
 def print_with_timestamp(text):
@@ -17,3 +18,10 @@ def get_iso_time(time_in_seconds=None):
 
 def get_epoch():
     return int(time())
+
+
+def extend_filename(original_name, new_suffix):
+    path = Path(original_name)
+    return "{0}_{2}{1}".format(Path.joinpath(path.parent, path.stem),
+                               path.suffix,
+                               new_suffix)

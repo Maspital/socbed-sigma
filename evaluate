@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Return YYYY-MM-DDTHH_MM_SSZ (in UTC time)
+# Returns YYYY-MM-DDTHH_MM_SSZ (UTC time)
 isonow () { date -u "+%Y-%m-%dT%H_%M_%SZ"; }
 SIM_NAME="$(isonow)"
 

@@ -13,7 +13,7 @@ log_files = ["SQLMapAttack",
              "DownloadMalwareAttack",
              "SetAutostartAttack",
              "ExecuteMalwareAttack",
-             "complete"]
+             "EntireSimulation"]
 
 
 def main():

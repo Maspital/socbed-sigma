@@ -55,10 +55,11 @@ def run_simulation(sim_name):
     print_with_timestamp("Session is up. Waiting until 10 minutes have passed...")
     sleep(sim_start + initial_wait - get_epoch())
 
-    print_with_timestamp("Running multi-step attack (pausing 4 minutes after each step)...")
+    print_with_timestamp("Running multi-step attack (pausing ~2 minutes before and after each step)...")
     for counter, attack in enumerate(attacks, start=1):
         attack_start_time = get_iso_time()
         attack_name = attack.__class__.__name__
+        sleep(2 * 60)
 
         print_with_timestamp(f"Running {attack_name}...")
         attack.run()
