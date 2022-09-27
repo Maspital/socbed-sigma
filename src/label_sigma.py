@@ -85,8 +85,10 @@ def label_alert(sigma_alert, label):
 
 
 def rename_fields(sigma_alert):
-    sigma_alert["rule"] = sigma_alert.pop("name")
-    sigma_alert["event"] = sigma_alert["document"].pop("data")
+    if "name" in sigma_alert:
+        sigma_alert["rule"] = sigma_alert.pop("name")
+    if "document" in sigma_alert and "data" in sigma_alert["document"]:
+        sigma_alert["event"] = sigma_alert["document"].pop("data")
 
 
 if __name__ == '__main__':
