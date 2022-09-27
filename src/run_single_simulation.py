@@ -28,6 +28,10 @@ attacks = [SQLMapAttack(),
            SetAutostartAttack(),
            ExecuteMalwareAttack()]
 
+TOTAL_SIM_DURATION = 125 * 60
+START_WAIT_DURATION = 60 * 60
+WAIT_BETWEEN_STEPS = 4 * 60
+
 
 def main():
     args = parse_args()
@@ -41,9 +45,8 @@ def parse_args():
 
 
 def run_simulation(sim_name):
-    initial_wait = 10 * 60
     sim_start = get_epoch()
-    sim_end = get_epoch() + 60 * 60
+    sim_end = get_epoch() + TOTAL_SIM_DURATION
     sh = SessionHandler(VBoxController())
 
     print_with_timestamp(f"Creating directory {sim_name}/ for log storage...")
@@ -52,19 +55,20 @@ def run_simulation(sim_name):
     print_with_timestamp(f"Starting session {sim_name}...")
     sh.start_session()
 
-    print_with_timestamp("Session is up. Waiting until 10 minutes have passed...")
-    sleep(sim_start + initial_wait - get_epoch())
+    print_with_timestamp(f"Session is up. Waiting until {int(START_WAIT_DURATION / 60)} minutes have passed...")
+    sleep(sim_start + START_WAIT_DURATION - get_epoch())
 
-    print_with_timestamp("Running multi-step attack (pausing ~2 minutes before and after each step)...")
+    print_with_timestamp(f"Running multi-step attack (pausing ~{int(WAIT_BETWEEN_STEPS / 60 / 2)} minutes "
+                         "before and after each step)...")
     for counter, attack in enumerate(attacks, start=1):
         attack_start_time = get_iso_time()
         attack_name = attack.__class__.__name__
-        sleep(2 * 60)
+        sleep(int(WAIT_BETWEEN_STEPS / 2))
 
         print_with_timestamp(f"Running {attack_name}...")
         attack.run()
 
-        sleep(sim_start + initial_wait + counter * 4 * 60 - get_epoch())
+        sleep(sim_start + START_WAIT_DURATION + counter * WAIT_BETWEEN_STEPS - get_epoch())
         attack_end_time = get_iso_time()
 
         print_with_timestamp(f"Downloading logs for {attack_name}...")
@@ -73,7 +77,7 @@ def run_simulation(sim_name):
                       attack_name,
                       sim_name)
 
-    print_with_timestamp("Waiting until 60 minutes have passed...")
+    print_with_timestamp(f"Waiting until {int(TOTAL_SIM_DURATION / 60)} minutes have passed...")
     sleep(sim_end - get_epoch())
     print_with_timestamp("Downloading logs for entire simulation...")
     download_logs(get_iso_time(sim_start),
