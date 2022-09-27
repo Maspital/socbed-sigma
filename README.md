@@ -3,12 +3,12 @@
 
 Further instructions assume that your current directory is the base directory of this repository.
 - Install additional dependencies in your SOCBED virtual environment (that you created while installing SOCBED)
-    ```commandline
+    ```console
     source ~/.virtualenvs/socbed/bin/activate
     pip install elasticsearch elasticsearch-dsl
     ```
 - Download and extract Chainsaw v2.1.0 (find more info about Chainsaw [here](https://github.com/WithSecureLabs/chainsaw))
-    ```commandline
+    ```console
   wget -O chainsaw.tar.gz https://github.com/WithSecureLabs/chainsaw/releases/download/v2.1.0/chainsaw_x86_64-unknown-linux-gnu.tar.gz
   tar -xf chainsaw.tar.gz
   mv chainsaw/chainsaw src/
@@ -18,7 +18,7 @@ Further instructions assume that your current directory is the base directory of
 
 ### Generating log files and alerts
 This process will take approximately 65 minutes.
-```commandline
+```console
 source ~/.virtualenvs/socbed/bin/activate
 ./evaluate
 ```
@@ -31,7 +31,7 @@ Therein, you will find three types of files, once for each attack and once for t
 
 ### Evaluate log files
 Evaluate and label the created SIGMA alerts for a single file by running
-```commandline
+```console
 python src/label_sigma.py <sim_id>/<attack>_sigma.jsonl
 # for example:
 # python src/label_sigma.py 2022-09-23T09_35_12Z/EntireSimulation_sigma.json

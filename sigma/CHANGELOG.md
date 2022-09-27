@@ -6,6 +6,124 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
 from version 0.14.0.
 
+## 0.22.1 - 2022-09-09
+
+### Fixed
+
+* Replaced generic fix for Splunk AND/OR precedence issue with a specific one because the initial fix broke too many
+  backends. Splunk queries now have generally parentheses around AND expressions, sometimes more. Use sigma-cli/pySigma
+  for cleaner Splunk queries.
+
+## 0.22 - 2022-09-08
+
+### Added
+
+* 'windash' modifier
+* DNIF backend
+* Hedera backend
+* StreamAlert backend
+* SQLite backend can handle null values.
+* Support for different Windows log sources.
+
+### Changed
+
+* Various config improvements.
+
+### Fixed
+
+* Wrapping expressions from expanding modifiers into ORed subexpressions.
+* Various mapping fixes.
+
+## 0.21 - 2022-04-08
+
+### Added
+
+* Azure Sentinel backend
+* OpenSearch Monitor backend
+* Hawk backend
+* Datadog backend
+* FortiSIEM backend
+* Lacework agent data support
+* Athena SQL backend
+* Regex support in SQLite backend
+* Additional field mappings
+
+### Changed
+
+* Log source refactoring
+
+### Fixed
+
+* Mapping fixes
+* Various bugfixes
+* Disabled problematic optimization
+
+## 0.20 - 2021-08-14
+
+### Added
+
+* Devo backend
+* Fields selection added to SQL backend
+* Linux/MacOS support for MDATP backend
+* Output results as generic YAML/JSON
+* Hash normalization option (hash_normalize) for Elasticsearch wildcard handling
+* ALA AWS Cloudtrail and Azure mappings
+* Logrhytm backend
+* Splunk Data Models backend
+* Further log sources used in open source Sigma ruleset
+* CarbonBlack EDR backend
+* Elastic EQL backend
+* Additional conversion selection filters
+* Filter negation
+* Specify table in SQL backend
+* Generic registry event log source
+* Chronicle backend
+
+### Changed
+
+* Elastic Watcher backend populates name attribute instead of title.
+* One item list optimization.
+* Updated Winlogbeat mapping
+* Generic mapping for Powershell backend
+
+### Fixed
+
+* Elastalert multi output file
+* Fixed duplicate output in ElastAlert backend
+* Escaping in Graylog backend
+* es-rule ndjson output
+* Various fixes of known bugs
+
+## 0.19.1 - 2021-02-28
+
+### Changed
+
+* Added LGPL license to distribution
+
+## 0.19 - 2021-02-23
+
+### Added
+
+* New parameters for Elastic backends
+* Various field mappings
+* FireEye Helix backend
+* Generic log source image_load
+* Kibana NDJSON backend
+* uberAgent ESA backend
+* SumoLogic CSE backend
+
+### Changed
+
+* Updated mdatp backend fields
+* QRadar query generation optimized
+* MDATP: case insensitive search
+
+### Fixed
+
+* Fixing Qradar implementation for create valid AQL queries
+* Nested conditions
+* Various minor bug fixes
+
 ## 0.18.1 - 2020-08-25
 
 Release created for technical reasons (issues with extended README and PyPI), no real changes done.
