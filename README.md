@@ -1,4 +1,11 @@
-### Prerequisites
+# SOCBED-SIGMA
+This plugin is intended to extend the functionality of the [SOCBED framework](https://github.com/fkie-cad/socbed)
+by enabling the user to generate datasets of [SIGMA](https://github.com/SigmaHQ/sigma)-alerts in a reproducible manner, 
+and then automatically label the contents of those datasets as true or false positives.
+The labeled datasets could then be used for further research.
+
+
+## Prerequisites
 - Configure and build SOCBED as described in the base [SOCBED repository](https://github.com/fkie-cad/socbed)
 
 Further instructions assume that your current directory is the base directory of this repository.
@@ -16,31 +23,33 @@ Further instructions assume that your current directory is the base directory of
     ```
 
 
-### Generating log files and alerts
-This process will take approximately 65 minutes.
+## Generating datasets
+This process will take approximately 125 minutes.
 ```console
 source ~/.virtualenvs/socbed/bin/activate
-./evaluate
+./generate_dataset
 ```
 Afterwards, you will find another directory named after the starting time of your simulation (note that all times are UTC).
 Therein, you will find three types of files, once for each attack and once for the entire simulation:
 - `*_winlogbeat.jsonl`, containing all logs produced by SOCBED clients during a given time
 - `*_sigma.txt`, containing generated SIGMA alerts from the log-file of the same name in human-readable form
-- `*_sigma.json`, containing generated SIGMA alerts from the log-file of the same name in json format for easier parsing
+- `*_sigma.json`, containing generated SIGMA alerts from the log-file of the same name in json format for further processing
 
 
-### Evaluate log files
+## Labeling a dataset
 Evaluate and label the created SIGMA alerts for a single file by running
 ```console
-python src/label_sigma.py <sim_id>/<attack>_sigma.jsonl
-# for example:
-# python src/label_sigma.py 2022-09-23T09_35_12Z/EntireSimulation_sigma.json
-```
-This will produce labeled `.json` files you can use for training or similar purposes.
+source ~/.virtualenvs/socbed/bin/activate
+./label_dataset <sim_id>/<attack>_sigma.jsonl
 
-TODO
-- Determine why the `Windows PowerShell Web Request` alert appears too often
-- Ensure each expected alert actually originated from the expected source (an attack)
-  - already mostly accomplished by checking certain fields
-  - maybe extend by also looking at timestamps?
-- Include syslog events for suricata alerts?
+# for example:
+# ./label_dataset 2022-09-23T09_35_12Z/EntireSimulation_sigma.json
+```
+The example above would produce the file `EntireSimulation_sigma_LABELED.json`.
+It contains a JSON array, with each item having the following fields of interest:
+- `rule`: Contains the full name of the triggered SIGMA rule (string)
+- `metadata.misuse`: Labels the alert as true or false positive (bool)
+- `event`: Contains the original event from winlogbeat the SIGMA rule triggered on (dict)
+
+## TODO
+- Further examine the labeling process of generated datasets and make adjustments where appropriate
