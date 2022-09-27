@@ -19,6 +19,7 @@ def main():
             label_alert(sigma_alert, True)
         else:
             label_alert(sigma_alert, False)
+        rename_fields(sigma_alert)
 
     print("Rule hits (true positives):")
     pprint(rule_counts)
@@ -79,7 +80,13 @@ def get_registry_value(sigma_alert):
 
 
 def label_alert(sigma_alert, label):
-    sigma_alert["label"] = label
+    sigma_alert["metadata"] = {}
+    sigma_alert["metadata"]["misuse"] = label
+
+
+def rename_fields(sigma_alert):
+    sigma_alert["rule"] = sigma_alert.pop("name")
+    sigma_alert["event"] = sigma_alert["document"].pop("data")
 
 
 if __name__ == '__main__':
