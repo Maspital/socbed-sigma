@@ -10,12 +10,12 @@ The labeled datasets could then be used for further research.
 
 Further instructions assume that your current directory is the base directory of this repository.
 - Install additional dependencies in your SOCBED virtual environment (that you created while installing SOCBED)
-    ```console
+    ```shell
     source ~/.virtualenvs/socbed/bin/activate
     pip install elasticsearch elasticsearch-dsl
     ```
 - Download and extract Chainsaw v2.1.0 (find more info about Chainsaw [here](https://github.com/WithSecureLabs/chainsaw))
-    ```console
+    ```shell
   wget -O chainsaw.tar.gz https://github.com/WithSecureLabs/chainsaw/releases/download/v2.1.0/chainsaw_x86_64-unknown-linux-gnu.tar.gz
   tar -xf chainsaw.tar.gz
   mv chainsaw/chainsaw src/
@@ -25,7 +25,7 @@ Further instructions assume that your current directory is the base directory of
 
 ## Generating datasets
 This process will take approximately 125 minutes.
-```console
+```shell
 source ~/.virtualenvs/socbed/bin/activate
 ./generate_dataset
 ```
@@ -38,7 +38,7 @@ Therein, you will find three types of files, once for each attack and once for t
 
 ## Labeling a dataset
 Evaluate and label the created SIGMA alerts for a single file by running
-```console
+```shell
 source ~/.virtualenvs/socbed/bin/activate
 ./label_dataset <sim_id>/<attack>_sigma.jsonl
 
