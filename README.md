@@ -8,13 +8,13 @@ The labeled datasets could then be used for further research.
 ## Prerequisites
 - Configure and build SOCBED as described in the base [SOCBED repository](https://github.com/fkie-cad/socbed)
 
-Further instructions assume that your current directory is the base directory of this repository.
+Further instructions assume that your _**current directory is the base directory of this repository**_.
 - Install additional dependencies in your SOCBED virtual environment (that you created while installing SOCBED)
     ```shell
     source ~/.virtualenvs/socbed/bin/activate
     pip install elasticsearch elasticsearch-dsl
     ```
-- Download and extract Chainsaw v2.1.0 (find more info about Chainsaw [here](https://github.com/WithSecureLabs/chainsaw))
+- Download and extract [Chainsaw](https://github.com/WithSecureLabs/chainsaw) v2.1.0
     ```shell
   wget -O chainsaw.tar.gz https://github.com/WithSecureLabs/chainsaw/releases/download/v2.1.0/chainsaw_x86_64-unknown-linux-gnu.tar.gz
   tar -xf chainsaw.tar.gz
