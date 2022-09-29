@@ -60,23 +60,19 @@ def is_true_positive(sigma_alert, rule):
 
 
 def get_command_line(sigma_alert):
-    if (
-            "document" in sigma_alert and
-            "data" in sigma_alert["document"] and
-            "process" in sigma_alert["document"]["data"] and
-            "command_line" in sigma_alert["document"]["data"]["process"]):
-        return sigma_alert["document"]["data"]["process"]["command_line"]
-    return None
+    try:
+        dict_entry = sigma_alert["document"]["data"]["process"]["command_line"]
+        return dict_entry
+    except KeyError:
+        return None
 
 
 def get_registry_value(sigma_alert):
-    if (
-            "document" in sigma_alert and
-            "data" in sigma_alert["document"] and
-            "registry" in sigma_alert["document"]["data"] and
-            "value" in sigma_alert["document"]["data"]["registry"]):
-        return sigma_alert["document"]["data"]["registry"]["value"]
-    return None
+    try:
+        dict_entry = sigma_alert["document"]["data"]["registry"]["value"]
+        return dict_entry
+    except KeyError:
+        return None
 
 
 def label_alert(sigma_alert, label):
@@ -85,10 +81,15 @@ def label_alert(sigma_alert, label):
 
 
 def rename_fields(sigma_alert):
-    if "name" in sigma_alert:
+    try:
         sigma_alert["rule"] = sigma_alert.pop("name")
-    if "document" in sigma_alert and "data" in sigma_alert["document"]:
+    except KeyError:
+        pass
+
+    try:
         sigma_alert["event"] = sigma_alert["document"].pop("data")
+    except KeyError:
+        pass
 
 
 if __name__ == '__main__':
