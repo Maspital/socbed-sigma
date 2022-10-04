@@ -4,6 +4,7 @@ by enabling the user to generate datasets of [SIGMA](https://github.com/SigmaHQ/
 and then automatically label the contents of those datasets as true or false positives.
 The labeled datasets could then be used for further research.
 
+_[Using SIGMA rules v0.22.1, changing may break labeling]_
 
 ## Prerequisites
 - Configure and build SOCBED as described in the base [SOCBED repository](https://github.com/fkie-cad/socbed)
