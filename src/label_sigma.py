@@ -7,7 +7,6 @@ from helper import extend_filename
 
 def main():
     args = parse_args()
-    print(args.logfile)
     with open(args.logfile) as json_file:
         json_data = json.load(json_file)
 
