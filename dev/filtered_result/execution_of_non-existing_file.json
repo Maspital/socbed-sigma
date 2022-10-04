@@ -1,0 +1,211 @@
+[
+    {
+        "group": "Sigma",
+        "kind": "individual",
+        "document": {
+            "kind": "jsonl",
+            "data": {
+                "@timestamp": "2022-09-27T12:42:14.901Z",
+                "agent": {
+                    "ephemeral_id": "f3e67ec5-847a-448b-8ec4-bac040a44990",
+                    "hostname": "CLIENT1",
+                    "id": "cd699c72-0f46-4cd9-938a-43faf035a44a",
+                    "name": "CLIENT1",
+                    "type": "winlogbeat",
+                    "version": "7.10.2"
+                },
+                "ecs": {
+                    "version": "1.5.0"
+                },
+                "event": {
+                    "action": "Registry value set (rule: RegistryEvent)",
+                    "code": 13,
+                    "created": "2022-09-27T12:42:16.104Z",
+                    "kind": "event",
+                    "module": "sysmon",
+                    "provider": "Microsoft-Windows-Sysmon"
+                },
+                "host": {
+                    "name": "CLIENT1.breach.local"
+                },
+                "log": {
+                    "level": "information"
+                },
+                "message": "Registry value set:\nRuleName: Context,DeviceConntectedOrUpdated\nEventType: SetValue\nUtcTime: 2022-09-27 12:42:14.901\nProcessGuid: {0e37ca90-ebb0-6332-eb03-000000000000}\nProcessId: 4\nImage: System\nTargetObject: HKLM\\System\\CurrentControlSet\\Enum\\SWD\\PRINTENUM\\{1E9D7B21-BDE8-4A66-AFBB-4347666179B3}\\FriendlyName\nDetails: OneNote\nUser: NT AUTHORITY\\SYSTEM",
+                "process": {
+                    "entity_id": "{0e37ca90-ebb0-6332-eb03-000000000000}",
+                    "executable": "System",
+                    "name": "System",
+                    "pid": 4
+                },
+                "registry": {
+                    "hive": "HKLM",
+                    "key": "System\\CurrentControlSet\\Enum\\SWD\\PRINTENUM\\{1E9D7B21-BDE8-4A66-AFBB-4347666179B3}\\FriendlyName",
+                    "path": "HKLM\\System\\CurrentControlSet\\Enum\\SWD\\PRINTENUM\\{1E9D7B21-BDE8-4A66-AFBB-4347666179B3}\\FriendlyName",
+                    "value": "FriendlyName"
+                },
+                "rule": {
+                    "name": "Context,DeviceConntectedOrUpdated"
+                },
+                "winlog": {
+                    "api": "wineventlog",
+                    "channel": "Microsoft-Windows-Sysmon/Operational",
+                    "computer_name": "CLIENT1.breach.local",
+                    "event_data": {
+                        "Details": "OneNote",
+                        "EventType": "SetValue",
+                        "TargetObject": "HKLM\\System\\CurrentControlSet\\Enum\\SWD\\PRINTENUM\\{1E9D7B21-BDE8-4A66-AFBB-4347666179B3}\\FriendlyName",
+                        "User": "NT AUTHORITY\\SYSTEM"
+                    },
+                    "event_id": 13,
+                    "opcode": "Info",
+                    "process": {
+                        "pid": 2076,
+                        "thread": {
+                            "id": 2556
+                        }
+                    },
+                    "provider_guid": "{5770385f-c22a-43e0-bf4c-06f5698ffbd9}",
+                    "provider_name": "Microsoft-Windows-Sysmon",
+                    "record_id": 2418,
+                    "task": "Registry value set (rule: RegistryEvent)",
+                    "user": {
+                        "domain": "NT AUTHORITY",
+                        "identifier": "S-1-5-18",
+                        "name": "SYSTEM",
+                        "type": "User"
+                    },
+                    "version": 2
+                }
+            }
+        },
+        "name": "Execution Of Non-Existing File",
+        "timestamp": "2022-09-27T12:42:14.901+00:00",
+        "authors": [
+            "Max Altgelt"
+        ],
+        "level": "high",
+        "source": "sigma",
+        "status": "experimental",
+        "falsepositives": [
+            "Unknown"
+        ],
+        "id": "71158e3f-df67-472b-930e-7d287acaa3e1",
+        "logsource": {
+            "category": "process_creation",
+            "product": "windows"
+        },
+        "references": [
+            "https://pentestlaboratories.com/2021/12/08/process-ghosting/"
+        ],
+        "tags": [
+            "attack.defense_evasion"
+        ]
+    },
+    {
+        "group": "Sigma",
+        "kind": "individual",
+        "document": {
+            "kind": "jsonl",
+            "data": {
+                "@timestamp": "2022-09-27T12:42:14.901Z",
+                "agent": {
+                    "ephemeral_id": "f3e67ec5-847a-448b-8ec4-bac040a44990",
+                    "hostname": "CLIENT1",
+                    "id": "cd699c72-0f46-4cd9-938a-43faf035a44a",
+                    "name": "CLIENT1",
+                    "type": "winlogbeat",
+                    "version": "7.10.2"
+                },
+                "ecs": {
+                    "version": "1.5.0"
+                },
+                "event": {
+                    "action": "Registry value set (rule: RegistryEvent)",
+                    "code": 13,
+                    "created": "2022-09-27T12:42:16.104Z",
+                    "kind": "event",
+                    "module": "sysmon",
+                    "provider": "Microsoft-Windows-Sysmon"
+                },
+                "host": {
+                    "name": "CLIENT1.breach.local"
+                },
+                "log": {
+                    "level": "information"
+                },
+                "message": "Registry value set:\nRuleName: InvDB-DriverVer\nEventType: SetValue\nUtcTime: 2022-09-27 12:42:14.901\nProcessGuid: {0e37ca90-ebb0-6332-eb03-000000000000}\nProcessId: 4\nImage: System\nTargetObject: HKLM\\System\\CurrentControlSet\\Control\\Class\\{1ed2bbf9-11f0-4084-b21f-ad83a8e6dcdc}\\0005\\DriverVersion\nDetails: 10.0.19041.1\nUser: NT AUTHORITY\\SYSTEM",
+                "process": {
+                    "entity_id": "{0e37ca90-ebb0-6332-eb03-000000000000}",
+                    "executable": "System",
+                    "name": "System",
+                    "pid": 4
+                },
+                "registry": {
+                    "hive": "HKLM",
+                    "key": "System\\CurrentControlSet\\Control\\Class\\{1ed2bbf9-11f0-4084-b21f-ad83a8e6dcdc}\\0005\\DriverVersion",
+                    "path": "HKLM\\System\\CurrentControlSet\\Control\\Class\\{1ed2bbf9-11f0-4084-b21f-ad83a8e6dcdc}\\0005\\DriverVersion",
+                    "value": "DriverVersion"
+                },
+                "rule": {
+                    "name": "InvDB-DriverVer"
+                },
+                "winlog": {
+                    "api": "wineventlog",
+                    "channel": "Microsoft-Windows-Sysmon/Operational",
+                    "computer_name": "CLIENT1.breach.local",
+                    "event_data": {
+                        "Details": "10.0.19041.1",
+                        "EventType": "SetValue",
+                        "TargetObject": "HKLM\\System\\CurrentControlSet\\Control\\Class\\{1ed2bbf9-11f0-4084-b21f-ad83a8e6dcdc}\\0005\\DriverVersion",
+                        "User": "NT AUTHORITY\\SYSTEM"
+                    },
+                    "event_id": 13,
+                    "opcode": "Info",
+                    "process": {
+                        "pid": 2076,
+                        "thread": {
+                            "id": 2556
+                        }
+                    },
+                    "provider_guid": "{5770385f-c22a-43e0-bf4c-06f5698ffbd9}",
+                    "provider_name": "Microsoft-Windows-Sysmon",
+                    "record_id": 2417,
+                    "task": "Registry value set (rule: RegistryEvent)",
+                    "user": {
+                        "domain": "NT AUTHORITY",
+                        "identifier": "S-1-5-18",
+                        "name": "SYSTEM",
+                        "type": "User"
+                    },
+                    "version": 2
+                }
+            }
+        },
+        "name": "Execution Of Non-Existing File",
+        "timestamp": "2022-09-27T12:42:14.901+00:00",
+        "authors": [
+            "Max Altgelt"
+        ],
+        "level": "high",
+        "source": "sigma",
+        "status": "experimental",
+        "falsepositives": [
+            "Unknown"
+        ],
+        "id": "71158e3f-df67-472b-930e-7d287acaa3e1",
+        "logsource": {
+            "category": "process_creation",
+            "product": "windows"
+        },
+        "references": [
+            "https://pentestlaboratories.com/2021/12/08/process-ghosting/"
+        ],
+        "tags": [
+            "attack.defense_evasion"
+        ]
+    },
+    {
+        "total_hits": 2
+    }
+]

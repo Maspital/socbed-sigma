@@ -1,0 +1,235 @@
+[
+    {
+        "group": "Sigma",
+        "kind": "individual",
+        "document": {
+            "kind": "jsonl",
+            "data": {
+                "@timestamp": "2022-09-27T14:25:33.476Z",
+                "agent": {
+                    "ephemeral_id": "f3e67ec5-847a-448b-8ec4-bac040a44990",
+                    "hostname": "CLIENT1",
+                    "id": "cd699c72-0f46-4cd9-938a-43faf035a44a",
+                    "name": "CLIENT1",
+                    "type": "winlogbeat",
+                    "version": "7.10.2"
+                },
+                "ecs": {
+                    "version": "1.5.0"
+                },
+                "event": {
+                    "action": "File created (rule: FileCreate)",
+                    "category": [
+                        "file"
+                    ],
+                    "code": 11,
+                    "created": "2022-09-27T14:25:34.343Z",
+                    "kind": "event",
+                    "module": "sysmon",
+                    "provider": "Microsoft-Windows-Sysmon",
+                    "type": [
+                        "creation"
+                    ]
+                },
+                "file": {
+                    "directory": "C:\\Users\\client1\\AppData\\Local\\Temp\\5FA6AD44-DE08-42A5-AD8A-82EBD5290B41",
+                    "extension": "dll",
+                    "name": "DismCore.dll",
+                    "path": "C:\\Users\\client1\\AppData\\Local\\Temp\\5FA6AD44-DE08-42A5-AD8A-82EBD5290B41\\DismCore.dll"
+                },
+                "host": {
+                    "name": "CLIENT1.breach.local"
+                },
+                "log": {
+                    "level": "information"
+                },
+                "message": "File created:\nRuleName: DLL\nUtcTime: 2022-09-27 14:25:33.476\nProcessGuid: {0e37ca90-07db-6333-f903-000000000500}\nProcessId: 2976\nImage: C:\\Windows\\system32\\cleanmgr.exe\nTargetFilename: C:\\Users\\client1\\AppData\\Local\\Temp\\5FA6AD44-DE08-42A5-AD8A-82EBD5290B41\\DismCore.dll\nCreationUtcTime: 2022-09-27 14:25:33.476\nUser: BREACH\\client1",
+                "process": {
+                    "entity_id": "{0e37ca90-07db-6333-f903-000000000500}",
+                    "executable": "C:\\Windows\\system32\\cleanmgr.exe",
+                    "name": "cleanmgr.exe",
+                    "pid": 2976
+                },
+                "rule": {
+                    "name": "DLL"
+                },
+                "winlog": {
+                    "api": "wineventlog",
+                    "channel": "Microsoft-Windows-Sysmon/Operational",
+                    "computer_name": "CLIENT1.breach.local",
+                    "event_data": {
+                        "CreationUtcTime": "2022-09-27 14:25:33.476",
+                        "User": "BREACH\\client1"
+                    },
+                    "event_id": 11,
+                    "opcode": "Info",
+                    "process": {
+                        "pid": 2076,
+                        "thread": {
+                            "id": 2556
+                        }
+                    },
+                    "provider_guid": "{5770385f-c22a-43e0-bf4c-06f5698ffbd9}",
+                    "provider_name": "Microsoft-Windows-Sysmon",
+                    "record_id": 4660,
+                    "task": "File created (rule: FileCreate)",
+                    "user": {
+                        "domain": "NT AUTHORITY",
+                        "identifier": "S-1-5-18",
+                        "name": "SYSTEM",
+                        "type": "User"
+                    },
+                    "version": 2
+                }
+            }
+        },
+        "name": "System DLL Sideloading From Non System Locations",
+        "timestamp": "2022-09-27T14:25:33.476+00:00",
+        "authors": [
+            "Nasreddine Bencherchali",
+            "Wietze Beukema (project and research)",
+            "Chris Spehn (research WFH Dridex)"
+        ],
+        "level": "medium",
+        "source": "sigma",
+        "status": "experimental",
+        "falsepositives": [
+            "Legitimate applications loading their own versions of the DLLs mentioned in this rule"
+        ],
+        "id": "4fc0deee-0057-4998-ab31-d24e46e0aba4",
+        "logsource": {
+            "category": "image_load",
+            "product": "windows"
+        },
+        "references": [
+            "https://hijacklibs.net/",
+            "https://blog.cyble.com/2022/07/21/qakbot-resurfaces-with-new-playbook/",
+            "https://blog.cyble.com/2022/07/27/targeted-attacks-being-carried-out-via-dll-sideloading/"
+        ],
+        "tags": [
+            "attack.defense_evasion",
+            "attack.persistence",
+            "attack.privilege_escalation",
+            "attack.t1574.001",
+            "attack.t1574.002"
+        ]
+    },
+    {
+        "group": "Sigma",
+        "kind": "individual",
+        "document": {
+            "kind": "jsonl",
+            "data": {
+                "@timestamp": "2022-09-27T14:26:41.505Z",
+                "agent": {
+                    "ephemeral_id": "f3e67ec5-847a-448b-8ec4-bac040a44990",
+                    "hostname": "CLIENT1",
+                    "id": "cd699c72-0f46-4cd9-938a-43faf035a44a",
+                    "name": "CLIENT1",
+                    "type": "winlogbeat",
+                    "version": "7.10.2"
+                },
+                "ecs": {
+                    "version": "1.5.0"
+                },
+                "event": {
+                    "action": "File created (rule: FileCreate)",
+                    "category": [
+                        "file"
+                    ],
+                    "code": 11,
+                    "created": "2022-09-27T14:26:41.974Z",
+                    "kind": "event",
+                    "module": "sysmon",
+                    "provider": "Microsoft-Windows-Sysmon",
+                    "type": [
+                        "creation"
+                    ]
+                },
+                "file": {
+                    "directory": "C:\\Windows\\assembly\\NativeImages_v4.0.30319_64\\Temp\\1a48-0",
+                    "extension": "dll",
+                    "name": "Windows.Storage.dll",
+                    "path": "C:\\Windows\\assembly\\NativeImages_v4.0.30319_64\\Temp\\1a48-0\\Windows.Storage.dll"
+                },
+                "host": {
+                    "name": "CLIENT1.breach.local"
+                },
+                "log": {
+                    "level": "information"
+                },
+                "message": "File created:\nRuleName: DLL\nUtcTime: 2022-09-27 14:26:41.505\nProcessGuid: {0e37ca90-0820-6333-b005-000000000500}\nProcessId: 6728\nImage: C:\\Windows\\Microsoft.NET\\Framework64\\v4.0.30319\\mscorsvw.exe\nTargetFilename: C:\\Windows\\assembly\\NativeImages_v4.0.30319_64\\Temp\\1a48-0\\Windows.Storage.dll\nCreationUtcTime: 2022-09-27 14:26:41.505\nUser: NT AUTHORITY\\SYSTEM",
+                "process": {
+                    "entity_id": "{0e37ca90-0820-6333-b005-000000000500}",
+                    "executable": "C:\\Windows\\Microsoft.NET\\Framework64\\v4.0.30319\\mscorsvw.exe",
+                    "name": "mscorsvw.exe",
+                    "pid": 6728
+                },
+                "rule": {
+                    "name": "DLL"
+                },
+                "winlog": {
+                    "api": "wineventlog",
+                    "channel": "Microsoft-Windows-Sysmon/Operational",
+                    "computer_name": "CLIENT1.breach.local",
+                    "event_data": {
+                        "CreationUtcTime": "2022-09-27 14:26:41.505",
+                        "User": "NT AUTHORITY\\SYSTEM"
+                    },
+                    "event_id": 11,
+                    "opcode": "Info",
+                    "process": {
+                        "pid": 2076,
+                        "thread": {
+                            "id": 2556
+                        }
+                    },
+                    "provider_guid": "{5770385f-c22a-43e0-bf4c-06f5698ffbd9}",
+                    "provider_name": "Microsoft-Windows-Sysmon",
+                    "record_id": 4816,
+                    "task": "File created (rule: FileCreate)",
+                    "user": {
+                        "domain": "NT AUTHORITY",
+                        "identifier": "S-1-5-18",
+                        "name": "SYSTEM",
+                        "type": "User"
+                    },
+                    "version": 2
+                }
+            }
+        },
+        "name": "System DLL Sideloading From Non System Locations",
+        "timestamp": "2022-09-27T14:26:41.505+00:00",
+        "authors": [
+            "Nasreddine Bencherchali",
+            "Wietze Beukema (project and research)",
+            "Chris Spehn (research WFH Dridex)"
+        ],
+        "level": "medium",
+        "source": "sigma",
+        "status": "experimental",
+        "falsepositives": [
+            "Legitimate applications loading their own versions of the DLLs mentioned in this rule"
+        ],
+        "id": "4fc0deee-0057-4998-ab31-d24e46e0aba4",
+        "logsource": {
+            "category": "image_load",
+            "product": "windows"
+        },
+        "references": [
+            "https://hijacklibs.net/",
+            "https://blog.cyble.com/2022/07/21/qakbot-resurfaces-with-new-playbook/",
+            "https://blog.cyble.com/2022/07/27/targeted-attacks-being-carried-out-via-dll-sideloading/"
+        ],
+        "tags": [
+            "attack.defense_evasion",
+            "attack.persistence",
+            "attack.privilege_escalation",
+            "attack.t1574.001",
+            "attack.t1574.002"
+        ]
+    },
+    {
+        "total_hits": 2
+    }
+]

@@ -11,6 +11,5 @@
 # Ignore created chainsaw binary
 chainsaw
 
-
 ### Python ###
 __pycache__/

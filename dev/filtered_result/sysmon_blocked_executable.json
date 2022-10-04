@@ -1,0 +1,257 @@
+[
+    {
+        "group": "Sigma",
+        "kind": "individual",
+        "document": {
+            "kind": "jsonl",
+            "data": {
+                "@timestamp": "2022-09-27T12:23:12.826Z",
+                "agent": {
+                    "ephemeral_id": "f3e67ec5-847a-448b-8ec4-bac040a44990",
+                    "hostname": "CLIENT1",
+                    "id": "cd699c72-0f46-4cd9-938a-43faf035a44a",
+                    "name": "CLIENT1",
+                    "type": "winlogbeat",
+                    "version": "7.10.2"
+                },
+                "ecs": {
+                    "version": "1.5.0"
+                },
+                "event": {
+                    "code": 27,
+                    "created": "2022-09-27T12:27:27.657Z",
+                    "kind": "event",
+                    "provider": "Microsoft-Windows-Kernel-Boot"
+                },
+                "host": {
+                    "name": "CLIENT"
+                },
+                "log": {
+                    "level": "information"
+                },
+                "message": "The boot type was 0x0.",
+                "winlog": {
+                    "api": "wineventlog",
+                    "channel": "System",
+                    "computer_name": "CLIENT",
+                    "event_data": {
+                        "BootType": "0",
+                        "LoadOptions": " NOEXECUTE=OPTIN"
+                    },
+                    "event_id": 27,
+                    "opcode": "Info",
+                    "process": {
+                        "pid": 4,
+                        "thread": {
+                            "id": 8
+                        }
+                    },
+                    "provider_guid": "{15ca44ff-4d7a-4baa-bba5-0998955e531e}",
+                    "provider_name": "Microsoft-Windows-Kernel-Boot",
+                    "record_id": 327,
+                    "task": "",
+                    "user": {
+                        "domain": "NT AUTHORITY",
+                        "identifier": "S-1-5-18",
+                        "name": "SYSTEM",
+                        "type": "User"
+                    },
+                    "version": 1
+                }
+            }
+        },
+        "name": "Sysmon Blocked Executable",
+        "timestamp": "2022-09-27T12:23:12.826+00:00",
+        "authors": [
+            "Nasreddine Bencherchali"
+        ],
+        "level": "high",
+        "source": "sigma",
+        "status": "experimental",
+        "falsepositives": [
+            "Unlikely"
+        ],
+        "id": "23b71bc5-953e-4971-be4c-c896cda73fc2",
+        "logsource": {
+            "category": "file_block",
+            "product": "windows"
+        },
+        "references": [
+            "https://medium.com/@olafhartong/sysmon-14-0-fileblockexecutable-13d7ba3dff3e"
+        ],
+        "tags": [
+            "attack.defense_evasion"
+        ]
+    },
+    {
+        "group": "Sigma",
+        "kind": "individual",
+        "document": {
+            "kind": "jsonl",
+            "data": {
+                "@timestamp": "2022-09-27T12:24:24.772Z",
+                "agent": {
+                    "ephemeral_id": "f3e67ec5-847a-448b-8ec4-bac040a44990",
+                    "hostname": "CLIENT1",
+                    "id": "cd699c72-0f46-4cd9-938a-43faf035a44a",
+                    "name": "CLIENT1",
+                    "type": "winlogbeat",
+                    "version": "7.10.2"
+                },
+                "ecs": {
+                    "version": "1.5.0"
+                },
+                "event": {
+                    "code": 27,
+                    "created": "2022-09-27T12:27:27.844Z",
+                    "kind": "event",
+                    "provider": "Microsoft-Windows-Kernel-Boot"
+                },
+                "host": {
+                    "name": "CLIENT1"
+                },
+                "log": {
+                    "level": "information"
+                },
+                "message": "The boot type was 0x0.",
+                "winlog": {
+                    "api": "wineventlog",
+                    "channel": "System",
+                    "computer_name": "CLIENT1",
+                    "event_data": {
+                        "BootType": "0",
+                        "LoadOptions": " NOEXECUTE=OPTIN"
+                    },
+                    "event_id": 27,
+                    "opcode": "Info",
+                    "process": {
+                        "pid": 4,
+                        "thread": {
+                            "id": 8
+                        }
+                    },
+                    "provider_guid": "{15ca44ff-4d7a-4baa-bba5-0998955e531e}",
+                    "provider_name": "Microsoft-Windows-Kernel-Boot",
+                    "record_id": 411,
+                    "task": "",
+                    "user": {
+                        "domain": "NT AUTHORITY",
+                        "identifier": "S-1-5-18",
+                        "name": "SYSTEM",
+                        "type": "User"
+                    },
+                    "version": 1
+                }
+            }
+        },
+        "name": "Sysmon Blocked Executable",
+        "timestamp": "2022-09-27T12:24:24.772+00:00",
+        "authors": [
+            "Nasreddine Bencherchali"
+        ],
+        "level": "high",
+        "source": "sigma",
+        "status": "experimental",
+        "falsepositives": [
+            "Unlikely"
+        ],
+        "id": "23b71bc5-953e-4971-be4c-c896cda73fc2",
+        "logsource": {
+            "category": "file_block",
+            "product": "windows"
+        },
+        "references": [
+            "https://medium.com/@olafhartong/sysmon-14-0-fileblockexecutable-13d7ba3dff3e"
+        ],
+        "tags": [
+            "attack.defense_evasion"
+        ]
+    },
+    {
+        "group": "Sigma",
+        "kind": "individual",
+        "document": {
+            "kind": "jsonl",
+            "data": {
+                "@timestamp": "2022-09-27T12:25:19.713Z",
+                "agent": {
+                    "ephemeral_id": "f3e67ec5-847a-448b-8ec4-bac040a44990",
+                    "hostname": "CLIENT1",
+                    "id": "cd699c72-0f46-4cd9-938a-43faf035a44a",
+                    "name": "CLIENT1",
+                    "type": "winlogbeat",
+                    "version": "7.10.2"
+                },
+                "ecs": {
+                    "version": "1.5.0"
+                },
+                "event": {
+                    "code": 27,
+                    "created": "2022-09-27T12:27:27.845Z",
+                    "kind": "event",
+                    "provider": "Microsoft-Windows-Kernel-Boot"
+                },
+                "host": {
+                    "name": "CLIENT1.breach.local"
+                },
+                "log": {
+                    "level": "information"
+                },
+                "message": "The boot type was 0x0.",
+                "winlog": {
+                    "api": "wineventlog",
+                    "channel": "System",
+                    "computer_name": "CLIENT1.breach.local",
+                    "event_data": {
+                        "BootType": "0",
+                        "LoadOptions": " NOEXECUTE=OPTIN"
+                    },
+                    "event_id": 27,
+                    "opcode": "Info",
+                    "process": {
+                        "pid": 4,
+                        "thread": {
+                            "id": 8
+                        }
+                    },
+                    "provider_guid": "{15ca44ff-4d7a-4baa-bba5-0998955e531e}",
+                    "provider_name": "Microsoft-Windows-Kernel-Boot",
+                    "record_id": 470,
+                    "task": "",
+                    "user": {
+                        "domain": "NT AUTHORITY",
+                        "identifier": "S-1-5-18",
+                        "name": "SYSTEM",
+                        "type": "User"
+                    },
+                    "version": 1
+                }
+            }
+        },
+        "name": "Sysmon Blocked Executable",
+        "timestamp": "2022-09-27T12:25:19.713+00:00",
+        "authors": [
+            "Nasreddine Bencherchali"
+        ],
+        "level": "high",
+        "source": "sigma",
+        "status": "experimental",
+        "falsepositives": [
+            "Unlikely"
+        ],
+        "id": "23b71bc5-953e-4971-be4c-c896cda73fc2",
+        "logsource": {
+            "category": "file_block",
+            "product": "windows"
+        },
+        "references": [
+            "https://medium.com/@olafhartong/sysmon-14-0-fileblockexecutable-13d7ba3dff3e"
+        ],
+        "tags": [
+            "attack.defense_evasion"
+        ]
+    },
+    {
+        "total_hits": 3
+    }
+]

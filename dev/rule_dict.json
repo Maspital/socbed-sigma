@@ -1,0 +1,24 @@
+{
+  "_top_level_comment": "this json contains entries for all sigma hits observed during testing",
+
+  "some_rule_id": {
+    "_comment": "explain how the rule works idk",
+    "_rule": "actual rule name",
+    "key.to.look.for": "should contain this important string",
+    "another.key": 1337
+  },
+
+  "another_rule_id": {
+    "_comment": "if you like",
+    "_rule": "pina",
+    "key.to.look.for": "colada",
+    "another.key": 420
+  },
+
+  "7e4bfe58-4a47-4709-828d-d86c78b7cc1f": {
+    "_name": "Cleartext Protocol Usage",
+    "_link": "https://github.com/SigmaHQ/sigma/blob/0.21/rules/compliance/netflow_cleartext_protocols.yml",
+    "_comment": "Label can easily break if we ever change the name of that executable",
+    "document.data.process.name": "Bank-of-Nuthington.exe"
+  }
+}
