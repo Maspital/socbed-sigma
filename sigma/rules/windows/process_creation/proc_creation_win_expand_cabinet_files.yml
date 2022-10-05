@@ -25,11 +25,7 @@ detection:
             - 'C:\Public\'
             - '\AppData\Local\Temp\'
             - '\AppData\Roaming\Temp\'
-    filter_dell:
-        # Launched by Dell ServiceShell.exe
-        ParentImage: 'C:\Program Files (x86)\Dell\UpdateService\ServiceShell.exe'
-        CommandLine|contains: 'C:\ProgramData\Dell\UpdateService\Temp\'
-    condition: selection and not 1 of filter_*
+    condition: selection
 fields:
     - ComputerName
     - User

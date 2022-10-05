@@ -9,7 +9,6 @@ references:
     - Internal Research
 author: Nasreddine Bencherchali
 date: 2022/08/12
-modified: 2022/09/18
 logsource:
     category: file_event
     product: windows
@@ -18,7 +17,7 @@ detection:
         Image|endswith:
             - '\rundll32.exe'
             #- '\svchost.exe' # Might generate some FP
-            #- '\dllhost.exe' # Too many FPs
+            - '\dllhost.exe'
             - '\smss.exe'
             - '\RuntimeBroker.exe'
             - '\sihost.exe'
