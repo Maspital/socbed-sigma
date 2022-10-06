@@ -1,0 +1,1164 @@
+[
+    {
+        "group": "Sigma",
+        "kind": "individual",
+        "document": {
+            "kind": "jsonl",
+            "data": {
+                "@timestamp": "2022-09-27T12:25:00.658Z",
+                "agent": {
+                    "ephemeral_id": "f3e67ec5-847a-448b-8ec4-bac040a44990",
+                    "hostname": "CLIENT1",
+                    "id": "cd699c72-0f46-4cd9-938a-43faf035a44a",
+                    "name": "CLIENT1",
+                    "type": "winlogbeat",
+                    "version": "7.10.2"
+                },
+                "destination": {
+                    "domain": "-",
+                    "ip": "93.184.220.29",
+                    "port": 80
+                },
+                "ecs": {
+                    "version": "1.5.0"
+                },
+                "event": {
+                    "action": "Network connection detected (rule: NetworkConnect)",
+                    "category": [
+                        "network"
+                    ],
+                    "code": 3,
+                    "created": "2022-09-27T12:27:28.515Z",
+                    "kind": "event",
+                    "module": "sysmon",
+                    "provider": "Microsoft-Windows-Sysmon",
+                    "type": [
+                        "connection",
+                        "start",
+                        "protocol"
+                    ]
+                },
+                "host": {
+                    "name": "CLIENT1"
+                },
+                "log": {
+                    "level": "information"
+                },
+                "message": "Network connection detected:\nRuleName: Usermode\nUtcTime: 2022-09-27 12:25:00.658\nProcessGuid: {0e37ca90-eb9c-6332-6800-000000000400}\nProcessId: 3228\nImage: C:\\Users\\setup\\AppData\\Local\\Microsoft\\OneDrive\\OneDrive.exe\nUser: CLIENT1\\setup\nProtocol: tcp\nInitiated: true\nSourceIsIpv6: false\nSourceIp: 172.16.1.1\nSourceHostname: CLIENT1.breach.local\nSourcePort: 49703\nSourcePortName: -\nDestinationIsIpv6: false\nDestinationIp: 93.184.220.29\nDestinationHostname: -\nDestinationPort: 80\nDestinationPortName: http",
+                "network": {
+                    "community_id": "1:Y2mXlI6vRt0/9DR+dfwt4/ab92s=",
+                    "direction": "outbound",
+                    "protocol": "http",
+                    "transport": "tcp",
+                    "type": "ipv4"
+                },
+                "process": {
+                    "entity_id": "{0e37ca90-eb9c-6332-6800-000000000400}",
+                    "executable": "C:\\Users\\setup\\AppData\\Local\\Microsoft\\OneDrive\\OneDrive.exe",
+                    "name": "OneDrive.exe",
+                    "pid": 3228
+                },
+                "related": {
+                    "ip": [
+                        "172.16.1.1",
+                        "93.184.220.29"
+                    ],
+                    "user": "setup"
+                },
+                "rule": {
+                    "name": "Usermode"
+                },
+                "source": {
+                    "domain": "CLIENT1.breach.local",
+                    "ip": "172.16.1.1",
+                    "port": 49703
+                },
+                "user": {
+                    "domain": "CLIENT1",
+                    "name": "setup"
+                },
+                "winlog": {
+                    "api": "wineventlog",
+                    "channel": "Microsoft-Windows-Sysmon/Operational",
+                    "computer_name": "CLIENT1",
+                    "event_data": {
+                        "SourcePortName": "-"
+                    },
+                    "event_id": 3,
+                    "opcode": "Info",
+                    "process": {
+                        "pid": 2080,
+                        "thread": {
+                            "id": 2840
+                        }
+                    },
+                    "provider_guid": "{5770385f-c22a-43e0-bf4c-06f5698ffbd9}",
+                    "provider_name": "Microsoft-Windows-Sysmon",
+                    "record_id": 1124,
+                    "task": "Network connection detected (rule: NetworkConnect)",
+                    "user": {
+                        "domain": "NT AUTHORITY",
+                        "identifier": "S-1-5-18",
+                        "name": "SYSTEM",
+                        "type": "User"
+                    },
+                    "version": 5
+                }
+            }
+        },
+        "name": "Cleartext Protocol Usage",
+        "timestamp": "2022-09-27T12:25:00.658+00:00",
+        "authors": [
+            "Alexandr Yampolskyi",
+            "SOC Prime"
+        ],
+        "level": "low",
+        "source": "sigma",
+        "status": "stable",
+        "falsepositives": [
+            "Unknown"
+        ],
+        "id": "7e4bfe58-4a47-4709-828d-d86c78b7cc1f",
+        "logsource": {
+            "service": "netflow"
+        },
+        "references": [
+            "https://www.cisecurity.org/controls/cis-controls-list/",
+            "https://www.pcisecuritystandards.org/documents/PCI_DSS_v3-2-1.pdf",
+            "https://nvlpubs.nist.gov/nistpubs/CSWP/NIST.CSWP.04162018.pdf"
+        ]
+    },
+    {
+        "group": "Sigma",
+        "kind": "individual",
+        "document": {
+            "kind": "jsonl",
+            "data": {
+                "@timestamp": "2022-09-27T13:33:17.354Z",
+                "agent": {
+                    "ephemeral_id": "f3e67ec5-847a-448b-8ec4-bac040a44990",
+                    "hostname": "CLIENT1",
+                    "id": "cd699c72-0f46-4cd9-938a-43faf035a44a",
+                    "name": "CLIENT1",
+                    "type": "winlogbeat",
+                    "version": "7.10.2"
+                },
+                "destination": {
+                    "domain": "-",
+                    "ip": "172.18.0.3",
+                    "port": 80
+                },
+                "ecs": {
+                    "version": "1.5.0"
+                },
+                "event": {
+                    "action": "Network connection detected (rule: NetworkConnect)",
+                    "category": [
+                        "network"
+                    ],
+                    "code": 3,
+                    "created": "2022-09-27T13:33:20.039Z",
+                    "kind": "event",
+                    "module": "sysmon",
+                    "provider": "Microsoft-Windows-Sysmon",
+                    "type": [
+                        "connection",
+                        "start",
+                        "protocol"
+                    ]
+                },
+                "host": {
+                    "name": "CLIENT1.breach.local"
+                },
+                "log": {
+                    "level": "information"
+                },
+                "message": "Network connection detected:\nRuleName: Usermode\nUtcTime: 2022-09-27 13:33:17.354\nProcessGuid: {0e37ca90-faad-6332-b203-000000000500}\nProcessId: 4704\nImage: C:\\Users\\client1\\AppData\\Local\\Temp\\breach_attachments\\Bank-of-Nuthington.exe\nUser: BREACH\\client1\nProtocol: tcp\nInitiated: true\nSourceIsIpv6: false\nSourceIp: 172.16.1.1\nSourceHostname: CLIENT1.breach.local\nSourcePort: 52631\nSourcePortName: -\nDestinationIsIpv6: false\nDestinationIp: 172.18.0.3\nDestinationHostname: -\nDestinationPort: 80\nDestinationPortName: http",
+                "network": {
+                    "community_id": "1:LtrAOxBK77D6rZ+sx/bF4EPqN7o=",
+                    "direction": "outbound",
+                    "protocol": "http",
+                    "transport": "tcp",
+                    "type": "ipv4"
+                },
+                "process": {
+                    "entity_id": "{0e37ca90-faad-6332-b203-000000000500}",
+                    "executable": "C:\\Users\\client1\\AppData\\Local\\Temp\\breach_attachments\\Bank-of-Nuthington.exe",
+                    "name": "Bank-of-Nuthington.exe",
+                    "pid": 4704
+                },
+                "related": {
+                    "ip": [
+                        "172.16.1.1",
+                        "172.18.0.3"
+                    ],
+                    "user": "client1"
+                },
+                "rule": {
+                    "name": "Usermode"
+                },
+                "source": {
+                    "domain": "CLIENT1.breach.local",
+                    "ip": "172.16.1.1",
+                    "port": 52631
+                },
+                "user": {
+                    "domain": "BREACH",
+                    "name": "client1"
+                },
+                "winlog": {
+                    "api": "wineventlog",
+                    "channel": "Microsoft-Windows-Sysmon/Operational",
+                    "computer_name": "CLIENT1.breach.local",
+                    "event_data": {
+                        "SourcePortName": "-"
+                    },
+                    "event_id": 3,
+                    "opcode": "Info",
+                    "process": {
+                        "pid": 2076,
+                        "thread": {
+                            "id": 2568
+                        }
+                    },
+                    "provider_guid": "{5770385f-c22a-43e0-bf4c-06f5698ffbd9}",
+                    "provider_name": "Microsoft-Windows-Sysmon",
+                    "record_id": 3834,
+                    "task": "Network connection detected (rule: NetworkConnect)",
+                    "user": {
+                        "domain": "NT AUTHORITY",
+                        "identifier": "S-1-5-18",
+                        "name": "SYSTEM",
+                        "type": "User"
+                    },
+                    "version": 5
+                }
+            }
+        },
+        "name": "Cleartext Protocol Usage",
+        "timestamp": "2022-09-27T13:33:17.354+00:00",
+        "authors": [
+            "Alexandr Yampolskyi",
+            "SOC Prime"
+        ],
+        "level": "low",
+        "source": "sigma",
+        "status": "stable",
+        "falsepositives": [
+            "Unknown"
+        ],
+        "id": "7e4bfe58-4a47-4709-828d-d86c78b7cc1f",
+        "logsource": {
+            "service": "netflow"
+        },
+        "references": [
+            "https://www.cisecurity.org/controls/cis-controls-list/",
+            "https://www.pcisecuritystandards.org/documents/PCI_DSS_v3-2-1.pdf",
+            "https://nvlpubs.nist.gov/nistpubs/CSWP/NIST.CSWP.04162018.pdf"
+        ]
+    },
+    {
+        "group": "Sigma",
+        "kind": "individual",
+        "document": {
+            "kind": "jsonl",
+            "data": {
+                "@timestamp": "2022-09-27T13:33:17.545Z",
+                "agent": {
+                    "ephemeral_id": "f3e67ec5-847a-448b-8ec4-bac040a44990",
+                    "hostname": "CLIENT1",
+                    "id": "cd699c72-0f46-4cd9-938a-43faf035a44a",
+                    "name": "CLIENT1",
+                    "type": "winlogbeat",
+                    "version": "7.10.2"
+                },
+                "destination": {
+                    "domain": "-",
+                    "ip": "172.18.0.3",
+                    "port": 80
+                },
+                "ecs": {
+                    "version": "1.5.0"
+                },
+                "event": {
+                    "action": "Network connection detected (rule: NetworkConnect)",
+                    "category": [
+                        "network"
+                    ],
+                    "code": 3,
+                    "created": "2022-09-27T13:33:20.039Z",
+                    "kind": "event",
+                    "module": "sysmon",
+                    "provider": "Microsoft-Windows-Sysmon",
+                    "type": [
+                        "connection",
+                        "start",
+                        "protocol"
+                    ]
+                },
+                "host": {
+                    "name": "CLIENT1.breach.local"
+                },
+                "log": {
+                    "level": "information"
+                },
+                "message": "Network connection detected:\nRuleName: Usermode\nUtcTime: 2022-09-27 13:33:17.545\nProcessGuid: {0e37ca90-faad-6332-b203-000000000500}\nProcessId: 4704\nImage: C:\\Users\\client1\\AppData\\Local\\Temp\\breach_attachments\\Bank-of-Nuthington.exe\nUser: BREACH\\client1\nProtocol: tcp\nInitiated: true\nSourceIsIpv6: false\nSourceIp: 172.16.1.1\nSourceHostname: CLIENT1.breach.local\nSourcePort: 52632\nSourcePortName: -\nDestinationIsIpv6: false\nDestinationIp: 172.18.0.3\nDestinationHostname: -\nDestinationPort: 80\nDestinationPortName: http",
+                "network": {
+                    "community_id": "1:SI7Ui3Xs3s3D5U9n4fIY0EvC1Mg=",
+                    "direction": "outbound",
+                    "protocol": "http",
+                    "transport": "tcp",
+                    "type": "ipv4"
+                },
+                "process": {
+                    "entity_id": "{0e37ca90-faad-6332-b203-000000000500}",
+                    "executable": "C:\\Users\\client1\\AppData\\Local\\Temp\\breach_attachments\\Bank-of-Nuthington.exe",
+                    "name": "Bank-of-Nuthington.exe",
+                    "pid": 4704
+                },
+                "related": {
+                    "ip": [
+                        "172.16.1.1",
+                        "172.18.0.3"
+                    ],
+                    "user": "client1"
+                },
+                "rule": {
+                    "name": "Usermode"
+                },
+                "source": {
+                    "domain": "CLIENT1.breach.local",
+                    "ip": "172.16.1.1",
+                    "port": 52632
+                },
+                "user": {
+                    "domain": "BREACH",
+                    "name": "client1"
+                },
+                "winlog": {
+                    "api": "wineventlog",
+                    "channel": "Microsoft-Windows-Sysmon/Operational",
+                    "computer_name": "CLIENT1.breach.local",
+                    "event_data": {
+                        "SourcePortName": "-"
+                    },
+                    "event_id": 3,
+                    "opcode": "Info",
+                    "process": {
+                        "pid": 2076,
+                        "thread": {
+                            "id": 2568
+                        }
+                    },
+                    "provider_guid": "{5770385f-c22a-43e0-bf4c-06f5698ffbd9}",
+                    "provider_name": "Microsoft-Windows-Sysmon",
+                    "record_id": 3835,
+                    "task": "Network connection detected (rule: NetworkConnect)",
+                    "user": {
+                        "domain": "NT AUTHORITY",
+                        "identifier": "S-1-5-18",
+                        "name": "SYSTEM",
+                        "type": "User"
+                    },
+                    "version": 5
+                }
+            }
+        },
+        "name": "Cleartext Protocol Usage",
+        "timestamp": "2022-09-27T13:33:17.545+00:00",
+        "authors": [
+            "Alexandr Yampolskyi",
+            "SOC Prime"
+        ],
+        "level": "low",
+        "source": "sigma",
+        "status": "stable",
+        "falsepositives": [
+            "Unknown"
+        ],
+        "id": "7e4bfe58-4a47-4709-828d-d86c78b7cc1f",
+        "logsource": {
+            "service": "netflow"
+        },
+        "references": [
+            "https://www.cisecurity.org/controls/cis-controls-list/",
+            "https://www.pcisecuritystandards.org/documents/PCI_DSS_v3-2-1.pdf",
+            "https://nvlpubs.nist.gov/nistpubs/CSWP/NIST.CSWP.04162018.pdf"
+        ]
+    },
+    {
+        "group": "Sigma",
+        "kind": "individual",
+        "document": {
+            "kind": "jsonl",
+            "data": {
+                "@timestamp": "2022-09-27T13:37:15.443Z",
+                "agent": {
+                    "ephemeral_id": "f3e67ec5-847a-448b-8ec4-bac040a44990",
+                    "hostname": "CLIENT1",
+                    "id": "cd699c72-0f46-4cd9-938a-43faf035a44a",
+                    "name": "CLIENT1",
+                    "type": "winlogbeat",
+                    "version": "7.10.2"
+                },
+                "destination": {
+                    "domain": "-",
+                    "ip": "172.18.0.3",
+                    "port": 80
+                },
+                "ecs": {
+                    "version": "1.5.0"
+                },
+                "event": {
+                    "action": "Network connection detected (rule: NetworkConnect)",
+                    "category": [
+                        "network"
+                    ],
+                    "code": 3,
+                    "created": "2022-09-27T13:37:17.856Z",
+                    "kind": "event",
+                    "module": "sysmon",
+                    "provider": "Microsoft-Windows-Sysmon",
+                    "type": [
+                        "connection",
+                        "start",
+                        "protocol"
+                    ]
+                },
+                "host": {
+                    "name": "CLIENT1.breach.local"
+                },
+                "log": {
+                    "level": "information"
+                },
+                "message": "Network connection detected:\nRuleName: Usermode\nUtcTime: 2022-09-27 13:37:15.443\nProcessGuid: {0e37ca90-faad-6332-b203-000000000500}\nProcessId: 4704\nImage: C:\\Users\\client1\\AppData\\Local\\Temp\\breach_attachments\\Bank-of-Nuthington.exe\nUser: BREACH\\client1\nProtocol: tcp\nInitiated: true\nSourceIsIpv6: false\nSourceIp: 172.16.1.1\nSourceHostname: CLIENT1.breach.local\nSourcePort: 52722\nSourcePortName: -\nDestinationIsIpv6: false\nDestinationIp: 172.18.0.3\nDestinationHostname: -\nDestinationPort: 80\nDestinationPortName: http",
+                "network": {
+                    "community_id": "1:fiwm5yOi7c8LV1flJTDer6jUVqI=",
+                    "direction": "outbound",
+                    "protocol": "http",
+                    "transport": "tcp",
+                    "type": "ipv4"
+                },
+                "process": {
+                    "entity_id": "{0e37ca90-faad-6332-b203-000000000500}",
+                    "executable": "C:\\Users\\client1\\AppData\\Local\\Temp\\breach_attachments\\Bank-of-Nuthington.exe",
+                    "name": "Bank-of-Nuthington.exe",
+                    "pid": 4704
+                },
+                "related": {
+                    "ip": [
+                        "172.16.1.1",
+                        "172.18.0.3"
+                    ],
+                    "user": "client1"
+                },
+                "rule": {
+                    "name": "Usermode"
+                },
+                "source": {
+                    "domain": "CLIENT1.breach.local",
+                    "ip": "172.16.1.1",
+                    "port": 52722
+                },
+                "user": {
+                    "domain": "BREACH",
+                    "name": "client1"
+                },
+                "winlog": {
+                    "api": "wineventlog",
+                    "channel": "Microsoft-Windows-Sysmon/Operational",
+                    "computer_name": "CLIENT1.breach.local",
+                    "event_data": {
+                        "SourcePortName": "-"
+                    },
+                    "event_id": 3,
+                    "opcode": "Info",
+                    "process": {
+                        "pid": 2076,
+                        "thread": {
+                            "id": 2568
+                        }
+                    },
+                    "provider_guid": "{5770385f-c22a-43e0-bf4c-06f5698ffbd9}",
+                    "provider_name": "Microsoft-Windows-Sysmon",
+                    "record_id": 3881,
+                    "task": "Network connection detected (rule: NetworkConnect)",
+                    "user": {
+                        "domain": "NT AUTHORITY",
+                        "identifier": "S-1-5-18",
+                        "name": "SYSTEM",
+                        "type": "User"
+                    },
+                    "version": 5
+                }
+            }
+        },
+        "name": "Cleartext Protocol Usage",
+        "timestamp": "2022-09-27T13:37:15.443+00:00",
+        "authors": [
+            "Alexandr Yampolskyi",
+            "SOC Prime"
+        ],
+        "level": "low",
+        "source": "sigma",
+        "status": "stable",
+        "falsepositives": [
+            "Unknown"
+        ],
+        "id": "7e4bfe58-4a47-4709-828d-d86c78b7cc1f",
+        "logsource": {
+            "service": "netflow"
+        },
+        "references": [
+            "https://www.cisecurity.org/controls/cis-controls-list/",
+            "https://www.pcisecuritystandards.org/documents/PCI_DSS_v3-2-1.pdf",
+            "https://nvlpubs.nist.gov/nistpubs/CSWP/NIST.CSWP.04162018.pdf"
+        ]
+    },
+    {
+        "group": "Sigma",
+        "kind": "individual",
+        "document": {
+            "kind": "jsonl",
+            "data": {
+                "@timestamp": "2022-09-27T13:37:20.968Z",
+                "agent": {
+                    "ephemeral_id": "f3e67ec5-847a-448b-8ec4-bac040a44990",
+                    "hostname": "CLIENT1",
+                    "id": "cd699c72-0f46-4cd9-938a-43faf035a44a",
+                    "name": "CLIENT1",
+                    "type": "winlogbeat",
+                    "version": "7.10.2"
+                },
+                "destination": {
+                    "domain": "-",
+                    "ip": "172.18.0.3",
+                    "port": 80
+                },
+                "ecs": {
+                    "version": "1.5.0"
+                },
+                "event": {
+                    "action": "Network connection detected (rule: NetworkConnect)",
+                    "category": [
+                        "network"
+                    ],
+                    "code": 3,
+                    "created": "2022-09-27T13:37:23.883Z",
+                    "kind": "event",
+                    "module": "sysmon",
+                    "provider": "Microsoft-Windows-Sysmon",
+                    "type": [
+                        "connection",
+                        "start",
+                        "protocol"
+                    ]
+                },
+                "host": {
+                    "name": "CLIENT1.breach.local"
+                },
+                "log": {
+                    "level": "information"
+                },
+                "message": "Network connection detected:\nRuleName: Usermode\nUtcTime: 2022-09-27 13:37:20.968\nProcessGuid: {0e37ca90-faad-6332-b203-000000000500}\nProcessId: 4704\nImage: C:\\Users\\client1\\AppData\\Local\\Temp\\breach_attachments\\Bank-of-Nuthington.exe\nUser: BREACH\\client1\nProtocol: tcp\nInitiated: true\nSourceIsIpv6: false\nSourceIp: 172.16.1.1\nSourceHostname: CLIENT1.breach.local\nSourcePort: 52724\nSourcePortName: -\nDestinationIsIpv6: false\nDestinationIp: 172.18.0.3\nDestinationHostname: -\nDestinationPort: 80\nDestinationPortName: http",
+                "network": {
+                    "community_id": "1:F6ANflN3UNWxccYPgwhyBpmE9P4=",
+                    "direction": "outbound",
+                    "protocol": "http",
+                    "transport": "tcp",
+                    "type": "ipv4"
+                },
+                "process": {
+                    "entity_id": "{0e37ca90-faad-6332-b203-000000000500}",
+                    "executable": "C:\\Users\\client1\\AppData\\Local\\Temp\\breach_attachments\\Bank-of-Nuthington.exe",
+                    "name": "Bank-of-Nuthington.exe",
+                    "pid": 4704
+                },
+                "related": {
+                    "ip": [
+                        "172.16.1.1",
+                        "172.18.0.3"
+                    ],
+                    "user": "client1"
+                },
+                "rule": {
+                    "name": "Usermode"
+                },
+                "source": {
+                    "domain": "CLIENT1.breach.local",
+                    "ip": "172.16.1.1",
+                    "port": 52724
+                },
+                "user": {
+                    "domain": "BREACH",
+                    "name": "client1"
+                },
+                "winlog": {
+                    "api": "wineventlog",
+                    "channel": "Microsoft-Windows-Sysmon/Operational",
+                    "computer_name": "CLIENT1.breach.local",
+                    "event_data": {
+                        "SourcePortName": "-"
+                    },
+                    "event_id": 3,
+                    "opcode": "Info",
+                    "process": {
+                        "pid": 2076,
+                        "thread": {
+                            "id": 2568
+                        }
+                    },
+                    "provider_guid": "{5770385f-c22a-43e0-bf4c-06f5698ffbd9}",
+                    "provider_name": "Microsoft-Windows-Sysmon",
+                    "record_id": 3883,
+                    "task": "Network connection detected (rule: NetworkConnect)",
+                    "user": {
+                        "domain": "NT AUTHORITY",
+                        "identifier": "S-1-5-18",
+                        "name": "SYSTEM",
+                        "type": "User"
+                    },
+                    "version": 5
+                }
+            }
+        },
+        "name": "Cleartext Protocol Usage",
+        "timestamp": "2022-09-27T13:37:20.968+00:00",
+        "authors": [
+            "Alexandr Yampolskyi",
+            "SOC Prime"
+        ],
+        "level": "low",
+        "source": "sigma",
+        "status": "stable",
+        "falsepositives": [
+            "Unknown"
+        ],
+        "id": "7e4bfe58-4a47-4709-828d-d86c78b7cc1f",
+        "logsource": {
+            "service": "netflow"
+        },
+        "references": [
+            "https://www.cisecurity.org/controls/cis-controls-list/",
+            "https://www.pcisecuritystandards.org/documents/PCI_DSS_v3-2-1.pdf",
+            "https://nvlpubs.nist.gov/nistpubs/CSWP/NIST.CSWP.04162018.pdf"
+        ]
+    },
+    {
+        "group": "Sigma",
+        "kind": "individual",
+        "document": {
+            "kind": "jsonl",
+            "data": {
+                "@timestamp": "2022-09-27T13:41:13.329Z",
+                "agent": {
+                    "ephemeral_id": "f3e67ec5-847a-448b-8ec4-bac040a44990",
+                    "hostname": "CLIENT1",
+                    "id": "cd699c72-0f46-4cd9-938a-43faf035a44a",
+                    "name": "CLIENT1",
+                    "type": "winlogbeat",
+                    "version": "7.10.2"
+                },
+                "destination": {
+                    "domain": "-",
+                    "ip": "172.18.0.3",
+                    "port": 80
+                },
+                "ecs": {
+                    "version": "1.5.0"
+                },
+                "event": {
+                    "action": "Network connection detected (rule: NetworkConnect)",
+                    "category": [
+                        "network"
+                    ],
+                    "code": 3,
+                    "created": "2022-09-27T13:41:16.358Z",
+                    "kind": "event",
+                    "module": "sysmon",
+                    "provider": "Microsoft-Windows-Sysmon",
+                    "type": [
+                        "connection",
+                        "start",
+                        "protocol"
+                    ]
+                },
+                "host": {
+                    "name": "CLIENT1.breach.local"
+                },
+                "log": {
+                    "level": "information"
+                },
+                "message": "Network connection detected:\nRuleName: Usermode\nUtcTime: 2022-09-27 13:41:13.329\nProcessGuid: {0e37ca90-faad-6332-b203-000000000500}\nProcessId: 4704\nImage: C:\\Users\\client1\\AppData\\Local\\Temp\\breach_attachments\\Bank-of-Nuthington.exe\nUser: BREACH\\client1\nProtocol: tcp\nInitiated: true\nSourceIsIpv6: false\nSourceIp: 172.16.1.1\nSourceHostname: CLIENT1.breach.local\nSourcePort: 52819\nSourcePortName: -\nDestinationIsIpv6: false\nDestinationIp: 172.18.0.3\nDestinationHostname: -\nDestinationPort: 80\nDestinationPortName: http",
+                "network": {
+                    "community_id": "1:MHYz8eYY0Ykds0JxjDE+TQjUwkc=",
+                    "direction": "outbound",
+                    "protocol": "http",
+                    "transport": "tcp",
+                    "type": "ipv4"
+                },
+                "process": {
+                    "entity_id": "{0e37ca90-faad-6332-b203-000000000500}",
+                    "executable": "C:\\Users\\client1\\AppData\\Local\\Temp\\breach_attachments\\Bank-of-Nuthington.exe",
+                    "name": "Bank-of-Nuthington.exe",
+                    "pid": 4704
+                },
+                "related": {
+                    "ip": [
+                        "172.16.1.1",
+                        "172.18.0.3"
+                    ],
+                    "user": "client1"
+                },
+                "rule": {
+                    "name": "Usermode"
+                },
+                "source": {
+                    "domain": "CLIENT1.breach.local",
+                    "ip": "172.16.1.1",
+                    "port": 52819
+                },
+                "user": {
+                    "domain": "BREACH",
+                    "name": "client1"
+                },
+                "winlog": {
+                    "api": "wineventlog",
+                    "channel": "Microsoft-Windows-Sysmon/Operational",
+                    "computer_name": "CLIENT1.breach.local",
+                    "event_data": {
+                        "SourcePortName": "-"
+                    },
+                    "event_id": 3,
+                    "opcode": "Info",
+                    "process": {
+                        "pid": 2076,
+                        "thread": {
+                            "id": 2568
+                        }
+                    },
+                    "provider_guid": "{5770385f-c22a-43e0-bf4c-06f5698ffbd9}",
+                    "provider_name": "Microsoft-Windows-Sysmon",
+                    "record_id": 3933,
+                    "task": "Network connection detected (rule: NetworkConnect)",
+                    "user": {
+                        "domain": "NT AUTHORITY",
+                        "identifier": "S-1-5-18",
+                        "name": "SYSTEM",
+                        "type": "User"
+                    },
+                    "version": 5
+                }
+            }
+        },
+        "name": "Cleartext Protocol Usage",
+        "timestamp": "2022-09-27T13:41:13.329+00:00",
+        "authors": [
+            "Alexandr Yampolskyi",
+            "SOC Prime"
+        ],
+        "level": "low",
+        "source": "sigma",
+        "status": "stable",
+        "falsepositives": [
+            "Unknown"
+        ],
+        "id": "7e4bfe58-4a47-4709-828d-d86c78b7cc1f",
+        "logsource": {
+            "service": "netflow"
+        },
+        "references": [
+            "https://www.cisecurity.org/controls/cis-controls-list/",
+            "https://www.pcisecuritystandards.org/documents/PCI_DSS_v3-2-1.pdf",
+            "https://nvlpubs.nist.gov/nistpubs/CSWP/NIST.CSWP.04162018.pdf"
+        ]
+    },
+    {
+        "group": "Sigma",
+        "kind": "individual",
+        "document": {
+            "kind": "jsonl",
+            "data": {
+                "@timestamp": "2022-09-27T13:41:18.649Z",
+                "agent": {
+                    "ephemeral_id": "f3e67ec5-847a-448b-8ec4-bac040a44990",
+                    "hostname": "CLIENT1",
+                    "id": "cd699c72-0f46-4cd9-938a-43faf035a44a",
+                    "name": "CLIENT1",
+                    "type": "winlogbeat",
+                    "version": "7.10.2"
+                },
+                "destination": {
+                    "domain": "-",
+                    "ip": "172.18.0.3",
+                    "port": 80
+                },
+                "ecs": {
+                    "version": "1.5.0"
+                },
+                "event": {
+                    "action": "Network connection detected (rule: NetworkConnect)",
+                    "category": [
+                        "network"
+                    ],
+                    "code": 3,
+                    "created": "2022-09-27T13:41:21.380Z",
+                    "kind": "event",
+                    "module": "sysmon",
+                    "provider": "Microsoft-Windows-Sysmon",
+                    "type": [
+                        "connection",
+                        "start",
+                        "protocol"
+                    ]
+                },
+                "host": {
+                    "name": "CLIENT1.breach.local"
+                },
+                "log": {
+                    "level": "information"
+                },
+                "message": "Network connection detected:\nRuleName: Usermode\nUtcTime: 2022-09-27 13:41:18.649\nProcessGuid: {0e37ca90-faad-6332-b203-000000000500}\nProcessId: 4704\nImage: C:\\Users\\client1\\AppData\\Local\\Temp\\breach_attachments\\Bank-of-Nuthington.exe\nUser: BREACH\\client1\nProtocol: tcp\nInitiated: true\nSourceIsIpv6: false\nSourceIp: 172.16.1.1\nSourceHostname: CLIENT1.breach.local\nSourcePort: 52821\nSourcePortName: -\nDestinationIsIpv6: false\nDestinationIp: 172.18.0.3\nDestinationHostname: -\nDestinationPort: 80\nDestinationPortName: http",
+                "network": {
+                    "community_id": "1:VDRMY6KLwkqvDObXdfS/sqbl0V0=",
+                    "direction": "outbound",
+                    "protocol": "http",
+                    "transport": "tcp",
+                    "type": "ipv4"
+                },
+                "process": {
+                    "entity_id": "{0e37ca90-faad-6332-b203-000000000500}",
+                    "executable": "C:\\Users\\client1\\AppData\\Local\\Temp\\breach_attachments\\Bank-of-Nuthington.exe",
+                    "name": "Bank-of-Nuthington.exe",
+                    "pid": 4704
+                },
+                "related": {
+                    "ip": [
+                        "172.16.1.1",
+                        "172.18.0.3"
+                    ],
+                    "user": "client1"
+                },
+                "rule": {
+                    "name": "Usermode"
+                },
+                "source": {
+                    "domain": "CLIENT1.breach.local",
+                    "ip": "172.16.1.1",
+                    "port": 52821
+                },
+                "user": {
+                    "domain": "BREACH",
+                    "name": "client1"
+                },
+                "winlog": {
+                    "api": "wineventlog",
+                    "channel": "Microsoft-Windows-Sysmon/Operational",
+                    "computer_name": "CLIENT1.breach.local",
+                    "event_data": {
+                        "SourcePortName": "-"
+                    },
+                    "event_id": 3,
+                    "opcode": "Info",
+                    "process": {
+                        "pid": 2076,
+                        "thread": {
+                            "id": 2568
+                        }
+                    },
+                    "provider_guid": "{5770385f-c22a-43e0-bf4c-06f5698ffbd9}",
+                    "provider_name": "Microsoft-Windows-Sysmon",
+                    "record_id": 3935,
+                    "task": "Network connection detected (rule: NetworkConnect)",
+                    "user": {
+                        "domain": "NT AUTHORITY",
+                        "identifier": "S-1-5-18",
+                        "name": "SYSTEM",
+                        "type": "User"
+                    },
+                    "version": 5
+                }
+            }
+        },
+        "name": "Cleartext Protocol Usage",
+        "timestamp": "2022-09-27T13:41:18.649+00:00",
+        "authors": [
+            "Alexandr Yampolskyi",
+            "SOC Prime"
+        ],
+        "level": "low",
+        "source": "sigma",
+        "status": "stable",
+        "falsepositives": [
+            "Unknown"
+        ],
+        "id": "7e4bfe58-4a47-4709-828d-d86c78b7cc1f",
+        "logsource": {
+            "service": "netflow"
+        },
+        "references": [
+            "https://www.cisecurity.org/controls/cis-controls-list/",
+            "https://www.pcisecuritystandards.org/documents/PCI_DSS_v3-2-1.pdf",
+            "https://nvlpubs.nist.gov/nistpubs/CSWP/NIST.CSWP.04162018.pdf"
+        ]
+    },
+    {
+        "group": "Sigma",
+        "kind": "individual",
+        "document": {
+            "kind": "jsonl",
+            "data": {
+                "@timestamp": "2022-09-27T13:41:21.681Z",
+                "agent": {
+                    "ephemeral_id": "f3e67ec5-847a-448b-8ec4-bac040a44990",
+                    "hostname": "CLIENT1",
+                    "id": "cd699c72-0f46-4cd9-938a-43faf035a44a",
+                    "name": "CLIENT1",
+                    "type": "winlogbeat",
+                    "version": "7.10.2"
+                },
+                "destination": {
+                    "domain": "-",
+                    "ip": "172.18.0.3",
+                    "port": 80
+                },
+                "ecs": {
+                    "version": "1.5.0"
+                },
+                "event": {
+                    "action": "Network connection detected (rule: NetworkConnect)",
+                    "category": [
+                        "network"
+                    ],
+                    "code": 3,
+                    "created": "2022-09-27T13:41:25.419Z",
+                    "kind": "event",
+                    "module": "sysmon",
+                    "provider": "Microsoft-Windows-Sysmon",
+                    "type": [
+                        "connection",
+                        "start",
+                        "protocol"
+                    ]
+                },
+                "host": {
+                    "name": "CLIENT1.breach.local"
+                },
+                "log": {
+                    "level": "information"
+                },
+                "message": "Network connection detected:\nRuleName: Usermode\nUtcTime: 2022-09-27 13:41:21.681\nProcessGuid: {0e37ca90-faad-6332-b203-000000000500}\nProcessId: 4704\nImage: C:\\Users\\client1\\AppData\\Local\\Temp\\breach_attachments\\Bank-of-Nuthington.exe\nUser: BREACH\\client1\nProtocol: tcp\nInitiated: true\nSourceIsIpv6: false\nSourceIp: 172.16.1.1\nSourceHostname: CLIENT1.breach.local\nSourcePort: 52822\nSourcePortName: -\nDestinationIsIpv6: false\nDestinationIp: 172.18.0.3\nDestinationHostname: -\nDestinationPort: 80\nDestinationPortName: http",
+                "network": {
+                    "community_id": "1:trdxRU+yipKREg5NcGZIWwIdsWM=",
+                    "direction": "outbound",
+                    "protocol": "http",
+                    "transport": "tcp",
+                    "type": "ipv4"
+                },
+                "process": {
+                    "entity_id": "{0e37ca90-faad-6332-b203-000000000500}",
+                    "executable": "C:\\Users\\client1\\AppData\\Local\\Temp\\breach_attachments\\Bank-of-Nuthington.exe",
+                    "name": "Bank-of-Nuthington.exe",
+                    "pid": 4704
+                },
+                "related": {
+                    "ip": [
+                        "172.16.1.1",
+                        "172.18.0.3"
+                    ],
+                    "user": "client1"
+                },
+                "rule": {
+                    "name": "Usermode"
+                },
+                "source": {
+                    "domain": "CLIENT1.breach.local",
+                    "ip": "172.16.1.1",
+                    "port": 52822
+                },
+                "user": {
+                    "domain": "BREACH",
+                    "name": "client1"
+                },
+                "winlog": {
+                    "api": "wineventlog",
+                    "channel": "Microsoft-Windows-Sysmon/Operational",
+                    "computer_name": "CLIENT1.breach.local",
+                    "event_data": {
+                        "SourcePortName": "-"
+                    },
+                    "event_id": 3,
+                    "opcode": "Info",
+                    "process": {
+                        "pid": 2076,
+                        "thread": {
+                            "id": 2568
+                        }
+                    },
+                    "provider_guid": "{5770385f-c22a-43e0-bf4c-06f5698ffbd9}",
+                    "provider_name": "Microsoft-Windows-Sysmon",
+                    "record_id": 3940,
+                    "task": "Network connection detected (rule: NetworkConnect)",
+                    "user": {
+                        "domain": "NT AUTHORITY",
+                        "identifier": "S-1-5-18",
+                        "name": "SYSTEM",
+                        "type": "User"
+                    },
+                    "version": 5
+                }
+            }
+        },
+        "name": "Cleartext Protocol Usage",
+        "timestamp": "2022-09-27T13:41:21.681+00:00",
+        "authors": [
+            "Alexandr Yampolskyi",
+            "SOC Prime"
+        ],
+        "level": "low",
+        "source": "sigma",
+        "status": "stable",
+        "falsepositives": [
+            "Unknown"
+        ],
+        "id": "7e4bfe58-4a47-4709-828d-d86c78b7cc1f",
+        "logsource": {
+            "service": "netflow"
+        },
+        "references": [
+            "https://www.cisecurity.org/controls/cis-controls-list/",
+            "https://www.pcisecuritystandards.org/documents/PCI_DSS_v3-2-1.pdf",
+            "https://nvlpubs.nist.gov/nistpubs/CSWP/NIST.CSWP.04162018.pdf"
+        ]
+    },
+    {
+        "group": "Sigma",
+        "kind": "individual",
+        "document": {
+            "kind": "jsonl",
+            "data": {
+                "@timestamp": "2022-09-27T13:45:07.610Z",
+                "agent": {
+                    "ephemeral_id": "f3e67ec5-847a-448b-8ec4-bac040a44990",
+                    "hostname": "CLIENT1",
+                    "id": "cd699c72-0f46-4cd9-938a-43faf035a44a",
+                    "name": "CLIENT1",
+                    "type": "winlogbeat",
+                    "version": "7.10.2"
+                },
+                "destination": {
+                    "domain": "-",
+                    "ip": "172.18.1.1",
+                    "port": 80
+                },
+                "ecs": {
+                    "version": "1.5.0"
+                },
+                "event": {
+                    "action": "Network connection detected (rule: NetworkConnect)",
+                    "category": [
+                        "network"
+                    ],
+                    "code": 3,
+                    "created": "2022-09-27T13:45:09.938Z",
+                    "kind": "event",
+                    "module": "sysmon",
+                    "provider": "Microsoft-Windows-Sysmon",
+                    "type": [
+                        "connection",
+                        "start",
+                        "protocol"
+                    ]
+                },
+                "host": {
+                    "name": "CLIENT1.breach.local"
+                },
+                "log": {
+                    "level": "information"
+                },
+                "message": "Network connection detected:\nRuleName: -\nUtcTime: 2022-09-27 13:45:07.610\nProcessGuid: {0e37ca90-fe62-6332-c803-000000000500}\nProcessId: 3000\nImage: C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\nUser: CLIENT1\\ssh\nProtocol: tcp\nInitiated: true\nSourceIsIpv6: false\nSourceIp: 172.16.1.1\nSourceHostname: CLIENT1.breach.local\nSourcePort: 52922\nSourcePortName: -\nDestinationIsIpv6: false\nDestinationIp: 172.18.1.1\nDestinationHostname: -\nDestinationPort: 80\nDestinationPortName: http",
+                "network": {
+                    "community_id": "1:QN12XPnOwZkMg9RsV6z6y+4+Kyk=",
+                    "direction": "outbound",
+                    "protocol": "http",
+                    "transport": "tcp",
+                    "type": "ipv4"
+                },
+                "process": {
+                    "entity_id": "{0e37ca90-fe62-6332-c803-000000000500}",
+                    "executable": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+                    "name": "powershell.exe",
+                    "pid": 3000
+                },
+                "related": {
+                    "ip": [
+                        "172.16.1.1",
+                        "172.18.1.1"
+                    ],
+                    "user": "ssh"
+                },
+                "source": {
+                    "domain": "CLIENT1.breach.local",
+                    "ip": "172.16.1.1",
+                    "port": 52922
+                },
+                "user": {
+                    "domain": "CLIENT1",
+                    "name": "ssh"
+                },
+                "winlog": {
+                    "api": "wineventlog",
+                    "channel": "Microsoft-Windows-Sysmon/Operational",
+                    "computer_name": "CLIENT1.breach.local",
+                    "event_data": {
+                        "RuleName": "-",
+                        "SourcePortName": "-"
+                    },
+                    "event_id": 3,
+                    "opcode": "Info",
+                    "process": {
+                        "pid": 2076,
+                        "thread": {
+                            "id": 2568
+                        }
+                    },
+                    "provider_guid": "{5770385f-c22a-43e0-bf4c-06f5698ffbd9}",
+                    "provider_name": "Microsoft-Windows-Sysmon",
+                    "record_id": 4039,
+                    "task": "Network connection detected (rule: NetworkConnect)",
+                    "user": {
+                        "domain": "NT AUTHORITY",
+                        "identifier": "S-1-5-18",
+                        "name": "SYSTEM",
+                        "type": "User"
+                    },
+                    "version": 5
+                }
+            }
+        },
+        "name": "Cleartext Protocol Usage",
+        "timestamp": "2022-09-27T13:45:07.610+00:00",
+        "authors": [
+            "Alexandr Yampolskyi",
+            "SOC Prime"
+        ],
+        "level": "low",
+        "source": "sigma",
+        "status": "stable",
+        "falsepositives": [
+            "Unknown"
+        ],
+        "id": "7e4bfe58-4a47-4709-828d-d86c78b7cc1f",
+        "logsource": {
+            "service": "netflow"
+        },
+        "references": [
+            "https://www.cisecurity.org/controls/cis-controls-list/",
+            "https://www.pcisecuritystandards.org/documents/PCI_DSS_v3-2-1.pdf",
+            "https://nvlpubs.nist.gov/nistpubs/CSWP/NIST.CSWP.04162018.pdf"
+        ]
+    },
+    {
+        "total_hits": 9
+    }
+]

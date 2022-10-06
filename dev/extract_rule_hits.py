@@ -2,7 +2,6 @@ import argparse
 import json
 from os.path import dirname
 from os import mkdir
-from pprint import pprint
 
 
 def main():

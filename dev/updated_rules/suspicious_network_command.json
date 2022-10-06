@@ -1,0 +1,918 @@
+[
+    {
+        "group": "Sigma",
+        "kind": "individual",
+        "document": {
+            "kind": "jsonl",
+            "data": {
+                "@timestamp": "2022-09-27T12:24:10.274Z",
+                "agent": {
+                    "ephemeral_id": "f3e67ec5-847a-448b-8ec4-bac040a44990",
+                    "hostname": "CLIENT1",
+                    "id": "cd699c72-0f46-4cd9-938a-43faf035a44a",
+                    "name": "CLIENT1",
+                    "type": "winlogbeat",
+                    "version": "7.10.2"
+                },
+                "ecs": {
+                    "version": "1.5.0"
+                },
+                "event": {
+                    "action": "Process Create (rule: ProcessCreate)",
+                    "category": [
+                        "process"
+                    ],
+                    "code": 1,
+                    "created": "2022-09-27T12:27:28.169Z",
+                    "kind": "event",
+                    "module": "sysmon",
+                    "provider": "Microsoft-Windows-Sysmon",
+                    "type": [
+                        "start",
+                        "process_start"
+                    ]
+                },
+                "hash": {
+                    "imphash": "1002d523645a81bc52877d82d9e88417",
+                    "md5": "62f170fb07fdbb79ceb7147101406eb8",
+                    "sha256": "53e000f5aa9b3a00934319db8080bb99cb323bf48fc628a64f75d7847c265606"
+                },
+                "host": {
+                    "name": "CLIENT"
+                },
+                "log": {
+                    "level": "information"
+                },
+                "message": "Process Create:\nRuleName: -\nUtcTime: 2022-09-27 12:24:10.274\nProcessGuid: {0e37ca90-eb6a-6332-8b00-000000000300}\nProcessId: 4348\nImage: C:\\Windows\\System32\\ipconfig.exe\nFileVersion: 10.0.19041.1 (WinBuild.160101.0800)\nDescription: IP Configuration Utility\nProduct: Microsoft® Windows® Operating System\nCompany: Microsoft Corporation\nOriginalFileName: ipconfig.exe\nCommandLine: ipconfig /all\nCurrentDirectory: C:\\BREACH\\\nUser: CLIENT\\setup\nLogonGuid: {0e37ca90-eb3e-6332-321d-030000000000}\nLogonId: 0x31D32\nTerminalSessionId: 1\nIntegrityLevel: High\nHashes: MD5=62F170FB07FDBB79CEB7147101406EB8,SHA256=53E000F5AA9B3A00934319DB8080BB99CB323BF48FC628A64F75D7847C265606,IMPHASH=1002D523645A81BC52877D82D9E88417\nParentProcessGuid: {0e37ca90-eb69-6332-8a00-000000000300}\nParentProcessId: 5528\nParentImage: C:\\Python37\\python.exe\nParentCommandLine: C:\\Python37\\python.exe \"C:\\BREACH\\init_tbf_client.py\" \nParentUser: CLIENT\\setup",
+                "process": {
+                    "args": [
+                        "ipconfig",
+                        "/all"
+                    ],
+                    "command_line": "ipconfig /all",
+                    "entity_id": "{0e37ca90-eb6a-6332-8b00-000000000300}",
+                    "executable": "C:\\Windows\\System32\\ipconfig.exe",
+                    "hash": {
+                        "md5": "62f170fb07fdbb79ceb7147101406eb8",
+                        "sha256": "53e000f5aa9b3a00934319db8080bb99cb323bf48fc628a64f75d7847c265606"
+                    },
+                    "name": "ipconfig.exe",
+                    "parent": {
+                        "args": [
+                            "C:\\Python37\\python.exe",
+                            "C:\\BREACH\\init_tbf_client.py"
+                        ],
+                        "command_line": "C:\\Python37\\python.exe \"C:\\BREACH\\init_tbf_client.py\" ",
+                        "entity_id": "{0e37ca90-eb69-6332-8a00-000000000300}",
+                        "executable": "C:\\Python37\\python.exe",
+                        "name": "python.exe",
+                        "pid": 5528
+                    },
+                    "pe": {
+                        "imphash": "1002d523645a81bc52877d82d9e88417"
+                    },
+                    "pid": 4348,
+                    "working_directory": "C:\\BREACH\\"
+                },
+                "related": {
+                    "hash": [
+                        "62f170fb07fdbb79ceb7147101406eb8",
+                        "53e000f5aa9b3a00934319db8080bb99cb323bf48fc628a64f75d7847c265606",
+                        "1002d523645a81bc52877d82d9e88417"
+                    ],
+                    "user": "setup"
+                },
+                "user": {
+                    "domain": "CLIENT",
+                    "name": "setup"
+                },
+                "winlog": {
+                    "api": "wineventlog",
+                    "channel": "Microsoft-Windows-Sysmon/Operational",
+                    "computer_name": "CLIENT",
+                    "event_data": {
+                        "Company": "Microsoft Corporation",
+                        "Description": "IP Configuration Utility",
+                        "FileVersion": "10.0.19041.1 (WinBuild.160101.0800)",
+                        "IntegrityLevel": "High",
+                        "LogonGuid": "{0e37ca90-eb3e-6332-321d-030000000000}",
+                        "LogonId": "0x31d32",
+                        "OriginalFileName": "ipconfig.exe",
+                        "ParentUser": "CLIENT\\setup",
+                        "Product": "Microsoft® Windows® Operating System",
+                        "RuleName": "-",
+                        "TerminalSessionId": "1"
+                    },
+                    "event_id": 1,
+                    "opcode": "Info",
+                    "process": {
+                        "pid": 1328,
+                        "thread": {
+                            "id": 2576
+                        }
+                    },
+                    "provider_guid": "{5770385f-c22a-43e0-bf4c-06f5698ffbd9}",
+                    "provider_name": "Microsoft-Windows-Sysmon",
+                    "record_id": 757,
+                    "task": "Process Create (rule: ProcessCreate)",
+                    "user": {
+                        "domain": "NT AUTHORITY",
+                        "identifier": "S-1-5-18",
+                        "name": "SYSTEM",
+                        "type": "User"
+                    },
+                    "version": 5
+                }
+            }
+        },
+        "name": "Suspicious Network Command",
+        "timestamp": "2022-09-27T12:24:10.274+00:00",
+        "authors": [
+            "frack113",
+            "Christopher Peacock '@securepeacock'",
+            "SCYTHE '@scythe_io'"
+        ],
+        "level": "low",
+        "source": "sigma",
+        "status": "experimental",
+        "falsepositives": [
+            "Administrator, hotline ask to user"
+        ],
+        "id": "a29c1813-ab1f-4dde-b489-330b952e91ae",
+        "logsource": {
+            "category": "process_creation",
+            "product": "windows"
+        },
+        "references": [
+            "https://github.com/redcanaryco/atomic-red-team/blob/f339e7da7d05f6057fdfcdd3742bfcf365fee2a9/atomics/T1016/T1016.md#atomic-test-1---system-network-configuration-discovery-on-windows"
+        ],
+        "tags": [
+            "attack.discovery",
+            "attack.t1016"
+        ]
+    },
+    {
+        "group": "Sigma",
+        "kind": "individual",
+        "document": {
+            "kind": "jsonl",
+            "data": {
+                "@timestamp": "2022-09-27T12:24:52.606Z",
+                "agent": {
+                    "ephemeral_id": "f3e67ec5-847a-448b-8ec4-bac040a44990",
+                    "hostname": "CLIENT1",
+                    "id": "cd699c72-0f46-4cd9-938a-43faf035a44a",
+                    "name": "CLIENT1",
+                    "type": "winlogbeat",
+                    "version": "7.10.2"
+                },
+                "ecs": {
+                    "version": "1.5.0"
+                },
+                "event": {
+                    "action": "Process Create (rule: ProcessCreate)",
+                    "category": [
+                        "process"
+                    ],
+                    "code": 1,
+                    "created": "2022-09-27T12:27:28.295Z",
+                    "kind": "event",
+                    "module": "sysmon",
+                    "provider": "Microsoft-Windows-Sysmon",
+                    "type": [
+                        "start",
+                        "process_start"
+                    ]
+                },
+                "hash": {
+                    "imphash": "1002d523645a81bc52877d82d9e88417",
+                    "md5": "62f170fb07fdbb79ceb7147101406eb8",
+                    "sha256": "53e000f5aa9b3a00934319db8080bb99cb323bf48fc628a64f75d7847c265606"
+                },
+                "host": {
+                    "name": "CLIENT1"
+                },
+                "log": {
+                    "level": "information"
+                },
+                "message": "Process Create:\nRuleName: -\nUtcTime: 2022-09-27 12:24:52.606\nProcessGuid: {0e37ca90-eb94-6332-5a00-000000000400}\nProcessId: 3564\nImage: C:\\Windows\\System32\\ipconfig.exe\nFileVersion: 10.0.19041.1 (WinBuild.160101.0800)\nDescription: IP Configuration Utility\nProduct: Microsoft® Windows® Operating System\nCompany: Microsoft Corporation\nOriginalFileName: ipconfig.exe\nCommandLine: ipconfig /all\nCurrentDirectory: C:\\BREACH\\\nUser: CLIENT1\\setup\nLogonGuid: {0e37ca90-eb7f-6332-8d0f-020000000000}\nLogonId: 0x20F8D\nTerminalSessionId: 1\nIntegrityLevel: High\nHashes: MD5=62F170FB07FDBB79CEB7147101406EB8,SHA256=53E000F5AA9B3A00934319DB8080BB99CB323BF48FC628A64F75D7847C265606,IMPHASH=1002D523645A81BC52877D82D9E88417\nParentProcessGuid: {0e37ca90-eb94-6332-5900-000000000400}\nParentProcessId: 3808\nParentImage: C:\\Python37\\python.exe\nParentCommandLine: C:\\Python37\\python.exe \"C:\\BREACH\\init_tbf_client.py\" \nParentUser: CLIENT1\\setup",
+                "process": {
+                    "args": [
+                        "ipconfig",
+                        "/all"
+                    ],
+                    "command_line": "ipconfig /all",
+                    "entity_id": "{0e37ca90-eb94-6332-5a00-000000000400}",
+                    "executable": "C:\\Windows\\System32\\ipconfig.exe",
+                    "hash": {
+                        "md5": "62f170fb07fdbb79ceb7147101406eb8",
+                        "sha256": "53e000f5aa9b3a00934319db8080bb99cb323bf48fc628a64f75d7847c265606"
+                    },
+                    "name": "ipconfig.exe",
+                    "parent": {
+                        "args": [
+                            "C:\\Python37\\python.exe",
+                            "C:\\BREACH\\init_tbf_client.py"
+                        ],
+                        "command_line": "C:\\Python37\\python.exe \"C:\\BREACH\\init_tbf_client.py\" ",
+                        "entity_id": "{0e37ca90-eb94-6332-5900-000000000400}",
+                        "executable": "C:\\Python37\\python.exe",
+                        "name": "python.exe",
+                        "pid": 3808
+                    },
+                    "pe": {
+                        "imphash": "1002d523645a81bc52877d82d9e88417"
+                    },
+                    "pid": 3564,
+                    "working_directory": "C:\\BREACH\\"
+                },
+                "related": {
+                    "hash": [
+                        "62f170fb07fdbb79ceb7147101406eb8",
+                        "53e000f5aa9b3a00934319db8080bb99cb323bf48fc628a64f75d7847c265606",
+                        "1002d523645a81bc52877d82d9e88417"
+                    ],
+                    "user": "setup"
+                },
+                "user": {
+                    "domain": "CLIENT1",
+                    "name": "setup"
+                },
+                "winlog": {
+                    "api": "wineventlog",
+                    "channel": "Microsoft-Windows-Sysmon/Operational",
+                    "computer_name": "CLIENT1",
+                    "event_data": {
+                        "Company": "Microsoft Corporation",
+                        "Description": "IP Configuration Utility",
+                        "FileVersion": "10.0.19041.1 (WinBuild.160101.0800)",
+                        "IntegrityLevel": "High",
+                        "LogonGuid": "{0e37ca90-eb7f-6332-8d0f-020000000000}",
+                        "LogonId": "0x20f8d",
+                        "OriginalFileName": "ipconfig.exe",
+                        "ParentUser": "CLIENT1\\setup",
+                        "Product": "Microsoft® Windows® Operating System",
+                        "RuleName": "-",
+                        "TerminalSessionId": "1"
+                    },
+                    "event_id": 1,
+                    "opcode": "Info",
+                    "process": {
+                        "pid": 2080,
+                        "thread": {
+                            "id": 3584
+                        }
+                    },
+                    "provider_guid": "{5770385f-c22a-43e0-bf4c-06f5698ffbd9}",
+                    "provider_name": "Microsoft-Windows-Sysmon",
+                    "record_id": 905,
+                    "task": "Process Create (rule: ProcessCreate)",
+                    "user": {
+                        "domain": "NT AUTHORITY",
+                        "identifier": "S-1-5-18",
+                        "name": "SYSTEM",
+                        "type": "User"
+                    },
+                    "version": 5
+                }
+            }
+        },
+        "name": "Suspicious Network Command",
+        "timestamp": "2022-09-27T12:24:52.606+00:00",
+        "authors": [
+            "frack113",
+            "Christopher Peacock '@securepeacock'",
+            "SCYTHE '@scythe_io'"
+        ],
+        "level": "low",
+        "source": "sigma",
+        "status": "experimental",
+        "falsepositives": [
+            "Administrator, hotline ask to user"
+        ],
+        "id": "a29c1813-ab1f-4dde-b489-330b952e91ae",
+        "logsource": {
+            "category": "process_creation",
+            "product": "windows"
+        },
+        "references": [
+            "https://github.com/redcanaryco/atomic-red-team/blob/f339e7da7d05f6057fdfcdd3742bfcf365fee2a9/atomics/T1016/T1016.md#atomic-test-1---system-network-configuration-discovery-on-windows"
+        ],
+        "tags": [
+            "attack.discovery",
+            "attack.t1016"
+        ]
+    },
+    {
+        "group": "Sigma",
+        "kind": "individual",
+        "document": {
+            "kind": "jsonl",
+            "data": {
+                "@timestamp": "2022-09-27T12:24:52.631Z",
+                "agent": {
+                    "ephemeral_id": "f3e67ec5-847a-448b-8ec4-bac040a44990",
+                    "hostname": "CLIENT1",
+                    "id": "cd699c72-0f46-4cd9-938a-43faf035a44a",
+                    "name": "CLIENT1",
+                    "type": "winlogbeat",
+                    "version": "7.10.2"
+                },
+                "ecs": {
+                    "version": "1.5.0"
+                },
+                "event": {
+                    "action": "Process Create (rule: ProcessCreate)",
+                    "category": [
+                        "process"
+                    ],
+                    "code": 1,
+                    "created": "2022-09-27T12:27:28.295Z",
+                    "kind": "event",
+                    "module": "sysmon",
+                    "provider": "Microsoft-Windows-Sysmon",
+                    "type": [
+                        "start",
+                        "process_start"
+                    ]
+                },
+                "hash": {
+                    "imphash": "1002d523645a81bc52877d82d9e88417",
+                    "md5": "62f170fb07fdbb79ceb7147101406eb8",
+                    "sha256": "53e000f5aa9b3a00934319db8080bb99cb323bf48fc628a64f75d7847c265606"
+                },
+                "host": {
+                    "name": "CLIENT1"
+                },
+                "log": {
+                    "level": "information"
+                },
+                "message": "Process Create:\nRuleName: -\nUtcTime: 2022-09-27 12:24:52.631\nProcessGuid: {0e37ca90-eb94-6332-5b00-000000000400}\nProcessId: 728\nImage: C:\\Windows\\System32\\ipconfig.exe\nFileVersion: 10.0.19041.1 (WinBuild.160101.0800)\nDescription: IP Configuration Utility\nProduct: Microsoft® Windows® Operating System\nCompany: Microsoft Corporation\nOriginalFileName: ipconfig.exe\nCommandLine: ipconfig /all\nCurrentDirectory: C:\\BREACH\\\nUser: CLIENT1\\setup\nLogonGuid: {0e37ca90-eb7f-6332-8d0f-020000000000}\nLogonId: 0x20F8D\nTerminalSessionId: 1\nIntegrityLevel: High\nHashes: MD5=62F170FB07FDBB79CEB7147101406EB8,SHA256=53E000F5AA9B3A00934319DB8080BB99CB323BF48FC628A64F75D7847C265606,IMPHASH=1002D523645A81BC52877D82D9E88417\nParentProcessGuid: {0e37ca90-eb94-6332-5900-000000000400}\nParentProcessId: 3808\nParentImage: C:\\Python37\\python.exe\nParentCommandLine: C:\\Python37\\python.exe \"C:\\BREACH\\init_tbf_client.py\" \nParentUser: CLIENT1\\setup",
+                "process": {
+                    "args": [
+                        "ipconfig",
+                        "/all"
+                    ],
+                    "command_line": "ipconfig /all",
+                    "entity_id": "{0e37ca90-eb94-6332-5b00-000000000400}",
+                    "executable": "C:\\Windows\\System32\\ipconfig.exe",
+                    "hash": {
+                        "md5": "62f170fb07fdbb79ceb7147101406eb8",
+                        "sha256": "53e000f5aa9b3a00934319db8080bb99cb323bf48fc628a64f75d7847c265606"
+                    },
+                    "name": "ipconfig.exe",
+                    "parent": {
+                        "args": [
+                            "C:\\Python37\\python.exe",
+                            "C:\\BREACH\\init_tbf_client.py"
+                        ],
+                        "command_line": "C:\\Python37\\python.exe \"C:\\BREACH\\init_tbf_client.py\" ",
+                        "entity_id": "{0e37ca90-eb94-6332-5900-000000000400}",
+                        "executable": "C:\\Python37\\python.exe",
+                        "name": "python.exe",
+                        "pid": 3808
+                    },
+                    "pe": {
+                        "imphash": "1002d523645a81bc52877d82d9e88417"
+                    },
+                    "pid": 728,
+                    "working_directory": "C:\\BREACH\\"
+                },
+                "related": {
+                    "hash": [
+                        "62f170fb07fdbb79ceb7147101406eb8",
+                        "53e000f5aa9b3a00934319db8080bb99cb323bf48fc628a64f75d7847c265606",
+                        "1002d523645a81bc52877d82d9e88417"
+                    ],
+                    "user": "setup"
+                },
+                "user": {
+                    "domain": "CLIENT1",
+                    "name": "setup"
+                },
+                "winlog": {
+                    "api": "wineventlog",
+                    "channel": "Microsoft-Windows-Sysmon/Operational",
+                    "computer_name": "CLIENT1",
+                    "event_data": {
+                        "Company": "Microsoft Corporation",
+                        "Description": "IP Configuration Utility",
+                        "FileVersion": "10.0.19041.1 (WinBuild.160101.0800)",
+                        "IntegrityLevel": "High",
+                        "LogonGuid": "{0e37ca90-eb7f-6332-8d0f-020000000000}",
+                        "LogonId": "0x20f8d",
+                        "OriginalFileName": "ipconfig.exe",
+                        "ParentUser": "CLIENT1\\setup",
+                        "Product": "Microsoft® Windows® Operating System",
+                        "RuleName": "-",
+                        "TerminalSessionId": "1"
+                    },
+                    "event_id": 1,
+                    "opcode": "Info",
+                    "process": {
+                        "pid": 2080,
+                        "thread": {
+                            "id": 3584
+                        }
+                    },
+                    "provider_guid": "{5770385f-c22a-43e0-bf4c-06f5698ffbd9}",
+                    "provider_name": "Microsoft-Windows-Sysmon",
+                    "record_id": 906,
+                    "task": "Process Create (rule: ProcessCreate)",
+                    "user": {
+                        "domain": "NT AUTHORITY",
+                        "identifier": "S-1-5-18",
+                        "name": "SYSTEM",
+                        "type": "User"
+                    },
+                    "version": 5
+                }
+            }
+        },
+        "name": "Suspicious Network Command",
+        "timestamp": "2022-09-27T12:24:52.631+00:00",
+        "authors": [
+            "frack113",
+            "Christopher Peacock '@securepeacock'",
+            "SCYTHE '@scythe_io'"
+        ],
+        "level": "low",
+        "source": "sigma",
+        "status": "experimental",
+        "falsepositives": [
+            "Administrator, hotline ask to user"
+        ],
+        "id": "a29c1813-ab1f-4dde-b489-330b952e91ae",
+        "logsource": {
+            "category": "process_creation",
+            "product": "windows"
+        },
+        "references": [
+            "https://github.com/redcanaryco/atomic-red-team/blob/f339e7da7d05f6057fdfcdd3742bfcf365fee2a9/atomics/T1016/T1016.md#atomic-test-1---system-network-configuration-discovery-on-windows"
+        ],
+        "tags": [
+            "attack.discovery",
+            "attack.t1016"
+        ]
+    },
+    {
+        "group": "Sigma",
+        "kind": "individual",
+        "document": {
+            "kind": "jsonl",
+            "data": {
+                "@timestamp": "2022-09-27T12:26:11.964Z",
+                "agent": {
+                    "ephemeral_id": "f3e67ec5-847a-448b-8ec4-bac040a44990",
+                    "hostname": "CLIENT1",
+                    "id": "cd699c72-0f46-4cd9-938a-43faf035a44a",
+                    "name": "CLIENT1",
+                    "type": "winlogbeat",
+                    "version": "7.10.2"
+                },
+                "ecs": {
+                    "version": "1.5.0"
+                },
+                "event": {
+                    "action": "Process Create (rule: ProcessCreate)",
+                    "category": [
+                        "process"
+                    ],
+                    "code": 1,
+                    "created": "2022-09-27T12:27:28.850Z",
+                    "kind": "event",
+                    "module": "sysmon",
+                    "provider": "Microsoft-Windows-Sysmon",
+                    "type": [
+                        "start",
+                        "process_start"
+                    ]
+                },
+                "hash": {
+                    "imphash": "1002d523645a81bc52877d82d9e88417",
+                    "md5": "62f170fb07fdbb79ceb7147101406eb8",
+                    "sha256": "53e000f5aa9b3a00934319db8080bb99cb323bf48fc628a64f75d7847c265606"
+                },
+                "host": {
+                    "name": "CLIENT1.breach.local"
+                },
+                "log": {
+                    "level": "information"
+                },
+                "message": "Process Create:\nRuleName: -\nUtcTime: 2022-09-27 12:26:11.964\nProcessGuid: {0e37ca90-ebe3-6332-8300-000000000500}\nProcessId: 4156\nImage: C:\\Windows\\System32\\ipconfig.exe\nFileVersion: 10.0.19041.1 (WinBuild.160101.0800)\nDescription: IP Configuration Utility\nProduct: Microsoft® Windows® Operating System\nCompany: Microsoft Corporation\nOriginalFileName: ipconfig.exe\nCommandLine: ipconfig /all\nCurrentDirectory: C:\\BREACH\\\nUser: BREACH\\client1\nLogonGuid: {0e37ca90-ebb9-6332-52a5-020000000000}\nLogonId: 0x2A552\nTerminalSessionId: 1\nIntegrityLevel: High\nHashes: MD5=62F170FB07FDBB79CEB7147101406EB8,SHA256=53E000F5AA9B3A00934319DB8080BB99CB323BF48FC628A64F75D7847C265606,IMPHASH=1002D523645A81BC52877D82D9E88417\nParentProcessGuid: {0e37ca90-ebe3-6332-8200-000000000500}\nParentProcessId: 4892\nParentImage: C:\\Python37\\python.exe\nParentCommandLine: C:\\Python37\\python.exe \"C:\\BREACH\\init_tbf_client.py\" \nParentUser: BREACH\\client1",
+                "process": {
+                    "args": [
+                        "ipconfig",
+                        "/all"
+                    ],
+                    "command_line": "ipconfig /all",
+                    "entity_id": "{0e37ca90-ebe3-6332-8300-000000000500}",
+                    "executable": "C:\\Windows\\System32\\ipconfig.exe",
+                    "hash": {
+                        "md5": "62f170fb07fdbb79ceb7147101406eb8",
+                        "sha256": "53e000f5aa9b3a00934319db8080bb99cb323bf48fc628a64f75d7847c265606"
+                    },
+                    "name": "ipconfig.exe",
+                    "parent": {
+                        "args": [
+                            "C:\\Python37\\python.exe",
+                            "C:\\BREACH\\init_tbf_client.py"
+                        ],
+                        "command_line": "C:\\Python37\\python.exe \"C:\\BREACH\\init_tbf_client.py\" ",
+                        "entity_id": "{0e37ca90-ebe3-6332-8200-000000000500}",
+                        "executable": "C:\\Python37\\python.exe",
+                        "name": "python.exe",
+                        "pid": 4892
+                    },
+                    "pe": {
+                        "imphash": "1002d523645a81bc52877d82d9e88417"
+                    },
+                    "pid": 4156,
+                    "working_directory": "C:\\BREACH\\"
+                },
+                "related": {
+                    "hash": [
+                        "62f170fb07fdbb79ceb7147101406eb8",
+                        "53e000f5aa9b3a00934319db8080bb99cb323bf48fc628a64f75d7847c265606",
+                        "1002d523645a81bc52877d82d9e88417"
+                    ],
+                    "user": "client1"
+                },
+                "user": {
+                    "domain": "BREACH",
+                    "name": "client1"
+                },
+                "winlog": {
+                    "api": "wineventlog",
+                    "channel": "Microsoft-Windows-Sysmon/Operational",
+                    "computer_name": "CLIENT1.breach.local",
+                    "event_data": {
+                        "Company": "Microsoft Corporation",
+                        "Description": "IP Configuration Utility",
+                        "FileVersion": "10.0.19041.1 (WinBuild.160101.0800)",
+                        "IntegrityLevel": "High",
+                        "LogonGuid": "{0e37ca90-ebb9-6332-52a5-020000000000}",
+                        "LogonId": "0x2a552",
+                        "OriginalFileName": "ipconfig.exe",
+                        "ParentUser": "BREACH\\client1",
+                        "Product": "Microsoft® Windows® Operating System",
+                        "RuleName": "-",
+                        "TerminalSessionId": "1"
+                    },
+                    "event_id": 1,
+                    "opcode": "Info",
+                    "process": {
+                        "pid": 2076,
+                        "thread": {
+                            "id": 2556
+                        }
+                    },
+                    "provider_guid": "{5770385f-c22a-43e0-bf4c-06f5698ffbd9}",
+                    "provider_name": "Microsoft-Windows-Sysmon",
+                    "record_id": 1411,
+                    "task": "Process Create (rule: ProcessCreate)",
+                    "user": {
+                        "domain": "NT AUTHORITY",
+                        "identifier": "S-1-5-18",
+                        "name": "SYSTEM",
+                        "type": "User"
+                    },
+                    "version": 5
+                }
+            }
+        },
+        "name": "Suspicious Network Command",
+        "timestamp": "2022-09-27T12:26:11.964+00:00",
+        "authors": [
+            "frack113",
+            "Christopher Peacock '@securepeacock'",
+            "SCYTHE '@scythe_io'"
+        ],
+        "level": "low",
+        "source": "sigma",
+        "status": "experimental",
+        "falsepositives": [
+            "Administrator, hotline ask to user"
+        ],
+        "id": "a29c1813-ab1f-4dde-b489-330b952e91ae",
+        "logsource": {
+            "category": "process_creation",
+            "product": "windows"
+        },
+        "references": [
+            "https://github.com/redcanaryco/atomic-red-team/blob/f339e7da7d05f6057fdfcdd3742bfcf365fee2a9/atomics/T1016/T1016.md#atomic-test-1---system-network-configuration-discovery-on-windows"
+        ],
+        "tags": [
+            "attack.discovery",
+            "attack.t1016"
+        ]
+    },
+    {
+        "group": "Sigma",
+        "kind": "individual",
+        "document": {
+            "kind": "jsonl",
+            "data": {
+                "@timestamp": "2022-09-27T12:26:11.993Z",
+                "agent": {
+                    "ephemeral_id": "f3e67ec5-847a-448b-8ec4-bac040a44990",
+                    "hostname": "CLIENT1",
+                    "id": "cd699c72-0f46-4cd9-938a-43faf035a44a",
+                    "name": "CLIENT1",
+                    "type": "winlogbeat",
+                    "version": "7.10.2"
+                },
+                "ecs": {
+                    "version": "1.5.0"
+                },
+                "event": {
+                    "action": "Process Create (rule: ProcessCreate)",
+                    "category": [
+                        "process"
+                    ],
+                    "code": 1,
+                    "created": "2022-09-27T12:27:28.850Z",
+                    "kind": "event",
+                    "module": "sysmon",
+                    "provider": "Microsoft-Windows-Sysmon",
+                    "type": [
+                        "start",
+                        "process_start"
+                    ]
+                },
+                "hash": {
+                    "imphash": "1002d523645a81bc52877d82d9e88417",
+                    "md5": "62f170fb07fdbb79ceb7147101406eb8",
+                    "sha256": "53e000f5aa9b3a00934319db8080bb99cb323bf48fc628a64f75d7847c265606"
+                },
+                "host": {
+                    "name": "CLIENT1.breach.local"
+                },
+                "log": {
+                    "level": "information"
+                },
+                "message": "Process Create:\nRuleName: -\nUtcTime: 2022-09-27 12:26:11.993\nProcessGuid: {0e37ca90-ebe3-6332-8400-000000000500}\nProcessId: 3440\nImage: C:\\Windows\\System32\\ipconfig.exe\nFileVersion: 10.0.19041.1 (WinBuild.160101.0800)\nDescription: IP Configuration Utility\nProduct: Microsoft® Windows® Operating System\nCompany: Microsoft Corporation\nOriginalFileName: ipconfig.exe\nCommandLine: ipconfig /all\nCurrentDirectory: C:\\BREACH\\\nUser: BREACH\\client1\nLogonGuid: {0e37ca90-ebb9-6332-52a5-020000000000}\nLogonId: 0x2A552\nTerminalSessionId: 1\nIntegrityLevel: High\nHashes: MD5=62F170FB07FDBB79CEB7147101406EB8,SHA256=53E000F5AA9B3A00934319DB8080BB99CB323BF48FC628A64F75D7847C265606,IMPHASH=1002D523645A81BC52877D82D9E88417\nParentProcessGuid: {0e37ca90-ebe3-6332-8200-000000000500}\nParentProcessId: 4892\nParentImage: C:\\Python37\\python.exe\nParentCommandLine: C:\\Python37\\python.exe \"C:\\BREACH\\init_tbf_client.py\" \nParentUser: BREACH\\client1",
+                "process": {
+                    "args": [
+                        "ipconfig",
+                        "/all"
+                    ],
+                    "command_line": "ipconfig /all",
+                    "entity_id": "{0e37ca90-ebe3-6332-8400-000000000500}",
+                    "executable": "C:\\Windows\\System32\\ipconfig.exe",
+                    "hash": {
+                        "md5": "62f170fb07fdbb79ceb7147101406eb8",
+                        "sha256": "53e000f5aa9b3a00934319db8080bb99cb323bf48fc628a64f75d7847c265606"
+                    },
+                    "name": "ipconfig.exe",
+                    "parent": {
+                        "args": [
+                            "C:\\Python37\\python.exe",
+                            "C:\\BREACH\\init_tbf_client.py"
+                        ],
+                        "command_line": "C:\\Python37\\python.exe \"C:\\BREACH\\init_tbf_client.py\" ",
+                        "entity_id": "{0e37ca90-ebe3-6332-8200-000000000500}",
+                        "executable": "C:\\Python37\\python.exe",
+                        "name": "python.exe",
+                        "pid": 4892
+                    },
+                    "pe": {
+                        "imphash": "1002d523645a81bc52877d82d9e88417"
+                    },
+                    "pid": 3440,
+                    "working_directory": "C:\\BREACH\\"
+                },
+                "related": {
+                    "hash": [
+                        "62f170fb07fdbb79ceb7147101406eb8",
+                        "53e000f5aa9b3a00934319db8080bb99cb323bf48fc628a64f75d7847c265606",
+                        "1002d523645a81bc52877d82d9e88417"
+                    ],
+                    "user": "client1"
+                },
+                "user": {
+                    "domain": "BREACH",
+                    "name": "client1"
+                },
+                "winlog": {
+                    "api": "wineventlog",
+                    "channel": "Microsoft-Windows-Sysmon/Operational",
+                    "computer_name": "CLIENT1.breach.local",
+                    "event_data": {
+                        "Company": "Microsoft Corporation",
+                        "Description": "IP Configuration Utility",
+                        "FileVersion": "10.0.19041.1 (WinBuild.160101.0800)",
+                        "IntegrityLevel": "High",
+                        "LogonGuid": "{0e37ca90-ebb9-6332-52a5-020000000000}",
+                        "LogonId": "0x2a552",
+                        "OriginalFileName": "ipconfig.exe",
+                        "ParentUser": "BREACH\\client1",
+                        "Product": "Microsoft® Windows® Operating System",
+                        "RuleName": "-",
+                        "TerminalSessionId": "1"
+                    },
+                    "event_id": 1,
+                    "opcode": "Info",
+                    "process": {
+                        "pid": 2076,
+                        "thread": {
+                            "id": 2556
+                        }
+                    },
+                    "provider_guid": "{5770385f-c22a-43e0-bf4c-06f5698ffbd9}",
+                    "provider_name": "Microsoft-Windows-Sysmon",
+                    "record_id": 1412,
+                    "task": "Process Create (rule: ProcessCreate)",
+                    "user": {
+                        "domain": "NT AUTHORITY",
+                        "identifier": "S-1-5-18",
+                        "name": "SYSTEM",
+                        "type": "User"
+                    },
+                    "version": 5
+                }
+            }
+        },
+        "name": "Suspicious Network Command",
+        "timestamp": "2022-09-27T12:26:11.993+00:00",
+        "authors": [
+            "frack113",
+            "Christopher Peacock '@securepeacock'",
+            "SCYTHE '@scythe_io'"
+        ],
+        "level": "low",
+        "source": "sigma",
+        "status": "experimental",
+        "falsepositives": [
+            "Administrator, hotline ask to user"
+        ],
+        "id": "a29c1813-ab1f-4dde-b489-330b952e91ae",
+        "logsource": {
+            "category": "process_creation",
+            "product": "windows"
+        },
+        "references": [
+            "https://github.com/redcanaryco/atomic-red-team/blob/f339e7da7d05f6057fdfcdd3742bfcf365fee2a9/atomics/T1016/T1016.md#atomic-test-1---system-network-configuration-discovery-on-windows"
+        ],
+        "tags": [
+            "attack.discovery",
+            "attack.t1016"
+        ]
+    },
+    {
+        "group": "Sigma",
+        "kind": "individual",
+        "document": {
+            "kind": "jsonl",
+            "data": {
+                "@timestamp": "2022-09-27T12:26:12.720Z",
+                "agent": {
+                    "ephemeral_id": "f3e67ec5-847a-448b-8ec4-bac040a44990",
+                    "hostname": "CLIENT1",
+                    "id": "cd699c72-0f46-4cd9-938a-43faf035a44a",
+                    "name": "CLIENT1",
+                    "type": "winlogbeat",
+                    "version": "7.10.2"
+                },
+                "ecs": {
+                    "version": "1.5.0"
+                },
+                "event": {
+                    "action": "Process Create (rule: ProcessCreate)",
+                    "category": [
+                        "process"
+                    ],
+                    "code": 1,
+                    "created": "2022-09-27T12:27:28.851Z",
+                    "kind": "event",
+                    "module": "sysmon",
+                    "provider": "Microsoft-Windows-Sysmon",
+                    "type": [
+                        "start",
+                        "process_start"
+                    ]
+                },
+                "hash": {
+                    "imphash": "1002d523645a81bc52877d82d9e88417",
+                    "md5": "62f170fb07fdbb79ceb7147101406eb8",
+                    "sha256": "53e000f5aa9b3a00934319db8080bb99cb323bf48fc628a64f75d7847c265606"
+                },
+                "host": {
+                    "name": "CLIENT1.breach.local"
+                },
+                "log": {
+                    "level": "information"
+                },
+                "message": "Process Create:\nRuleName: -\nUtcTime: 2022-09-27 12:26:12.720\nProcessGuid: {0e37ca90-ebe4-6332-8b00-000000000500}\nProcessId: 3680\nImage: C:\\Windows\\System32\\ipconfig.exe\nFileVersion: 10.0.19041.1 (WinBuild.160101.0800)\nDescription: IP Configuration Utility\nProduct: Microsoft® Windows® Operating System\nCompany: Microsoft Corporation\nOriginalFileName: ipconfig.exe\nCommandLine: ipconfig /all\nCurrentDirectory: C:\\BREACH\\\nUser: BREACH\\client1\nLogonGuid: {0e37ca90-ebb9-6332-52a5-020000000000}\nLogonId: 0x2A552\nTerminalSessionId: 1\nIntegrityLevel: High\nHashes: MD5=62F170FB07FDBB79CEB7147101406EB8,SHA256=53E000F5AA9B3A00934319DB8080BB99CB323BF48FC628A64F75D7847C265606,IMPHASH=1002D523645A81BC52877D82D9E88417\nParentProcessGuid: {0e37ca90-ebe4-6332-8800-000000000500}\nParentProcessId: 5840\nParentImage: C:\\Python37\\python.exe\nParentCommandLine: python C:\\BREACH\\userbehavior\\run.py --use-breach-setup\nParentUser: BREACH\\client1",
+                "process": {
+                    "args": [
+                        "ipconfig",
+                        "/all"
+                    ],
+                    "command_line": "ipconfig /all",
+                    "entity_id": "{0e37ca90-ebe4-6332-8b00-000000000500}",
+                    "executable": "C:\\Windows\\System32\\ipconfig.exe",
+                    "hash": {
+                        "md5": "62f170fb07fdbb79ceb7147101406eb8",
+                        "sha256": "53e000f5aa9b3a00934319db8080bb99cb323bf48fc628a64f75d7847c265606"
+                    },
+                    "name": "ipconfig.exe",
+                    "parent": {
+                        "args": [
+                            "python",
+                            "C:\\BREACH\\userbehavior\\run.py",
+                            "--use-breach-setup"
+                        ],
+                        "command_line": "python C:\\BREACH\\userbehavior\\run.py --use-breach-setup",
+                        "entity_id": "{0e37ca90-ebe4-6332-8800-000000000500}",
+                        "executable": "C:\\Python37\\python.exe",
+                        "name": "python.exe",
+                        "pid": 5840
+                    },
+                    "pe": {
+                        "imphash": "1002d523645a81bc52877d82d9e88417"
+                    },
+                    "pid": 3680,
+                    "working_directory": "C:\\BREACH\\"
+                },
+                "related": {
+                    "hash": [
+                        "62f170fb07fdbb79ceb7147101406eb8",
+                        "53e000f5aa9b3a00934319db8080bb99cb323bf48fc628a64f75d7847c265606",
+                        "1002d523645a81bc52877d82d9e88417"
+                    ],
+                    "user": "client1"
+                },
+                "user": {
+                    "domain": "BREACH",
+                    "name": "client1"
+                },
+                "winlog": {
+                    "api": "wineventlog",
+                    "channel": "Microsoft-Windows-Sysmon/Operational",
+                    "computer_name": "CLIENT1.breach.local",
+                    "event_data": {
+                        "Company": "Microsoft Corporation",
+                        "Description": "IP Configuration Utility",
+                        "FileVersion": "10.0.19041.1 (WinBuild.160101.0800)",
+                        "IntegrityLevel": "High",
+                        "LogonGuid": "{0e37ca90-ebb9-6332-52a5-020000000000}",
+                        "LogonId": "0x2a552",
+                        "OriginalFileName": "ipconfig.exe",
+                        "ParentUser": "BREACH\\client1",
+                        "Product": "Microsoft® Windows® Operating System",
+                        "RuleName": "-",
+                        "TerminalSessionId": "1"
+                    },
+                    "event_id": 1,
+                    "opcode": "Info",
+                    "process": {
+                        "pid": 2076,
+                        "thread": {
+                            "id": 2556
+                        }
+                    },
+                    "provider_guid": "{5770385f-c22a-43e0-bf4c-06f5698ffbd9}",
+                    "provider_name": "Microsoft-Windows-Sysmon",
+                    "record_id": 1417,
+                    "task": "Process Create (rule: ProcessCreate)",
+                    "user": {
+                        "domain": "NT AUTHORITY",
+                        "identifier": "S-1-5-18",
+                        "name": "SYSTEM",
+                        "type": "User"
+                    },
+                    "version": 5
+                }
+            }
+        },
+        "name": "Suspicious Network Command",
+        "timestamp": "2022-09-27T12:26:12.720+00:00",
+        "authors": [
+            "frack113",
+            "Christopher Peacock '@securepeacock'",
+            "SCYTHE '@scythe_io'"
+        ],
+        "level": "low",
+        "source": "sigma",
+        "status": "experimental",
+        "falsepositives": [
+            "Administrator, hotline ask to user"
+        ],
+        "id": "a29c1813-ab1f-4dde-b489-330b952e91ae",
+        "logsource": {
+            "category": "process_creation",
+            "product": "windows"
+        },
+        "references": [
+            "https://github.com/redcanaryco/atomic-red-team/blob/f339e7da7d05f6057fdfcdd3742bfcf365fee2a9/atomics/T1016/T1016.md#atomic-test-1---system-network-configuration-discovery-on-windows"
+        ],
+        "tags": [
+            "attack.discovery",
+            "attack.t1016"
+        ]
+    },
+    {
+        "total_hits": 6
+    }
+]

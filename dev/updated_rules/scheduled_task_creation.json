@@ -1,0 +1,193 @@
+[
+    {
+        "group": "Sigma",
+        "kind": "individual",
+        "document": {
+            "kind": "jsonl",
+            "data": {
+                "@timestamp": "2022-09-27T13:53:06.942Z",
+                "agent": {
+                    "ephemeral_id": "f3e67ec5-847a-448b-8ec4-bac040a44990",
+                    "hostname": "CLIENT1",
+                    "id": "cd699c72-0f46-4cd9-938a-43faf035a44a",
+                    "name": "CLIENT1",
+                    "type": "winlogbeat",
+                    "version": "7.10.2"
+                },
+                "ecs": {
+                    "version": "1.5.0"
+                },
+                "event": {
+                    "action": "Process Create (rule: ProcessCreate)",
+                    "category": [
+                        "process"
+                    ],
+                    "code": 1,
+                    "created": "2022-09-27T13:53:08.139Z",
+                    "kind": "event",
+                    "module": "sysmon",
+                    "provider": "Microsoft-Windows-Sysmon",
+                    "type": [
+                        "start",
+                        "process_start"
+                    ]
+                },
+                "hash": {
+                    "imphash": "ecce05491f2e8f279f4790bcb1318c05",
+                    "md5": "796b784e98008854c27f4b18d287ba30",
+                    "sha256": "356280cca63ca5e887fdbe5cb4105a53341fbac9219efc51621df9ba8ee9838b"
+                },
+                "host": {
+                    "name": "CLIENT1.breach.local"
+                },
+                "log": {
+                    "level": "information"
+                },
+                "message": "Process Create:\nRuleName: -\nUtcTime: 2022-09-27 13:53:06.942\nProcessGuid: {0e37ca90-0042-6333-df03-000000000500}\nProcessId: 884\nImage: C:\\Windows\\System32\\schtasks.exe\nFileVersion: 10.0.19041.906 (WinBuild.160101.0800)\nDescription: Task Scheduler Configuration Tool\nProduct: Microsoft® Windows® Operating System\nCompany: Microsoft Corporation\nOriginalFileName: schtasks.exe\nCommandLine: schtasks  /create /sc once /st 23:59 /tn tag_bff33 /tr C:\\Windows\\meterpreter_bind_tcp.exe /ru BREACH\\client1 \nCurrentDirectory: C:\\Users\\ssh\\\nUser: CLIENT1\\ssh\nLogonGuid: {0e37ca90-0042-6333-ccb7-4b0000000000}\nLogonId: 0x4BB7CC\nTerminalSessionId: 0\nIntegrityLevel: High\nHashes: MD5=796B784E98008854C27F4B18D287BA30,SHA256=356280CCA63CA5E887FDBE5CB4105A53341FBAC9219EFC51621DF9BA8EE9838B,IMPHASH=ECCE05491F2E8F279F4790BCB1318C05\nParentProcessGuid: {0e37ca90-0042-6333-de03-000000000500}\nParentProcessId: 6692\nParentImage: C:\\Windows\\System32\\cmd.exe\nParentCommandLine: c:\\windows\\system32\\cmd.exe /c if exist C:\\Windows\\meterpreter_bind_tcp.exe (schtasks /create /sc once /st 23:59 /tn tag_bff33 /tr C:\\Windows\\meterpreter_bind_tcp.exe /ru BREACH\\client1 && schtasks /run /tn tag_bff33) else (echo Unable to locate C:\\Windows\\meterpreter_bind_tcp.exe)\nParentUser: CLIENT1\\ssh",
+                "process": {
+                    "args": [
+                        "schtasks",
+                        "/create",
+                        "/sc",
+                        "once",
+                        "/st",
+                        "23:59",
+                        "/tn",
+                        "tag_bff33",
+                        "/tr",
+                        "C:\\Windows\\meterpreter_bind_tcp.exe",
+                        "/ru",
+                        "BREACH\\client1"
+                    ],
+                    "command_line": "schtasks  /create /sc once /st 23:59 /tn tag_bff33 /tr C:\\Windows\\meterpreter_bind_tcp.exe /ru BREACH\\client1 ",
+                    "entity_id": "{0e37ca90-0042-6333-df03-000000000500}",
+                    "executable": "C:\\Windows\\System32\\schtasks.exe",
+                    "hash": {
+                        "md5": "796b784e98008854c27f4b18d287ba30",
+                        "sha256": "356280cca63ca5e887fdbe5cb4105a53341fbac9219efc51621df9ba8ee9838b"
+                    },
+                    "name": "schtasks.exe",
+                    "parent": {
+                        "args": [
+                            "c:\\windows\\system32\\cmd.exe",
+                            "/c",
+                            "if",
+                            "exist",
+                            "C:\\Windows\\meterpreter_bind_tcp.exe",
+                            "(schtasks",
+                            "/create",
+                            "/sc",
+                            "once",
+                            "/st",
+                            "23:59",
+                            "/tn",
+                            "tag_bff33",
+                            "/tr",
+                            "C:\\Windows\\meterpreter_bind_tcp.exe",
+                            "/ru",
+                            "BREACH\\client1",
+                            "&&",
+                            "schtasks",
+                            "/run",
+                            "/tn",
+                            "tag_bff33)",
+                            "else",
+                            "(echo",
+                            "Unable",
+                            "to",
+                            "locate",
+                            "C:\\Windows\\meterpreter_bind_tcp.exe)"
+                        ],
+                        "command_line": "c:\\windows\\system32\\cmd.exe /c if exist C:\\Windows\\meterpreter_bind_tcp.exe (schtasks /create /sc once /st 23:59 /tn tag_bff33 /tr C:\\Windows\\meterpreter_bind_tcp.exe /ru BREACH\\client1 && schtasks /run /tn tag_bff33) else (echo Unable to locate C:\\Windows\\meterpreter_bind_tcp.exe)",
+                        "entity_id": "{0e37ca90-0042-6333-de03-000000000500}",
+                        "executable": "C:\\Windows\\System32\\cmd.exe",
+                        "name": "cmd.exe",
+                        "pid": 6692
+                    },
+                    "pe": {
+                        "imphash": "ecce05491f2e8f279f4790bcb1318c05"
+                    },
+                    "pid": 884,
+                    "working_directory": "C:\\Users\\ssh\\"
+                },
+                "related": {
+                    "hash": [
+                        "796b784e98008854c27f4b18d287ba30",
+                        "356280cca63ca5e887fdbe5cb4105a53341fbac9219efc51621df9ba8ee9838b",
+                        "ecce05491f2e8f279f4790bcb1318c05"
+                    ],
+                    "user": "ssh"
+                },
+                "user": {
+                    "domain": "CLIENT1",
+                    "name": "ssh"
+                },
+                "winlog": {
+                    "api": "wineventlog",
+                    "channel": "Microsoft-Windows-Sysmon/Operational",
+                    "computer_name": "CLIENT1.breach.local",
+                    "event_data": {
+                        "Company": "Microsoft Corporation",
+                        "Description": "Task Scheduler Configuration Tool",
+                        "FileVersion": "10.0.19041.906 (WinBuild.160101.0800)",
+                        "IntegrityLevel": "High",
+                        "LogonGuid": "{0e37ca90-0042-6333-ccb7-4b0000000000}",
+                        "LogonId": "0x4bb7cc",
+                        "OriginalFileName": "schtasks.exe",
+                        "ParentUser": "CLIENT1\\ssh",
+                        "Product": "Microsoft® Windows® Operating System",
+                        "RuleName": "-",
+                        "TerminalSessionId": "0"
+                    },
+                    "event_id": 1,
+                    "opcode": "Info",
+                    "process": {
+                        "pid": 2076,
+                        "thread": {
+                            "id": 2556
+                        }
+                    },
+                    "provider_guid": "{5770385f-c22a-43e0-bf4c-06f5698ffbd9}",
+                    "provider_name": "Microsoft-Windows-Sysmon",
+                    "record_id": 4146,
+                    "task": "Process Create (rule: ProcessCreate)",
+                    "user": {
+                        "domain": "NT AUTHORITY",
+                        "identifier": "S-1-5-18",
+                        "name": "SYSTEM",
+                        "type": "User"
+                    },
+                    "version": 5
+                }
+            }
+        },
+        "name": "Scheduled Task Creation",
+        "timestamp": "2022-09-27T13:53:06.942+00:00",
+        "authors": [
+            "Florian Roth"
+        ],
+        "level": "low",
+        "source": "sigma",
+        "status": "experimental",
+        "falsepositives": [
+            "Administrative activity",
+            "Software installation"
+        ],
+        "id": "92626ddd-662c-49e3-ac59-f6535f12d189",
+        "logsource": {
+            "category": "process_creation",
+            "product": "windows"
+        },
+        "tags": [
+            "attack.execution",
+            "attack.persistence",
+            "attack.privilege_escalation",
+            "attack.t1053.005",
+            "attack.s0111",
+            "car.2013-08-001"
+        ]
+    },
+    {
+        "total_hits": 1
+    }
+]

