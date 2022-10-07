@@ -1,3 +1,7 @@
+### TOX and egg files
+.tox/
+*.egg-info
+
 # Ignore PyCharm meta folder
 .idea/
 
