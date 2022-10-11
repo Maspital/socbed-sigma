@@ -14,3 +14,11 @@ def test_convert_string_to_regex_pattern():
                                     r"/tr C:\\Windows\\meterpreter_bind_tcp\.exe /ru BREACH\\client1")
     pattern_2 = label_sigma.convert_string_to_regex_pattern(string_2)
     assert pattern_2 == expected_pattern_2
+
+
+def test_is_true_positive():
+    pass
+
+
+def test_condition_is_met():
+    pass
