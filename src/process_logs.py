@@ -34,7 +34,7 @@ def get_command(jsonl_input, output):
                "--sigma",
                "sigma/rules/",
                "--mapping",
-               "mappings/winlogbeat_sigma_mapping.yml",
+               "labeling_metadata/winlogbeat_sigma_mapping.yml",
                "--output",
                f"{output}",
                "--load-unknown"]
