@@ -3,6 +3,7 @@
 from datetime import datetime
 from time import time
 from pathlib import Path
+import re
 
 
 def print_with_timestamp(text):
@@ -25,3 +26,8 @@ def extend_filename(original_name, new_suffix):
     return "{0}_{2}{1}".format(Path.joinpath(path.parent, path.stem),
                                path.suffix,
                                new_suffix)
+
+
+def remove_ansi_escapes(text):
+    ansi_escape = re.compile(r'\x1B(?:[@-Z\\-_]|\[[0-?]*[ -/]*[@-~])')
+    return ansi_escape.sub("", text)
