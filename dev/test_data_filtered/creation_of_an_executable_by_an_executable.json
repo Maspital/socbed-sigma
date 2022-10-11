@@ -1,0 +1,2185 @@
+[
+    {
+        "group": "Sigma",
+        "kind": "individual",
+        "document": {
+            "kind": "jsonl",
+            "data": {
+                "@timestamp": "2022-10-10T09:57:55.520Z",
+                "agent": {
+                    "ephemeral_id": "64b72b79-c8b3-44d5-8efc-41706d768842",
+                    "hostname": "CLIENT1",
+                    "id": "cd699c72-0f46-4cd9-938a-43faf035a44a",
+                    "name": "CLIENT1",
+                    "type": "winlogbeat",
+                    "version": "7.10.2"
+                },
+                "ecs": {
+                    "version": "1.5.0"
+                },
+                "event": {
+                    "action": "File created (rule: FileCreate)",
+                    "category": [
+                        "file"
+                    ],
+                    "code": 11,
+                    "created": "2022-10-10T10:00:27.609Z",
+                    "kind": "event",
+                    "module": "sysmon",
+                    "provider": "Microsoft-Windows-Sysmon",
+                    "type": [
+                        "creation"
+                    ]
+                },
+                "file": {
+                    "directory": "C:\\Users\\setup\\AppData\\Local\\Microsoft\\OneDrive\\19.043.0304.0013",
+                    "extension": "exe",
+                    "name": "FileCoAuth.exe",
+                    "path": "C:\\Users\\setup\\AppData\\Local\\Microsoft\\OneDrive\\19.043.0304.0013\\FileCoAuth.exe"
+                },
+                "host": {
+                    "name": "CLIENT1"
+                },
+                "log": {
+                    "level": "information"
+                },
+                "message": "File created:\nRuleName: EXE\nUtcTime: 2022-10-10 09:57:55.520\nProcessGuid: {0e37ca90-eca3-6343-6200-000000000400}\nProcessId: 4712\nImage: C:\\Windows\\SysWOW64\\OneDriveSetup.exe\nTargetFilename: C:\\Users\\setup\\AppData\\Local\\Microsoft\\OneDrive\\19.043.0304.0013\\FileCoAuth.exe\nCreationUtcTime: 2022-10-10 09:57:55.520\nUser: CLIENT1\\setup",
+                "process": {
+                    "entity_id": "{0e37ca90-eca3-6343-6200-000000000400}",
+                    "executable": "C:\\Windows\\SysWOW64\\OneDriveSetup.exe",
+                    "name": "OneDriveSetup.exe",
+                    "pid": 4712
+                },
+                "rule": {
+                    "name": "EXE"
+                },
+                "winlog": {
+                    "api": "wineventlog",
+                    "channel": "Microsoft-Windows-Sysmon/Operational",
+                    "computer_name": "CLIENT1",
+                    "event_data": {
+                        "CreationUtcTime": "2022-10-10 09:57:55.520",
+                        "User": "CLIENT1\\setup"
+                    },
+                    "event_id": 11,
+                    "opcode": "Info",
+                    "process": {
+                        "pid": 2052,
+                        "thread": {
+                            "id": 2532
+                        }
+                    },
+                    "provider_guid": "{5770385f-c22a-43e0-bf4c-06f5698ffbd9}",
+                    "provider_name": "Microsoft-Windows-Sysmon",
+                    "record_id": 1008,
+                    "task": "File created (rule: FileCreate)",
+                    "user": {
+                        "domain": "NT AUTHORITY",
+                        "identifier": "S-1-5-18",
+                        "name": "SYSTEM",
+                        "type": "User"
+                    },
+                    "version": 2
+                }
+            }
+        },
+        "name": "Creation of an Executable by an Executable",
+        "timestamp": "2022-10-10T09:57:55.520+00:00",
+        "authors": [
+            "frack113"
+        ],
+        "level": "low",
+        "source": "sigma",
+        "status": "experimental",
+        "falsepositives": [
+            "Software installers",
+            "Update utilities"
+        ],
+        "id": "297afac9-5d02-4138-8c58-b977bac60556",
+        "logsource": {
+            "category": "file_event",
+            "product": "windows"
+        },
+        "references": [
+            "Malware Sandbox"
+        ],
+        "tags": [
+            "attack.resource_development",
+            "attack.t1587.001"
+        ]
+    },
+    {
+        "group": "Sigma",
+        "kind": "individual",
+        "document": {
+            "kind": "jsonl",
+            "data": {
+                "@timestamp": "2022-10-10T09:57:55.614Z",
+                "agent": {
+                    "ephemeral_id": "64b72b79-c8b3-44d5-8efc-41706d768842",
+                    "hostname": "CLIENT1",
+                    "id": "cd699c72-0f46-4cd9-938a-43faf035a44a",
+                    "name": "CLIENT1",
+                    "type": "winlogbeat",
+                    "version": "7.10.2"
+                },
+                "ecs": {
+                    "version": "1.5.0"
+                },
+                "event": {
+                    "action": "File created (rule: FileCreate)",
+                    "category": [
+                        "file"
+                    ],
+                    "code": 11,
+                    "created": "2022-10-10T10:00:27.609Z",
+                    "kind": "event",
+                    "module": "sysmon",
+                    "provider": "Microsoft-Windows-Sysmon",
+                    "type": [
+                        "creation"
+                    ]
+                },
+                "file": {
+                    "directory": "C:\\Users\\setup\\AppData\\Local\\Microsoft\\OneDrive\\19.043.0304.0013",
+                    "extension": "exe",
+                    "name": "FileSyncConfig.exe",
+                    "path": "C:\\Users\\setup\\AppData\\Local\\Microsoft\\OneDrive\\19.043.0304.0013\\FileSyncConfig.exe"
+                },
+                "host": {
+                    "name": "CLIENT1"
+                },
+                "log": {
+                    "level": "information"
+                },
+                "message": "File created:\nRuleName: EXE\nUtcTime: 2022-10-10 09:57:55.614\nProcessGuid: {0e37ca90-eca3-6343-6200-000000000400}\nProcessId: 4712\nImage: C:\\Windows\\SysWOW64\\OneDriveSetup.exe\nTargetFilename: C:\\Users\\setup\\AppData\\Local\\Microsoft\\OneDrive\\19.043.0304.0013\\FileSyncConfig.exe\nCreationUtcTime: 2022-10-10 09:57:55.614\nUser: CLIENT1\\setup",
+                "process": {
+                    "entity_id": "{0e37ca90-eca3-6343-6200-000000000400}",
+                    "executable": "C:\\Windows\\SysWOW64\\OneDriveSetup.exe",
+                    "name": "OneDriveSetup.exe",
+                    "pid": 4712
+                },
+                "rule": {
+                    "name": "EXE"
+                },
+                "winlog": {
+                    "api": "wineventlog",
+                    "channel": "Microsoft-Windows-Sysmon/Operational",
+                    "computer_name": "CLIENT1",
+                    "event_data": {
+                        "CreationUtcTime": "2022-10-10 09:57:55.614",
+                        "User": "CLIENT1\\setup"
+                    },
+                    "event_id": 11,
+                    "opcode": "Info",
+                    "process": {
+                        "pid": 2052,
+                        "thread": {
+                            "id": 2532
+                        }
+                    },
+                    "provider_guid": "{5770385f-c22a-43e0-bf4c-06f5698ffbd9}",
+                    "provider_name": "Microsoft-Windows-Sysmon",
+                    "record_id": 1014,
+                    "task": "File created (rule: FileCreate)",
+                    "user": {
+                        "domain": "NT AUTHORITY",
+                        "identifier": "S-1-5-18",
+                        "name": "SYSTEM",
+                        "type": "User"
+                    },
+                    "version": 2
+                }
+            }
+        },
+        "name": "Creation of an Executable by an Executable",
+        "timestamp": "2022-10-10T09:57:55.614+00:00",
+        "authors": [
+            "frack113"
+        ],
+        "level": "low",
+        "source": "sigma",
+        "status": "experimental",
+        "falsepositives": [
+            "Software installers",
+            "Update utilities"
+        ],
+        "id": "297afac9-5d02-4138-8c58-b977bac60556",
+        "logsource": {
+            "category": "file_event",
+            "product": "windows"
+        },
+        "references": [
+            "Malware Sandbox"
+        ],
+        "tags": [
+            "attack.resource_development",
+            "attack.t1587.001"
+        ]
+    },
+    {
+        "group": "Sigma",
+        "kind": "individual",
+        "document": {
+            "kind": "jsonl",
+            "data": {
+                "@timestamp": "2022-10-10T09:57:55.629Z",
+                "agent": {
+                    "ephemeral_id": "64b72b79-c8b3-44d5-8efc-41706d768842",
+                    "hostname": "CLIENT1",
+                    "id": "cd699c72-0f46-4cd9-938a-43faf035a44a",
+                    "name": "CLIENT1",
+                    "type": "winlogbeat",
+                    "version": "7.10.2"
+                },
+                "ecs": {
+                    "version": "1.5.0"
+                },
+                "event": {
+                    "action": "File created (rule: FileCreate)",
+                    "category": [
+                        "file"
+                    ],
+                    "code": 11,
+                    "created": "2022-10-10T10:00:27.609Z",
+                    "kind": "event",
+                    "module": "sysmon",
+                    "provider": "Microsoft-Windows-Sysmon",
+                    "type": [
+                        "creation"
+                    ]
+                },
+                "file": {
+                    "directory": "C:\\Users\\setup\\AppData\\Local\\Microsoft\\OneDrive\\19.043.0304.0013",
+                    "extension": "exe",
+                    "name": "FileSyncHelper.exe",
+                    "path": "C:\\Users\\setup\\AppData\\Local\\Microsoft\\OneDrive\\19.043.0304.0013\\FileSyncHelper.exe"
+                },
+                "host": {
+                    "name": "CLIENT1"
+                },
+                "log": {
+                    "level": "information"
+                },
+                "message": "File created:\nRuleName: EXE\nUtcTime: 2022-10-10 09:57:55.629\nProcessGuid: {0e37ca90-eca3-6343-6200-000000000400}\nProcessId: 4712\nImage: C:\\Windows\\SysWOW64\\OneDriveSetup.exe\nTargetFilename: C:\\Users\\setup\\AppData\\Local\\Microsoft\\OneDrive\\19.043.0304.0013\\FileSyncHelper.exe\nCreationUtcTime: 2022-10-10 09:57:55.629\nUser: CLIENT1\\setup",
+                "process": {
+                    "entity_id": "{0e37ca90-eca3-6343-6200-000000000400}",
+                    "executable": "C:\\Windows\\SysWOW64\\OneDriveSetup.exe",
+                    "name": "OneDriveSetup.exe",
+                    "pid": 4712
+                },
+                "rule": {
+                    "name": "EXE"
+                },
+                "winlog": {
+                    "api": "wineventlog",
+                    "channel": "Microsoft-Windows-Sysmon/Operational",
+                    "computer_name": "CLIENT1",
+                    "event_data": {
+                        "CreationUtcTime": "2022-10-10 09:57:55.629",
+                        "User": "CLIENT1\\setup"
+                    },
+                    "event_id": 11,
+                    "opcode": "Info",
+                    "process": {
+                        "pid": 2052,
+                        "thread": {
+                            "id": 2532
+                        }
+                    },
+                    "provider_guid": "{5770385f-c22a-43e0-bf4c-06f5698ffbd9}",
+                    "provider_name": "Microsoft-Windows-Sysmon",
+                    "record_id": 1017,
+                    "task": "File created (rule: FileCreate)",
+                    "user": {
+                        "domain": "NT AUTHORITY",
+                        "identifier": "S-1-5-18",
+                        "name": "SYSTEM",
+                        "type": "User"
+                    },
+                    "version": 2
+                }
+            }
+        },
+        "name": "Creation of an Executable by an Executable",
+        "timestamp": "2022-10-10T09:57:55.629+00:00",
+        "authors": [
+            "frack113"
+        ],
+        "level": "low",
+        "source": "sigma",
+        "status": "experimental",
+        "falsepositives": [
+            "Software installers",
+            "Update utilities"
+        ],
+        "id": "297afac9-5d02-4138-8c58-b977bac60556",
+        "logsource": {
+            "category": "file_event",
+            "product": "windows"
+        },
+        "references": [
+            "Malware Sandbox"
+        ],
+        "tags": [
+            "attack.resource_development",
+            "attack.t1587.001"
+        ]
+    },
+    {
+        "group": "Sigma",
+        "kind": "individual",
+        "document": {
+            "kind": "jsonl",
+            "data": {
+                "@timestamp": "2022-10-10T09:57:55.864Z",
+                "agent": {
+                    "ephemeral_id": "64b72b79-c8b3-44d5-8efc-41706d768842",
+                    "hostname": "CLIENT1",
+                    "id": "cd699c72-0f46-4cd9-938a-43faf035a44a",
+                    "name": "CLIENT1",
+                    "type": "winlogbeat",
+                    "version": "7.10.2"
+                },
+                "ecs": {
+                    "version": "1.5.0"
+                },
+                "event": {
+                    "action": "File created (rule: FileCreate)",
+                    "category": [
+                        "file"
+                    ],
+                    "code": 11,
+                    "created": "2022-10-10T10:00:27.610Z",
+                    "kind": "event",
+                    "module": "sysmon",
+                    "provider": "Microsoft-Windows-Sysmon",
+                    "type": [
+                        "creation"
+                    ]
+                },
+                "file": {
+                    "directory": "C:\\Users\\setup\\AppData\\Local\\Microsoft\\OneDrive\\19.043.0304.0013",
+                    "extension": "exe",
+                    "name": "OneDrive.exe",
+                    "path": "C:\\Users\\setup\\AppData\\Local\\Microsoft\\OneDrive\\19.043.0304.0013\\OneDrive.exe"
+                },
+                "host": {
+                    "name": "CLIENT1"
+                },
+                "log": {
+                    "level": "information"
+                },
+                "message": "File created:\nRuleName: EXE\nUtcTime: 2022-10-10 09:57:55.864\nProcessGuid: {0e37ca90-eca3-6343-6200-000000000400}\nProcessId: 4712\nImage: C:\\Windows\\SysWOW64\\OneDriveSetup.exe\nTargetFilename: C:\\Users\\setup\\AppData\\Local\\Microsoft\\OneDrive\\19.043.0304.0013\\OneDrive.exe\nCreationUtcTime: 2022-10-10 09:57:55.864\nUser: CLIENT1\\setup",
+                "process": {
+                    "entity_id": "{0e37ca90-eca3-6343-6200-000000000400}",
+                    "executable": "C:\\Windows\\SysWOW64\\OneDriveSetup.exe",
+                    "name": "OneDriveSetup.exe",
+                    "pid": 4712
+                },
+                "rule": {
+                    "name": "EXE"
+                },
+                "winlog": {
+                    "api": "wineventlog",
+                    "channel": "Microsoft-Windows-Sysmon/Operational",
+                    "computer_name": "CLIENT1",
+                    "event_data": {
+                        "CreationUtcTime": "2022-10-10 09:57:55.864",
+                        "User": "CLIENT1\\setup"
+                    },
+                    "event_id": 11,
+                    "opcode": "Info",
+                    "process": {
+                        "pid": 2052,
+                        "thread": {
+                            "id": 2532
+                        }
+                    },
+                    "provider_guid": "{5770385f-c22a-43e0-bf4c-06f5698ffbd9}",
+                    "provider_name": "Microsoft-Windows-Sysmon",
+                    "record_id": 1030,
+                    "task": "File created (rule: FileCreate)",
+                    "user": {
+                        "domain": "NT AUTHORITY",
+                        "identifier": "S-1-5-18",
+                        "name": "SYSTEM",
+                        "type": "User"
+                    },
+                    "version": 2
+                }
+            }
+        },
+        "name": "Creation of an Executable by an Executable",
+        "timestamp": "2022-10-10T09:57:55.864+00:00",
+        "authors": [
+            "frack113"
+        ],
+        "level": "low",
+        "source": "sigma",
+        "status": "experimental",
+        "falsepositives": [
+            "Software installers",
+            "Update utilities"
+        ],
+        "id": "297afac9-5d02-4138-8c58-b977bac60556",
+        "logsource": {
+            "category": "file_event",
+            "product": "windows"
+        },
+        "references": [
+            "Malware Sandbox"
+        ],
+        "tags": [
+            "attack.resource_development",
+            "attack.t1587.001"
+        ]
+    },
+    {
+        "group": "Sigma",
+        "kind": "individual",
+        "document": {
+            "kind": "jsonl",
+            "data": {
+                "@timestamp": "2022-10-10T09:57:55.895Z",
+                "agent": {
+                    "ephemeral_id": "64b72b79-c8b3-44d5-8efc-41706d768842",
+                    "hostname": "CLIENT1",
+                    "id": "cd699c72-0f46-4cd9-938a-43faf035a44a",
+                    "name": "CLIENT1",
+                    "type": "winlogbeat",
+                    "version": "7.10.2"
+                },
+                "ecs": {
+                    "version": "1.5.0"
+                },
+                "event": {
+                    "action": "File created (rule: FileCreate)",
+                    "category": [
+                        "file"
+                    ],
+                    "code": 11,
+                    "created": "2022-10-10T10:00:27.610Z",
+                    "kind": "event",
+                    "module": "sysmon",
+                    "provider": "Microsoft-Windows-Sysmon",
+                    "type": [
+                        "creation"
+                    ]
+                },
+                "file": {
+                    "directory": "C:\\Users\\setup\\AppData\\Local\\Microsoft\\OneDrive\\19.043.0304.0013",
+                    "extension": "exe",
+                    "name": "OneDriveStandaloneUpdater.exe",
+                    "path": "C:\\Users\\setup\\AppData\\Local\\Microsoft\\OneDrive\\19.043.0304.0013\\OneDriveStandaloneUpdater.exe"
+                },
+                "host": {
+                    "name": "CLIENT1"
+                },
+                "log": {
+                    "level": "information"
+                },
+                "message": "File created:\nRuleName: EXE\nUtcTime: 2022-10-10 09:57:55.895\nProcessGuid: {0e37ca90-eca3-6343-6200-000000000400}\nProcessId: 4712\nImage: C:\\Windows\\SysWOW64\\OneDriveSetup.exe\nTargetFilename: C:\\Users\\setup\\AppData\\Local\\Microsoft\\OneDrive\\19.043.0304.0013\\OneDriveStandaloneUpdater.exe\nCreationUtcTime: 2022-10-10 09:57:55.895\nUser: CLIENT1\\setup",
+                "process": {
+                    "entity_id": "{0e37ca90-eca3-6343-6200-000000000400}",
+                    "executable": "C:\\Windows\\SysWOW64\\OneDriveSetup.exe",
+                    "name": "OneDriveSetup.exe",
+                    "pid": 4712
+                },
+                "rule": {
+                    "name": "EXE"
+                },
+                "winlog": {
+                    "api": "wineventlog",
+                    "channel": "Microsoft-Windows-Sysmon/Operational",
+                    "computer_name": "CLIENT1",
+                    "event_data": {
+                        "CreationUtcTime": "2022-10-10 09:57:55.895",
+                        "User": "CLIENT1\\setup"
+                    },
+                    "event_id": 11,
+                    "opcode": "Info",
+                    "process": {
+                        "pid": 2052,
+                        "thread": {
+                            "id": 2532
+                        }
+                    },
+                    "provider_guid": "{5770385f-c22a-43e0-bf4c-06f5698ffbd9}",
+                    "provider_name": "Microsoft-Windows-Sysmon",
+                    "record_id": 1031,
+                    "task": "File created (rule: FileCreate)",
+                    "user": {
+                        "domain": "NT AUTHORITY",
+                        "identifier": "S-1-5-18",
+                        "name": "SYSTEM",
+                        "type": "User"
+                    },
+                    "version": 2
+                }
+            }
+        },
+        "name": "Creation of an Executable by an Executable",
+        "timestamp": "2022-10-10T09:57:55.895+00:00",
+        "authors": [
+            "frack113"
+        ],
+        "level": "low",
+        "source": "sigma",
+        "status": "experimental",
+        "falsepositives": [
+            "Software installers",
+            "Update utilities"
+        ],
+        "id": "297afac9-5d02-4138-8c58-b977bac60556",
+        "logsource": {
+            "category": "file_event",
+            "product": "windows"
+        },
+        "references": [
+            "Malware Sandbox"
+        ],
+        "tags": [
+            "attack.resource_development",
+            "attack.t1587.001"
+        ]
+    },
+    {
+        "group": "Sigma",
+        "kind": "individual",
+        "document": {
+            "kind": "jsonl",
+            "data": {
+                "@timestamp": "2022-10-10T09:57:55.926Z",
+                "agent": {
+                    "ephemeral_id": "64b72b79-c8b3-44d5-8efc-41706d768842",
+                    "hostname": "CLIENT1",
+                    "id": "cd699c72-0f46-4cd9-938a-43faf035a44a",
+                    "name": "CLIENT1",
+                    "type": "winlogbeat",
+                    "version": "7.10.2"
+                },
+                "ecs": {
+                    "version": "1.5.0"
+                },
+                "event": {
+                    "action": "File created (rule: FileCreate)",
+                    "category": [
+                        "file"
+                    ],
+                    "code": 11,
+                    "created": "2022-10-10T10:00:27.610Z",
+                    "kind": "event",
+                    "module": "sysmon",
+                    "provider": "Microsoft-Windows-Sysmon",
+                    "type": [
+                        "creation"
+                    ]
+                },
+                "file": {
+                    "directory": "C:\\Users\\setup\\AppData\\Local\\Microsoft\\OneDrive\\19.043.0304.0013",
+                    "extension": "exe",
+                    "name": "OneDriveUpdaterService.exe",
+                    "path": "C:\\Users\\setup\\AppData\\Local\\Microsoft\\OneDrive\\19.043.0304.0013\\OneDriveUpdaterService.exe"
+                },
+                "host": {
+                    "name": "CLIENT1"
+                },
+                "log": {
+                    "level": "information"
+                },
+                "message": "File created:\nRuleName: EXE\nUtcTime: 2022-10-10 09:57:55.926\nProcessGuid: {0e37ca90-eca3-6343-6200-000000000400}\nProcessId: 4712\nImage: C:\\Windows\\SysWOW64\\OneDriveSetup.exe\nTargetFilename: C:\\Users\\setup\\AppData\\Local\\Microsoft\\OneDrive\\19.043.0304.0013\\OneDriveUpdaterService.exe\nCreationUtcTime: 2022-10-10 09:57:55.926\nUser: CLIENT1\\setup",
+                "process": {
+                    "entity_id": "{0e37ca90-eca3-6343-6200-000000000400}",
+                    "executable": "C:\\Windows\\SysWOW64\\OneDriveSetup.exe",
+                    "name": "OneDriveSetup.exe",
+                    "pid": 4712
+                },
+                "rule": {
+                    "name": "EXE"
+                },
+                "winlog": {
+                    "api": "wineventlog",
+                    "channel": "Microsoft-Windows-Sysmon/Operational",
+                    "computer_name": "CLIENT1",
+                    "event_data": {
+                        "CreationUtcTime": "2022-10-10 09:57:55.926",
+                        "User": "CLIENT1\\setup"
+                    },
+                    "event_id": 11,
+                    "opcode": "Info",
+                    "process": {
+                        "pid": 2052,
+                        "thread": {
+                            "id": 2532
+                        }
+                    },
+                    "provider_guid": "{5770385f-c22a-43e0-bf4c-06f5698ffbd9}",
+                    "provider_name": "Microsoft-Windows-Sysmon",
+                    "record_id": 1032,
+                    "task": "File created (rule: FileCreate)",
+                    "user": {
+                        "domain": "NT AUTHORITY",
+                        "identifier": "S-1-5-18",
+                        "name": "SYSTEM",
+                        "type": "User"
+                    },
+                    "version": 2
+                }
+            }
+        },
+        "name": "Creation of an Executable by an Executable",
+        "timestamp": "2022-10-10T09:57:55.926+00:00",
+        "authors": [
+            "frack113"
+        ],
+        "level": "low",
+        "source": "sigma",
+        "status": "experimental",
+        "falsepositives": [
+            "Software installers",
+            "Update utilities"
+        ],
+        "id": "297afac9-5d02-4138-8c58-b977bac60556",
+        "logsource": {
+            "category": "file_event",
+            "product": "windows"
+        },
+        "references": [
+            "Malware Sandbox"
+        ],
+        "tags": [
+            "attack.resource_development",
+            "attack.t1587.001"
+        ]
+    },
+    {
+        "group": "Sigma",
+        "kind": "individual",
+        "document": {
+            "kind": "jsonl",
+            "data": {
+                "@timestamp": "2022-10-10T09:57:57.442Z",
+                "agent": {
+                    "ephemeral_id": "64b72b79-c8b3-44d5-8efc-41706d768842",
+                    "hostname": "CLIENT1",
+                    "id": "cd699c72-0f46-4cd9-938a-43faf035a44a",
+                    "name": "CLIENT1",
+                    "type": "winlogbeat",
+                    "version": "7.10.2"
+                },
+                "ecs": {
+                    "version": "1.5.0"
+                },
+                "event": {
+                    "action": "File created (rule: FileCreate)",
+                    "category": [
+                        "file"
+                    ],
+                    "code": 11,
+                    "created": "2022-10-10T10:00:27.719Z",
+                    "kind": "event",
+                    "module": "sysmon",
+                    "provider": "Microsoft-Windows-Sysmon",
+                    "type": [
+                        "creation"
+                    ]
+                },
+                "file": {
+                    "directory": "C:\\Users\\setup\\AppData\\Local\\Microsoft\\OneDrive\\19.043.0304.0013",
+                    "extension": "exe",
+                    "name": "OneDriveSetup.exe",
+                    "path": "C:\\Users\\setup\\AppData\\Local\\Microsoft\\OneDrive\\19.043.0304.0013\\OneDriveSetup.exe"
+                },
+                "host": {
+                    "name": "CLIENT1"
+                },
+                "log": {
+                    "level": "information"
+                },
+                "message": "File created:\nRuleName: EXE\nUtcTime: 2022-10-10 09:57:57.442\nProcessGuid: {0e37ca90-eca3-6343-6200-000000000400}\nProcessId: 4712\nImage: C:\\Windows\\SysWOW64\\OneDriveSetup.exe\nTargetFilename: C:\\Users\\setup\\AppData\\Local\\Microsoft\\OneDrive\\19.043.0304.0013\\OneDriveSetup.exe\nCreationUtcTime: 2022-10-10 09:57:57.442\nUser: CLIENT1\\setup",
+                "process": {
+                    "entity_id": "{0e37ca90-eca3-6343-6200-000000000400}",
+                    "executable": "C:\\Windows\\SysWOW64\\OneDriveSetup.exe",
+                    "name": "OneDriveSetup.exe",
+                    "pid": 4712
+                },
+                "rule": {
+                    "name": "EXE"
+                },
+                "winlog": {
+                    "api": "wineventlog",
+                    "channel": "Microsoft-Windows-Sysmon/Operational",
+                    "computer_name": "CLIENT1",
+                    "event_data": {
+                        "CreationUtcTime": "2022-10-10 09:57:57.442",
+                        "User": "CLIENT1\\setup"
+                    },
+                    "event_id": 11,
+                    "opcode": "Info",
+                    "process": {
+                        "pid": 2052,
+                        "thread": {
+                            "id": 2532
+                        }
+                    },
+                    "provider_guid": "{5770385f-c22a-43e0-bf4c-06f5698ffbd9}",
+                    "provider_name": "Microsoft-Windows-Sysmon",
+                    "record_id": 1071,
+                    "task": "File created (rule: FileCreate)",
+                    "user": {
+                        "domain": "NT AUTHORITY",
+                        "identifier": "S-1-5-18",
+                        "name": "SYSTEM",
+                        "type": "User"
+                    },
+                    "version": 2
+                }
+            }
+        },
+        "name": "Creation of an Executable by an Executable",
+        "timestamp": "2022-10-10T09:57:57.442+00:00",
+        "authors": [
+            "frack113"
+        ],
+        "level": "low",
+        "source": "sigma",
+        "status": "experimental",
+        "falsepositives": [
+            "Software installers",
+            "Update utilities"
+        ],
+        "id": "297afac9-5d02-4138-8c58-b977bac60556",
+        "logsource": {
+            "category": "file_event",
+            "product": "windows"
+        },
+        "references": [
+            "Malware Sandbox"
+        ],
+        "tags": [
+            "attack.resource_development",
+            "attack.t1587.001"
+        ]
+    },
+    {
+        "group": "Sigma",
+        "kind": "individual",
+        "document": {
+            "kind": "jsonl",
+            "data": {
+                "@timestamp": "2022-10-10T09:57:57.474Z",
+                "agent": {
+                    "ephemeral_id": "64b72b79-c8b3-44d5-8efc-41706d768842",
+                    "hostname": "CLIENT1",
+                    "id": "cd699c72-0f46-4cd9-938a-43faf035a44a",
+                    "name": "CLIENT1",
+                    "type": "winlogbeat",
+                    "version": "7.10.2"
+                },
+                "ecs": {
+                    "version": "1.5.0"
+                },
+                "event": {
+                    "action": "File created (rule: FileCreate)",
+                    "category": [
+                        "file"
+                    ],
+                    "code": 11,
+                    "created": "2022-10-10T10:00:27.719Z",
+                    "kind": "event",
+                    "module": "sysmon",
+                    "provider": "Microsoft-Windows-Sysmon",
+                    "type": [
+                        "creation"
+                    ]
+                },
+                "file": {
+                    "directory": "C:\\Users\\setup\\AppData\\Local\\Microsoft\\OneDrive",
+                    "extension": "exe",
+                    "name": "OneDrive.exe",
+                    "path": "C:\\Users\\setup\\AppData\\Local\\Microsoft\\OneDrive\\OneDrive.exe"
+                },
+                "host": {
+                    "name": "CLIENT1"
+                },
+                "log": {
+                    "level": "information"
+                },
+                "message": "File created:\nRuleName: EXE\nUtcTime: 2022-10-10 09:57:57.474\nProcessGuid: {0e37ca90-eca3-6343-6200-000000000400}\nProcessId: 4712\nImage: C:\\Windows\\SysWOW64\\OneDriveSetup.exe\nTargetFilename: C:\\Users\\setup\\AppData\\Local\\Microsoft\\OneDrive\\OneDrive.exe\nCreationUtcTime: 2022-10-10 09:57:57.474\nUser: CLIENT1\\setup",
+                "process": {
+                    "entity_id": "{0e37ca90-eca3-6343-6200-000000000400}",
+                    "executable": "C:\\Windows\\SysWOW64\\OneDriveSetup.exe",
+                    "name": "OneDriveSetup.exe",
+                    "pid": 4712
+                },
+                "rule": {
+                    "name": "EXE"
+                },
+                "winlog": {
+                    "api": "wineventlog",
+                    "channel": "Microsoft-Windows-Sysmon/Operational",
+                    "computer_name": "CLIENT1",
+                    "event_data": {
+                        "CreationUtcTime": "2022-10-10 09:57:57.474",
+                        "User": "CLIENT1\\setup"
+                    },
+                    "event_id": 11,
+                    "opcode": "Info",
+                    "process": {
+                        "pid": 2052,
+                        "thread": {
+                            "id": 2532
+                        }
+                    },
+                    "provider_guid": "{5770385f-c22a-43e0-bf4c-06f5698ffbd9}",
+                    "provider_name": "Microsoft-Windows-Sysmon",
+                    "record_id": 1072,
+                    "task": "File created (rule: FileCreate)",
+                    "user": {
+                        "domain": "NT AUTHORITY",
+                        "identifier": "S-1-5-18",
+                        "name": "SYSTEM",
+                        "type": "User"
+                    },
+                    "version": 2
+                }
+            }
+        },
+        "name": "Creation of an Executable by an Executable",
+        "timestamp": "2022-10-10T09:57:57.474+00:00",
+        "authors": [
+            "frack113"
+        ],
+        "level": "low",
+        "source": "sigma",
+        "status": "experimental",
+        "falsepositives": [
+            "Software installers",
+            "Update utilities"
+        ],
+        "id": "297afac9-5d02-4138-8c58-b977bac60556",
+        "logsource": {
+            "category": "file_event",
+            "product": "windows"
+        },
+        "references": [
+            "Malware Sandbox"
+        ],
+        "tags": [
+            "attack.resource_development",
+            "attack.t1587.001"
+        ]
+    },
+    {
+        "group": "Sigma",
+        "kind": "individual",
+        "document": {
+            "kind": "jsonl",
+            "data": {
+                "@timestamp": "2022-10-10T09:57:57.504Z",
+                "agent": {
+                    "ephemeral_id": "64b72b79-c8b3-44d5-8efc-41706d768842",
+                    "hostname": "CLIENT1",
+                    "id": "cd699c72-0f46-4cd9-938a-43faf035a44a",
+                    "name": "CLIENT1",
+                    "type": "winlogbeat",
+                    "version": "7.10.2"
+                },
+                "ecs": {
+                    "version": "1.5.0"
+                },
+                "event": {
+                    "action": "File created (rule: FileCreate)",
+                    "category": [
+                        "file"
+                    ],
+                    "code": 11,
+                    "created": "2022-10-10T10:00:27.719Z",
+                    "kind": "event",
+                    "module": "sysmon",
+                    "provider": "Microsoft-Windows-Sysmon",
+                    "type": [
+                        "creation"
+                    ]
+                },
+                "file": {
+                    "directory": "C:\\Users\\setup\\AppData\\Local\\Microsoft\\OneDrive",
+                    "extension": "exe",
+                    "name": "OneDriveStandaloneUpdater.exe",
+                    "path": "C:\\Users\\setup\\AppData\\Local\\Microsoft\\OneDrive\\OneDriveStandaloneUpdater.exe"
+                },
+                "host": {
+                    "name": "CLIENT1"
+                },
+                "log": {
+                    "level": "information"
+                },
+                "message": "File created:\nRuleName: EXE\nUtcTime: 2022-10-10 09:57:57.504\nProcessGuid: {0e37ca90-eca3-6343-6200-000000000400}\nProcessId: 4712\nImage: C:\\Windows\\SysWOW64\\OneDriveSetup.exe\nTargetFilename: C:\\Users\\setup\\AppData\\Local\\Microsoft\\OneDrive\\OneDriveStandaloneUpdater.exe\nCreationUtcTime: 2022-10-10 09:57:57.504\nUser: CLIENT1\\setup",
+                "process": {
+                    "entity_id": "{0e37ca90-eca3-6343-6200-000000000400}",
+                    "executable": "C:\\Windows\\SysWOW64\\OneDriveSetup.exe",
+                    "name": "OneDriveSetup.exe",
+                    "pid": 4712
+                },
+                "rule": {
+                    "name": "EXE"
+                },
+                "winlog": {
+                    "api": "wineventlog",
+                    "channel": "Microsoft-Windows-Sysmon/Operational",
+                    "computer_name": "CLIENT1",
+                    "event_data": {
+                        "CreationUtcTime": "2022-10-10 09:57:57.504",
+                        "User": "CLIENT1\\setup"
+                    },
+                    "event_id": 11,
+                    "opcode": "Info",
+                    "process": {
+                        "pid": 2052,
+                        "thread": {
+                            "id": 2532
+                        }
+                    },
+                    "provider_guid": "{5770385f-c22a-43e0-bf4c-06f5698ffbd9}",
+                    "provider_name": "Microsoft-Windows-Sysmon",
+                    "record_id": 1073,
+                    "task": "File created (rule: FileCreate)",
+                    "user": {
+                        "domain": "NT AUTHORITY",
+                        "identifier": "S-1-5-18",
+                        "name": "SYSTEM",
+                        "type": "User"
+                    },
+                    "version": 2
+                }
+            }
+        },
+        "name": "Creation of an Executable by an Executable",
+        "timestamp": "2022-10-10T09:57:57.504+00:00",
+        "authors": [
+            "frack113"
+        ],
+        "level": "low",
+        "source": "sigma",
+        "status": "experimental",
+        "falsepositives": [
+            "Software installers",
+            "Update utilities"
+        ],
+        "id": "297afac9-5d02-4138-8c58-b977bac60556",
+        "logsource": {
+            "category": "file_event",
+            "product": "windows"
+        },
+        "references": [
+            "Malware Sandbox"
+        ],
+        "tags": [
+            "attack.resource_development",
+            "attack.t1587.001"
+        ]
+    },
+    {
+        "group": "Sigma",
+        "kind": "individual",
+        "document": {
+            "kind": "jsonl",
+            "data": {
+                "@timestamp": "2022-10-10T09:59:32.706Z",
+                "agent": {
+                    "ephemeral_id": "64b72b79-c8b3-44d5-8efc-41706d768842",
+                    "hostname": "CLIENT1",
+                    "id": "cd699c72-0f46-4cd9-938a-43faf035a44a",
+                    "name": "CLIENT1",
+                    "type": "winlogbeat",
+                    "version": "7.10.2"
+                },
+                "ecs": {
+                    "version": "1.5.0"
+                },
+                "event": {
+                    "action": "File created (rule: FileCreate)",
+                    "category": [
+                        "file"
+                    ],
+                    "code": 11,
+                    "created": "2022-10-10T10:00:28.233Z",
+                    "kind": "event",
+                    "module": "sysmon",
+                    "provider": "Microsoft-Windows-Sysmon",
+                    "type": [
+                        "creation"
+                    ]
+                },
+                "file": {
+                    "directory": "C:\\Users\\client1\\AppData\\Local\\Microsoft\\OneDrive\\19.043.0304.0013",
+                    "extension": "exe",
+                    "name": "FileCoAuth.exe",
+                    "path": "C:\\Users\\client1\\AppData\\Local\\Microsoft\\OneDrive\\19.043.0304.0013\\FileCoAuth.exe"
+                },
+                "host": {
+                    "name": "CLIENT1.breach.local"
+                },
+                "log": {
+                    "level": "information"
+                },
+                "message": "File created:\nRuleName: EXE\nUtcTime: 2022-10-10 09:59:32.706\nProcessGuid: {0e37ca90-ed02-6343-9f00-000000000500}\nProcessId: 7000\nImage: C:\\Windows\\SysWOW64\\OneDriveSetup.exe\nTargetFilename: C:\\Users\\client1\\AppData\\Local\\Microsoft\\OneDrive\\19.043.0304.0013\\FileCoAuth.exe\nCreationUtcTime: 2022-10-10 09:59:32.706\nUser: BREACH\\client1",
+                "process": {
+                    "entity_id": "{0e37ca90-ed02-6343-9f00-000000000500}",
+                    "executable": "C:\\Windows\\SysWOW64\\OneDriveSetup.exe",
+                    "name": "OneDriveSetup.exe",
+                    "pid": 7000
+                },
+                "rule": {
+                    "name": "EXE"
+                },
+                "winlog": {
+                    "api": "wineventlog",
+                    "channel": "Microsoft-Windows-Sysmon/Operational",
+                    "computer_name": "CLIENT1.breach.local",
+                    "event_data": {
+                        "CreationUtcTime": "2022-10-10 09:59:32.706",
+                        "User": "BREACH\\client1"
+                    },
+                    "event_id": 11,
+                    "opcode": "Info",
+                    "process": {
+                        "pid": 1160,
+                        "thread": {
+                            "id": 2496
+                        }
+                    },
+                    "provider_guid": "{5770385f-c22a-43e0-bf4c-06f5698ffbd9}",
+                    "provider_name": "Microsoft-Windows-Sysmon",
+                    "record_id": 1537,
+                    "task": "File created (rule: FileCreate)",
+                    "user": {
+                        "domain": "NT AUTHORITY",
+                        "identifier": "S-1-5-18",
+                        "name": "SYSTEM",
+                        "type": "User"
+                    },
+                    "version": 2
+                }
+            }
+        },
+        "name": "Creation of an Executable by an Executable",
+        "timestamp": "2022-10-10T09:59:32.706+00:00",
+        "authors": [
+            "frack113"
+        ],
+        "level": "low",
+        "source": "sigma",
+        "status": "experimental",
+        "falsepositives": [
+            "Software installers",
+            "Update utilities"
+        ],
+        "id": "297afac9-5d02-4138-8c58-b977bac60556",
+        "logsource": {
+            "category": "file_event",
+            "product": "windows"
+        },
+        "references": [
+            "Malware Sandbox"
+        ],
+        "tags": [
+            "attack.resource_development",
+            "attack.t1587.001"
+        ]
+    },
+    {
+        "group": "Sigma",
+        "kind": "individual",
+        "document": {
+            "kind": "jsonl",
+            "data": {
+                "@timestamp": "2022-10-10T09:59:33.174Z",
+                "agent": {
+                    "ephemeral_id": "64b72b79-c8b3-44d5-8efc-41706d768842",
+                    "hostname": "CLIENT1",
+                    "id": "cd699c72-0f46-4cd9-938a-43faf035a44a",
+                    "name": "CLIENT1",
+                    "type": "winlogbeat",
+                    "version": "7.10.2"
+                },
+                "ecs": {
+                    "version": "1.5.0"
+                },
+                "event": {
+                    "action": "File created (rule: FileCreate)",
+                    "category": [
+                        "file"
+                    ],
+                    "code": 11,
+                    "created": "2022-10-10T10:00:28.234Z",
+                    "kind": "event",
+                    "module": "sysmon",
+                    "provider": "Microsoft-Windows-Sysmon",
+                    "type": [
+                        "creation"
+                    ]
+                },
+                "file": {
+                    "directory": "C:\\Users\\client1\\AppData\\Local\\Microsoft\\OneDrive\\19.043.0304.0013",
+                    "extension": "exe",
+                    "name": "FileSyncConfig.exe",
+                    "path": "C:\\Users\\client1\\AppData\\Local\\Microsoft\\OneDrive\\19.043.0304.0013\\FileSyncConfig.exe"
+                },
+                "host": {
+                    "name": "CLIENT1.breach.local"
+                },
+                "log": {
+                    "level": "information"
+                },
+                "message": "File created:\nRuleName: EXE\nUtcTime: 2022-10-10 09:59:33.174\nProcessGuid: {0e37ca90-ed02-6343-9f00-000000000500}\nProcessId: 7000\nImage: C:\\Windows\\SysWOW64\\OneDriveSetup.exe\nTargetFilename: C:\\Users\\client1\\AppData\\Local\\Microsoft\\OneDrive\\19.043.0304.0013\\FileSyncConfig.exe\nCreationUtcTime: 2022-10-10 09:59:33.159\nUser: BREACH\\client1",
+                "process": {
+                    "entity_id": "{0e37ca90-ed02-6343-9f00-000000000500}",
+                    "executable": "C:\\Windows\\SysWOW64\\OneDriveSetup.exe",
+                    "name": "OneDriveSetup.exe",
+                    "pid": 7000
+                },
+                "rule": {
+                    "name": "EXE"
+                },
+                "winlog": {
+                    "api": "wineventlog",
+                    "channel": "Microsoft-Windows-Sysmon/Operational",
+                    "computer_name": "CLIENT1.breach.local",
+                    "event_data": {
+                        "CreationUtcTime": "2022-10-10 09:59:33.159",
+                        "User": "BREACH\\client1"
+                    },
+                    "event_id": 11,
+                    "opcode": "Info",
+                    "process": {
+                        "pid": 1160,
+                        "thread": {
+                            "id": 2496
+                        }
+                    },
+                    "provider_guid": "{5770385f-c22a-43e0-bf4c-06f5698ffbd9}",
+                    "provider_name": "Microsoft-Windows-Sysmon",
+                    "record_id": 1543,
+                    "task": "File created (rule: FileCreate)",
+                    "user": {
+                        "domain": "NT AUTHORITY",
+                        "identifier": "S-1-5-18",
+                        "name": "SYSTEM",
+                        "type": "User"
+                    },
+                    "version": 2
+                }
+            }
+        },
+        "name": "Creation of an Executable by an Executable",
+        "timestamp": "2022-10-10T09:59:33.174+00:00",
+        "authors": [
+            "frack113"
+        ],
+        "level": "low",
+        "source": "sigma",
+        "status": "experimental",
+        "falsepositives": [
+            "Software installers",
+            "Update utilities"
+        ],
+        "id": "297afac9-5d02-4138-8c58-b977bac60556",
+        "logsource": {
+            "category": "file_event",
+            "product": "windows"
+        },
+        "references": [
+            "Malware Sandbox"
+        ],
+        "tags": [
+            "attack.resource_development",
+            "attack.t1587.001"
+        ]
+    },
+    {
+        "group": "Sigma",
+        "kind": "individual",
+        "document": {
+            "kind": "jsonl",
+            "data": {
+                "@timestamp": "2022-10-10T09:59:33.878Z",
+                "agent": {
+                    "ephemeral_id": "64b72b79-c8b3-44d5-8efc-41706d768842",
+                    "hostname": "CLIENT1",
+                    "id": "cd699c72-0f46-4cd9-938a-43faf035a44a",
+                    "name": "CLIENT1",
+                    "type": "winlogbeat",
+                    "version": "7.10.2"
+                },
+                "ecs": {
+                    "version": "1.5.0"
+                },
+                "event": {
+                    "action": "File created (rule: FileCreate)",
+                    "category": [
+                        "file"
+                    ],
+                    "code": 11,
+                    "created": "2022-10-10T10:00:28.355Z",
+                    "kind": "event",
+                    "module": "sysmon",
+                    "provider": "Microsoft-Windows-Sysmon",
+                    "type": [
+                        "creation"
+                    ]
+                },
+                "file": {
+                    "directory": "C:\\Users\\client1\\AppData\\Local\\Microsoft\\OneDrive\\19.043.0304.0013",
+                    "extension": "exe",
+                    "name": "FileSyncHelper.exe",
+                    "path": "C:\\Users\\client1\\AppData\\Local\\Microsoft\\OneDrive\\19.043.0304.0013\\FileSyncHelper.exe"
+                },
+                "host": {
+                    "name": "CLIENT1.breach.local"
+                },
+                "log": {
+                    "level": "information"
+                },
+                "message": "File created:\nRuleName: EXE\nUtcTime: 2022-10-10 09:59:33.878\nProcessGuid: {0e37ca90-ed02-6343-9f00-000000000500}\nProcessId: 7000\nImage: C:\\Windows\\SysWOW64\\OneDriveSetup.exe\nTargetFilename: C:\\Users\\client1\\AppData\\Local\\Microsoft\\OneDrive\\19.043.0304.0013\\FileSyncHelper.exe\nCreationUtcTime: 2022-10-10 09:59:33.878\nUser: BREACH\\client1",
+                "process": {
+                    "entity_id": "{0e37ca90-ed02-6343-9f00-000000000500}",
+                    "executable": "C:\\Windows\\SysWOW64\\OneDriveSetup.exe",
+                    "name": "OneDriveSetup.exe",
+                    "pid": 7000
+                },
+                "rule": {
+                    "name": "EXE"
+                },
+                "winlog": {
+                    "api": "wineventlog",
+                    "channel": "Microsoft-Windows-Sysmon/Operational",
+                    "computer_name": "CLIENT1.breach.local",
+                    "event_data": {
+                        "CreationUtcTime": "2022-10-10 09:59:33.878",
+                        "User": "BREACH\\client1"
+                    },
+                    "event_id": 11,
+                    "opcode": "Info",
+                    "process": {
+                        "pid": 1160,
+                        "thread": {
+                            "id": 2496
+                        }
+                    },
+                    "provider_guid": "{5770385f-c22a-43e0-bf4c-06f5698ffbd9}",
+                    "provider_name": "Microsoft-Windows-Sysmon",
+                    "record_id": 1547,
+                    "task": "File created (rule: FileCreate)",
+                    "user": {
+                        "domain": "NT AUTHORITY",
+                        "identifier": "S-1-5-18",
+                        "name": "SYSTEM",
+                        "type": "User"
+                    },
+                    "version": 2
+                }
+            }
+        },
+        "name": "Creation of an Executable by an Executable",
+        "timestamp": "2022-10-10T09:59:33.878+00:00",
+        "authors": [
+            "frack113"
+        ],
+        "level": "low",
+        "source": "sigma",
+        "status": "experimental",
+        "falsepositives": [
+            "Software installers",
+            "Update utilities"
+        ],
+        "id": "297afac9-5d02-4138-8c58-b977bac60556",
+        "logsource": {
+            "category": "file_event",
+            "product": "windows"
+        },
+        "references": [
+            "Malware Sandbox"
+        ],
+        "tags": [
+            "attack.resource_development",
+            "attack.t1587.001"
+        ]
+    },
+    {
+        "group": "Sigma",
+        "kind": "individual",
+        "document": {
+            "kind": "jsonl",
+            "data": {
+                "@timestamp": "2022-10-10T09:59:53.541Z",
+                "agent": {
+                    "ephemeral_id": "64b72b79-c8b3-44d5-8efc-41706d768842",
+                    "hostname": "CLIENT1",
+                    "id": "cd699c72-0f46-4cd9-938a-43faf035a44a",
+                    "name": "CLIENT1",
+                    "type": "winlogbeat",
+                    "version": "7.10.2"
+                },
+                "ecs": {
+                    "version": "1.5.0"
+                },
+                "event": {
+                    "action": "File created (rule: FileCreate)",
+                    "category": [
+                        "file"
+                    ],
+                    "code": 11,
+                    "created": "2022-10-10T10:00:28.361Z",
+                    "kind": "event",
+                    "module": "sysmon",
+                    "provider": "Microsoft-Windows-Sysmon",
+                    "type": [
+                        "creation"
+                    ]
+                },
+                "file": {
+                    "directory": "C:\\Users\\client1\\AppData\\Local\\Microsoft\\OneDrive\\19.043.0304.0013",
+                    "extension": "exe",
+                    "name": "OneDrive.exe",
+                    "path": "C:\\Users\\client1\\AppData\\Local\\Microsoft\\OneDrive\\19.043.0304.0013\\OneDrive.exe"
+                },
+                "host": {
+                    "name": "CLIENT1.breach.local"
+                },
+                "log": {
+                    "level": "information"
+                },
+                "message": "File created:\nRuleName: EXE\nUtcTime: 2022-10-10 09:59:53.541\nProcessGuid: {0e37ca90-ed02-6343-9f00-000000000500}\nProcessId: 7000\nImage: C:\\Windows\\SysWOW64\\OneDriveSetup.exe\nTargetFilename: C:\\Users\\client1\\AppData\\Local\\Microsoft\\OneDrive\\19.043.0304.0013\\OneDrive.exe\nCreationUtcTime: 2022-10-10 09:59:53.541\nUser: BREACH\\client1",
+                "process": {
+                    "entity_id": "{0e37ca90-ed02-6343-9f00-000000000500}",
+                    "executable": "C:\\Windows\\SysWOW64\\OneDriveSetup.exe",
+                    "name": "OneDriveSetup.exe",
+                    "pid": 7000
+                },
+                "rule": {
+                    "name": "EXE"
+                },
+                "winlog": {
+                    "api": "wineventlog",
+                    "channel": "Microsoft-Windows-Sysmon/Operational",
+                    "computer_name": "CLIENT1.breach.local",
+                    "event_data": {
+                        "CreationUtcTime": "2022-10-10 09:59:53.541",
+                        "User": "BREACH\\client1"
+                    },
+                    "event_id": 11,
+                    "opcode": "Info",
+                    "process": {
+                        "pid": 1160,
+                        "thread": {
+                            "id": 2496
+                        }
+                    },
+                    "provider_guid": "{5770385f-c22a-43e0-bf4c-06f5698ffbd9}",
+                    "provider_name": "Microsoft-Windows-Sysmon",
+                    "record_id": 1596,
+                    "task": "File created (rule: FileCreate)",
+                    "user": {
+                        "domain": "NT AUTHORITY",
+                        "identifier": "S-1-5-18",
+                        "name": "SYSTEM",
+                        "type": "User"
+                    },
+                    "version": 2
+                }
+            }
+        },
+        "name": "Creation of an Executable by an Executable",
+        "timestamp": "2022-10-10T09:59:53.541+00:00",
+        "authors": [
+            "frack113"
+        ],
+        "level": "low",
+        "source": "sigma",
+        "status": "experimental",
+        "falsepositives": [
+            "Software installers",
+            "Update utilities"
+        ],
+        "id": "297afac9-5d02-4138-8c58-b977bac60556",
+        "logsource": {
+            "category": "file_event",
+            "product": "windows"
+        },
+        "references": [
+            "Malware Sandbox"
+        ],
+        "tags": [
+            "attack.resource_development",
+            "attack.t1587.001"
+        ]
+    },
+    {
+        "group": "Sigma",
+        "kind": "individual",
+        "document": {
+            "kind": "jsonl",
+            "data": {
+                "@timestamp": "2022-10-10T09:59:59.240Z",
+                "agent": {
+                    "ephemeral_id": "64b72b79-c8b3-44d5-8efc-41706d768842",
+                    "hostname": "CLIENT1",
+                    "id": "cd699c72-0f46-4cd9-938a-43faf035a44a",
+                    "name": "CLIENT1",
+                    "type": "winlogbeat",
+                    "version": "7.10.2"
+                },
+                "ecs": {
+                    "version": "1.5.0"
+                },
+                "event": {
+                    "action": "File created (rule: FileCreate)",
+                    "category": [
+                        "file"
+                    ],
+                    "code": 11,
+                    "created": "2022-10-10T10:00:28.362Z",
+                    "kind": "event",
+                    "module": "sysmon",
+                    "provider": "Microsoft-Windows-Sysmon",
+                    "type": [
+                        "creation"
+                    ]
+                },
+                "file": {
+                    "directory": "C:\\Users\\client1\\AppData\\Local\\Microsoft\\OneDrive\\19.043.0304.0013",
+                    "extension": "exe",
+                    "name": "OneDriveStandaloneUpdater.exe",
+                    "path": "C:\\Users\\client1\\AppData\\Local\\Microsoft\\OneDrive\\19.043.0304.0013\\OneDriveStandaloneUpdater.exe"
+                },
+                "host": {
+                    "name": "CLIENT1.breach.local"
+                },
+                "log": {
+                    "level": "information"
+                },
+                "message": "File created:\nRuleName: EXE\nUtcTime: 2022-10-10 09:59:59.240\nProcessGuid: {0e37ca90-ed02-6343-9f00-000000000500}\nProcessId: 7000\nImage: C:\\Windows\\SysWOW64\\OneDriveSetup.exe\nTargetFilename: C:\\Users\\client1\\AppData\\Local\\Microsoft\\OneDrive\\19.043.0304.0013\\OneDriveStandaloneUpdater.exe\nCreationUtcTime: 2022-10-10 09:59:59.240\nUser: BREACH\\client1",
+                "process": {
+                    "entity_id": "{0e37ca90-ed02-6343-9f00-000000000500}",
+                    "executable": "C:\\Windows\\SysWOW64\\OneDriveSetup.exe",
+                    "name": "OneDriveSetup.exe",
+                    "pid": 7000
+                },
+                "rule": {
+                    "name": "EXE"
+                },
+                "winlog": {
+                    "api": "wineventlog",
+                    "channel": "Microsoft-Windows-Sysmon/Operational",
+                    "computer_name": "CLIENT1.breach.local",
+                    "event_data": {
+                        "CreationUtcTime": "2022-10-10 09:59:59.240",
+                        "User": "BREACH\\client1"
+                    },
+                    "event_id": 11,
+                    "opcode": "Info",
+                    "process": {
+                        "pid": 1160,
+                        "thread": {
+                            "id": 2496
+                        }
+                    },
+                    "provider_guid": "{5770385f-c22a-43e0-bf4c-06f5698ffbd9}",
+                    "provider_name": "Microsoft-Windows-Sysmon",
+                    "record_id": 1611,
+                    "task": "File created (rule: FileCreate)",
+                    "user": {
+                        "domain": "NT AUTHORITY",
+                        "identifier": "S-1-5-18",
+                        "name": "SYSTEM",
+                        "type": "User"
+                    },
+                    "version": 2
+                }
+            }
+        },
+        "name": "Creation of an Executable by an Executable",
+        "timestamp": "2022-10-10T09:59:59.240+00:00",
+        "authors": [
+            "frack113"
+        ],
+        "level": "low",
+        "source": "sigma",
+        "status": "experimental",
+        "falsepositives": [
+            "Software installers",
+            "Update utilities"
+        ],
+        "id": "297afac9-5d02-4138-8c58-b977bac60556",
+        "logsource": {
+            "category": "file_event",
+            "product": "windows"
+        },
+        "references": [
+            "Malware Sandbox"
+        ],
+        "tags": [
+            "attack.resource_development",
+            "attack.t1587.001"
+        ]
+    },
+    {
+        "group": "Sigma",
+        "kind": "individual",
+        "document": {
+            "kind": "jsonl",
+            "data": {
+                "@timestamp": "2022-10-10T10:00:00.581Z",
+                "agent": {
+                    "ephemeral_id": "64b72b79-c8b3-44d5-8efc-41706d768842",
+                    "hostname": "CLIENT1",
+                    "id": "cd699c72-0f46-4cd9-938a-43faf035a44a",
+                    "name": "CLIENT1",
+                    "type": "winlogbeat",
+                    "version": "7.10.2"
+                },
+                "ecs": {
+                    "version": "1.5.0"
+                },
+                "event": {
+                    "action": "File created (rule: FileCreate)",
+                    "category": [
+                        "file"
+                    ],
+                    "code": 11,
+                    "created": "2022-10-10T10:00:28.363Z",
+                    "kind": "event",
+                    "module": "sysmon",
+                    "provider": "Microsoft-Windows-Sysmon",
+                    "type": [
+                        "creation"
+                    ]
+                },
+                "file": {
+                    "directory": "C:\\Users\\client1\\AppData\\Local\\Microsoft\\OneDrive\\19.043.0304.0013",
+                    "extension": "exe",
+                    "name": "OneDriveUpdaterService.exe",
+                    "path": "C:\\Users\\client1\\AppData\\Local\\Microsoft\\OneDrive\\19.043.0304.0013\\OneDriveUpdaterService.exe"
+                },
+                "host": {
+                    "name": "CLIENT1.breach.local"
+                },
+                "log": {
+                    "level": "information"
+                },
+                "message": "File created:\nRuleName: EXE\nUtcTime: 2022-10-10 10:00:00.581\nProcessGuid: {0e37ca90-ed02-6343-9f00-000000000500}\nProcessId: 7000\nImage: C:\\Windows\\SysWOW64\\OneDriveSetup.exe\nTargetFilename: C:\\Users\\client1\\AppData\\Local\\Microsoft\\OneDrive\\19.043.0304.0013\\OneDriveUpdaterService.exe\nCreationUtcTime: 2022-10-10 10:00:00.581\nUser: BREACH\\client1",
+                "process": {
+                    "entity_id": "{0e37ca90-ed02-6343-9f00-000000000500}",
+                    "executable": "C:\\Windows\\SysWOW64\\OneDriveSetup.exe",
+                    "name": "OneDriveSetup.exe",
+                    "pid": 7000
+                },
+                "rule": {
+                    "name": "EXE"
+                },
+                "winlog": {
+                    "api": "wineventlog",
+                    "channel": "Microsoft-Windows-Sysmon/Operational",
+                    "computer_name": "CLIENT1.breach.local",
+                    "event_data": {
+                        "CreationUtcTime": "2022-10-10 10:00:00.581",
+                        "User": "BREACH\\client1"
+                    },
+                    "event_id": 11,
+                    "opcode": "Info",
+                    "process": {
+                        "pid": 1160,
+                        "thread": {
+                            "id": 2496
+                        }
+                    },
+                    "provider_guid": "{5770385f-c22a-43e0-bf4c-06f5698ffbd9}",
+                    "provider_name": "Microsoft-Windows-Sysmon",
+                    "record_id": 1614,
+                    "task": "File created (rule: FileCreate)",
+                    "user": {
+                        "domain": "NT AUTHORITY",
+                        "identifier": "S-1-5-18",
+                        "name": "SYSTEM",
+                        "type": "User"
+                    },
+                    "version": 2
+                }
+            }
+        },
+        "name": "Creation of an Executable by an Executable",
+        "timestamp": "2022-10-10T10:00:00.581+00:00",
+        "authors": [
+            "frack113"
+        ],
+        "level": "low",
+        "source": "sigma",
+        "status": "experimental",
+        "falsepositives": [
+            "Software installers",
+            "Update utilities"
+        ],
+        "id": "297afac9-5d02-4138-8c58-b977bac60556",
+        "logsource": {
+            "category": "file_event",
+            "product": "windows"
+        },
+        "references": [
+            "Malware Sandbox"
+        ],
+        "tags": [
+            "attack.resource_development",
+            "attack.t1587.001"
+        ]
+    },
+    {
+        "group": "Sigma",
+        "kind": "individual",
+        "document": {
+            "kind": "jsonl",
+            "data": {
+                "@timestamp": "2022-10-10T10:02:15.238Z",
+                "agent": {
+                    "ephemeral_id": "64b72b79-c8b3-44d5-8efc-41706d768842",
+                    "hostname": "CLIENT1",
+                    "id": "cd699c72-0f46-4cd9-938a-43faf035a44a",
+                    "name": "CLIENT1",
+                    "type": "winlogbeat",
+                    "version": "7.10.2"
+                },
+                "ecs": {
+                    "version": "1.5.0"
+                },
+                "event": {
+                    "action": "File created (rule: FileCreate)",
+                    "category": [
+                        "file"
+                    ],
+                    "code": 11,
+                    "created": "2022-10-10T10:02:16.882Z",
+                    "kind": "event",
+                    "module": "sysmon",
+                    "provider": "Microsoft-Windows-Sysmon",
+                    "type": [
+                        "creation"
+                    ]
+                },
+                "file": {
+                    "directory": "C:\\Users\\client1\\AppData\\Local\\Microsoft\\OneDrive\\19.043.0304.0013",
+                    "extension": "exe",
+                    "name": "OneDriveSetup.exe",
+                    "path": "C:\\Users\\client1\\AppData\\Local\\Microsoft\\OneDrive\\19.043.0304.0013\\OneDriveSetup.exe"
+                },
+                "host": {
+                    "name": "CLIENT1.breach.local"
+                },
+                "log": {
+                    "level": "information"
+                },
+                "message": "File created:\nRuleName: EXE\nUtcTime: 2022-10-10 10:02:15.238\nProcessGuid: {0e37ca90-ed02-6343-9f00-000000000500}\nProcessId: 7000\nImage: C:\\Windows\\SysWOW64\\OneDriveSetup.exe\nTargetFilename: C:\\Users\\client1\\AppData\\Local\\Microsoft\\OneDrive\\19.043.0304.0013\\OneDriveSetup.exe\nCreationUtcTime: 2022-10-10 10:02:15.238\nUser: BREACH\\client1",
+                "process": {
+                    "entity_id": "{0e37ca90-ed02-6343-9f00-000000000500}",
+                    "executable": "C:\\Windows\\SysWOW64\\OneDriveSetup.exe",
+                    "name": "OneDriveSetup.exe",
+                    "pid": 7000
+                },
+                "rule": {
+                    "name": "EXE"
+                },
+                "winlog": {
+                    "api": "wineventlog",
+                    "channel": "Microsoft-Windows-Sysmon/Operational",
+                    "computer_name": "CLIENT1.breach.local",
+                    "event_data": {
+                        "CreationUtcTime": "2022-10-10 10:02:15.238",
+                        "User": "BREACH\\client1"
+                    },
+                    "event_id": 11,
+                    "opcode": "Info",
+                    "process": {
+                        "pid": 1160,
+                        "thread": {
+                            "id": 2496
+                        }
+                    },
+                    "provider_guid": "{5770385f-c22a-43e0-bf4c-06f5698ffbd9}",
+                    "provider_name": "Microsoft-Windows-Sysmon",
+                    "record_id": 1816,
+                    "task": "File created (rule: FileCreate)",
+                    "user": {
+                        "domain": "NT AUTHORITY",
+                        "identifier": "S-1-5-18",
+                        "name": "SYSTEM",
+                        "type": "User"
+                    },
+                    "version": 2
+                }
+            }
+        },
+        "name": "Creation of an Executable by an Executable",
+        "timestamp": "2022-10-10T10:02:15.238+00:00",
+        "authors": [
+            "frack113"
+        ],
+        "level": "low",
+        "source": "sigma",
+        "status": "experimental",
+        "falsepositives": [
+            "Software installers",
+            "Update utilities"
+        ],
+        "id": "297afac9-5d02-4138-8c58-b977bac60556",
+        "logsource": {
+            "category": "file_event",
+            "product": "windows"
+        },
+        "references": [
+            "Malware Sandbox"
+        ],
+        "tags": [
+            "attack.resource_development",
+            "attack.t1587.001"
+        ]
+    },
+    {
+        "group": "Sigma",
+        "kind": "individual",
+        "document": {
+            "kind": "jsonl",
+            "data": {
+                "@timestamp": "2022-10-10T10:02:15.269Z",
+                "agent": {
+                    "ephemeral_id": "64b72b79-c8b3-44d5-8efc-41706d768842",
+                    "hostname": "CLIENT1",
+                    "id": "cd699c72-0f46-4cd9-938a-43faf035a44a",
+                    "name": "CLIENT1",
+                    "type": "winlogbeat",
+                    "version": "7.10.2"
+                },
+                "ecs": {
+                    "version": "1.5.0"
+                },
+                "event": {
+                    "action": "File created (rule: FileCreate)",
+                    "category": [
+                        "file"
+                    ],
+                    "code": 11,
+                    "created": "2022-10-10T10:02:16.882Z",
+                    "kind": "event",
+                    "module": "sysmon",
+                    "provider": "Microsoft-Windows-Sysmon",
+                    "type": [
+                        "creation"
+                    ]
+                },
+                "file": {
+                    "directory": "C:\\Users\\client1\\AppData\\Local\\Microsoft\\OneDrive",
+                    "extension": "exe",
+                    "name": "OneDrive.exe",
+                    "path": "C:\\Users\\client1\\AppData\\Local\\Microsoft\\OneDrive\\OneDrive.exe"
+                },
+                "host": {
+                    "name": "CLIENT1.breach.local"
+                },
+                "log": {
+                    "level": "information"
+                },
+                "message": "File created:\nRuleName: EXE\nUtcTime: 2022-10-10 10:02:15.269\nProcessGuid: {0e37ca90-ed02-6343-9f00-000000000500}\nProcessId: 7000\nImage: C:\\Windows\\SysWOW64\\OneDriveSetup.exe\nTargetFilename: C:\\Users\\client1\\AppData\\Local\\Microsoft\\OneDrive\\OneDrive.exe\nCreationUtcTime: 2022-10-10 10:02:15.269\nUser: BREACH\\client1",
+                "process": {
+                    "entity_id": "{0e37ca90-ed02-6343-9f00-000000000500}",
+                    "executable": "C:\\Windows\\SysWOW64\\OneDriveSetup.exe",
+                    "name": "OneDriveSetup.exe",
+                    "pid": 7000
+                },
+                "rule": {
+                    "name": "EXE"
+                },
+                "winlog": {
+                    "api": "wineventlog",
+                    "channel": "Microsoft-Windows-Sysmon/Operational",
+                    "computer_name": "CLIENT1.breach.local",
+                    "event_data": {
+                        "CreationUtcTime": "2022-10-10 10:02:15.269",
+                        "User": "BREACH\\client1"
+                    },
+                    "event_id": 11,
+                    "opcode": "Info",
+                    "process": {
+                        "pid": 1160,
+                        "thread": {
+                            "id": 2496
+                        }
+                    },
+                    "provider_guid": "{5770385f-c22a-43e0-bf4c-06f5698ffbd9}",
+                    "provider_name": "Microsoft-Windows-Sysmon",
+                    "record_id": 1817,
+                    "task": "File created (rule: FileCreate)",
+                    "user": {
+                        "domain": "NT AUTHORITY",
+                        "identifier": "S-1-5-18",
+                        "name": "SYSTEM",
+                        "type": "User"
+                    },
+                    "version": 2
+                }
+            }
+        },
+        "name": "Creation of an Executable by an Executable",
+        "timestamp": "2022-10-10T10:02:15.269+00:00",
+        "authors": [
+            "frack113"
+        ],
+        "level": "low",
+        "source": "sigma",
+        "status": "experimental",
+        "falsepositives": [
+            "Software installers",
+            "Update utilities"
+        ],
+        "id": "297afac9-5d02-4138-8c58-b977bac60556",
+        "logsource": {
+            "category": "file_event",
+            "product": "windows"
+        },
+        "references": [
+            "Malware Sandbox"
+        ],
+        "tags": [
+            "attack.resource_development",
+            "attack.t1587.001"
+        ]
+    },
+    {
+        "group": "Sigma",
+        "kind": "individual",
+        "document": {
+            "kind": "jsonl",
+            "data": {
+                "@timestamp": "2022-10-10T10:02:15.307Z",
+                "agent": {
+                    "ephemeral_id": "64b72b79-c8b3-44d5-8efc-41706d768842",
+                    "hostname": "CLIENT1",
+                    "id": "cd699c72-0f46-4cd9-938a-43faf035a44a",
+                    "name": "CLIENT1",
+                    "type": "winlogbeat",
+                    "version": "7.10.2"
+                },
+                "ecs": {
+                    "version": "1.5.0"
+                },
+                "event": {
+                    "action": "File created (rule: FileCreate)",
+                    "category": [
+                        "file"
+                    ],
+                    "code": 11,
+                    "created": "2022-10-10T10:02:16.882Z",
+                    "kind": "event",
+                    "module": "sysmon",
+                    "provider": "Microsoft-Windows-Sysmon",
+                    "type": [
+                        "creation"
+                    ]
+                },
+                "file": {
+                    "directory": "C:\\Users\\client1\\AppData\\Local\\Microsoft\\OneDrive",
+                    "extension": "exe",
+                    "name": "OneDriveStandaloneUpdater.exe",
+                    "path": "C:\\Users\\client1\\AppData\\Local\\Microsoft\\OneDrive\\OneDriveStandaloneUpdater.exe"
+                },
+                "host": {
+                    "name": "CLIENT1.breach.local"
+                },
+                "log": {
+                    "level": "information"
+                },
+                "message": "File created:\nRuleName: EXE\nUtcTime: 2022-10-10 10:02:15.307\nProcessGuid: {0e37ca90-ed02-6343-9f00-000000000500}\nProcessId: 7000\nImage: C:\\Windows\\SysWOW64\\OneDriveSetup.exe\nTargetFilename: C:\\Users\\client1\\AppData\\Local\\Microsoft\\OneDrive\\OneDriveStandaloneUpdater.exe\nCreationUtcTime: 2022-10-10 10:02:15.307\nUser: BREACH\\client1",
+                "process": {
+                    "entity_id": "{0e37ca90-ed02-6343-9f00-000000000500}",
+                    "executable": "C:\\Windows\\SysWOW64\\OneDriveSetup.exe",
+                    "name": "OneDriveSetup.exe",
+                    "pid": 7000
+                },
+                "rule": {
+                    "name": "EXE"
+                },
+                "winlog": {
+                    "api": "wineventlog",
+                    "channel": "Microsoft-Windows-Sysmon/Operational",
+                    "computer_name": "CLIENT1.breach.local",
+                    "event_data": {
+                        "CreationUtcTime": "2022-10-10 10:02:15.307",
+                        "User": "BREACH\\client1"
+                    },
+                    "event_id": 11,
+                    "opcode": "Info",
+                    "process": {
+                        "pid": 1160,
+                        "thread": {
+                            "id": 2496
+                        }
+                    },
+                    "provider_guid": "{5770385f-c22a-43e0-bf4c-06f5698ffbd9}",
+                    "provider_name": "Microsoft-Windows-Sysmon",
+                    "record_id": 1818,
+                    "task": "File created (rule: FileCreate)",
+                    "user": {
+                        "domain": "NT AUTHORITY",
+                        "identifier": "S-1-5-18",
+                        "name": "SYSTEM",
+                        "type": "User"
+                    },
+                    "version": 2
+                }
+            }
+        },
+        "name": "Creation of an Executable by an Executable",
+        "timestamp": "2022-10-10T10:02:15.307+00:00",
+        "authors": [
+            "frack113"
+        ],
+        "level": "low",
+        "source": "sigma",
+        "status": "experimental",
+        "falsepositives": [
+            "Software installers",
+            "Update utilities"
+        ],
+        "id": "297afac9-5d02-4138-8c58-b977bac60556",
+        "logsource": {
+            "category": "file_event",
+            "product": "windows"
+        },
+        "references": [
+            "Malware Sandbox"
+        ],
+        "tags": [
+            "attack.resource_development",
+            "attack.t1587.001"
+        ]
+    },
+    {
+        "group": "Sigma",
+        "kind": "individual",
+        "document": {
+            "kind": "jsonl",
+            "data": {
+                "@timestamp": "2022-10-10T11:01:58.738Z",
+                "agent": {
+                    "ephemeral_id": "64b72b79-c8b3-44d5-8efc-41706d768842",
+                    "hostname": "CLIENT1",
+                    "id": "cd699c72-0f46-4cd9-938a-43faf035a44a",
+                    "name": "CLIENT1",
+                    "type": "winlogbeat",
+                    "version": "7.10.2"
+                },
+                "ecs": {
+                    "version": "1.5.0"
+                },
+                "event": {
+                    "action": "File created (rule: FileCreate)",
+                    "category": [
+                        "file"
+                    ],
+                    "code": 11,
+                    "created": "2022-10-10T11:02:00.005Z",
+                    "kind": "event",
+                    "module": "sysmon",
+                    "provider": "Microsoft-Windows-Sysmon",
+                    "type": [
+                        "creation"
+                    ]
+                },
+                "file": {
+                    "directory": "C:\\Users\\client1\\AppData\\Local\\Temp\\breach_attachments",
+                    "extension": "exe",
+                    "name": "Bank-of-Nuthington.exe",
+                    "path": "C:\\Users\\client1\\AppData\\Local\\Temp\\breach_attachments\\Bank-of-Nuthington.exe"
+                },
+                "host": {
+                    "name": "CLIENT1.breach.local"
+                },
+                "log": {
+                    "level": "information"
+                },
+                "message": "File created:\nRuleName: EXE\nUtcTime: 2022-10-10 11:01:58.738\nProcessGuid: {0e37ca90-ecf4-6343-8f00-000000000500}\nProcessId: 6124\nImage: C:\\Python37\\python.exe\nTargetFilename: C:\\Users\\client1\\AppData\\Local\\Temp\\breach_attachments\\Bank-of-Nuthington.exe\nCreationUtcTime: 2022-10-10 11:01:58.738\nUser: BREACH\\client1",
+                "process": {
+                    "entity_id": "{0e37ca90-ecf4-6343-8f00-000000000500}",
+                    "executable": "C:\\Python37\\python.exe",
+                    "name": "python.exe",
+                    "pid": 6124
+                },
+                "rule": {
+                    "name": "EXE"
+                },
+                "winlog": {
+                    "api": "wineventlog",
+                    "channel": "Microsoft-Windows-Sysmon/Operational",
+                    "computer_name": "CLIENT1.breach.local",
+                    "event_data": {
+                        "CreationUtcTime": "2022-10-10 11:01:58.738",
+                        "User": "BREACH\\client1"
+                    },
+                    "event_id": 11,
+                    "opcode": "Info",
+                    "process": {
+                        "pid": 1160,
+                        "thread": {
+                            "id": 2496
+                        }
+                    },
+                    "provider_guid": "{5770385f-c22a-43e0-bf4c-06f5698ffbd9}",
+                    "provider_name": "Microsoft-Windows-Sysmon",
+                    "record_id": 8953,
+                    "task": "File created (rule: FileCreate)",
+                    "user": {
+                        "domain": "NT AUTHORITY",
+                        "identifier": "S-1-5-18",
+                        "name": "SYSTEM",
+                        "type": "User"
+                    },
+                    "version": 2
+                }
+            }
+        },
+        "name": "Creation of an Executable by an Executable",
+        "timestamp": "2022-10-10T11:01:58.738+00:00",
+        "authors": [
+            "frack113"
+        ],
+        "level": "low",
+        "source": "sigma",
+        "status": "experimental",
+        "falsepositives": [
+            "Software installers",
+            "Update utilities"
+        ],
+        "id": "297afac9-5d02-4138-8c58-b977bac60556",
+        "logsource": {
+            "category": "file_event",
+            "product": "windows"
+        },
+        "references": [
+            "Malware Sandbox"
+        ],
+        "tags": [
+            "attack.resource_development",
+            "attack.t1587.001"
+        ]
+    },
+    {
+        "group": "Sigma",
+        "kind": "individual",
+        "document": {
+            "kind": "jsonl",
+            "data": {
+                "@timestamp": "2022-10-10T11:17:51.120Z",
+                "agent": {
+                    "ephemeral_id": "64b72b79-c8b3-44d5-8efc-41706d768842",
+                    "hostname": "CLIENT1",
+                    "id": "cd699c72-0f46-4cd9-938a-43faf035a44a",
+                    "name": "CLIENT1",
+                    "type": "winlogbeat",
+                    "version": "7.10.2"
+                },
+                "ecs": {
+                    "version": "1.5.0"
+                },
+                "event": {
+                    "action": "File created (rule: FileCreate)",
+                    "category": [
+                        "file"
+                    ],
+                    "code": 11,
+                    "created": "2022-10-10T11:17:52.475Z",
+                    "kind": "event",
+                    "module": "sysmon",
+                    "provider": "Microsoft-Windows-Sysmon",
+                    "type": [
+                        "creation"
+                    ]
+                },
+                "file": {
+                    "directory": "C:\\Windows",
+                    "extension": "exe",
+                    "name": "meterpreter_bind_tcp.exe",
+                    "path": "C:\\Windows\\meterpreter_bind_tcp.exe"
+                },
+                "host": {
+                    "name": "CLIENT1.breach.local"
+                },
+                "log": {
+                    "level": "information"
+                },
+                "message": "File created:\nRuleName: EXE\nUtcTime: 2022-10-10 11:17:51.120\nProcessGuid: {0e37ca90-ff5e-6343-fb11-000000000500}\nProcessId: 4368\nImage: C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\nTargetFilename: C:\\Windows\\meterpreter_bind_tcp.exe\nCreationUtcTime: 2022-10-10 11:17:51.120\nUser: CLIENT1\\ssh",
+                "process": {
+                    "entity_id": "{0e37ca90-ff5e-6343-fb11-000000000500}",
+                    "executable": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+                    "name": "powershell.exe",
+                    "pid": 4368
+                },
+                "rule": {
+                    "name": "EXE"
+                },
+                "winlog": {
+                    "api": "wineventlog",
+                    "channel": "Microsoft-Windows-Sysmon/Operational",
+                    "computer_name": "CLIENT1.breach.local",
+                    "event_data": {
+                        "CreationUtcTime": "2022-10-10 11:17:51.120",
+                        "User": "CLIENT1\\ssh"
+                    },
+                    "event_id": 11,
+                    "opcode": "Info",
+                    "process": {
+                        "pid": 1160,
+                        "thread": {
+                            "id": 2496
+                        }
+                    },
+                    "provider_guid": "{5770385f-c22a-43e0-bf4c-06f5698ffbd9}",
+                    "provider_name": "Microsoft-Windows-Sysmon",
+                    "record_id": 9204,
+                    "task": "File created (rule: FileCreate)",
+                    "user": {
+                        "domain": "NT AUTHORITY",
+                        "identifier": "S-1-5-18",
+                        "name": "SYSTEM",
+                        "type": "User"
+                    },
+                    "version": 2
+                }
+            }
+        },
+        "name": "Creation of an Executable by an Executable",
+        "timestamp": "2022-10-10T11:17:51.120+00:00",
+        "authors": [
+            "frack113"
+        ],
+        "level": "low",
+        "source": "sigma",
+        "status": "experimental",
+        "falsepositives": [
+            "Software installers",
+            "Update utilities"
+        ],
+        "id": "297afac9-5d02-4138-8c58-b977bac60556",
+        "logsource": {
+            "category": "file_event",
+            "product": "windows"
+        },
+        "references": [
+            "Malware Sandbox"
+        ],
+        "tags": [
+            "attack.resource_development",
+            "attack.t1587.001"
+        ]
+    },
+    {
+        "total_hits": 20
+    }
+]

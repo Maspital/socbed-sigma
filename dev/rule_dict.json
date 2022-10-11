@@ -44,7 +44,7 @@
       ],
       "entry3": [
         "document.data.process.command_line",
-        "c:\\windows\\system32\\cmd.exe /c if exist C:\\Windows\\meterpreter_bind_tcp.exe (schtasks /create /sc once /st 23:59 /tn tag_bff33 /tr C:\\Windows\\meterpreter_bind_tcp.exe /ru BREACH\\client1"
+        "c:\\windows\\system32\\cmd.exe /c if exist C:\\Windows\\meterpreter_bind_tcp.exe (schtasks /create /sc once /st 23:59 /tn ANY_WORD_CHAR /tr C:\\Windows\\meterpreter_bind_tcp.exe /ru BREACH\\client1"
       ]
     }
   },
@@ -138,7 +138,7 @@
     "conditions": {
       "entry1": [
         "document.data.winlog.event_data.ImagePath",
-        "cmd.exe /c echo * > \\\\.\\pipe\\*"
+        "cmd.exe /c echo ANY_WORD_CHAR > \\\\.\\pipe\\ANY_WORD_CHAR"
       ]
     }
   },
@@ -153,7 +153,7 @@
     "conditions": {
       "entry1": [
         "document.data.process.command_line",
-        "cmd.exe /c echo * > \\\\.\\pipe\\*"
+        "cmd.exe /c echo ANY_WORD_CHAR > \\\\.\\pipe\\ANY_WORD_CHAR"
       ]
     }
   },
@@ -180,7 +180,7 @@
     "_link": "https://github.com/SigmaHQ/sigma/blob/0.22/rules/windows/builtin/system/win_lsasrv_ntlmv1.yml",
     "_true_hits": [],
     "_false_hits": [
-      "Simple triggered by the usage of NTLMv1 in our network"
+      "Simply triggered by the usage of NTLMv1 in our network"
     ],
     "conditions": {}
   },
@@ -318,7 +318,7 @@
     "conditions": {
       "entry1": [
         "document.data.process.command_line",
-        "cmd.exe /c echo * > \\\\.\\pipe\\*"
+        "cmd.exe /c echo ANY_WORD_CHAR > \\\\.\\pipe\\ANY_WORD_CHAR"
       ]
     }
   },
@@ -362,7 +362,7 @@
     "conditions": {
       "entry1": [
         "document.data.process.command_line",
-        "schtasks  /create /sc once /st 23:59 /tn * /tr C:\\Windows\\meterpreter_bind_tcp.exe /ru BREACH\\client1"
+        "schtasks  /create /sc once /st 23:59 /tn ANY_WORD_CHAR /tr C:\\Windows\\meterpreter_bind_tcp.exe /ru BREACH\\client1"
       ]
     }
   },

@@ -1,0 +1,3986 @@
+[
+    {
+        "group": "Sigma",
+        "kind": "individual",
+        "document": {
+            "kind": "jsonl",
+            "data": {
+                "@timestamp": "2022-10-10T09:56:17.559Z",
+                "agent": {
+                    "ephemeral_id": "64b72b79-c8b3-44d5-8efc-41706d768842",
+                    "hostname": "CLIENT1",
+                    "id": "cd699c72-0f46-4cd9-938a-43faf035a44a",
+                    "name": "CLIENT1",
+                    "type": "winlogbeat",
+                    "version": "7.10.2"
+                },
+                "ecs": {
+                    "version": "1.5.0"
+                },
+                "event": {
+                    "action": "File created (rule: FileCreate)",
+                    "category": [
+                        "file"
+                    ],
+                    "code": 11,
+                    "created": "2022-10-10T10:00:27.237Z",
+                    "kind": "event",
+                    "module": "sysmon",
+                    "provider": "Microsoft-Windows-Sysmon",
+                    "type": [
+                        "creation"
+                    ]
+                },
+                "file": {
+                    "directory": "C:\\Users\\setup\\Downloads",
+                    "extension": "ini",
+                    "name": "desktop.ini",
+                    "path": "C:\\Users\\setup\\Downloads\\desktop.ini"
+                },
+                "host": {
+                    "name": "CLIENT"
+                },
+                "log": {
+                    "level": "information"
+                },
+                "message": "File created:\nRuleName: Downloads\nUtcTime: 2022-10-10 09:56:17.559\nProcessGuid: {0e37ca90-ec3c-6343-4f00-000000000300}\nProcessId: 3200\nImage: C:\\Windows\\Explorer.EXE\nTargetFilename: C:\\Users\\setup\\Downloads\\desktop.ini\nCreationUtcTime: 2022-10-10 09:56:17.559\nUser: CLIENT\\setup",
+                "process": {
+                    "entity_id": "{0e37ca90-ec3c-6343-4f00-000000000300}",
+                    "executable": "C:\\Windows\\Explorer.EXE",
+                    "name": "Explorer.EXE",
+                    "pid": 3200
+                },
+                "rule": {
+                    "name": "Downloads"
+                },
+                "winlog": {
+                    "api": "wineventlog",
+                    "channel": "Microsoft-Windows-Sysmon/Operational",
+                    "computer_name": "CLIENT",
+                    "event_data": {
+                        "CreationUtcTime": "2022-10-10 09:56:17.559",
+                        "User": "CLIENT\\setup"
+                    },
+                    "event_id": 11,
+                    "opcode": "Info",
+                    "process": {
+                        "pid": 1904,
+                        "thread": {
+                            "id": 2536
+                        }
+                    },
+                    "provider_guid": "{5770385f-c22a-43e0-bf4c-06f5698ffbd9}",
+                    "provider_name": "Microsoft-Windows-Sysmon",
+                    "record_id": 694,
+                    "task": "File created (rule: FileCreate)",
+                    "user": {
+                        "domain": "NT AUTHORITY",
+                        "identifier": "S-1-5-18",
+                        "name": "SYSTEM",
+                        "type": "User"
+                    },
+                    "version": 2
+                }
+            }
+        },
+        "name": "DLL Load By System Process From Suspicious Locations",
+        "timestamp": "2022-10-10T09:56:17.559+00:00",
+        "authors": [
+            "Nasreddine Bencherchali"
+        ],
+        "level": "high",
+        "source": "sigma",
+        "status": "experimental",
+        "falsepositives": [
+            "Unknown"
+        ],
+        "id": "9e9a9002-56c4-40fd-9eff-e4b09bfa5f6c",
+        "logsource": {
+            "category": "image_load",
+            "product": "windows"
+        },
+        "references": [
+            "https://github.com/hackerhouse-opensource/iscsicpl_bypassUAC (Idea)"
+        ],
+        "tags": [
+            "attack.defense_evasion",
+            "attack.t1070"
+        ]
+    },
+    {
+        "group": "Sigma",
+        "kind": "individual",
+        "document": {
+            "kind": "jsonl",
+            "data": {
+                "@timestamp": "2022-10-10T09:57:07.858Z",
+                "agent": {
+                    "ephemeral_id": "64b72b79-c8b3-44d5-8efc-41706d768842",
+                    "hostname": "CLIENT1",
+                    "id": "cd699c72-0f46-4cd9-938a-43faf035a44a",
+                    "name": "CLIENT1",
+                    "type": "winlogbeat",
+                    "version": "7.10.2"
+                },
+                "ecs": {
+                    "version": "1.5.0"
+                },
+                "event": {
+                    "action": "File created (rule: FileCreate)",
+                    "category": [
+                        "file"
+                    ],
+                    "code": 11,
+                    "created": "2022-10-10T10:00:27.372Z",
+                    "kind": "event",
+                    "module": "sysmon",
+                    "provider": "Microsoft-Windows-Sysmon",
+                    "type": [
+                        "creation"
+                    ]
+                },
+                "file": {
+                    "directory": "C:\\Users\\setup\\AppData\\Local\\Temp",
+                    "extension": "ps1",
+                    "name": "__PSScriptPolicyTest_wcnezgz1.h1u.ps1",
+                    "path": "C:\\Users\\setup\\AppData\\Local\\Temp\\__PSScriptPolicyTest_wcnezgz1.h1u.ps1"
+                },
+                "host": {
+                    "name": "CLIENT"
+                },
+                "log": {
+                    "level": "information"
+                },
+                "message": "File created:\nRuleName: -\nUtcTime: 2022-10-10 09:57:07.858\nProcessGuid: {0e37ca90-ec73-6343-a700-000000000300}\nProcessId: 6236\nImage: C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\nTargetFilename: C:\\Users\\setup\\AppData\\Local\\Temp\\__PSScriptPolicyTest_wcnezgz1.h1u.ps1\nCreationUtcTime: 2022-10-10 09:57:07.858\nUser: CLIENT\\setup",
+                "process": {
+                    "entity_id": "{0e37ca90-ec73-6343-a700-000000000300}",
+                    "executable": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+                    "name": "powershell.exe",
+                    "pid": 6236
+                },
+                "winlog": {
+                    "api": "wineventlog",
+                    "channel": "Microsoft-Windows-Sysmon/Operational",
+                    "computer_name": "CLIENT",
+                    "event_data": {
+                        "CreationUtcTime": "2022-10-10 09:57:07.858",
+                        "RuleName": "-",
+                        "User": "CLIENT\\setup"
+                    },
+                    "event_id": 11,
+                    "opcode": "Info",
+                    "process": {
+                        "pid": 1904,
+                        "thread": {
+                            "id": 2536
+                        }
+                    },
+                    "provider_guid": "{5770385f-c22a-43e0-bf4c-06f5698ffbd9}",
+                    "provider_name": "Microsoft-Windows-Sysmon",
+                    "record_id": 803,
+                    "task": "File created (rule: FileCreate)",
+                    "user": {
+                        "domain": "NT AUTHORITY",
+                        "identifier": "S-1-5-18",
+                        "name": "SYSTEM",
+                        "type": "User"
+                    },
+                    "version": 2
+                }
+            }
+        },
+        "name": "DLL Load By System Process From Suspicious Locations",
+        "timestamp": "2022-10-10T09:57:07.858+00:00",
+        "authors": [
+            "Nasreddine Bencherchali"
+        ],
+        "level": "high",
+        "source": "sigma",
+        "status": "experimental",
+        "falsepositives": [
+            "Unknown"
+        ],
+        "id": "9e9a9002-56c4-40fd-9eff-e4b09bfa5f6c",
+        "logsource": {
+            "category": "image_load",
+            "product": "windows"
+        },
+        "references": [
+            "https://github.com/hackerhouse-opensource/iscsicpl_bypassUAC (Idea)"
+        ],
+        "tags": [
+            "attack.defense_evasion",
+            "attack.t1070"
+        ]
+    },
+    {
+        "group": "Sigma",
+        "kind": "individual",
+        "document": {
+            "kind": "jsonl",
+            "data": {
+                "@timestamp": "2022-10-10T09:57:09.045Z",
+                "agent": {
+                    "ephemeral_id": "64b72b79-c8b3-44d5-8efc-41706d768842",
+                    "hostname": "CLIENT1",
+                    "id": "cd699c72-0f46-4cd9-938a-43faf035a44a",
+                    "name": "CLIENT1",
+                    "type": "winlogbeat",
+                    "version": "7.10.2"
+                },
+                "ecs": {
+                    "version": "1.5.0"
+                },
+                "event": {
+                    "action": "File created (rule: FileCreate)",
+                    "category": [
+                        "file"
+                    ],
+                    "code": 11,
+                    "created": "2022-10-10T10:00:27.373Z",
+                    "kind": "event",
+                    "module": "sysmon",
+                    "provider": "Microsoft-Windows-Sysmon",
+                    "type": [
+                        "creation"
+                    ]
+                },
+                "file": {
+                    "directory": "C:\\Users\\setup\\AppData\\Local\\Temp",
+                    "extension": "ps1",
+                    "name": "__PSScriptPolicyTest_nfv1qvfc.byb.ps1",
+                    "path": "C:\\Users\\setup\\AppData\\Local\\Temp\\__PSScriptPolicyTest_nfv1qvfc.byb.ps1"
+                },
+                "host": {
+                    "name": "CLIENT"
+                },
+                "log": {
+                    "level": "information"
+                },
+                "message": "File created:\nRuleName: -\nUtcTime: 2022-10-10 09:57:09.045\nProcessGuid: {0e37ca90-ec74-6343-af00-000000000300}\nProcessId: 6520\nImage: C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\nTargetFilename: C:\\Users\\setup\\AppData\\Local\\Temp\\__PSScriptPolicyTest_nfv1qvfc.byb.ps1\nCreationUtcTime: 2022-10-10 09:57:09.045\nUser: CLIENT\\setup",
+                "process": {
+                    "entity_id": "{0e37ca90-ec74-6343-af00-000000000300}",
+                    "executable": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+                    "name": "powershell.exe",
+                    "pid": 6520
+                },
+                "winlog": {
+                    "api": "wineventlog",
+                    "channel": "Microsoft-Windows-Sysmon/Operational",
+                    "computer_name": "CLIENT",
+                    "event_data": {
+                        "CreationUtcTime": "2022-10-10 09:57:09.045",
+                        "RuleName": "-",
+                        "User": "CLIENT\\setup"
+                    },
+                    "event_id": 11,
+                    "opcode": "Info",
+                    "process": {
+                        "pid": 1904,
+                        "thread": {
+                            "id": 2536
+                        }
+                    },
+                    "provider_guid": "{5770385f-c22a-43e0-bf4c-06f5698ffbd9}",
+                    "provider_name": "Microsoft-Windows-Sysmon",
+                    "record_id": 812,
+                    "task": "File created (rule: FileCreate)",
+                    "user": {
+                        "domain": "NT AUTHORITY",
+                        "identifier": "S-1-5-18",
+                        "name": "SYSTEM",
+                        "type": "User"
+                    },
+                    "version": 2
+                }
+            }
+        },
+        "name": "DLL Load By System Process From Suspicious Locations",
+        "timestamp": "2022-10-10T09:57:09.045+00:00",
+        "authors": [
+            "Nasreddine Bencherchali"
+        ],
+        "level": "high",
+        "source": "sigma",
+        "status": "experimental",
+        "falsepositives": [
+            "Unknown"
+        ],
+        "id": "9e9a9002-56c4-40fd-9eff-e4b09bfa5f6c",
+        "logsource": {
+            "category": "image_load",
+            "product": "windows"
+        },
+        "references": [
+            "https://github.com/hackerhouse-opensource/iscsicpl_bypassUAC (Idea)"
+        ],
+        "tags": [
+            "attack.defense_evasion",
+            "attack.t1070"
+        ]
+    },
+    {
+        "group": "Sigma",
+        "kind": "individual",
+        "document": {
+            "kind": "jsonl",
+            "data": {
+                "@timestamp": "2022-10-10T09:57:09.936Z",
+                "agent": {
+                    "ephemeral_id": "64b72b79-c8b3-44d5-8efc-41706d768842",
+                    "hostname": "CLIENT1",
+                    "id": "cd699c72-0f46-4cd9-938a-43faf035a44a",
+                    "name": "CLIENT1",
+                    "type": "winlogbeat",
+                    "version": "7.10.2"
+                },
+                "ecs": {
+                    "version": "1.5.0"
+                },
+                "event": {
+                    "action": "File created (rule: FileCreate)",
+                    "category": [
+                        "file"
+                    ],
+                    "code": 11,
+                    "created": "2022-10-10T10:00:27.374Z",
+                    "kind": "event",
+                    "module": "sysmon",
+                    "provider": "Microsoft-Windows-Sysmon",
+                    "type": [
+                        "creation"
+                    ]
+                },
+                "file": {
+                    "directory": "C:\\Users\\setup\\AppData\\Local\\Temp",
+                    "extension": "ps1",
+                    "name": "__PSScriptPolicyTest_mjtwa3ai.xzo.ps1",
+                    "path": "C:\\Users\\setup\\AppData\\Local\\Temp\\__PSScriptPolicyTest_mjtwa3ai.xzo.ps1"
+                },
+                "host": {
+                    "name": "CLIENT"
+                },
+                "log": {
+                    "level": "information"
+                },
+                "message": "File created:\nRuleName: -\nUtcTime: 2022-10-10 09:57:09.936\nProcessGuid: {0e37ca90-ec75-6343-b200-000000000300}\nProcessId: 6692\nImage: C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\nTargetFilename: C:\\Users\\setup\\AppData\\Local\\Temp\\__PSScriptPolicyTest_mjtwa3ai.xzo.ps1\nCreationUtcTime: 2022-10-10 09:57:09.936\nUser: CLIENT\\setup",
+                "process": {
+                    "entity_id": "{0e37ca90-ec75-6343-b200-000000000300}",
+                    "executable": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+                    "name": "powershell.exe",
+                    "pid": 6692
+                },
+                "winlog": {
+                    "api": "wineventlog",
+                    "channel": "Microsoft-Windows-Sysmon/Operational",
+                    "computer_name": "CLIENT",
+                    "event_data": {
+                        "CreationUtcTime": "2022-10-10 09:57:09.936",
+                        "RuleName": "-",
+                        "User": "CLIENT\\setup"
+                    },
+                    "event_id": 11,
+                    "opcode": "Info",
+                    "process": {
+                        "pid": 1904,
+                        "thread": {
+                            "id": 2536
+                        }
+                    },
+                    "provider_guid": "{5770385f-c22a-43e0-bf4c-06f5698ffbd9}",
+                    "provider_name": "Microsoft-Windows-Sysmon",
+                    "record_id": 816,
+                    "task": "File created (rule: FileCreate)",
+                    "user": {
+                        "domain": "NT AUTHORITY",
+                        "identifier": "S-1-5-18",
+                        "name": "SYSTEM",
+                        "type": "User"
+                    },
+                    "version": 2
+                }
+            }
+        },
+        "name": "DLL Load By System Process From Suspicious Locations",
+        "timestamp": "2022-10-10T09:57:09.936+00:00",
+        "authors": [
+            "Nasreddine Bencherchali"
+        ],
+        "level": "high",
+        "source": "sigma",
+        "status": "experimental",
+        "falsepositives": [
+            "Unknown"
+        ],
+        "id": "9e9a9002-56c4-40fd-9eff-e4b09bfa5f6c",
+        "logsource": {
+            "category": "image_load",
+            "product": "windows"
+        },
+        "references": [
+            "https://github.com/hackerhouse-opensource/iscsicpl_bypassUAC (Idea)"
+        ],
+        "tags": [
+            "attack.defense_evasion",
+            "attack.t1070"
+        ]
+    },
+    {
+        "group": "Sigma",
+        "kind": "individual",
+        "document": {
+            "kind": "jsonl",
+            "data": {
+                "@timestamp": "2022-10-10T09:57:50.676Z",
+                "agent": {
+                    "ephemeral_id": "64b72b79-c8b3-44d5-8efc-41706d768842",
+                    "hostname": "CLIENT1",
+                    "id": "cd699c72-0f46-4cd9-938a-43faf035a44a",
+                    "name": "CLIENT1",
+                    "type": "winlogbeat",
+                    "version": "7.10.2"
+                },
+                "ecs": {
+                    "version": "1.5.0"
+                },
+                "event": {
+                    "action": "File created (rule: FileCreate)",
+                    "category": [
+                        "file"
+                    ],
+                    "code": 11,
+                    "created": "2022-10-10T10:00:27.605Z",
+                    "kind": "event",
+                    "module": "sysmon",
+                    "provider": "Microsoft-Windows-Sysmon",
+                    "type": [
+                        "creation"
+                    ]
+                },
+                "file": {
+                    "directory": "C:\\Users\\setup\\AppData\\Local\\Temp",
+                    "extension": "ps1",
+                    "name": "__PSScriptPolicyTest_4sqaibco.3b5.ps1",
+                    "path": "C:\\Users\\setup\\AppData\\Local\\Temp\\__PSScriptPolicyTest_4sqaibco.3b5.ps1"
+                },
+                "host": {
+                    "name": "CLIENT1"
+                },
+                "log": {
+                    "level": "information"
+                },
+                "message": "File created:\nRuleName: -\nUtcTime: 2022-10-10 09:57:50.676\nProcessGuid: {0e37ca90-ec9e-6343-5900-000000000400}\nProcessId: 4516\nImage: C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\nTargetFilename: C:\\Users\\setup\\AppData\\Local\\Temp\\__PSScriptPolicyTest_4sqaibco.3b5.ps1\nCreationUtcTime: 2022-10-10 09:57:50.676\nUser: CLIENT1\\setup",
+                "process": {
+                    "entity_id": "{0e37ca90-ec9e-6343-5900-000000000400}",
+                    "executable": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+                    "name": "powershell.exe",
+                    "pid": 4516
+                },
+                "winlog": {
+                    "api": "wineventlog",
+                    "channel": "Microsoft-Windows-Sysmon/Operational",
+                    "computer_name": "CLIENT1",
+                    "event_data": {
+                        "CreationUtcTime": "2022-10-10 09:57:50.676",
+                        "RuleName": "-",
+                        "User": "CLIENT1\\setup"
+                    },
+                    "event_id": 11,
+                    "opcode": "Info",
+                    "process": {
+                        "pid": 2052,
+                        "thread": {
+                            "id": 2532
+                        }
+                    },
+                    "provider_guid": "{5770385f-c22a-43e0-bf4c-06f5698ffbd9}",
+                    "provider_name": "Microsoft-Windows-Sysmon",
+                    "record_id": 949,
+                    "task": "File created (rule: FileCreate)",
+                    "user": {
+                        "domain": "NT AUTHORITY",
+                        "identifier": "S-1-5-18",
+                        "name": "SYSTEM",
+                        "type": "User"
+                    },
+                    "version": 2
+                }
+            }
+        },
+        "name": "DLL Load By System Process From Suspicious Locations",
+        "timestamp": "2022-10-10T09:57:50.676+00:00",
+        "authors": [
+            "Nasreddine Bencherchali"
+        ],
+        "level": "high",
+        "source": "sigma",
+        "status": "experimental",
+        "falsepositives": [
+            "Unknown"
+        ],
+        "id": "9e9a9002-56c4-40fd-9eff-e4b09bfa5f6c",
+        "logsource": {
+            "category": "image_load",
+            "product": "windows"
+        },
+        "references": [
+            "https://github.com/hackerhouse-opensource/iscsicpl_bypassUAC (Idea)"
+        ],
+        "tags": [
+            "attack.defense_evasion",
+            "attack.t1070"
+        ]
+    },
+    {
+        "group": "Sigma",
+        "kind": "individual",
+        "document": {
+            "kind": "jsonl",
+            "data": {
+                "@timestamp": "2022-10-10T09:57:51.301Z",
+                "agent": {
+                    "ephemeral_id": "64b72b79-c8b3-44d5-8efc-41706d768842",
+                    "hostname": "CLIENT1",
+                    "id": "cd699c72-0f46-4cd9-938a-43faf035a44a",
+                    "name": "CLIENT1",
+                    "type": "winlogbeat",
+                    "version": "7.10.2"
+                },
+                "ecs": {
+                    "version": "1.5.0"
+                },
+                "event": {
+                    "action": "File created (rule: FileCreate)",
+                    "category": [
+                        "file"
+                    ],
+                    "code": 11,
+                    "created": "2022-10-10T10:00:27.606Z",
+                    "kind": "event",
+                    "module": "sysmon",
+                    "provider": "Microsoft-Windows-Sysmon",
+                    "type": [
+                        "creation"
+                    ]
+                },
+                "file": {
+                    "directory": "C:\\Users\\setup\\AppData\\Local\\Temp",
+                    "extension": "ps1",
+                    "name": "__PSScriptPolicyTest_bnuqdhjz.emn.ps1",
+                    "path": "C:\\Users\\setup\\AppData\\Local\\Temp\\__PSScriptPolicyTest_bnuqdhjz.emn.ps1"
+                },
+                "host": {
+                    "name": "CLIENT1"
+                },
+                "log": {
+                    "level": "information"
+                },
+                "message": "File created:\nRuleName: -\nUtcTime: 2022-10-10 09:57:51.301\nProcessGuid: {0e37ca90-ec9f-6343-6100-000000000400}\nProcessId: 4380\nImage: C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\nTargetFilename: C:\\Users\\setup\\AppData\\Local\\Temp\\__PSScriptPolicyTest_bnuqdhjz.emn.ps1\nCreationUtcTime: 2022-10-10 09:57:51.301\nUser: CLIENT1\\setup",
+                "process": {
+                    "entity_id": "{0e37ca90-ec9f-6343-6100-000000000400}",
+                    "executable": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+                    "name": "powershell.exe",
+                    "pid": 4380
+                },
+                "winlog": {
+                    "api": "wineventlog",
+                    "channel": "Microsoft-Windows-Sysmon/Operational",
+                    "computer_name": "CLIENT1",
+                    "event_data": {
+                        "CreationUtcTime": "2022-10-10 09:57:51.301",
+                        "RuleName": "-",
+                        "User": "CLIENT1\\setup"
+                    },
+                    "event_id": 11,
+                    "opcode": "Info",
+                    "process": {
+                        "pid": 2052,
+                        "thread": {
+                            "id": 2532
+                        }
+                    },
+                    "provider_guid": "{5770385f-c22a-43e0-bf4c-06f5698ffbd9}",
+                    "provider_name": "Microsoft-Windows-Sysmon",
+                    "record_id": 955,
+                    "task": "File created (rule: FileCreate)",
+                    "user": {
+                        "domain": "NT AUTHORITY",
+                        "identifier": "S-1-5-18",
+                        "name": "SYSTEM",
+                        "type": "User"
+                    },
+                    "version": 2
+                }
+            }
+        },
+        "name": "DLL Load By System Process From Suspicious Locations",
+        "timestamp": "2022-10-10T09:57:51.301+00:00",
+        "authors": [
+            "Nasreddine Bencherchali"
+        ],
+        "level": "high",
+        "source": "sigma",
+        "status": "experimental",
+        "falsepositives": [
+            "Unknown"
+        ],
+        "id": "9e9a9002-56c4-40fd-9eff-e4b09bfa5f6c",
+        "logsource": {
+            "category": "image_load",
+            "product": "windows"
+        },
+        "references": [
+            "https://github.com/hackerhouse-opensource/iscsicpl_bypassUAC (Idea)"
+        ],
+        "tags": [
+            "attack.defense_evasion",
+            "attack.t1070"
+        ]
+    },
+    {
+        "group": "Sigma",
+        "kind": "individual",
+        "document": {
+            "kind": "jsonl",
+            "data": {
+                "@timestamp": "2022-10-10T09:57:51.629Z",
+                "agent": {
+                    "ephemeral_id": "64b72b79-c8b3-44d5-8efc-41706d768842",
+                    "hostname": "CLIENT1",
+                    "id": "cd699c72-0f46-4cd9-938a-43faf035a44a",
+                    "name": "CLIENT1",
+                    "type": "winlogbeat",
+                    "version": "7.10.2"
+                },
+                "ecs": {
+                    "version": "1.5.0"
+                },
+                "event": {
+                    "action": "File created (rule: FileCreate)",
+                    "category": [
+                        "file"
+                    ],
+                    "code": 11,
+                    "created": "2022-10-10T10:00:27.606Z",
+                    "kind": "event",
+                    "module": "sysmon",
+                    "provider": "Microsoft-Windows-Sysmon",
+                    "type": [
+                        "creation"
+                    ]
+                },
+                "file": {
+                    "directory": "C:\\Users\\setup\\AppData\\Local\\Temp",
+                    "extension": "ps1",
+                    "name": "__PSScriptPolicyTest_24bwbxip.m2g.ps1",
+                    "path": "C:\\Users\\setup\\AppData\\Local\\Temp\\__PSScriptPolicyTest_24bwbxip.m2g.ps1"
+                },
+                "host": {
+                    "name": "CLIENT1"
+                },
+                "log": {
+                    "level": "information"
+                },
+                "message": "File created:\nRuleName: -\nUtcTime: 2022-10-10 09:57:51.629\nProcessGuid: {0e37ca90-ec9f-6343-6100-000000000400}\nProcessId: 4380\nImage: C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\nTargetFilename: C:\\Users\\setup\\AppData\\Local\\Temp\\__PSScriptPolicyTest_24bwbxip.m2g.ps1\nCreationUtcTime: 2022-10-10 09:57:51.629\nUser: CLIENT1\\setup",
+                "process": {
+                    "entity_id": "{0e37ca90-ec9f-6343-6100-000000000400}",
+                    "executable": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+                    "name": "powershell.exe",
+                    "pid": 4380
+                },
+                "winlog": {
+                    "api": "wineventlog",
+                    "channel": "Microsoft-Windows-Sysmon/Operational",
+                    "computer_name": "CLIENT1",
+                    "event_data": {
+                        "CreationUtcTime": "2022-10-10 09:57:51.629",
+                        "RuleName": "-",
+                        "User": "CLIENT1\\setup"
+                    },
+                    "event_id": 11,
+                    "opcode": "Info",
+                    "process": {
+                        "pid": 2052,
+                        "thread": {
+                            "id": 2532
+                        }
+                    },
+                    "provider_guid": "{5770385f-c22a-43e0-bf4c-06f5698ffbd9}",
+                    "provider_name": "Microsoft-Windows-Sysmon",
+                    "record_id": 956,
+                    "task": "File created (rule: FileCreate)",
+                    "user": {
+                        "domain": "NT AUTHORITY",
+                        "identifier": "S-1-5-18",
+                        "name": "SYSTEM",
+                        "type": "User"
+                    },
+                    "version": 2
+                }
+            }
+        },
+        "name": "DLL Load By System Process From Suspicious Locations",
+        "timestamp": "2022-10-10T09:57:51.629+00:00",
+        "authors": [
+            "Nasreddine Bencherchali"
+        ],
+        "level": "high",
+        "source": "sigma",
+        "status": "experimental",
+        "falsepositives": [
+            "Unknown"
+        ],
+        "id": "9e9a9002-56c4-40fd-9eff-e4b09bfa5f6c",
+        "logsource": {
+            "category": "image_load",
+            "product": "windows"
+        },
+        "references": [
+            "https://github.com/hackerhouse-opensource/iscsicpl_bypassUAC (Idea)"
+        ],
+        "tags": [
+            "attack.defense_evasion",
+            "attack.t1070"
+        ]
+    },
+    {
+        "group": "Sigma",
+        "kind": "individual",
+        "document": {
+            "kind": "jsonl",
+            "data": {
+                "@timestamp": "2022-10-10T09:58:39.357Z",
+                "agent": {
+                    "ephemeral_id": "64b72b79-c8b3-44d5-8efc-41706d768842",
+                    "hostname": "CLIENT1",
+                    "id": "cd699c72-0f46-4cd9-938a-43faf035a44a",
+                    "name": "CLIENT1",
+                    "type": "winlogbeat",
+                    "version": "7.10.2"
+                },
+                "ecs": {
+                    "version": "1.5.0"
+                },
+                "event": {
+                    "action": "File created (rule: FileCreate)",
+                    "category": [
+                        "file"
+                    ],
+                    "code": 11,
+                    "created": "2022-10-10T10:00:28.115Z",
+                    "kind": "event",
+                    "module": "sysmon",
+                    "provider": "Microsoft-Windows-Sysmon",
+                    "type": [
+                        "creation"
+                    ]
+                },
+                "file": {
+                    "directory": "C:\\Users\\client1\\Downloads",
+                    "extension": "ini",
+                    "name": "desktop.ini",
+                    "path": "C:\\Users\\client1\\Downloads\\desktop.ini"
+                },
+                "host": {
+                    "name": "CLIENT1.breach.local"
+                },
+                "log": {
+                    "level": "information"
+                },
+                "message": "File created:\nRuleName: Downloads\nUtcTime: 2022-10-10 09:58:39.357\nProcessGuid: {0e37ca90-eccc-6343-4600-000000000500}\nProcessId: 3508\nImage: C:\\Windows\\Explorer.EXE\nTargetFilename: C:\\Users\\client1\\Downloads\\desktop.ini\nCreationUtcTime: 2022-10-10 09:58:39.357\nUser: BREACH\\client1",
+                "process": {
+                    "entity_id": "{0e37ca90-eccc-6343-4600-000000000500}",
+                    "executable": "C:\\Windows\\Explorer.EXE",
+                    "name": "Explorer.EXE",
+                    "pid": 3508
+                },
+                "rule": {
+                    "name": "Downloads"
+                },
+                "winlog": {
+                    "api": "wineventlog",
+                    "channel": "Microsoft-Windows-Sysmon/Operational",
+                    "computer_name": "CLIENT1.breach.local",
+                    "event_data": {
+                        "CreationUtcTime": "2022-10-10 09:58:39.357",
+                        "User": "BREACH\\client1"
+                    },
+                    "event_id": 11,
+                    "opcode": "Info",
+                    "process": {
+                        "pid": 1160,
+                        "thread": {
+                            "id": 2496
+                        }
+                    },
+                    "provider_guid": "{5770385f-c22a-43e0-bf4c-06f5698ffbd9}",
+                    "provider_name": "Microsoft-Windows-Sysmon",
+                    "record_id": 1408,
+                    "task": "File created (rule: FileCreate)",
+                    "user": {
+                        "domain": "NT AUTHORITY",
+                        "identifier": "S-1-5-18",
+                        "name": "SYSTEM",
+                        "type": "User"
+                    },
+                    "version": 2
+                }
+            }
+        },
+        "name": "DLL Load By System Process From Suspicious Locations",
+        "timestamp": "2022-10-10T09:58:39.357+00:00",
+        "authors": [
+            "Nasreddine Bencherchali"
+        ],
+        "level": "high",
+        "source": "sigma",
+        "status": "experimental",
+        "falsepositives": [
+            "Unknown"
+        ],
+        "id": "9e9a9002-56c4-40fd-9eff-e4b09bfa5f6c",
+        "logsource": {
+            "category": "image_load",
+            "product": "windows"
+        },
+        "references": [
+            "https://github.com/hackerhouse-opensource/iscsicpl_bypassUAC (Idea)"
+        ],
+        "tags": [
+            "attack.defense_evasion",
+            "attack.t1070"
+        ]
+    },
+    {
+        "group": "Sigma",
+        "kind": "individual",
+        "document": {
+            "kind": "jsonl",
+            "data": {
+                "@timestamp": "2022-10-10T10:59:38.913Z",
+                "agent": {
+                    "ephemeral_id": "64b72b79-c8b3-44d5-8efc-41706d768842",
+                    "hostname": "CLIENT1",
+                    "id": "cd699c72-0f46-4cd9-938a-43faf035a44a",
+                    "name": "CLIENT1",
+                    "type": "winlogbeat",
+                    "version": "7.10.2"
+                },
+                "ecs": {
+                    "version": "1.5.0"
+                },
+                "event": {
+                    "action": "File created (rule: FileCreate)",
+                    "category": [
+                        "file"
+                    ],
+                    "code": 11,
+                    "created": "2022-10-10T10:59:39.842Z",
+                    "kind": "event",
+                    "module": "sysmon",
+                    "provider": "Microsoft-Windows-Sysmon",
+                    "type": [
+                        "creation"
+                    ]
+                },
+                "file": {
+                    "directory": "C:\\Users\\client1\\AppData\\Local\\Temp",
+                    "extension": "ps1",
+                    "name": "__PSScriptPolicyTest_gytkypec.00q.ps1",
+                    "path": "C:\\Users\\client1\\AppData\\Local\\Temp\\__PSScriptPolicyTest_gytkypec.00q.ps1"
+                },
+                "host": {
+                    "name": "CLIENT1.breach.local"
+                },
+                "log": {
+                    "level": "information"
+                },
+                "message": "File created:\nRuleName: -\nUtcTime: 2022-10-10 10:59:38.913\nProcessGuid: {0e37ca90-fb1a-6343-bd11-000000000500}\nProcessId: 2272\nImage: C:\\Windows\\System32\\sdiagnhost.exe\nTargetFilename: C:\\Users\\client1\\AppData\\Local\\Temp\\__PSScriptPolicyTest_gytkypec.00q.ps1\nCreationUtcTime: 2022-10-10 10:59:38.913\nUser: BREACH\\client1",
+                "process": {
+                    "entity_id": "{0e37ca90-fb1a-6343-bd11-000000000500}",
+                    "executable": "C:\\Windows\\System32\\sdiagnhost.exe",
+                    "name": "sdiagnhost.exe",
+                    "pid": 2272
+                },
+                "winlog": {
+                    "api": "wineventlog",
+                    "channel": "Microsoft-Windows-Sysmon/Operational",
+                    "computer_name": "CLIENT1.breach.local",
+                    "event_data": {
+                        "CreationUtcTime": "2022-10-10 10:59:38.913",
+                        "RuleName": "-",
+                        "User": "BREACH\\client1"
+                    },
+                    "event_id": 11,
+                    "opcode": "Info",
+                    "process": {
+                        "pid": 1160,
+                        "thread": {
+                            "id": 2496
+                        }
+                    },
+                    "provider_guid": "{5770385f-c22a-43e0-bf4c-06f5698ffbd9}",
+                    "provider_name": "Microsoft-Windows-Sysmon",
+                    "record_id": 8873,
+                    "task": "File created (rule: FileCreate)",
+                    "user": {
+                        "domain": "NT AUTHORITY",
+                        "identifier": "S-1-5-18",
+                        "name": "SYSTEM",
+                        "type": "User"
+                    },
+                    "version": 2
+                }
+            }
+        },
+        "name": "DLL Load By System Process From Suspicious Locations",
+        "timestamp": "2022-10-10T10:59:38.913+00:00",
+        "authors": [
+            "Nasreddine Bencherchali"
+        ],
+        "level": "high",
+        "source": "sigma",
+        "status": "experimental",
+        "falsepositives": [
+            "Unknown"
+        ],
+        "id": "9e9a9002-56c4-40fd-9eff-e4b09bfa5f6c",
+        "logsource": {
+            "category": "image_load",
+            "product": "windows"
+        },
+        "references": [
+            "https://github.com/hackerhouse-opensource/iscsicpl_bypassUAC (Idea)"
+        ],
+        "tags": [
+            "attack.defense_evasion",
+            "attack.t1070"
+        ]
+    },
+    {
+        "group": "Sigma",
+        "kind": "individual",
+        "document": {
+            "kind": "jsonl",
+            "data": {
+                "@timestamp": "2022-10-10T10:59:41.511Z",
+                "agent": {
+                    "ephemeral_id": "64b72b79-c8b3-44d5-8efc-41706d768842",
+                    "hostname": "CLIENT1",
+                    "id": "cd699c72-0f46-4cd9-938a-43faf035a44a",
+                    "name": "CLIENT1",
+                    "type": "winlogbeat",
+                    "version": "7.10.2"
+                },
+                "ecs": {
+                    "version": "1.5.0"
+                },
+                "event": {
+                    "action": "File created (rule: FileCreate)",
+                    "category": [
+                        "file"
+                    ],
+                    "code": 11,
+                    "created": "2022-10-10T10:59:41.889Z",
+                    "kind": "event",
+                    "module": "sysmon",
+                    "provider": "Microsoft-Windows-Sysmon",
+                    "type": [
+                        "creation"
+                    ]
+                },
+                "file": {
+                    "directory": "C:\\Users\\client1\\AppData\\Local\\Temp\\2DBCCDB1-A4DF-4534-93BA-33609C70BE4F",
+                    "extension": "dll",
+                    "name": "AssocProvider.dll",
+                    "path": "C:\\Users\\client1\\AppData\\Local\\Temp\\2DBCCDB1-A4DF-4534-93BA-33609C70BE4F\\AssocProvider.dll"
+                },
+                "host": {
+                    "name": "CLIENT1.breach.local"
+                },
+                "log": {
+                    "level": "information"
+                },
+                "message": "File created:\nRuleName: DLL\nUtcTime: 2022-10-10 10:59:41.511\nProcessGuid: {0e37ca90-fb1a-6343-b111-000000000500}\nProcessId: 6640\nImage: C:\\Windows\\system32\\cleanmgr.exe\nTargetFilename: C:\\Users\\client1\\AppData\\Local\\Temp\\2DBCCDB1-A4DF-4534-93BA-33609C70BE4F\\AssocProvider.dll\nCreationUtcTime: 2022-10-10 10:59:41.511\nUser: BREACH\\client1",
+                "process": {
+                    "entity_id": "{0e37ca90-fb1a-6343-b111-000000000500}",
+                    "executable": "C:\\Windows\\system32\\cleanmgr.exe",
+                    "name": "cleanmgr.exe",
+                    "pid": 6640
+                },
+                "rule": {
+                    "name": "DLL"
+                },
+                "winlog": {
+                    "api": "wineventlog",
+                    "channel": "Microsoft-Windows-Sysmon/Operational",
+                    "computer_name": "CLIENT1.breach.local",
+                    "event_data": {
+                        "CreationUtcTime": "2022-10-10 10:59:41.511",
+                        "User": "BREACH\\client1"
+                    },
+                    "event_id": 11,
+                    "opcode": "Info",
+                    "process": {
+                        "pid": 1160,
+                        "thread": {
+                            "id": 2496
+                        }
+                    },
+                    "provider_guid": "{5770385f-c22a-43e0-bf4c-06f5698ffbd9}",
+                    "provider_name": "Microsoft-Windows-Sysmon",
+                    "record_id": 8882,
+                    "task": "File created (rule: FileCreate)",
+                    "user": {
+                        "domain": "NT AUTHORITY",
+                        "identifier": "S-1-5-18",
+                        "name": "SYSTEM",
+                        "type": "User"
+                    },
+                    "version": 2
+                }
+            }
+        },
+        "name": "DLL Load By System Process From Suspicious Locations",
+        "timestamp": "2022-10-10T10:59:41.511+00:00",
+        "authors": [
+            "Nasreddine Bencherchali"
+        ],
+        "level": "high",
+        "source": "sigma",
+        "status": "experimental",
+        "falsepositives": [
+            "Unknown"
+        ],
+        "id": "9e9a9002-56c4-40fd-9eff-e4b09bfa5f6c",
+        "logsource": {
+            "category": "image_load",
+            "product": "windows"
+        },
+        "references": [
+            "https://github.com/hackerhouse-opensource/iscsicpl_bypassUAC (Idea)"
+        ],
+        "tags": [
+            "attack.defense_evasion",
+            "attack.t1070"
+        ]
+    },
+    {
+        "group": "Sigma",
+        "kind": "individual",
+        "document": {
+            "kind": "jsonl",
+            "data": {
+                "@timestamp": "2022-10-10T10:59:41.511Z",
+                "agent": {
+                    "ephemeral_id": "64b72b79-c8b3-44d5-8efc-41706d768842",
+                    "hostname": "CLIENT1",
+                    "id": "cd699c72-0f46-4cd9-938a-43faf035a44a",
+                    "name": "CLIENT1",
+                    "type": "winlogbeat",
+                    "version": "7.10.2"
+                },
+                "ecs": {
+                    "version": "1.5.0"
+                },
+                "event": {
+                    "action": "File created (rule: FileCreate)",
+                    "category": [
+                        "file"
+                    ],
+                    "code": 11,
+                    "created": "2022-10-10T10:59:41.889Z",
+                    "kind": "event",
+                    "module": "sysmon",
+                    "provider": "Microsoft-Windows-Sysmon",
+                    "type": [
+                        "creation"
+                    ]
+                },
+                "file": {
+                    "directory": "C:\\Users\\client1\\AppData\\Local\\Temp\\2DBCCDB1-A4DF-4534-93BA-33609C70BE4F",
+                    "extension": "dll",
+                    "name": "AppxProvider.dll",
+                    "path": "C:\\Users\\client1\\AppData\\Local\\Temp\\2DBCCDB1-A4DF-4534-93BA-33609C70BE4F\\AppxProvider.dll"
+                },
+                "host": {
+                    "name": "CLIENT1.breach.local"
+                },
+                "log": {
+                    "level": "information"
+                },
+                "message": "File created:\nRuleName: DLL\nUtcTime: 2022-10-10 10:59:41.511\nProcessGuid: {0e37ca90-fb1a-6343-b111-000000000500}\nProcessId: 6640\nImage: C:\\Windows\\system32\\cleanmgr.exe\nTargetFilename: C:\\Users\\client1\\AppData\\Local\\Temp\\2DBCCDB1-A4DF-4534-93BA-33609C70BE4F\\AppxProvider.dll\nCreationUtcTime: 2022-10-10 10:59:41.511\nUser: BREACH\\client1",
+                "process": {
+                    "entity_id": "{0e37ca90-fb1a-6343-b111-000000000500}",
+                    "executable": "C:\\Windows\\system32\\cleanmgr.exe",
+                    "name": "cleanmgr.exe",
+                    "pid": 6640
+                },
+                "rule": {
+                    "name": "DLL"
+                },
+                "winlog": {
+                    "api": "wineventlog",
+                    "channel": "Microsoft-Windows-Sysmon/Operational",
+                    "computer_name": "CLIENT1.breach.local",
+                    "event_data": {
+                        "CreationUtcTime": "2022-10-10 10:59:41.511",
+                        "User": "BREACH\\client1"
+                    },
+                    "event_id": 11,
+                    "opcode": "Info",
+                    "process": {
+                        "pid": 1160,
+                        "thread": {
+                            "id": 2496
+                        }
+                    },
+                    "provider_guid": "{5770385f-c22a-43e0-bf4c-06f5698ffbd9}",
+                    "provider_name": "Microsoft-Windows-Sysmon",
+                    "record_id": 8881,
+                    "task": "File created (rule: FileCreate)",
+                    "user": {
+                        "domain": "NT AUTHORITY",
+                        "identifier": "S-1-5-18",
+                        "name": "SYSTEM",
+                        "type": "User"
+                    },
+                    "version": 2
+                }
+            }
+        },
+        "name": "DLL Load By System Process From Suspicious Locations",
+        "timestamp": "2022-10-10T10:59:41.511+00:00",
+        "authors": [
+            "Nasreddine Bencherchali"
+        ],
+        "level": "high",
+        "source": "sigma",
+        "status": "experimental",
+        "falsepositives": [
+            "Unknown"
+        ],
+        "id": "9e9a9002-56c4-40fd-9eff-e4b09bfa5f6c",
+        "logsource": {
+            "category": "image_load",
+            "product": "windows"
+        },
+        "references": [
+            "https://github.com/hackerhouse-opensource/iscsicpl_bypassUAC (Idea)"
+        ],
+        "tags": [
+            "attack.defense_evasion",
+            "attack.t1070"
+        ]
+    },
+    {
+        "group": "Sigma",
+        "kind": "individual",
+        "document": {
+            "kind": "jsonl",
+            "data": {
+                "@timestamp": "2022-10-10T10:59:41.527Z",
+                "agent": {
+                    "ephemeral_id": "64b72b79-c8b3-44d5-8efc-41706d768842",
+                    "hostname": "CLIENT1",
+                    "id": "cd699c72-0f46-4cd9-938a-43faf035a44a",
+                    "name": "CLIENT1",
+                    "type": "winlogbeat",
+                    "version": "7.10.2"
+                },
+                "ecs": {
+                    "version": "1.5.0"
+                },
+                "event": {
+                    "action": "File created (rule: FileCreate)",
+                    "category": [
+                        "file"
+                    ],
+                    "code": 11,
+                    "created": "2022-10-10T10:59:41.889Z",
+                    "kind": "event",
+                    "module": "sysmon",
+                    "provider": "Microsoft-Windows-Sysmon",
+                    "type": [
+                        "creation"
+                    ]
+                },
+                "file": {
+                    "directory": "C:\\Users\\client1\\AppData\\Local\\Temp\\2DBCCDB1-A4DF-4534-93BA-33609C70BE4F",
+                    "extension": "dll",
+                    "name": "DismCorePS.dll",
+                    "path": "C:\\Users\\client1\\AppData\\Local\\Temp\\2DBCCDB1-A4DF-4534-93BA-33609C70BE4F\\DismCorePS.dll"
+                },
+                "host": {
+                    "name": "CLIENT1.breach.local"
+                },
+                "log": {
+                    "level": "information"
+                },
+                "message": "File created:\nRuleName: DLL\nUtcTime: 2022-10-10 10:59:41.527\nProcessGuid: {0e37ca90-fb1a-6343-b111-000000000500}\nProcessId: 6640\nImage: C:\\Windows\\system32\\cleanmgr.exe\nTargetFilename: C:\\Users\\client1\\AppData\\Local\\Temp\\2DBCCDB1-A4DF-4534-93BA-33609C70BE4F\\DismCorePS.dll\nCreationUtcTime: 2022-10-10 10:59:41.527\nUser: BREACH\\client1",
+                "process": {
+                    "entity_id": "{0e37ca90-fb1a-6343-b111-000000000500}",
+                    "executable": "C:\\Windows\\system32\\cleanmgr.exe",
+                    "name": "cleanmgr.exe",
+                    "pid": 6640
+                },
+                "rule": {
+                    "name": "DLL"
+                },
+                "winlog": {
+                    "api": "wineventlog",
+                    "channel": "Microsoft-Windows-Sysmon/Operational",
+                    "computer_name": "CLIENT1.breach.local",
+                    "event_data": {
+                        "CreationUtcTime": "2022-10-10 10:59:41.527",
+                        "User": "BREACH\\client1"
+                    },
+                    "event_id": 11,
+                    "opcode": "Info",
+                    "process": {
+                        "pid": 1160,
+                        "thread": {
+                            "id": 2496
+                        }
+                    },
+                    "provider_guid": "{5770385f-c22a-43e0-bf4c-06f5698ffbd9}",
+                    "provider_name": "Microsoft-Windows-Sysmon",
+                    "record_id": 8885,
+                    "task": "File created (rule: FileCreate)",
+                    "user": {
+                        "domain": "NT AUTHORITY",
+                        "identifier": "S-1-5-18",
+                        "name": "SYSTEM",
+                        "type": "User"
+                    },
+                    "version": 2
+                }
+            }
+        },
+        "name": "DLL Load By System Process From Suspicious Locations",
+        "timestamp": "2022-10-10T10:59:41.527+00:00",
+        "authors": [
+            "Nasreddine Bencherchali"
+        ],
+        "level": "high",
+        "source": "sigma",
+        "status": "experimental",
+        "falsepositives": [
+            "Unknown"
+        ],
+        "id": "9e9a9002-56c4-40fd-9eff-e4b09bfa5f6c",
+        "logsource": {
+            "category": "image_load",
+            "product": "windows"
+        },
+        "references": [
+            "https://github.com/hackerhouse-opensource/iscsicpl_bypassUAC (Idea)"
+        ],
+        "tags": [
+            "attack.defense_evasion",
+            "attack.t1070"
+        ]
+    },
+    {
+        "group": "Sigma",
+        "kind": "individual",
+        "document": {
+            "kind": "jsonl",
+            "data": {
+                "@timestamp": "2022-10-10T10:59:41.527Z",
+                "agent": {
+                    "ephemeral_id": "64b72b79-c8b3-44d5-8efc-41706d768842",
+                    "hostname": "CLIENT1",
+                    "id": "cd699c72-0f46-4cd9-938a-43faf035a44a",
+                    "name": "CLIENT1",
+                    "type": "winlogbeat",
+                    "version": "7.10.2"
+                },
+                "ecs": {
+                    "version": "1.5.0"
+                },
+                "event": {
+                    "action": "File created (rule: FileCreate)",
+                    "category": [
+                        "file"
+                    ],
+                    "code": 11,
+                    "created": "2022-10-10T10:59:41.889Z",
+                    "kind": "event",
+                    "module": "sysmon",
+                    "provider": "Microsoft-Windows-Sysmon",
+                    "type": [
+                        "creation"
+                    ]
+                },
+                "file": {
+                    "directory": "C:\\Users\\client1\\AppData\\Local\\Temp\\2DBCCDB1-A4DF-4534-93BA-33609C70BE4F",
+                    "extension": "dll",
+                    "name": "CbsProvider.dll",
+                    "path": "C:\\Users\\client1\\AppData\\Local\\Temp\\2DBCCDB1-A4DF-4534-93BA-33609C70BE4F\\CbsProvider.dll"
+                },
+                "host": {
+                    "name": "CLIENT1.breach.local"
+                },
+                "log": {
+                    "level": "information"
+                },
+                "message": "File created:\nRuleName: DLL\nUtcTime: 2022-10-10 10:59:41.527\nProcessGuid: {0e37ca90-fb1a-6343-b111-000000000500}\nProcessId: 6640\nImage: C:\\Windows\\system32\\cleanmgr.exe\nTargetFilename: C:\\Users\\client1\\AppData\\Local\\Temp\\2DBCCDB1-A4DF-4534-93BA-33609C70BE4F\\CbsProvider.dll\nCreationUtcTime: 2022-10-10 10:59:41.527\nUser: BREACH\\client1",
+                "process": {
+                    "entity_id": "{0e37ca90-fb1a-6343-b111-000000000500}",
+                    "executable": "C:\\Windows\\system32\\cleanmgr.exe",
+                    "name": "cleanmgr.exe",
+                    "pid": 6640
+                },
+                "rule": {
+                    "name": "DLL"
+                },
+                "winlog": {
+                    "api": "wineventlog",
+                    "channel": "Microsoft-Windows-Sysmon/Operational",
+                    "computer_name": "CLIENT1.breach.local",
+                    "event_data": {
+                        "CreationUtcTime": "2022-10-10 10:59:41.527",
+                        "User": "BREACH\\client1"
+                    },
+                    "event_id": 11,
+                    "opcode": "Info",
+                    "process": {
+                        "pid": 1160,
+                        "thread": {
+                            "id": 2496
+                        }
+                    },
+                    "provider_guid": "{5770385f-c22a-43e0-bf4c-06f5698ffbd9}",
+                    "provider_name": "Microsoft-Windows-Sysmon",
+                    "record_id": 8883,
+                    "task": "File created (rule: FileCreate)",
+                    "user": {
+                        "domain": "NT AUTHORITY",
+                        "identifier": "S-1-5-18",
+                        "name": "SYSTEM",
+                        "type": "User"
+                    },
+                    "version": 2
+                }
+            }
+        },
+        "name": "DLL Load By System Process From Suspicious Locations",
+        "timestamp": "2022-10-10T10:59:41.527+00:00",
+        "authors": [
+            "Nasreddine Bencherchali"
+        ],
+        "level": "high",
+        "source": "sigma",
+        "status": "experimental",
+        "falsepositives": [
+            "Unknown"
+        ],
+        "id": "9e9a9002-56c4-40fd-9eff-e4b09bfa5f6c",
+        "logsource": {
+            "category": "image_load",
+            "product": "windows"
+        },
+        "references": [
+            "https://github.com/hackerhouse-opensource/iscsicpl_bypassUAC (Idea)"
+        ],
+        "tags": [
+            "attack.defense_evasion",
+            "attack.t1070"
+        ]
+    },
+    {
+        "group": "Sigma",
+        "kind": "individual",
+        "document": {
+            "kind": "jsonl",
+            "data": {
+                "@timestamp": "2022-10-10T10:59:41.527Z",
+                "agent": {
+                    "ephemeral_id": "64b72b79-c8b3-44d5-8efc-41706d768842",
+                    "hostname": "CLIENT1",
+                    "id": "cd699c72-0f46-4cd9-938a-43faf035a44a",
+                    "name": "CLIENT1",
+                    "type": "winlogbeat",
+                    "version": "7.10.2"
+                },
+                "ecs": {
+                    "version": "1.5.0"
+                },
+                "event": {
+                    "action": "File created (rule: FileCreate)",
+                    "category": [
+                        "file"
+                    ],
+                    "code": 11,
+                    "created": "2022-10-10T10:59:41.889Z",
+                    "kind": "event",
+                    "module": "sysmon",
+                    "provider": "Microsoft-Windows-Sysmon",
+                    "type": [
+                        "creation"
+                    ]
+                },
+                "file": {
+                    "directory": "C:\\Users\\client1\\AppData\\Local\\Temp\\2DBCCDB1-A4DF-4534-93BA-33609C70BE4F",
+                    "extension": "dll",
+                    "name": "DismCore.dll",
+                    "path": "C:\\Users\\client1\\AppData\\Local\\Temp\\2DBCCDB1-A4DF-4534-93BA-33609C70BE4F\\DismCore.dll"
+                },
+                "host": {
+                    "name": "CLIENT1.breach.local"
+                },
+                "log": {
+                    "level": "information"
+                },
+                "message": "File created:\nRuleName: DLL\nUtcTime: 2022-10-10 10:59:41.527\nProcessGuid: {0e37ca90-fb1a-6343-b111-000000000500}\nProcessId: 6640\nImage: C:\\Windows\\system32\\cleanmgr.exe\nTargetFilename: C:\\Users\\client1\\AppData\\Local\\Temp\\2DBCCDB1-A4DF-4534-93BA-33609C70BE4F\\DismCore.dll\nCreationUtcTime: 2022-10-10 10:59:41.527\nUser: BREACH\\client1",
+                "process": {
+                    "entity_id": "{0e37ca90-fb1a-6343-b111-000000000500}",
+                    "executable": "C:\\Windows\\system32\\cleanmgr.exe",
+                    "name": "cleanmgr.exe",
+                    "pid": 6640
+                },
+                "rule": {
+                    "name": "DLL"
+                },
+                "winlog": {
+                    "api": "wineventlog",
+                    "channel": "Microsoft-Windows-Sysmon/Operational",
+                    "computer_name": "CLIENT1.breach.local",
+                    "event_data": {
+                        "CreationUtcTime": "2022-10-10 10:59:41.527",
+                        "User": "BREACH\\client1"
+                    },
+                    "event_id": 11,
+                    "opcode": "Info",
+                    "process": {
+                        "pid": 1160,
+                        "thread": {
+                            "id": 2496
+                        }
+                    },
+                    "provider_guid": "{5770385f-c22a-43e0-bf4c-06f5698ffbd9}",
+                    "provider_name": "Microsoft-Windows-Sysmon",
+                    "record_id": 8884,
+                    "task": "File created (rule: FileCreate)",
+                    "user": {
+                        "domain": "NT AUTHORITY",
+                        "identifier": "S-1-5-18",
+                        "name": "SYSTEM",
+                        "type": "User"
+                    },
+                    "version": 2
+                }
+            }
+        },
+        "name": "DLL Load By System Process From Suspicious Locations",
+        "timestamp": "2022-10-10T10:59:41.527+00:00",
+        "authors": [
+            "Nasreddine Bencherchali"
+        ],
+        "level": "high",
+        "source": "sigma",
+        "status": "experimental",
+        "falsepositives": [
+            "Unknown"
+        ],
+        "id": "9e9a9002-56c4-40fd-9eff-e4b09bfa5f6c",
+        "logsource": {
+            "category": "image_load",
+            "product": "windows"
+        },
+        "references": [
+            "https://github.com/hackerhouse-opensource/iscsicpl_bypassUAC (Idea)"
+        ],
+        "tags": [
+            "attack.defense_evasion",
+            "attack.t1070"
+        ]
+    },
+    {
+        "group": "Sigma",
+        "kind": "individual",
+        "document": {
+            "kind": "jsonl",
+            "data": {
+                "@timestamp": "2022-10-10T10:59:41.527Z",
+                "agent": {
+                    "ephemeral_id": "64b72b79-c8b3-44d5-8efc-41706d768842",
+                    "hostname": "CLIENT1",
+                    "id": "cd699c72-0f46-4cd9-938a-43faf035a44a",
+                    "name": "CLIENT1",
+                    "type": "winlogbeat",
+                    "version": "7.10.2"
+                },
+                "ecs": {
+                    "version": "1.5.0"
+                },
+                "event": {
+                    "action": "File created (rule: FileCreate)",
+                    "category": [
+                        "file"
+                    ],
+                    "code": 11,
+                    "created": "2022-10-10T10:59:41.889Z",
+                    "kind": "event",
+                    "module": "sysmon",
+                    "provider": "Microsoft-Windows-Sysmon",
+                    "type": [
+                        "creation"
+                    ]
+                },
+                "file": {
+                    "directory": "C:\\Users\\client1\\AppData\\Local\\Temp\\2DBCCDB1-A4DF-4534-93BA-33609C70BE4F",
+                    "extension": "dll",
+                    "name": "DismProv.dll",
+                    "path": "C:\\Users\\client1\\AppData\\Local\\Temp\\2DBCCDB1-A4DF-4534-93BA-33609C70BE4F\\DismProv.dll"
+                },
+                "host": {
+                    "name": "CLIENT1.breach.local"
+                },
+                "log": {
+                    "level": "information"
+                },
+                "message": "File created:\nRuleName: DLL\nUtcTime: 2022-10-10 10:59:41.527\nProcessGuid: {0e37ca90-fb1a-6343-b111-000000000500}\nProcessId: 6640\nImage: C:\\Windows\\system32\\cleanmgr.exe\nTargetFilename: C:\\Users\\client1\\AppData\\Local\\Temp\\2DBCCDB1-A4DF-4534-93BA-33609C70BE4F\\DismProv.dll\nCreationUtcTime: 2022-10-10 10:59:41.527\nUser: BREACH\\client1",
+                "process": {
+                    "entity_id": "{0e37ca90-fb1a-6343-b111-000000000500}",
+                    "executable": "C:\\Windows\\system32\\cleanmgr.exe",
+                    "name": "cleanmgr.exe",
+                    "pid": 6640
+                },
+                "rule": {
+                    "name": "DLL"
+                },
+                "winlog": {
+                    "api": "wineventlog",
+                    "channel": "Microsoft-Windows-Sysmon/Operational",
+                    "computer_name": "CLIENT1.breach.local",
+                    "event_data": {
+                        "CreationUtcTime": "2022-10-10 10:59:41.527",
+                        "User": "BREACH\\client1"
+                    },
+                    "event_id": 11,
+                    "opcode": "Info",
+                    "process": {
+                        "pid": 1160,
+                        "thread": {
+                            "id": 2496
+                        }
+                    },
+                    "provider_guid": "{5770385f-c22a-43e0-bf4c-06f5698ffbd9}",
+                    "provider_name": "Microsoft-Windows-Sysmon",
+                    "record_id": 8887,
+                    "task": "File created (rule: FileCreate)",
+                    "user": {
+                        "domain": "NT AUTHORITY",
+                        "identifier": "S-1-5-18",
+                        "name": "SYSTEM",
+                        "type": "User"
+                    },
+                    "version": 2
+                }
+            }
+        },
+        "name": "DLL Load By System Process From Suspicious Locations",
+        "timestamp": "2022-10-10T10:59:41.527+00:00",
+        "authors": [
+            "Nasreddine Bencherchali"
+        ],
+        "level": "high",
+        "source": "sigma",
+        "status": "experimental",
+        "falsepositives": [
+            "Unknown"
+        ],
+        "id": "9e9a9002-56c4-40fd-9eff-e4b09bfa5f6c",
+        "logsource": {
+            "category": "image_load",
+            "product": "windows"
+        },
+        "references": [
+            "https://github.com/hackerhouse-opensource/iscsicpl_bypassUAC (Idea)"
+        ],
+        "tags": [
+            "attack.defense_evasion",
+            "attack.t1070"
+        ]
+    },
+    {
+        "group": "Sigma",
+        "kind": "individual",
+        "document": {
+            "kind": "jsonl",
+            "data": {
+                "@timestamp": "2022-10-10T10:59:41.527Z",
+                "agent": {
+                    "ephemeral_id": "64b72b79-c8b3-44d5-8efc-41706d768842",
+                    "hostname": "CLIENT1",
+                    "id": "cd699c72-0f46-4cd9-938a-43faf035a44a",
+                    "name": "CLIENT1",
+                    "type": "winlogbeat",
+                    "version": "7.10.2"
+                },
+                "ecs": {
+                    "version": "1.5.0"
+                },
+                "event": {
+                    "action": "File created (rule: FileCreate)",
+                    "category": [
+                        "file"
+                    ],
+                    "code": 11,
+                    "created": "2022-10-10T10:59:41.889Z",
+                    "kind": "event",
+                    "module": "sysmon",
+                    "provider": "Microsoft-Windows-Sysmon",
+                    "type": [
+                        "creation"
+                    ]
+                },
+                "file": {
+                    "directory": "C:\\Users\\client1\\AppData\\Local\\Temp\\2DBCCDB1-A4DF-4534-93BA-33609C70BE4F",
+                    "extension": "dll",
+                    "name": "DmiProvider.dll",
+                    "path": "C:\\Users\\client1\\AppData\\Local\\Temp\\2DBCCDB1-A4DF-4534-93BA-33609C70BE4F\\DmiProvider.dll"
+                },
+                "host": {
+                    "name": "CLIENT1.breach.local"
+                },
+                "log": {
+                    "level": "information"
+                },
+                "message": "File created:\nRuleName: DLL\nUtcTime: 2022-10-10 10:59:41.527\nProcessGuid: {0e37ca90-fb1a-6343-b111-000000000500}\nProcessId: 6640\nImage: C:\\Windows\\system32\\cleanmgr.exe\nTargetFilename: C:\\Users\\client1\\AppData\\Local\\Temp\\2DBCCDB1-A4DF-4534-93BA-33609C70BE4F\\DmiProvider.dll\nCreationUtcTime: 2022-10-10 10:59:41.527\nUser: BREACH\\client1",
+                "process": {
+                    "entity_id": "{0e37ca90-fb1a-6343-b111-000000000500}",
+                    "executable": "C:\\Windows\\system32\\cleanmgr.exe",
+                    "name": "cleanmgr.exe",
+                    "pid": 6640
+                },
+                "rule": {
+                    "name": "DLL"
+                },
+                "winlog": {
+                    "api": "wineventlog",
+                    "channel": "Microsoft-Windows-Sysmon/Operational",
+                    "computer_name": "CLIENT1.breach.local",
+                    "event_data": {
+                        "CreationUtcTime": "2022-10-10 10:59:41.527",
+                        "User": "BREACH\\client1"
+                    },
+                    "event_id": 11,
+                    "opcode": "Info",
+                    "process": {
+                        "pid": 1160,
+                        "thread": {
+                            "id": 2496
+                        }
+                    },
+                    "provider_guid": "{5770385f-c22a-43e0-bf4c-06f5698ffbd9}",
+                    "provider_name": "Microsoft-Windows-Sysmon",
+                    "record_id": 8888,
+                    "task": "File created (rule: FileCreate)",
+                    "user": {
+                        "domain": "NT AUTHORITY",
+                        "identifier": "S-1-5-18",
+                        "name": "SYSTEM",
+                        "type": "User"
+                    },
+                    "version": 2
+                }
+            }
+        },
+        "name": "DLL Load By System Process From Suspicious Locations",
+        "timestamp": "2022-10-10T10:59:41.527+00:00",
+        "authors": [
+            "Nasreddine Bencherchali"
+        ],
+        "level": "high",
+        "source": "sigma",
+        "status": "experimental",
+        "falsepositives": [
+            "Unknown"
+        ],
+        "id": "9e9a9002-56c4-40fd-9eff-e4b09bfa5f6c",
+        "logsource": {
+            "category": "image_load",
+            "product": "windows"
+        },
+        "references": [
+            "https://github.com/hackerhouse-opensource/iscsicpl_bypassUAC (Idea)"
+        ],
+        "tags": [
+            "attack.defense_evasion",
+            "attack.t1070"
+        ]
+    },
+    {
+        "group": "Sigma",
+        "kind": "individual",
+        "document": {
+            "kind": "jsonl",
+            "data": {
+                "@timestamp": "2022-10-10T10:59:41.527Z",
+                "agent": {
+                    "ephemeral_id": "64b72b79-c8b3-44d5-8efc-41706d768842",
+                    "hostname": "CLIENT1",
+                    "id": "cd699c72-0f46-4cd9-938a-43faf035a44a",
+                    "name": "CLIENT1",
+                    "type": "winlogbeat",
+                    "version": "7.10.2"
+                },
+                "ecs": {
+                    "version": "1.5.0"
+                },
+                "event": {
+                    "action": "File created (rule: FileCreate)",
+                    "category": [
+                        "file"
+                    ],
+                    "code": 11,
+                    "created": "2022-10-10T10:59:41.889Z",
+                    "kind": "event",
+                    "module": "sysmon",
+                    "provider": "Microsoft-Windows-Sysmon",
+                    "type": [
+                        "creation"
+                    ]
+                },
+                "file": {
+                    "directory": "C:\\Users\\client1\\AppData\\Local\\Temp\\2DBCCDB1-A4DF-4534-93BA-33609C70BE4F",
+                    "extension": "exe",
+                    "name": "DismHost.exe",
+                    "path": "C:\\Users\\client1\\AppData\\Local\\Temp\\2DBCCDB1-A4DF-4534-93BA-33609C70BE4F\\DismHost.exe"
+                },
+                "host": {
+                    "name": "CLIENT1.breach.local"
+                },
+                "log": {
+                    "level": "information"
+                },
+                "message": "File created:\nRuleName: EXE\nUtcTime: 2022-10-10 10:59:41.527\nProcessGuid: {0e37ca90-fb1a-6343-b111-000000000500}\nProcessId: 6640\nImage: C:\\Windows\\system32\\cleanmgr.exe\nTargetFilename: C:\\Users\\client1\\AppData\\Local\\Temp\\2DBCCDB1-A4DF-4534-93BA-33609C70BE4F\\DismHost.exe\nCreationUtcTime: 2022-10-10 10:59:41.527\nUser: BREACH\\client1",
+                "process": {
+                    "entity_id": "{0e37ca90-fb1a-6343-b111-000000000500}",
+                    "executable": "C:\\Windows\\system32\\cleanmgr.exe",
+                    "name": "cleanmgr.exe",
+                    "pid": 6640
+                },
+                "rule": {
+                    "name": "EXE"
+                },
+                "winlog": {
+                    "api": "wineventlog",
+                    "channel": "Microsoft-Windows-Sysmon/Operational",
+                    "computer_name": "CLIENT1.breach.local",
+                    "event_data": {
+                        "CreationUtcTime": "2022-10-10 10:59:41.527",
+                        "User": "BREACH\\client1"
+                    },
+                    "event_id": 11,
+                    "opcode": "Info",
+                    "process": {
+                        "pid": 1160,
+                        "thread": {
+                            "id": 2496
+                        }
+                    },
+                    "provider_guid": "{5770385f-c22a-43e0-bf4c-06f5698ffbd9}",
+                    "provider_name": "Microsoft-Windows-Sysmon",
+                    "record_id": 8886,
+                    "task": "File created (rule: FileCreate)",
+                    "user": {
+                        "domain": "NT AUTHORITY",
+                        "identifier": "S-1-5-18",
+                        "name": "SYSTEM",
+                        "type": "User"
+                    },
+                    "version": 2
+                }
+            }
+        },
+        "name": "DLL Load By System Process From Suspicious Locations",
+        "timestamp": "2022-10-10T10:59:41.527+00:00",
+        "authors": [
+            "Nasreddine Bencherchali"
+        ],
+        "level": "high",
+        "source": "sigma",
+        "status": "experimental",
+        "falsepositives": [
+            "Unknown"
+        ],
+        "id": "9e9a9002-56c4-40fd-9eff-e4b09bfa5f6c",
+        "logsource": {
+            "category": "image_load",
+            "product": "windows"
+        },
+        "references": [
+            "https://github.com/hackerhouse-opensource/iscsicpl_bypassUAC (Idea)"
+        ],
+        "tags": [
+            "attack.defense_evasion",
+            "attack.t1070"
+        ]
+    },
+    {
+        "group": "Sigma",
+        "kind": "individual",
+        "document": {
+            "kind": "jsonl",
+            "data": {
+                "@timestamp": "2022-10-10T10:59:41.559Z",
+                "agent": {
+                    "ephemeral_id": "64b72b79-c8b3-44d5-8efc-41706d768842",
+                    "hostname": "CLIENT1",
+                    "id": "cd699c72-0f46-4cd9-938a-43faf035a44a",
+                    "name": "CLIENT1",
+                    "type": "winlogbeat",
+                    "version": "7.10.2"
+                },
+                "ecs": {
+                    "version": "1.5.0"
+                },
+                "event": {
+                    "action": "File created (rule: FileCreate)",
+                    "category": [
+                        "file"
+                    ],
+                    "code": 11,
+                    "created": "2022-10-10T10:59:41.889Z",
+                    "kind": "event",
+                    "module": "sysmon",
+                    "provider": "Microsoft-Windows-Sysmon",
+                    "type": [
+                        "creation"
+                    ]
+                },
+                "file": {
+                    "directory": "C:\\Users\\client1\\AppData\\Local\\Temp\\2DBCCDB1-A4DF-4534-93BA-33609C70BE4F",
+                    "extension": "dll",
+                    "name": "FfuProvider.dll",
+                    "path": "C:\\Users\\client1\\AppData\\Local\\Temp\\2DBCCDB1-A4DF-4534-93BA-33609C70BE4F\\FfuProvider.dll"
+                },
+                "host": {
+                    "name": "CLIENT1.breach.local"
+                },
+                "log": {
+                    "level": "information"
+                },
+                "message": "File created:\nRuleName: DLL\nUtcTime: 2022-10-10 10:59:41.559\nProcessGuid: {0e37ca90-fb1a-6343-b111-000000000500}\nProcessId: 6640\nImage: C:\\Windows\\system32\\cleanmgr.exe\nTargetFilename: C:\\Users\\client1\\AppData\\Local\\Temp\\2DBCCDB1-A4DF-4534-93BA-33609C70BE4F\\FfuProvider.dll\nCreationUtcTime: 2022-10-10 10:59:41.559\nUser: BREACH\\client1",
+                "process": {
+                    "entity_id": "{0e37ca90-fb1a-6343-b111-000000000500}",
+                    "executable": "C:\\Windows\\system32\\cleanmgr.exe",
+                    "name": "cleanmgr.exe",
+                    "pid": 6640
+                },
+                "rule": {
+                    "name": "DLL"
+                },
+                "winlog": {
+                    "api": "wineventlog",
+                    "channel": "Microsoft-Windows-Sysmon/Operational",
+                    "computer_name": "CLIENT1.breach.local",
+                    "event_data": {
+                        "CreationUtcTime": "2022-10-10 10:59:41.559",
+                        "User": "BREACH\\client1"
+                    },
+                    "event_id": 11,
+                    "opcode": "Info",
+                    "process": {
+                        "pid": 1160,
+                        "thread": {
+                            "id": 2496
+                        }
+                    },
+                    "provider_guid": "{5770385f-c22a-43e0-bf4c-06f5698ffbd9}",
+                    "provider_name": "Microsoft-Windows-Sysmon",
+                    "record_id": 8889,
+                    "task": "File created (rule: FileCreate)",
+                    "user": {
+                        "domain": "NT AUTHORITY",
+                        "identifier": "S-1-5-18",
+                        "name": "SYSTEM",
+                        "type": "User"
+                    },
+                    "version": 2
+                }
+            }
+        },
+        "name": "DLL Load By System Process From Suspicious Locations",
+        "timestamp": "2022-10-10T10:59:41.559+00:00",
+        "authors": [
+            "Nasreddine Bencherchali"
+        ],
+        "level": "high",
+        "source": "sigma",
+        "status": "experimental",
+        "falsepositives": [
+            "Unknown"
+        ],
+        "id": "9e9a9002-56c4-40fd-9eff-e4b09bfa5f6c",
+        "logsource": {
+            "category": "image_load",
+            "product": "windows"
+        },
+        "references": [
+            "https://github.com/hackerhouse-opensource/iscsicpl_bypassUAC (Idea)"
+        ],
+        "tags": [
+            "attack.defense_evasion",
+            "attack.t1070"
+        ]
+    },
+    {
+        "group": "Sigma",
+        "kind": "individual",
+        "document": {
+            "kind": "jsonl",
+            "data": {
+                "@timestamp": "2022-10-10T10:59:41.559Z",
+                "agent": {
+                    "ephemeral_id": "64b72b79-c8b3-44d5-8efc-41706d768842",
+                    "hostname": "CLIENT1",
+                    "id": "cd699c72-0f46-4cd9-938a-43faf035a44a",
+                    "name": "CLIENT1",
+                    "type": "winlogbeat",
+                    "version": "7.10.2"
+                },
+                "ecs": {
+                    "version": "1.5.0"
+                },
+                "event": {
+                    "action": "File created (rule: FileCreate)",
+                    "category": [
+                        "file"
+                    ],
+                    "code": 11,
+                    "created": "2022-10-10T10:59:41.889Z",
+                    "kind": "event",
+                    "module": "sysmon",
+                    "provider": "Microsoft-Windows-Sysmon",
+                    "type": [
+                        "creation"
+                    ]
+                },
+                "file": {
+                    "directory": "C:\\Users\\client1\\AppData\\Local\\Temp\\2DBCCDB1-A4DF-4534-93BA-33609C70BE4F",
+                    "extension": "dll",
+                    "name": "GenericProvider.dll",
+                    "path": "C:\\Users\\client1\\AppData\\Local\\Temp\\2DBCCDB1-A4DF-4534-93BA-33609C70BE4F\\GenericProvider.dll"
+                },
+                "host": {
+                    "name": "CLIENT1.breach.local"
+                },
+                "log": {
+                    "level": "information"
+                },
+                "message": "File created:\nRuleName: DLL\nUtcTime: 2022-10-10 10:59:41.559\nProcessGuid: {0e37ca90-fb1a-6343-b111-000000000500}\nProcessId: 6640\nImage: C:\\Windows\\system32\\cleanmgr.exe\nTargetFilename: C:\\Users\\client1\\AppData\\Local\\Temp\\2DBCCDB1-A4DF-4534-93BA-33609C70BE4F\\GenericProvider.dll\nCreationUtcTime: 2022-10-10 10:59:41.559\nUser: BREACH\\client1",
+                "process": {
+                    "entity_id": "{0e37ca90-fb1a-6343-b111-000000000500}",
+                    "executable": "C:\\Windows\\system32\\cleanmgr.exe",
+                    "name": "cleanmgr.exe",
+                    "pid": 6640
+                },
+                "rule": {
+                    "name": "DLL"
+                },
+                "winlog": {
+                    "api": "wineventlog",
+                    "channel": "Microsoft-Windows-Sysmon/Operational",
+                    "computer_name": "CLIENT1.breach.local",
+                    "event_data": {
+                        "CreationUtcTime": "2022-10-10 10:59:41.559",
+                        "User": "BREACH\\client1"
+                    },
+                    "event_id": 11,
+                    "opcode": "Info",
+                    "process": {
+                        "pid": 1160,
+                        "thread": {
+                            "id": 2496
+                        }
+                    },
+                    "provider_guid": "{5770385f-c22a-43e0-bf4c-06f5698ffbd9}",
+                    "provider_name": "Microsoft-Windows-Sysmon",
+                    "record_id": 8891,
+                    "task": "File created (rule: FileCreate)",
+                    "user": {
+                        "domain": "NT AUTHORITY",
+                        "identifier": "S-1-5-18",
+                        "name": "SYSTEM",
+                        "type": "User"
+                    },
+                    "version": 2
+                }
+            }
+        },
+        "name": "DLL Load By System Process From Suspicious Locations",
+        "timestamp": "2022-10-10T10:59:41.559+00:00",
+        "authors": [
+            "Nasreddine Bencherchali"
+        ],
+        "level": "high",
+        "source": "sigma",
+        "status": "experimental",
+        "falsepositives": [
+            "Unknown"
+        ],
+        "id": "9e9a9002-56c4-40fd-9eff-e4b09bfa5f6c",
+        "logsource": {
+            "category": "image_load",
+            "product": "windows"
+        },
+        "references": [
+            "https://github.com/hackerhouse-opensource/iscsicpl_bypassUAC (Idea)"
+        ],
+        "tags": [
+            "attack.defense_evasion",
+            "attack.t1070"
+        ]
+    },
+    {
+        "group": "Sigma",
+        "kind": "individual",
+        "document": {
+            "kind": "jsonl",
+            "data": {
+                "@timestamp": "2022-10-10T10:59:41.559Z",
+                "agent": {
+                    "ephemeral_id": "64b72b79-c8b3-44d5-8efc-41706d768842",
+                    "hostname": "CLIENT1",
+                    "id": "cd699c72-0f46-4cd9-938a-43faf035a44a",
+                    "name": "CLIENT1",
+                    "type": "winlogbeat",
+                    "version": "7.10.2"
+                },
+                "ecs": {
+                    "version": "1.5.0"
+                },
+                "event": {
+                    "action": "File created (rule: FileCreate)",
+                    "category": [
+                        "file"
+                    ],
+                    "code": 11,
+                    "created": "2022-10-10T10:59:41.890Z",
+                    "kind": "event",
+                    "module": "sysmon",
+                    "provider": "Microsoft-Windows-Sysmon",
+                    "type": [
+                        "creation"
+                    ]
+                },
+                "file": {
+                    "directory": "C:\\Users\\client1\\AppData\\Local\\Temp\\2DBCCDB1-A4DF-4534-93BA-33609C70BE4F",
+                    "extension": "dll",
+                    "name": "IBSProvider.dll",
+                    "path": "C:\\Users\\client1\\AppData\\Local\\Temp\\2DBCCDB1-A4DF-4534-93BA-33609C70BE4F\\IBSProvider.dll"
+                },
+                "host": {
+                    "name": "CLIENT1.breach.local"
+                },
+                "log": {
+                    "level": "information"
+                },
+                "message": "File created:\nRuleName: DLL\nUtcTime: 2022-10-10 10:59:41.559\nProcessGuid: {0e37ca90-fb1a-6343-b111-000000000500}\nProcessId: 6640\nImage: C:\\Windows\\system32\\cleanmgr.exe\nTargetFilename: C:\\Users\\client1\\AppData\\Local\\Temp\\2DBCCDB1-A4DF-4534-93BA-33609C70BE4F\\IBSProvider.dll\nCreationUtcTime: 2022-10-10 10:59:41.559\nUser: BREACH\\client1",
+                "process": {
+                    "entity_id": "{0e37ca90-fb1a-6343-b111-000000000500}",
+                    "executable": "C:\\Windows\\system32\\cleanmgr.exe",
+                    "name": "cleanmgr.exe",
+                    "pid": 6640
+                },
+                "rule": {
+                    "name": "DLL"
+                },
+                "winlog": {
+                    "api": "wineventlog",
+                    "channel": "Microsoft-Windows-Sysmon/Operational",
+                    "computer_name": "CLIENT1.breach.local",
+                    "event_data": {
+                        "CreationUtcTime": "2022-10-10 10:59:41.559",
+                        "User": "BREACH\\client1"
+                    },
+                    "event_id": 11,
+                    "opcode": "Info",
+                    "process": {
+                        "pid": 1160,
+                        "thread": {
+                            "id": 2496
+                        }
+                    },
+                    "provider_guid": "{5770385f-c22a-43e0-bf4c-06f5698ffbd9}",
+                    "provider_name": "Microsoft-Windows-Sysmon",
+                    "record_id": 8892,
+                    "task": "File created (rule: FileCreate)",
+                    "user": {
+                        "domain": "NT AUTHORITY",
+                        "identifier": "S-1-5-18",
+                        "name": "SYSTEM",
+                        "type": "User"
+                    },
+                    "version": 2
+                }
+            }
+        },
+        "name": "DLL Load By System Process From Suspicious Locations",
+        "timestamp": "2022-10-10T10:59:41.559+00:00",
+        "authors": [
+            "Nasreddine Bencherchali"
+        ],
+        "level": "high",
+        "source": "sigma",
+        "status": "experimental",
+        "falsepositives": [
+            "Unknown"
+        ],
+        "id": "9e9a9002-56c4-40fd-9eff-e4b09bfa5f6c",
+        "logsource": {
+            "category": "image_load",
+            "product": "windows"
+        },
+        "references": [
+            "https://github.com/hackerhouse-opensource/iscsicpl_bypassUAC (Idea)"
+        ],
+        "tags": [
+            "attack.defense_evasion",
+            "attack.t1070"
+        ]
+    },
+    {
+        "group": "Sigma",
+        "kind": "individual",
+        "document": {
+            "kind": "jsonl",
+            "data": {
+                "@timestamp": "2022-10-10T10:59:41.559Z",
+                "agent": {
+                    "ephemeral_id": "64b72b79-c8b3-44d5-8efc-41706d768842",
+                    "hostname": "CLIENT1",
+                    "id": "cd699c72-0f46-4cd9-938a-43faf035a44a",
+                    "name": "CLIENT1",
+                    "type": "winlogbeat",
+                    "version": "7.10.2"
+                },
+                "ecs": {
+                    "version": "1.5.0"
+                },
+                "event": {
+                    "action": "File created (rule: FileCreate)",
+                    "category": [
+                        "file"
+                    ],
+                    "code": 11,
+                    "created": "2022-10-10T10:59:41.890Z",
+                    "kind": "event",
+                    "module": "sysmon",
+                    "provider": "Microsoft-Windows-Sysmon",
+                    "type": [
+                        "creation"
+                    ]
+                },
+                "file": {
+                    "directory": "C:\\Users\\client1\\AppData\\Local\\Temp\\2DBCCDB1-A4DF-4534-93BA-33609C70BE4F",
+                    "extension": "dll",
+                    "name": "ImagingProvider.dll",
+                    "path": "C:\\Users\\client1\\AppData\\Local\\Temp\\2DBCCDB1-A4DF-4534-93BA-33609C70BE4F\\ImagingProvider.dll"
+                },
+                "host": {
+                    "name": "CLIENT1.breach.local"
+                },
+                "log": {
+                    "level": "information"
+                },
+                "message": "File created:\nRuleName: DLL\nUtcTime: 2022-10-10 10:59:41.559\nProcessGuid: {0e37ca90-fb1a-6343-b111-000000000500}\nProcessId: 6640\nImage: C:\\Windows\\system32\\cleanmgr.exe\nTargetFilename: C:\\Users\\client1\\AppData\\Local\\Temp\\2DBCCDB1-A4DF-4534-93BA-33609C70BE4F\\ImagingProvider.dll\nCreationUtcTime: 2022-10-10 10:59:41.559\nUser: BREACH\\client1",
+                "process": {
+                    "entity_id": "{0e37ca90-fb1a-6343-b111-000000000500}",
+                    "executable": "C:\\Windows\\system32\\cleanmgr.exe",
+                    "name": "cleanmgr.exe",
+                    "pid": 6640
+                },
+                "rule": {
+                    "name": "DLL"
+                },
+                "winlog": {
+                    "api": "wineventlog",
+                    "channel": "Microsoft-Windows-Sysmon/Operational",
+                    "computer_name": "CLIENT1.breach.local",
+                    "event_data": {
+                        "CreationUtcTime": "2022-10-10 10:59:41.559",
+                        "User": "BREACH\\client1"
+                    },
+                    "event_id": 11,
+                    "opcode": "Info",
+                    "process": {
+                        "pid": 1160,
+                        "thread": {
+                            "id": 2496
+                        }
+                    },
+                    "provider_guid": "{5770385f-c22a-43e0-bf4c-06f5698ffbd9}",
+                    "provider_name": "Microsoft-Windows-Sysmon",
+                    "record_id": 8893,
+                    "task": "File created (rule: FileCreate)",
+                    "user": {
+                        "domain": "NT AUTHORITY",
+                        "identifier": "S-1-5-18",
+                        "name": "SYSTEM",
+                        "type": "User"
+                    },
+                    "version": 2
+                }
+            }
+        },
+        "name": "DLL Load By System Process From Suspicious Locations",
+        "timestamp": "2022-10-10T10:59:41.559+00:00",
+        "authors": [
+            "Nasreddine Bencherchali"
+        ],
+        "level": "high",
+        "source": "sigma",
+        "status": "experimental",
+        "falsepositives": [
+            "Unknown"
+        ],
+        "id": "9e9a9002-56c4-40fd-9eff-e4b09bfa5f6c",
+        "logsource": {
+            "category": "image_load",
+            "product": "windows"
+        },
+        "references": [
+            "https://github.com/hackerhouse-opensource/iscsicpl_bypassUAC (Idea)"
+        ],
+        "tags": [
+            "attack.defense_evasion",
+            "attack.t1070"
+        ]
+    },
+    {
+        "group": "Sigma",
+        "kind": "individual",
+        "document": {
+            "kind": "jsonl",
+            "data": {
+                "@timestamp": "2022-10-10T10:59:41.559Z",
+                "agent": {
+                    "ephemeral_id": "64b72b79-c8b3-44d5-8efc-41706d768842",
+                    "hostname": "CLIENT1",
+                    "id": "cd699c72-0f46-4cd9-938a-43faf035a44a",
+                    "name": "CLIENT1",
+                    "type": "winlogbeat",
+                    "version": "7.10.2"
+                },
+                "ecs": {
+                    "version": "1.5.0"
+                },
+                "event": {
+                    "action": "File created (rule: FileCreate)",
+                    "category": [
+                        "file"
+                    ],
+                    "code": 11,
+                    "created": "2022-10-10T10:59:41.890Z",
+                    "kind": "event",
+                    "module": "sysmon",
+                    "provider": "Microsoft-Windows-Sysmon",
+                    "type": [
+                        "creation"
+                    ]
+                },
+                "file": {
+                    "directory": "C:\\Users\\client1\\AppData\\Local\\Temp\\2DBCCDB1-A4DF-4534-93BA-33609C70BE4F",
+                    "extension": "dll",
+                    "name": "IntlProvider.dll",
+                    "path": "C:\\Users\\client1\\AppData\\Local\\Temp\\2DBCCDB1-A4DF-4534-93BA-33609C70BE4F\\IntlProvider.dll"
+                },
+                "host": {
+                    "name": "CLIENT1.breach.local"
+                },
+                "log": {
+                    "level": "information"
+                },
+                "message": "File created:\nRuleName: DLL\nUtcTime: 2022-10-10 10:59:41.559\nProcessGuid: {0e37ca90-fb1a-6343-b111-000000000500}\nProcessId: 6640\nImage: C:\\Windows\\system32\\cleanmgr.exe\nTargetFilename: C:\\Users\\client1\\AppData\\Local\\Temp\\2DBCCDB1-A4DF-4534-93BA-33609C70BE4F\\IntlProvider.dll\nCreationUtcTime: 2022-10-10 10:59:41.559\nUser: BREACH\\client1",
+                "process": {
+                    "entity_id": "{0e37ca90-fb1a-6343-b111-000000000500}",
+                    "executable": "C:\\Windows\\system32\\cleanmgr.exe",
+                    "name": "cleanmgr.exe",
+                    "pid": 6640
+                },
+                "rule": {
+                    "name": "DLL"
+                },
+                "winlog": {
+                    "api": "wineventlog",
+                    "channel": "Microsoft-Windows-Sysmon/Operational",
+                    "computer_name": "CLIENT1.breach.local",
+                    "event_data": {
+                        "CreationUtcTime": "2022-10-10 10:59:41.559",
+                        "User": "BREACH\\client1"
+                    },
+                    "event_id": 11,
+                    "opcode": "Info",
+                    "process": {
+                        "pid": 1160,
+                        "thread": {
+                            "id": 2496
+                        }
+                    },
+                    "provider_guid": "{5770385f-c22a-43e0-bf4c-06f5698ffbd9}",
+                    "provider_name": "Microsoft-Windows-Sysmon",
+                    "record_id": 8894,
+                    "task": "File created (rule: FileCreate)",
+                    "user": {
+                        "domain": "NT AUTHORITY",
+                        "identifier": "S-1-5-18",
+                        "name": "SYSTEM",
+                        "type": "User"
+                    },
+                    "version": 2
+                }
+            }
+        },
+        "name": "DLL Load By System Process From Suspicious Locations",
+        "timestamp": "2022-10-10T10:59:41.559+00:00",
+        "authors": [
+            "Nasreddine Bencherchali"
+        ],
+        "level": "high",
+        "source": "sigma",
+        "status": "experimental",
+        "falsepositives": [
+            "Unknown"
+        ],
+        "id": "9e9a9002-56c4-40fd-9eff-e4b09bfa5f6c",
+        "logsource": {
+            "category": "image_load",
+            "product": "windows"
+        },
+        "references": [
+            "https://github.com/hackerhouse-opensource/iscsicpl_bypassUAC (Idea)"
+        ],
+        "tags": [
+            "attack.defense_evasion",
+            "attack.t1070"
+        ]
+    },
+    {
+        "group": "Sigma",
+        "kind": "individual",
+        "document": {
+            "kind": "jsonl",
+            "data": {
+                "@timestamp": "2022-10-10T10:59:41.559Z",
+                "agent": {
+                    "ephemeral_id": "64b72b79-c8b3-44d5-8efc-41706d768842",
+                    "hostname": "CLIENT1",
+                    "id": "cd699c72-0f46-4cd9-938a-43faf035a44a",
+                    "name": "CLIENT1",
+                    "type": "winlogbeat",
+                    "version": "7.10.2"
+                },
+                "ecs": {
+                    "version": "1.5.0"
+                },
+                "event": {
+                    "action": "File created (rule: FileCreate)",
+                    "category": [
+                        "file"
+                    ],
+                    "code": 11,
+                    "created": "2022-10-10T10:59:41.889Z",
+                    "kind": "event",
+                    "module": "sysmon",
+                    "provider": "Microsoft-Windows-Sysmon",
+                    "type": [
+                        "creation"
+                    ]
+                },
+                "file": {
+                    "directory": "C:\\Users\\client1\\AppData\\Local\\Temp\\2DBCCDB1-A4DF-4534-93BA-33609C70BE4F",
+                    "extension": "dll",
+                    "name": "FolderProvider.dll",
+                    "path": "C:\\Users\\client1\\AppData\\Local\\Temp\\2DBCCDB1-A4DF-4534-93BA-33609C70BE4F\\FolderProvider.dll"
+                },
+                "host": {
+                    "name": "CLIENT1.breach.local"
+                },
+                "log": {
+                    "level": "information"
+                },
+                "message": "File created:\nRuleName: DLL\nUtcTime: 2022-10-10 10:59:41.559\nProcessGuid: {0e37ca90-fb1a-6343-b111-000000000500}\nProcessId: 6640\nImage: C:\\Windows\\system32\\cleanmgr.exe\nTargetFilename: C:\\Users\\client1\\AppData\\Local\\Temp\\2DBCCDB1-A4DF-4534-93BA-33609C70BE4F\\FolderProvider.dll\nCreationUtcTime: 2022-10-10 10:59:41.559\nUser: BREACH\\client1",
+                "process": {
+                    "entity_id": "{0e37ca90-fb1a-6343-b111-000000000500}",
+                    "executable": "C:\\Windows\\system32\\cleanmgr.exe",
+                    "name": "cleanmgr.exe",
+                    "pid": 6640
+                },
+                "rule": {
+                    "name": "DLL"
+                },
+                "winlog": {
+                    "api": "wineventlog",
+                    "channel": "Microsoft-Windows-Sysmon/Operational",
+                    "computer_name": "CLIENT1.breach.local",
+                    "event_data": {
+                        "CreationUtcTime": "2022-10-10 10:59:41.559",
+                        "User": "BREACH\\client1"
+                    },
+                    "event_id": 11,
+                    "opcode": "Info",
+                    "process": {
+                        "pid": 1160,
+                        "thread": {
+                            "id": 2496
+                        }
+                    },
+                    "provider_guid": "{5770385f-c22a-43e0-bf4c-06f5698ffbd9}",
+                    "provider_name": "Microsoft-Windows-Sysmon",
+                    "record_id": 8890,
+                    "task": "File created (rule: FileCreate)",
+                    "user": {
+                        "domain": "NT AUTHORITY",
+                        "identifier": "S-1-5-18",
+                        "name": "SYSTEM",
+                        "type": "User"
+                    },
+                    "version": 2
+                }
+            }
+        },
+        "name": "DLL Load By System Process From Suspicious Locations",
+        "timestamp": "2022-10-10T10:59:41.559+00:00",
+        "authors": [
+            "Nasreddine Bencherchali"
+        ],
+        "level": "high",
+        "source": "sigma",
+        "status": "experimental",
+        "falsepositives": [
+            "Unknown"
+        ],
+        "id": "9e9a9002-56c4-40fd-9eff-e4b09bfa5f6c",
+        "logsource": {
+            "category": "image_load",
+            "product": "windows"
+        },
+        "references": [
+            "https://github.com/hackerhouse-opensource/iscsicpl_bypassUAC (Idea)"
+        ],
+        "tags": [
+            "attack.defense_evasion",
+            "attack.t1070"
+        ]
+    },
+    {
+        "group": "Sigma",
+        "kind": "individual",
+        "document": {
+            "kind": "jsonl",
+            "data": {
+                "@timestamp": "2022-10-10T10:59:41.559Z",
+                "agent": {
+                    "ephemeral_id": "64b72b79-c8b3-44d5-8efc-41706d768842",
+                    "hostname": "CLIENT1",
+                    "id": "cd699c72-0f46-4cd9-938a-43faf035a44a",
+                    "name": "CLIENT1",
+                    "type": "winlogbeat",
+                    "version": "7.10.2"
+                },
+                "ecs": {
+                    "version": "1.5.0"
+                },
+                "event": {
+                    "action": "File created (rule: FileCreate)",
+                    "category": [
+                        "file"
+                    ],
+                    "code": 11,
+                    "created": "2022-10-10T10:59:41.890Z",
+                    "kind": "event",
+                    "module": "sysmon",
+                    "provider": "Microsoft-Windows-Sysmon",
+                    "type": [
+                        "creation"
+                    ]
+                },
+                "file": {
+                    "directory": "C:\\Users\\client1\\AppData\\Local\\Temp\\2DBCCDB1-A4DF-4534-93BA-33609C70BE4F",
+                    "extension": "dll",
+                    "name": "LogProvider.dll",
+                    "path": "C:\\Users\\client1\\AppData\\Local\\Temp\\2DBCCDB1-A4DF-4534-93BA-33609C70BE4F\\LogProvider.dll"
+                },
+                "host": {
+                    "name": "CLIENT1.breach.local"
+                },
+                "log": {
+                    "level": "information"
+                },
+                "message": "File created:\nRuleName: DLL\nUtcTime: 2022-10-10 10:59:41.559\nProcessGuid: {0e37ca90-fb1a-6343-b111-000000000500}\nProcessId: 6640\nImage: C:\\Windows\\system32\\cleanmgr.exe\nTargetFilename: C:\\Users\\client1\\AppData\\Local\\Temp\\2DBCCDB1-A4DF-4534-93BA-33609C70BE4F\\LogProvider.dll\nCreationUtcTime: 2022-10-10 10:59:41.559\nUser: BREACH\\client1",
+                "process": {
+                    "entity_id": "{0e37ca90-fb1a-6343-b111-000000000500}",
+                    "executable": "C:\\Windows\\system32\\cleanmgr.exe",
+                    "name": "cleanmgr.exe",
+                    "pid": 6640
+                },
+                "rule": {
+                    "name": "DLL"
+                },
+                "winlog": {
+                    "api": "wineventlog",
+                    "channel": "Microsoft-Windows-Sysmon/Operational",
+                    "computer_name": "CLIENT1.breach.local",
+                    "event_data": {
+                        "CreationUtcTime": "2022-10-10 10:59:41.559",
+                        "User": "BREACH\\client1"
+                    },
+                    "event_id": 11,
+                    "opcode": "Info",
+                    "process": {
+                        "pid": 1160,
+                        "thread": {
+                            "id": 2496
+                        }
+                    },
+                    "provider_guid": "{5770385f-c22a-43e0-bf4c-06f5698ffbd9}",
+                    "provider_name": "Microsoft-Windows-Sysmon",
+                    "record_id": 8895,
+                    "task": "File created (rule: FileCreate)",
+                    "user": {
+                        "domain": "NT AUTHORITY",
+                        "identifier": "S-1-5-18",
+                        "name": "SYSTEM",
+                        "type": "User"
+                    },
+                    "version": 2
+                }
+            }
+        },
+        "name": "DLL Load By System Process From Suspicious Locations",
+        "timestamp": "2022-10-10T10:59:41.559+00:00",
+        "authors": [
+            "Nasreddine Bencherchali"
+        ],
+        "level": "high",
+        "source": "sigma",
+        "status": "experimental",
+        "falsepositives": [
+            "Unknown"
+        ],
+        "id": "9e9a9002-56c4-40fd-9eff-e4b09bfa5f6c",
+        "logsource": {
+            "category": "image_load",
+            "product": "windows"
+        },
+        "references": [
+            "https://github.com/hackerhouse-opensource/iscsicpl_bypassUAC (Idea)"
+        ],
+        "tags": [
+            "attack.defense_evasion",
+            "attack.t1070"
+        ]
+    },
+    {
+        "group": "Sigma",
+        "kind": "individual",
+        "document": {
+            "kind": "jsonl",
+            "data": {
+                "@timestamp": "2022-10-10T10:59:41.574Z",
+                "agent": {
+                    "ephemeral_id": "64b72b79-c8b3-44d5-8efc-41706d768842",
+                    "hostname": "CLIENT1",
+                    "id": "cd699c72-0f46-4cd9-938a-43faf035a44a",
+                    "name": "CLIENT1",
+                    "type": "winlogbeat",
+                    "version": "7.10.2"
+                },
+                "ecs": {
+                    "version": "1.5.0"
+                },
+                "event": {
+                    "action": "File created (rule: FileCreate)",
+                    "category": [
+                        "file"
+                    ],
+                    "code": 11,
+                    "created": "2022-10-10T10:59:41.890Z",
+                    "kind": "event",
+                    "module": "sysmon",
+                    "provider": "Microsoft-Windows-Sysmon",
+                    "type": [
+                        "creation"
+                    ]
+                },
+                "file": {
+                    "directory": "C:\\Users\\client1\\AppData\\Local\\Temp\\2DBCCDB1-A4DF-4534-93BA-33609C70BE4F",
+                    "extension": "dll",
+                    "name": "OfflineSetupProvider.dll",
+                    "path": "C:\\Users\\client1\\AppData\\Local\\Temp\\2DBCCDB1-A4DF-4534-93BA-33609C70BE4F\\OfflineSetupProvider.dll"
+                },
+                "host": {
+                    "name": "CLIENT1.breach.local"
+                },
+                "log": {
+                    "level": "information"
+                },
+                "message": "File created:\nRuleName: DLL\nUtcTime: 2022-10-10 10:59:41.574\nProcessGuid: {0e37ca90-fb1a-6343-b111-000000000500}\nProcessId: 6640\nImage: C:\\Windows\\system32\\cleanmgr.exe\nTargetFilename: C:\\Users\\client1\\AppData\\Local\\Temp\\2DBCCDB1-A4DF-4534-93BA-33609C70BE4F\\OfflineSetupProvider.dll\nCreationUtcTime: 2022-10-10 10:59:41.574\nUser: BREACH\\client1",
+                "process": {
+                    "entity_id": "{0e37ca90-fb1a-6343-b111-000000000500}",
+                    "executable": "C:\\Windows\\system32\\cleanmgr.exe",
+                    "name": "cleanmgr.exe",
+                    "pid": 6640
+                },
+                "rule": {
+                    "name": "DLL"
+                },
+                "winlog": {
+                    "api": "wineventlog",
+                    "channel": "Microsoft-Windows-Sysmon/Operational",
+                    "computer_name": "CLIENT1.breach.local",
+                    "event_data": {
+                        "CreationUtcTime": "2022-10-10 10:59:41.574",
+                        "User": "BREACH\\client1"
+                    },
+                    "event_id": 11,
+                    "opcode": "Info",
+                    "process": {
+                        "pid": 1160,
+                        "thread": {
+                            "id": 2496
+                        }
+                    },
+                    "provider_guid": "{5770385f-c22a-43e0-bf4c-06f5698ffbd9}",
+                    "provider_name": "Microsoft-Windows-Sysmon",
+                    "record_id": 8897,
+                    "task": "File created (rule: FileCreate)",
+                    "user": {
+                        "domain": "NT AUTHORITY",
+                        "identifier": "S-1-5-18",
+                        "name": "SYSTEM",
+                        "type": "User"
+                    },
+                    "version": 2
+                }
+            }
+        },
+        "name": "DLL Load By System Process From Suspicious Locations",
+        "timestamp": "2022-10-10T10:59:41.574+00:00",
+        "authors": [
+            "Nasreddine Bencherchali"
+        ],
+        "level": "high",
+        "source": "sigma",
+        "status": "experimental",
+        "falsepositives": [
+            "Unknown"
+        ],
+        "id": "9e9a9002-56c4-40fd-9eff-e4b09bfa5f6c",
+        "logsource": {
+            "category": "image_load",
+            "product": "windows"
+        },
+        "references": [
+            "https://github.com/hackerhouse-opensource/iscsicpl_bypassUAC (Idea)"
+        ],
+        "tags": [
+            "attack.defense_evasion",
+            "attack.t1070"
+        ]
+    },
+    {
+        "group": "Sigma",
+        "kind": "individual",
+        "document": {
+            "kind": "jsonl",
+            "data": {
+                "@timestamp": "2022-10-10T10:59:41.574Z",
+                "agent": {
+                    "ephemeral_id": "64b72b79-c8b3-44d5-8efc-41706d768842",
+                    "hostname": "CLIENT1",
+                    "id": "cd699c72-0f46-4cd9-938a-43faf035a44a",
+                    "name": "CLIENT1",
+                    "type": "winlogbeat",
+                    "version": "7.10.2"
+                },
+                "ecs": {
+                    "version": "1.5.0"
+                },
+                "event": {
+                    "action": "File created (rule: FileCreate)",
+                    "category": [
+                        "file"
+                    ],
+                    "code": 11,
+                    "created": "2022-10-10T10:59:41.890Z",
+                    "kind": "event",
+                    "module": "sysmon",
+                    "provider": "Microsoft-Windows-Sysmon",
+                    "type": [
+                        "creation"
+                    ]
+                },
+                "file": {
+                    "directory": "C:\\Users\\client1\\AppData\\Local\\Temp\\2DBCCDB1-A4DF-4534-93BA-33609C70BE4F",
+                    "extension": "dll",
+                    "name": "ProvProvider.dll",
+                    "path": "C:\\Users\\client1\\AppData\\Local\\Temp\\2DBCCDB1-A4DF-4534-93BA-33609C70BE4F\\ProvProvider.dll"
+                },
+                "host": {
+                    "name": "CLIENT1.breach.local"
+                },
+                "log": {
+                    "level": "information"
+                },
+                "message": "File created:\nRuleName: DLL\nUtcTime: 2022-10-10 10:59:41.574\nProcessGuid: {0e37ca90-fb1a-6343-b111-000000000500}\nProcessId: 6640\nImage: C:\\Windows\\system32\\cleanmgr.exe\nTargetFilename: C:\\Users\\client1\\AppData\\Local\\Temp\\2DBCCDB1-A4DF-4534-93BA-33609C70BE4F\\ProvProvider.dll\nCreationUtcTime: 2022-10-10 10:59:41.574\nUser: BREACH\\client1",
+                "process": {
+                    "entity_id": "{0e37ca90-fb1a-6343-b111-000000000500}",
+                    "executable": "C:\\Windows\\system32\\cleanmgr.exe",
+                    "name": "cleanmgr.exe",
+                    "pid": 6640
+                },
+                "rule": {
+                    "name": "DLL"
+                },
+                "winlog": {
+                    "api": "wineventlog",
+                    "channel": "Microsoft-Windows-Sysmon/Operational",
+                    "computer_name": "CLIENT1.breach.local",
+                    "event_data": {
+                        "CreationUtcTime": "2022-10-10 10:59:41.574",
+                        "User": "BREACH\\client1"
+                    },
+                    "event_id": 11,
+                    "opcode": "Info",
+                    "process": {
+                        "pid": 1160,
+                        "thread": {
+                            "id": 2496
+                        }
+                    },
+                    "provider_guid": "{5770385f-c22a-43e0-bf4c-06f5698ffbd9}",
+                    "provider_name": "Microsoft-Windows-Sysmon",
+                    "record_id": 8899,
+                    "task": "File created (rule: FileCreate)",
+                    "user": {
+                        "domain": "NT AUTHORITY",
+                        "identifier": "S-1-5-18",
+                        "name": "SYSTEM",
+                        "type": "User"
+                    },
+                    "version": 2
+                }
+            }
+        },
+        "name": "DLL Load By System Process From Suspicious Locations",
+        "timestamp": "2022-10-10T10:59:41.574+00:00",
+        "authors": [
+            "Nasreddine Bencherchali"
+        ],
+        "level": "high",
+        "source": "sigma",
+        "status": "experimental",
+        "falsepositives": [
+            "Unknown"
+        ],
+        "id": "9e9a9002-56c4-40fd-9eff-e4b09bfa5f6c",
+        "logsource": {
+            "category": "image_load",
+            "product": "windows"
+        },
+        "references": [
+            "https://github.com/hackerhouse-opensource/iscsicpl_bypassUAC (Idea)"
+        ],
+        "tags": [
+            "attack.defense_evasion",
+            "attack.t1070"
+        ]
+    },
+    {
+        "group": "Sigma",
+        "kind": "individual",
+        "document": {
+            "kind": "jsonl",
+            "data": {
+                "@timestamp": "2022-10-10T10:59:41.574Z",
+                "agent": {
+                    "ephemeral_id": "64b72b79-c8b3-44d5-8efc-41706d768842",
+                    "hostname": "CLIENT1",
+                    "id": "cd699c72-0f46-4cd9-938a-43faf035a44a",
+                    "name": "CLIENT1",
+                    "type": "winlogbeat",
+                    "version": "7.10.2"
+                },
+                "ecs": {
+                    "version": "1.5.0"
+                },
+                "event": {
+                    "action": "File created (rule: FileCreate)",
+                    "category": [
+                        "file"
+                    ],
+                    "code": 11,
+                    "created": "2022-10-10T10:59:41.890Z",
+                    "kind": "event",
+                    "module": "sysmon",
+                    "provider": "Microsoft-Windows-Sysmon",
+                    "type": [
+                        "creation"
+                    ]
+                },
+                "file": {
+                    "directory": "C:\\Users\\client1\\AppData\\Local\\Temp\\2DBCCDB1-A4DF-4534-93BA-33609C70BE4F",
+                    "extension": "dll",
+                    "name": "OSProvider.dll",
+                    "path": "C:\\Users\\client1\\AppData\\Local\\Temp\\2DBCCDB1-A4DF-4534-93BA-33609C70BE4F\\OSProvider.dll"
+                },
+                "host": {
+                    "name": "CLIENT1.breach.local"
+                },
+                "log": {
+                    "level": "information"
+                },
+                "message": "File created:\nRuleName: DLL\nUtcTime: 2022-10-10 10:59:41.574\nProcessGuid: {0e37ca90-fb1a-6343-b111-000000000500}\nProcessId: 6640\nImage: C:\\Windows\\system32\\cleanmgr.exe\nTargetFilename: C:\\Users\\client1\\AppData\\Local\\Temp\\2DBCCDB1-A4DF-4534-93BA-33609C70BE4F\\OSProvider.dll\nCreationUtcTime: 2022-10-10 10:59:41.574\nUser: BREACH\\client1",
+                "process": {
+                    "entity_id": "{0e37ca90-fb1a-6343-b111-000000000500}",
+                    "executable": "C:\\Windows\\system32\\cleanmgr.exe",
+                    "name": "cleanmgr.exe",
+                    "pid": 6640
+                },
+                "rule": {
+                    "name": "DLL"
+                },
+                "winlog": {
+                    "api": "wineventlog",
+                    "channel": "Microsoft-Windows-Sysmon/Operational",
+                    "computer_name": "CLIENT1.breach.local",
+                    "event_data": {
+                        "CreationUtcTime": "2022-10-10 10:59:41.574",
+                        "User": "BREACH\\client1"
+                    },
+                    "event_id": 11,
+                    "opcode": "Info",
+                    "process": {
+                        "pid": 1160,
+                        "thread": {
+                            "id": 2496
+                        }
+                    },
+                    "provider_guid": "{5770385f-c22a-43e0-bf4c-06f5698ffbd9}",
+                    "provider_name": "Microsoft-Windows-Sysmon",
+                    "record_id": 8898,
+                    "task": "File created (rule: FileCreate)",
+                    "user": {
+                        "domain": "NT AUTHORITY",
+                        "identifier": "S-1-5-18",
+                        "name": "SYSTEM",
+                        "type": "User"
+                    },
+                    "version": 2
+                }
+            }
+        },
+        "name": "DLL Load By System Process From Suspicious Locations",
+        "timestamp": "2022-10-10T10:59:41.574+00:00",
+        "authors": [
+            "Nasreddine Bencherchali"
+        ],
+        "level": "high",
+        "source": "sigma",
+        "status": "experimental",
+        "falsepositives": [
+            "Unknown"
+        ],
+        "id": "9e9a9002-56c4-40fd-9eff-e4b09bfa5f6c",
+        "logsource": {
+            "category": "image_load",
+            "product": "windows"
+        },
+        "references": [
+            "https://github.com/hackerhouse-opensource/iscsicpl_bypassUAC (Idea)"
+        ],
+        "tags": [
+            "attack.defense_evasion",
+            "attack.t1070"
+        ]
+    },
+    {
+        "group": "Sigma",
+        "kind": "individual",
+        "document": {
+            "kind": "jsonl",
+            "data": {
+                "@timestamp": "2022-10-10T10:59:41.574Z",
+                "agent": {
+                    "ephemeral_id": "64b72b79-c8b3-44d5-8efc-41706d768842",
+                    "hostname": "CLIENT1",
+                    "id": "cd699c72-0f46-4cd9-938a-43faf035a44a",
+                    "name": "CLIENT1",
+                    "type": "winlogbeat",
+                    "version": "7.10.2"
+                },
+                "ecs": {
+                    "version": "1.5.0"
+                },
+                "event": {
+                    "action": "File created (rule: FileCreate)",
+                    "category": [
+                        "file"
+                    ],
+                    "code": 11,
+                    "created": "2022-10-10T10:59:41.890Z",
+                    "kind": "event",
+                    "module": "sysmon",
+                    "provider": "Microsoft-Windows-Sysmon",
+                    "type": [
+                        "creation"
+                    ]
+                },
+                "file": {
+                    "directory": "C:\\Users\\client1\\AppData\\Local\\Temp\\2DBCCDB1-A4DF-4534-93BA-33609C70BE4F",
+                    "extension": "dll",
+                    "name": "MsiProvider.dll",
+                    "path": "C:\\Users\\client1\\AppData\\Local\\Temp\\2DBCCDB1-A4DF-4534-93BA-33609C70BE4F\\MsiProvider.dll"
+                },
+                "host": {
+                    "name": "CLIENT1.breach.local"
+                },
+                "log": {
+                    "level": "information"
+                },
+                "message": "File created:\nRuleName: DLL\nUtcTime: 2022-10-10 10:59:41.574\nProcessGuid: {0e37ca90-fb1a-6343-b111-000000000500}\nProcessId: 6640\nImage: C:\\Windows\\system32\\cleanmgr.exe\nTargetFilename: C:\\Users\\client1\\AppData\\Local\\Temp\\2DBCCDB1-A4DF-4534-93BA-33609C70BE4F\\MsiProvider.dll\nCreationUtcTime: 2022-10-10 10:59:41.574\nUser: BREACH\\client1",
+                "process": {
+                    "entity_id": "{0e37ca90-fb1a-6343-b111-000000000500}",
+                    "executable": "C:\\Windows\\system32\\cleanmgr.exe",
+                    "name": "cleanmgr.exe",
+                    "pid": 6640
+                },
+                "rule": {
+                    "name": "DLL"
+                },
+                "winlog": {
+                    "api": "wineventlog",
+                    "channel": "Microsoft-Windows-Sysmon/Operational",
+                    "computer_name": "CLIENT1.breach.local",
+                    "event_data": {
+                        "CreationUtcTime": "2022-10-10 10:59:41.574",
+                        "User": "BREACH\\client1"
+                    },
+                    "event_id": 11,
+                    "opcode": "Info",
+                    "process": {
+                        "pid": 1160,
+                        "thread": {
+                            "id": 2496
+                        }
+                    },
+                    "provider_guid": "{5770385f-c22a-43e0-bf4c-06f5698ffbd9}",
+                    "provider_name": "Microsoft-Windows-Sysmon",
+                    "record_id": 8896,
+                    "task": "File created (rule: FileCreate)",
+                    "user": {
+                        "domain": "NT AUTHORITY",
+                        "identifier": "S-1-5-18",
+                        "name": "SYSTEM",
+                        "type": "User"
+                    },
+                    "version": 2
+                }
+            }
+        },
+        "name": "DLL Load By System Process From Suspicious Locations",
+        "timestamp": "2022-10-10T10:59:41.574+00:00",
+        "authors": [
+            "Nasreddine Bencherchali"
+        ],
+        "level": "high",
+        "source": "sigma",
+        "status": "experimental",
+        "falsepositives": [
+            "Unknown"
+        ],
+        "id": "9e9a9002-56c4-40fd-9eff-e4b09bfa5f6c",
+        "logsource": {
+            "category": "image_load",
+            "product": "windows"
+        },
+        "references": [
+            "https://github.com/hackerhouse-opensource/iscsicpl_bypassUAC (Idea)"
+        ],
+        "tags": [
+            "attack.defense_evasion",
+            "attack.t1070"
+        ]
+    },
+    {
+        "group": "Sigma",
+        "kind": "individual",
+        "document": {
+            "kind": "jsonl",
+            "data": {
+                "@timestamp": "2022-10-10T10:59:41.590Z",
+                "agent": {
+                    "ephemeral_id": "64b72b79-c8b3-44d5-8efc-41706d768842",
+                    "hostname": "CLIENT1",
+                    "id": "cd699c72-0f46-4cd9-938a-43faf035a44a",
+                    "name": "CLIENT1",
+                    "type": "winlogbeat",
+                    "version": "7.10.2"
+                },
+                "ecs": {
+                    "version": "1.5.0"
+                },
+                "event": {
+                    "action": "File created (rule: FileCreate)",
+                    "category": [
+                        "file"
+                    ],
+                    "code": 11,
+                    "created": "2022-10-10T10:59:41.890Z",
+                    "kind": "event",
+                    "module": "sysmon",
+                    "provider": "Microsoft-Windows-Sysmon",
+                    "type": [
+                        "creation"
+                    ]
+                },
+                "file": {
+                    "directory": "C:\\Users\\client1\\AppData\\Local\\Temp\\2DBCCDB1-A4DF-4534-93BA-33609C70BE4F",
+                    "extension": "dll",
+                    "name": "SysprepProvider.dll",
+                    "path": "C:\\Users\\client1\\AppData\\Local\\Temp\\2DBCCDB1-A4DF-4534-93BA-33609C70BE4F\\SysprepProvider.dll"
+                },
+                "host": {
+                    "name": "CLIENT1.breach.local"
+                },
+                "log": {
+                    "level": "information"
+                },
+                "message": "File created:\nRuleName: DLL\nUtcTime: 2022-10-10 10:59:41.590\nProcessGuid: {0e37ca90-fb1a-6343-b111-000000000500}\nProcessId: 6640\nImage: C:\\Windows\\system32\\cleanmgr.exe\nTargetFilename: C:\\Users\\client1\\AppData\\Local\\Temp\\2DBCCDB1-A4DF-4534-93BA-33609C70BE4F\\SysprepProvider.dll\nCreationUtcTime: 2022-10-10 10:59:41.590\nUser: BREACH\\client1",
+                "process": {
+                    "entity_id": "{0e37ca90-fb1a-6343-b111-000000000500}",
+                    "executable": "C:\\Windows\\system32\\cleanmgr.exe",
+                    "name": "cleanmgr.exe",
+                    "pid": 6640
+                },
+                "rule": {
+                    "name": "DLL"
+                },
+                "winlog": {
+                    "api": "wineventlog",
+                    "channel": "Microsoft-Windows-Sysmon/Operational",
+                    "computer_name": "CLIENT1.breach.local",
+                    "event_data": {
+                        "CreationUtcTime": "2022-10-10 10:59:41.590",
+                        "User": "BREACH\\client1"
+                    },
+                    "event_id": 11,
+                    "opcode": "Info",
+                    "process": {
+                        "pid": 1160,
+                        "thread": {
+                            "id": 2496
+                        }
+                    },
+                    "provider_guid": "{5770385f-c22a-43e0-bf4c-06f5698ffbd9}",
+                    "provider_name": "Microsoft-Windows-Sysmon",
+                    "record_id": 8902,
+                    "task": "File created (rule: FileCreate)",
+                    "user": {
+                        "domain": "NT AUTHORITY",
+                        "identifier": "S-1-5-18",
+                        "name": "SYSTEM",
+                        "type": "User"
+                    },
+                    "version": 2
+                }
+            }
+        },
+        "name": "DLL Load By System Process From Suspicious Locations",
+        "timestamp": "2022-10-10T10:59:41.590+00:00",
+        "authors": [
+            "Nasreddine Bencherchali"
+        ],
+        "level": "high",
+        "source": "sigma",
+        "status": "experimental",
+        "falsepositives": [
+            "Unknown"
+        ],
+        "id": "9e9a9002-56c4-40fd-9eff-e4b09bfa5f6c",
+        "logsource": {
+            "category": "image_load",
+            "product": "windows"
+        },
+        "references": [
+            "https://github.com/hackerhouse-opensource/iscsicpl_bypassUAC (Idea)"
+        ],
+        "tags": [
+            "attack.defense_evasion",
+            "attack.t1070"
+        ]
+    },
+    {
+        "group": "Sigma",
+        "kind": "individual",
+        "document": {
+            "kind": "jsonl",
+            "data": {
+                "@timestamp": "2022-10-10T10:59:41.590Z",
+                "agent": {
+                    "ephemeral_id": "64b72b79-c8b3-44d5-8efc-41706d768842",
+                    "hostname": "CLIENT1",
+                    "id": "cd699c72-0f46-4cd9-938a-43faf035a44a",
+                    "name": "CLIENT1",
+                    "type": "winlogbeat",
+                    "version": "7.10.2"
+                },
+                "ecs": {
+                    "version": "1.5.0"
+                },
+                "event": {
+                    "action": "File created (rule: FileCreate)",
+                    "category": [
+                        "file"
+                    ],
+                    "code": 11,
+                    "created": "2022-10-10T10:59:41.890Z",
+                    "kind": "event",
+                    "module": "sysmon",
+                    "provider": "Microsoft-Windows-Sysmon",
+                    "type": [
+                        "creation"
+                    ]
+                },
+                "file": {
+                    "directory": "C:\\Users\\client1\\AppData\\Local\\Temp\\2DBCCDB1-A4DF-4534-93BA-33609C70BE4F",
+                    "extension": "dll",
+                    "name": "SetupPlatformProvider.dll",
+                    "path": "C:\\Users\\client1\\AppData\\Local\\Temp\\2DBCCDB1-A4DF-4534-93BA-33609C70BE4F\\SetupPlatformProvider.dll"
+                },
+                "host": {
+                    "name": "CLIENT1.breach.local"
+                },
+                "log": {
+                    "level": "information"
+                },
+                "message": "File created:\nRuleName: DLL\nUtcTime: 2022-10-10 10:59:41.590\nProcessGuid: {0e37ca90-fb1a-6343-b111-000000000500}\nProcessId: 6640\nImage: C:\\Windows\\system32\\cleanmgr.exe\nTargetFilename: C:\\Users\\client1\\AppData\\Local\\Temp\\2DBCCDB1-A4DF-4534-93BA-33609C70BE4F\\SetupPlatformProvider.dll\nCreationUtcTime: 2022-10-10 10:59:41.590\nUser: BREACH\\client1",
+                "process": {
+                    "entity_id": "{0e37ca90-fb1a-6343-b111-000000000500}",
+                    "executable": "C:\\Windows\\system32\\cleanmgr.exe",
+                    "name": "cleanmgr.exe",
+                    "pid": 6640
+                },
+                "rule": {
+                    "name": "DLL"
+                },
+                "winlog": {
+                    "api": "wineventlog",
+                    "channel": "Microsoft-Windows-Sysmon/Operational",
+                    "computer_name": "CLIENT1.breach.local",
+                    "event_data": {
+                        "CreationUtcTime": "2022-10-10 10:59:41.590",
+                        "User": "BREACH\\client1"
+                    },
+                    "event_id": 11,
+                    "opcode": "Info",
+                    "process": {
+                        "pid": 1160,
+                        "thread": {
+                            "id": 2496
+                        }
+                    },
+                    "provider_guid": "{5770385f-c22a-43e0-bf4c-06f5698ffbd9}",
+                    "provider_name": "Microsoft-Windows-Sysmon",
+                    "record_id": 8900,
+                    "task": "File created (rule: FileCreate)",
+                    "user": {
+                        "domain": "NT AUTHORITY",
+                        "identifier": "S-1-5-18",
+                        "name": "SYSTEM",
+                        "type": "User"
+                    },
+                    "version": 2
+                }
+            }
+        },
+        "name": "DLL Load By System Process From Suspicious Locations",
+        "timestamp": "2022-10-10T10:59:41.590+00:00",
+        "authors": [
+            "Nasreddine Bencherchali"
+        ],
+        "level": "high",
+        "source": "sigma",
+        "status": "experimental",
+        "falsepositives": [
+            "Unknown"
+        ],
+        "id": "9e9a9002-56c4-40fd-9eff-e4b09bfa5f6c",
+        "logsource": {
+            "category": "image_load",
+            "product": "windows"
+        },
+        "references": [
+            "https://github.com/hackerhouse-opensource/iscsicpl_bypassUAC (Idea)"
+        ],
+        "tags": [
+            "attack.defense_evasion",
+            "attack.t1070"
+        ]
+    },
+    {
+        "group": "Sigma",
+        "kind": "individual",
+        "document": {
+            "kind": "jsonl",
+            "data": {
+                "@timestamp": "2022-10-10T10:59:41.590Z",
+                "agent": {
+                    "ephemeral_id": "64b72b79-c8b3-44d5-8efc-41706d768842",
+                    "hostname": "CLIENT1",
+                    "id": "cd699c72-0f46-4cd9-938a-43faf035a44a",
+                    "name": "CLIENT1",
+                    "type": "winlogbeat",
+                    "version": "7.10.2"
+                },
+                "ecs": {
+                    "version": "1.5.0"
+                },
+                "event": {
+                    "action": "File created (rule: FileCreate)",
+                    "category": [
+                        "file"
+                    ],
+                    "code": 11,
+                    "created": "2022-10-10T10:59:41.890Z",
+                    "kind": "event",
+                    "module": "sysmon",
+                    "provider": "Microsoft-Windows-Sysmon",
+                    "type": [
+                        "creation"
+                    ]
+                },
+                "file": {
+                    "directory": "C:\\Users\\client1\\AppData\\Local\\Temp\\2DBCCDB1-A4DF-4534-93BA-33609C70BE4F",
+                    "extension": "dll",
+                    "name": "TransmogProvider.dll",
+                    "path": "C:\\Users\\client1\\AppData\\Local\\Temp\\2DBCCDB1-A4DF-4534-93BA-33609C70BE4F\\TransmogProvider.dll"
+                },
+                "host": {
+                    "name": "CLIENT1.breach.local"
+                },
+                "log": {
+                    "level": "information"
+                },
+                "message": "File created:\nRuleName: DLL\nUtcTime: 2022-10-10 10:59:41.590\nProcessGuid: {0e37ca90-fb1a-6343-b111-000000000500}\nProcessId: 6640\nImage: C:\\Windows\\system32\\cleanmgr.exe\nTargetFilename: C:\\Users\\client1\\AppData\\Local\\Temp\\2DBCCDB1-A4DF-4534-93BA-33609C70BE4F\\TransmogProvider.dll\nCreationUtcTime: 2022-10-10 10:59:41.590\nUser: BREACH\\client1",
+                "process": {
+                    "entity_id": "{0e37ca90-fb1a-6343-b111-000000000500}",
+                    "executable": "C:\\Windows\\system32\\cleanmgr.exe",
+                    "name": "cleanmgr.exe",
+                    "pid": 6640
+                },
+                "rule": {
+                    "name": "DLL"
+                },
+                "winlog": {
+                    "api": "wineventlog",
+                    "channel": "Microsoft-Windows-Sysmon/Operational",
+                    "computer_name": "CLIENT1.breach.local",
+                    "event_data": {
+                        "CreationUtcTime": "2022-10-10 10:59:41.590",
+                        "User": "BREACH\\client1"
+                    },
+                    "event_id": 11,
+                    "opcode": "Info",
+                    "process": {
+                        "pid": 1160,
+                        "thread": {
+                            "id": 2496
+                        }
+                    },
+                    "provider_guid": "{5770385f-c22a-43e0-bf4c-06f5698ffbd9}",
+                    "provider_name": "Microsoft-Windows-Sysmon",
+                    "record_id": 8903,
+                    "task": "File created (rule: FileCreate)",
+                    "user": {
+                        "domain": "NT AUTHORITY",
+                        "identifier": "S-1-5-18",
+                        "name": "SYSTEM",
+                        "type": "User"
+                    },
+                    "version": 2
+                }
+            }
+        },
+        "name": "DLL Load By System Process From Suspicious Locations",
+        "timestamp": "2022-10-10T10:59:41.590+00:00",
+        "authors": [
+            "Nasreddine Bencherchali"
+        ],
+        "level": "high",
+        "source": "sigma",
+        "status": "experimental",
+        "falsepositives": [
+            "Unknown"
+        ],
+        "id": "9e9a9002-56c4-40fd-9eff-e4b09bfa5f6c",
+        "logsource": {
+            "category": "image_load",
+            "product": "windows"
+        },
+        "references": [
+            "https://github.com/hackerhouse-opensource/iscsicpl_bypassUAC (Idea)"
+        ],
+        "tags": [
+            "attack.defense_evasion",
+            "attack.t1070"
+        ]
+    },
+    {
+        "group": "Sigma",
+        "kind": "individual",
+        "document": {
+            "kind": "jsonl",
+            "data": {
+                "@timestamp": "2022-10-10T10:59:41.590Z",
+                "agent": {
+                    "ephemeral_id": "64b72b79-c8b3-44d5-8efc-41706d768842",
+                    "hostname": "CLIENT1",
+                    "id": "cd699c72-0f46-4cd9-938a-43faf035a44a",
+                    "name": "CLIENT1",
+                    "type": "winlogbeat",
+                    "version": "7.10.2"
+                },
+                "ecs": {
+                    "version": "1.5.0"
+                },
+                "event": {
+                    "action": "File created (rule: FileCreate)",
+                    "category": [
+                        "file"
+                    ],
+                    "code": 11,
+                    "created": "2022-10-10T10:59:41.890Z",
+                    "kind": "event",
+                    "module": "sysmon",
+                    "provider": "Microsoft-Windows-Sysmon",
+                    "type": [
+                        "creation"
+                    ]
+                },
+                "file": {
+                    "directory": "C:\\Users\\client1\\AppData\\Local\\Temp\\2DBCCDB1-A4DF-4534-93BA-33609C70BE4F",
+                    "extension": "dll",
+                    "name": "SmiProvider.dll",
+                    "path": "C:\\Users\\client1\\AppData\\Local\\Temp\\2DBCCDB1-A4DF-4534-93BA-33609C70BE4F\\SmiProvider.dll"
+                },
+                "host": {
+                    "name": "CLIENT1.breach.local"
+                },
+                "log": {
+                    "level": "information"
+                },
+                "message": "File created:\nRuleName: DLL\nUtcTime: 2022-10-10 10:59:41.590\nProcessGuid: {0e37ca90-fb1a-6343-b111-000000000500}\nProcessId: 6640\nImage: C:\\Windows\\system32\\cleanmgr.exe\nTargetFilename: C:\\Users\\client1\\AppData\\Local\\Temp\\2DBCCDB1-A4DF-4534-93BA-33609C70BE4F\\SmiProvider.dll\nCreationUtcTime: 2022-10-10 10:59:41.590\nUser: BREACH\\client1",
+                "process": {
+                    "entity_id": "{0e37ca90-fb1a-6343-b111-000000000500}",
+                    "executable": "C:\\Windows\\system32\\cleanmgr.exe",
+                    "name": "cleanmgr.exe",
+                    "pid": 6640
+                },
+                "rule": {
+                    "name": "DLL"
+                },
+                "winlog": {
+                    "api": "wineventlog",
+                    "channel": "Microsoft-Windows-Sysmon/Operational",
+                    "computer_name": "CLIENT1.breach.local",
+                    "event_data": {
+                        "CreationUtcTime": "2022-10-10 10:59:41.590",
+                        "User": "BREACH\\client1"
+                    },
+                    "event_id": 11,
+                    "opcode": "Info",
+                    "process": {
+                        "pid": 1160,
+                        "thread": {
+                            "id": 2496
+                        }
+                    },
+                    "provider_guid": "{5770385f-c22a-43e0-bf4c-06f5698ffbd9}",
+                    "provider_name": "Microsoft-Windows-Sysmon",
+                    "record_id": 8901,
+                    "task": "File created (rule: FileCreate)",
+                    "user": {
+                        "domain": "NT AUTHORITY",
+                        "identifier": "S-1-5-18",
+                        "name": "SYSTEM",
+                        "type": "User"
+                    },
+                    "version": 2
+                }
+            }
+        },
+        "name": "DLL Load By System Process From Suspicious Locations",
+        "timestamp": "2022-10-10T10:59:41.590+00:00",
+        "authors": [
+            "Nasreddine Bencherchali"
+        ],
+        "level": "high",
+        "source": "sigma",
+        "status": "experimental",
+        "falsepositives": [
+            "Unknown"
+        ],
+        "id": "9e9a9002-56c4-40fd-9eff-e4b09bfa5f6c",
+        "logsource": {
+            "category": "image_load",
+            "product": "windows"
+        },
+        "references": [
+            "https://github.com/hackerhouse-opensource/iscsicpl_bypassUAC (Idea)"
+        ],
+        "tags": [
+            "attack.defense_evasion",
+            "attack.t1070"
+        ]
+    },
+    {
+        "group": "Sigma",
+        "kind": "individual",
+        "document": {
+            "kind": "jsonl",
+            "data": {
+                "@timestamp": "2022-10-10T10:59:41.605Z",
+                "agent": {
+                    "ephemeral_id": "64b72b79-c8b3-44d5-8efc-41706d768842",
+                    "hostname": "CLIENT1",
+                    "id": "cd699c72-0f46-4cd9-938a-43faf035a44a",
+                    "name": "CLIENT1",
+                    "type": "winlogbeat",
+                    "version": "7.10.2"
+                },
+                "ecs": {
+                    "version": "1.5.0"
+                },
+                "event": {
+                    "action": "File created (rule: FileCreate)",
+                    "category": [
+                        "file"
+                    ],
+                    "code": 11,
+                    "created": "2022-10-10T10:59:41.890Z",
+                    "kind": "event",
+                    "module": "sysmon",
+                    "provider": "Microsoft-Windows-Sysmon",
+                    "type": [
+                        "creation"
+                    ]
+                },
+                "file": {
+                    "directory": "C:\\Users\\client1\\AppData\\Local\\Temp\\2DBCCDB1-A4DF-4534-93BA-33609C70BE4F",
+                    "extension": "dll",
+                    "name": "UnattendProvider.dll",
+                    "path": "C:\\Users\\client1\\AppData\\Local\\Temp\\2DBCCDB1-A4DF-4534-93BA-33609C70BE4F\\UnattendProvider.dll"
+                },
+                "host": {
+                    "name": "CLIENT1.breach.local"
+                },
+                "log": {
+                    "level": "information"
+                },
+                "message": "File created:\nRuleName: DLL\nUtcTime: 2022-10-10 10:59:41.605\nProcessGuid: {0e37ca90-fb1a-6343-b111-000000000500}\nProcessId: 6640\nImage: C:\\Windows\\system32\\cleanmgr.exe\nTargetFilename: C:\\Users\\client1\\AppData\\Local\\Temp\\2DBCCDB1-A4DF-4534-93BA-33609C70BE4F\\UnattendProvider.dll\nCreationUtcTime: 2022-10-10 10:59:41.605\nUser: BREACH\\client1",
+                "process": {
+                    "entity_id": "{0e37ca90-fb1a-6343-b111-000000000500}",
+                    "executable": "C:\\Windows\\system32\\cleanmgr.exe",
+                    "name": "cleanmgr.exe",
+                    "pid": 6640
+                },
+                "rule": {
+                    "name": "DLL"
+                },
+                "winlog": {
+                    "api": "wineventlog",
+                    "channel": "Microsoft-Windows-Sysmon/Operational",
+                    "computer_name": "CLIENT1.breach.local",
+                    "event_data": {
+                        "CreationUtcTime": "2022-10-10 10:59:41.605",
+                        "User": "BREACH\\client1"
+                    },
+                    "event_id": 11,
+                    "opcode": "Info",
+                    "process": {
+                        "pid": 1160,
+                        "thread": {
+                            "id": 2496
+                        }
+                    },
+                    "provider_guid": "{5770385f-c22a-43e0-bf4c-06f5698ffbd9}",
+                    "provider_name": "Microsoft-Windows-Sysmon",
+                    "record_id": 8904,
+                    "task": "File created (rule: FileCreate)",
+                    "user": {
+                        "domain": "NT AUTHORITY",
+                        "identifier": "S-1-5-18",
+                        "name": "SYSTEM",
+                        "type": "User"
+                    },
+                    "version": 2
+                }
+            }
+        },
+        "name": "DLL Load By System Process From Suspicious Locations",
+        "timestamp": "2022-10-10T10:59:41.605+00:00",
+        "authors": [
+            "Nasreddine Bencherchali"
+        ],
+        "level": "high",
+        "source": "sigma",
+        "status": "experimental",
+        "falsepositives": [
+            "Unknown"
+        ],
+        "id": "9e9a9002-56c4-40fd-9eff-e4b09bfa5f6c",
+        "logsource": {
+            "category": "image_load",
+            "product": "windows"
+        },
+        "references": [
+            "https://github.com/hackerhouse-opensource/iscsicpl_bypassUAC (Idea)"
+        ],
+        "tags": [
+            "attack.defense_evasion",
+            "attack.t1070"
+        ]
+    },
+    {
+        "group": "Sigma",
+        "kind": "individual",
+        "document": {
+            "kind": "jsonl",
+            "data": {
+                "@timestamp": "2022-10-10T10:59:41.605Z",
+                "agent": {
+                    "ephemeral_id": "64b72b79-c8b3-44d5-8efc-41706d768842",
+                    "hostname": "CLIENT1",
+                    "id": "cd699c72-0f46-4cd9-938a-43faf035a44a",
+                    "name": "CLIENT1",
+                    "type": "winlogbeat",
+                    "version": "7.10.2"
+                },
+                "ecs": {
+                    "version": "1.5.0"
+                },
+                "event": {
+                    "action": "File created (rule: FileCreate)",
+                    "category": [
+                        "file"
+                    ],
+                    "code": 11,
+                    "created": "2022-10-10T10:59:41.890Z",
+                    "kind": "event",
+                    "module": "sysmon",
+                    "provider": "Microsoft-Windows-Sysmon",
+                    "type": [
+                        "creation"
+                    ]
+                },
+                "file": {
+                    "directory": "C:\\Users\\client1\\AppData\\Local\\Temp\\2DBCCDB1-A4DF-4534-93BA-33609C70BE4F",
+                    "extension": "dll",
+                    "name": "WimProvider.dll",
+                    "path": "C:\\Users\\client1\\AppData\\Local\\Temp\\2DBCCDB1-A4DF-4534-93BA-33609C70BE4F\\WimProvider.dll"
+                },
+                "host": {
+                    "name": "CLIENT1.breach.local"
+                },
+                "log": {
+                    "level": "information"
+                },
+                "message": "File created:\nRuleName: DLL\nUtcTime: 2022-10-10 10:59:41.605\nProcessGuid: {0e37ca90-fb1a-6343-b111-000000000500}\nProcessId: 6640\nImage: C:\\Windows\\system32\\cleanmgr.exe\nTargetFilename: C:\\Users\\client1\\AppData\\Local\\Temp\\2DBCCDB1-A4DF-4534-93BA-33609C70BE4F\\WimProvider.dll\nCreationUtcTime: 2022-10-10 10:59:41.605\nUser: BREACH\\client1",
+                "process": {
+                    "entity_id": "{0e37ca90-fb1a-6343-b111-000000000500}",
+                    "executable": "C:\\Windows\\system32\\cleanmgr.exe",
+                    "name": "cleanmgr.exe",
+                    "pid": 6640
+                },
+                "rule": {
+                    "name": "DLL"
+                },
+                "winlog": {
+                    "api": "wineventlog",
+                    "channel": "Microsoft-Windows-Sysmon/Operational",
+                    "computer_name": "CLIENT1.breach.local",
+                    "event_data": {
+                        "CreationUtcTime": "2022-10-10 10:59:41.605",
+                        "User": "BREACH\\client1"
+                    },
+                    "event_id": 11,
+                    "opcode": "Info",
+                    "process": {
+                        "pid": 1160,
+                        "thread": {
+                            "id": 2496
+                        }
+                    },
+                    "provider_guid": "{5770385f-c22a-43e0-bf4c-06f5698ffbd9}",
+                    "provider_name": "Microsoft-Windows-Sysmon",
+                    "record_id": 8906,
+                    "task": "File created (rule: FileCreate)",
+                    "user": {
+                        "domain": "NT AUTHORITY",
+                        "identifier": "S-1-5-18",
+                        "name": "SYSTEM",
+                        "type": "User"
+                    },
+                    "version": 2
+                }
+            }
+        },
+        "name": "DLL Load By System Process From Suspicious Locations",
+        "timestamp": "2022-10-10T10:59:41.605+00:00",
+        "authors": [
+            "Nasreddine Bencherchali"
+        ],
+        "level": "high",
+        "source": "sigma",
+        "status": "experimental",
+        "falsepositives": [
+            "Unknown"
+        ],
+        "id": "9e9a9002-56c4-40fd-9eff-e4b09bfa5f6c",
+        "logsource": {
+            "category": "image_load",
+            "product": "windows"
+        },
+        "references": [
+            "https://github.com/hackerhouse-opensource/iscsicpl_bypassUAC (Idea)"
+        ],
+        "tags": [
+            "attack.defense_evasion",
+            "attack.t1070"
+        ]
+    },
+    {
+        "group": "Sigma",
+        "kind": "individual",
+        "document": {
+            "kind": "jsonl",
+            "data": {
+                "@timestamp": "2022-10-10T10:59:41.605Z",
+                "agent": {
+                    "ephemeral_id": "64b72b79-c8b3-44d5-8efc-41706d768842",
+                    "hostname": "CLIENT1",
+                    "id": "cd699c72-0f46-4cd9-938a-43faf035a44a",
+                    "name": "CLIENT1",
+                    "type": "winlogbeat",
+                    "version": "7.10.2"
+                },
+                "ecs": {
+                    "version": "1.5.0"
+                },
+                "event": {
+                    "action": "File created (rule: FileCreate)",
+                    "category": [
+                        "file"
+                    ],
+                    "code": 11,
+                    "created": "2022-10-10T10:59:41.890Z",
+                    "kind": "event",
+                    "module": "sysmon",
+                    "provider": "Microsoft-Windows-Sysmon",
+                    "type": [
+                        "creation"
+                    ]
+                },
+                "file": {
+                    "directory": "C:\\Users\\client1\\AppData\\Local\\Temp\\2DBCCDB1-A4DF-4534-93BA-33609C70BE4F",
+                    "extension": "dll",
+                    "name": "VhdProvider.dll",
+                    "path": "C:\\Users\\client1\\AppData\\Local\\Temp\\2DBCCDB1-A4DF-4534-93BA-33609C70BE4F\\VhdProvider.dll"
+                },
+                "host": {
+                    "name": "CLIENT1.breach.local"
+                },
+                "log": {
+                    "level": "information"
+                },
+                "message": "File created:\nRuleName: DLL\nUtcTime: 2022-10-10 10:59:41.605\nProcessGuid: {0e37ca90-fb1a-6343-b111-000000000500}\nProcessId: 6640\nImage: C:\\Windows\\system32\\cleanmgr.exe\nTargetFilename: C:\\Users\\client1\\AppData\\Local\\Temp\\2DBCCDB1-A4DF-4534-93BA-33609C70BE4F\\VhdProvider.dll\nCreationUtcTime: 2022-10-10 10:59:41.605\nUser: BREACH\\client1",
+                "process": {
+                    "entity_id": "{0e37ca90-fb1a-6343-b111-000000000500}",
+                    "executable": "C:\\Windows\\system32\\cleanmgr.exe",
+                    "name": "cleanmgr.exe",
+                    "pid": 6640
+                },
+                "rule": {
+                    "name": "DLL"
+                },
+                "winlog": {
+                    "api": "wineventlog",
+                    "channel": "Microsoft-Windows-Sysmon/Operational",
+                    "computer_name": "CLIENT1.breach.local",
+                    "event_data": {
+                        "CreationUtcTime": "2022-10-10 10:59:41.605",
+                        "User": "BREACH\\client1"
+                    },
+                    "event_id": 11,
+                    "opcode": "Info",
+                    "process": {
+                        "pid": 1160,
+                        "thread": {
+                            "id": 2496
+                        }
+                    },
+                    "provider_guid": "{5770385f-c22a-43e0-bf4c-06f5698ffbd9}",
+                    "provider_name": "Microsoft-Windows-Sysmon",
+                    "record_id": 8905,
+                    "task": "File created (rule: FileCreate)",
+                    "user": {
+                        "domain": "NT AUTHORITY",
+                        "identifier": "S-1-5-18",
+                        "name": "SYSTEM",
+                        "type": "User"
+                    },
+                    "version": 2
+                }
+            }
+        },
+        "name": "DLL Load By System Process From Suspicious Locations",
+        "timestamp": "2022-10-10T10:59:41.605+00:00",
+        "authors": [
+            "Nasreddine Bencherchali"
+        ],
+        "level": "high",
+        "source": "sigma",
+        "status": "experimental",
+        "falsepositives": [
+            "Unknown"
+        ],
+        "id": "9e9a9002-56c4-40fd-9eff-e4b09bfa5f6c",
+        "logsource": {
+            "category": "image_load",
+            "product": "windows"
+        },
+        "references": [
+            "https://github.com/hackerhouse-opensource/iscsicpl_bypassUAC (Idea)"
+        ],
+        "tags": [
+            "attack.defense_evasion",
+            "attack.t1070"
+        ]
+    },
+    {
+        "group": "Sigma",
+        "kind": "individual",
+        "document": {
+            "kind": "jsonl",
+            "data": {
+                "@timestamp": "2022-10-10T11:00:00.852Z",
+                "agent": {
+                    "ephemeral_id": "64b72b79-c8b3-44d5-8efc-41706d768842",
+                    "hostname": "CLIENT1",
+                    "id": "cd699c72-0f46-4cd9-938a-43faf035a44a",
+                    "name": "CLIENT1",
+                    "type": "winlogbeat",
+                    "version": "7.10.2"
+                },
+                "ecs": {
+                    "version": "1.5.0"
+                },
+                "event": {
+                    "action": "File creation time changed (rule: FileCreateTime)",
+                    "category": [
+                        "file"
+                    ],
+                    "code": 2,
+                    "created": "2022-10-10T11:00:02.176Z",
+                    "kind": "event",
+                    "module": "sysmon",
+                    "provider": "Microsoft-Windows-Sysmon",
+                    "type": [
+                        "change"
+                    ]
+                },
+                "file": {
+                    "directory": "C:\\Users\\client1\\AppData\\Local\\Temp\\2DBCCDB1-A4DF-4534-93BA-33609C70BE4F",
+                    "extension": "exe",
+                    "name": "DismHost.exe",
+                    "path": "C:\\Users\\client1\\AppData\\Local\\Temp\\2DBCCDB1-A4DF-4534-93BA-33609C70BE4F\\DismHost.exe"
+                },
+                "host": {
+                    "name": "CLIENT1.breach.local"
+                },
+                "log": {
+                    "level": "information"
+                },
+                "message": "File creation time changed:\nRuleName: T1099\nUtcTime: 2022-10-10 11:00:00.852\nProcessGuid: {0e37ca90-fb1a-6343-b111-000000000500}\nProcessId: 6640\nImage: C:\\Windows\\system32\\cleanmgr.exe\nTargetFilename: C:\\Users\\client1\\AppData\\Local\\Temp\\2DBCCDB1-A4DF-4534-93BA-33609C70BE4F\\DismHost.exe\nCreationUtcTime: 2022-10-10 10:59:41.527\nPreviousCreationUtcTime: 2022-10-10 10:59:41.527\nUser: BREACH\\client1",
+                "process": {
+                    "entity_id": "{0e37ca90-fb1a-6343-b111-000000000500}",
+                    "executable": "C:\\Windows\\system32\\cleanmgr.exe",
+                    "name": "cleanmgr.exe",
+                    "pid": 6640
+                },
+                "rule": {
+                    "name": "T1099"
+                },
+                "winlog": {
+                    "api": "wineventlog",
+                    "channel": "Microsoft-Windows-Sysmon/Operational",
+                    "computer_name": "CLIENT1.breach.local",
+                    "event_data": {
+                        "CreationUtcTime": "2022-10-10 10:59:41.527",
+                        "PreviousCreationUtcTime": "2022-10-10 10:59:41.527",
+                        "User": "BREACH\\client1"
+                    },
+                    "event_id": 2,
+                    "opcode": "Info",
+                    "process": {
+                        "pid": 1160,
+                        "thread": {
+                            "id": 2496
+                        }
+                    },
+                    "provider_guid": "{5770385f-c22a-43e0-bf4c-06f5698ffbd9}",
+                    "provider_name": "Microsoft-Windows-Sysmon",
+                    "record_id": 8923,
+                    "task": "File creation time changed (rule: FileCreateTime)",
+                    "user": {
+                        "domain": "NT AUTHORITY",
+                        "identifier": "S-1-5-18",
+                        "name": "SYSTEM",
+                        "type": "User"
+                    },
+                    "version": 5
+                }
+            }
+        },
+        "name": "DLL Load By System Process From Suspicious Locations",
+        "timestamp": "2022-10-10T11:00:00.852+00:00",
+        "authors": [
+            "Nasreddine Bencherchali"
+        ],
+        "level": "high",
+        "source": "sigma",
+        "status": "experimental",
+        "falsepositives": [
+            "Unknown"
+        ],
+        "id": "9e9a9002-56c4-40fd-9eff-e4b09bfa5f6c",
+        "logsource": {
+            "category": "image_load",
+            "product": "windows"
+        },
+        "references": [
+            "https://github.com/hackerhouse-opensource/iscsicpl_bypassUAC (Idea)"
+        ],
+        "tags": [
+            "attack.defense_evasion",
+            "attack.t1070"
+        ]
+    },
+    {
+        "group": "Sigma",
+        "kind": "individual",
+        "document": {
+            "kind": "jsonl",
+            "data": {
+                "@timestamp": "2022-10-10T11:17:50.776Z",
+                "agent": {
+                    "ephemeral_id": "64b72b79-c8b3-44d5-8efc-41706d768842",
+                    "hostname": "CLIENT1",
+                    "id": "cd699c72-0f46-4cd9-938a-43faf035a44a",
+                    "name": "CLIENT1",
+                    "type": "winlogbeat",
+                    "version": "7.10.2"
+                },
+                "ecs": {
+                    "version": "1.5.0"
+                },
+                "event": {
+                    "action": "File created (rule: FileCreate)",
+                    "category": [
+                        "file"
+                    ],
+                    "code": 11,
+                    "created": "2022-10-10T11:17:51.469Z",
+                    "kind": "event",
+                    "module": "sysmon",
+                    "provider": "Microsoft-Windows-Sysmon",
+                    "type": [
+                        "creation"
+                    ]
+                },
+                "file": {
+                    "directory": "C:\\Users\\ssh\\AppData\\Local\\Temp",
+                    "extension": "ps1",
+                    "name": "__PSScriptPolicyTest_yuc2wajk.3vx.ps1",
+                    "path": "C:\\Users\\ssh\\AppData\\Local\\Temp\\__PSScriptPolicyTest_yuc2wajk.3vx.ps1"
+                },
+                "host": {
+                    "name": "CLIENT1.breach.local"
+                },
+                "log": {
+                    "level": "information"
+                },
+                "message": "File created:\nRuleName: -\nUtcTime: 2022-10-10 11:17:50.776\nProcessGuid: {0e37ca90-ff5e-6343-fb11-000000000500}\nProcessId: 4368\nImage: C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\nTargetFilename: C:\\Users\\ssh\\AppData\\Local\\Temp\\__PSScriptPolicyTest_yuc2wajk.3vx.ps1\nCreationUtcTime: 2022-10-10 11:17:50.776\nUser: CLIENT1\\ssh",
+                "process": {
+                    "entity_id": "{0e37ca90-ff5e-6343-fb11-000000000500}",
+                    "executable": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+                    "name": "powershell.exe",
+                    "pid": 4368
+                },
+                "winlog": {
+                    "api": "wineventlog",
+                    "channel": "Microsoft-Windows-Sysmon/Operational",
+                    "computer_name": "CLIENT1.breach.local",
+                    "event_data": {
+                        "CreationUtcTime": "2022-10-10 11:17:50.776",
+                        "RuleName": "-",
+                        "User": "CLIENT1\\ssh"
+                    },
+                    "event_id": 11,
+                    "opcode": "Info",
+                    "process": {
+                        "pid": 1160,
+                        "thread": {
+                            "id": 2496
+                        }
+                    },
+                    "provider_guid": "{5770385f-c22a-43e0-bf4c-06f5698ffbd9}",
+                    "provider_name": "Microsoft-Windows-Sysmon",
+                    "record_id": 9202,
+                    "task": "File created (rule: FileCreate)",
+                    "user": {
+                        "domain": "NT AUTHORITY",
+                        "identifier": "S-1-5-18",
+                        "name": "SYSTEM",
+                        "type": "User"
+                    },
+                    "version": 2
+                }
+            }
+        },
+        "name": "DLL Load By System Process From Suspicious Locations",
+        "timestamp": "2022-10-10T11:17:50.776+00:00",
+        "authors": [
+            "Nasreddine Bencherchali"
+        ],
+        "level": "high",
+        "source": "sigma",
+        "status": "experimental",
+        "falsepositives": [
+            "Unknown"
+        ],
+        "id": "9e9a9002-56c4-40fd-9eff-e4b09bfa5f6c",
+        "logsource": {
+            "category": "image_load",
+            "product": "windows"
+        },
+        "references": [
+            "https://github.com/hackerhouse-opensource/iscsicpl_bypassUAC (Idea)"
+        ],
+        "tags": [
+            "attack.defense_evasion",
+            "attack.t1070"
+        ]
+    },
+    {
+        "total_hits": 37
+    }
+]

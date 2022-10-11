@@ -1,0 +1,354 @@
+[
+    {
+        "group": "Sigma",
+        "kind": "individual",
+        "document": {
+            "kind": "jsonl",
+            "data": {
+                "@timestamp": "2022-10-10T11:21:49.829Z",
+                "agent": {
+                    "ephemeral_id": "64b72b79-c8b3-44d5-8efc-41706d768842",
+                    "hostname": "CLIENT1",
+                    "id": "cd699c72-0f46-4cd9-938a-43faf035a44a",
+                    "name": "CLIENT1",
+                    "type": "winlogbeat",
+                    "version": "7.10.2"
+                },
+                "ecs": {
+                    "version": "1.5.0"
+                },
+                "event": {
+                    "action": "Process Create (rule: ProcessCreate)",
+                    "category": [
+                        "process"
+                    ],
+                    "code": 1,
+                    "created": "2022-10-10T11:21:50.649Z",
+                    "kind": "event",
+                    "module": "sysmon",
+                    "provider": "Microsoft-Windows-Sysmon",
+                    "type": [
+                        "start",
+                        "process_start"
+                    ]
+                },
+                "hash": {
+                    "imphash": "272245e2988e1e430500b852c4fb5e18",
+                    "md5": "8a2122e8162dbef04694b9c3e0b6cdee",
+                    "sha256": "b99d61d874728edc0918ca0eb10eab93d381e7367e377406e65963366c874450"
+                },
+                "host": {
+                    "name": "CLIENT1.breach.local"
+                },
+                "log": {
+                    "level": "information"
+                },
+                "message": "Process Create:\nRuleName: -\nUtcTime: 2022-10-10 11:21:49.829\nProcessGuid: {0e37ca90-004d-6344-0212-000000000500}\nProcessId: 220\nImage: C:\\Windows\\System32\\cmd.exe\nFileVersion: 10.0.19041.746 (WinBuild.160101.0800)\nDescription: Windows Command Processor\nProduct: Microsoft® Windows® Operating System\nCompany: Microsoft Corporation\nOriginalFileName: Cmd.Exe\nCommandLine: c:\\windows\\system32\\cmd.exe /c REG ADD HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\Run /v \"Meterpreter Bind TCP\" /t REG_SZ /d meterpreter_bind_tcp.exe /f\nCurrentDirectory: C:\\Users\\ssh\\\nUser: CLIENT1\\ssh\nLogonGuid: {0e37ca90-004d-6344-9197-e00000000000}\nLogonId: 0xE09791\nTerminalSessionId: 0\nIntegrityLevel: High\nHashes: MD5=8A2122E8162DBEF04694B9C3E0B6CDEE,SHA256=B99D61D874728EDC0918CA0EB10EAB93D381E7367E377406E65963366C874450,IMPHASH=272245E2988E1E430500B852C4FB5E18\nParentProcessGuid: {0e37ca90-004d-6344-0112-000000000500}\nParentProcessId: 3244\nParentImage: C:\\Windows\\System32\\conhost.exe\nParentCommandLine: C:\\Windows\\system32\\conhost.exe --headless --width 80 --height 24 --signal 0x1e0 -- \"c:\\windows\\system32\\cmd.exe\" /c REG ADD HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\Run /v \"Meterpreter Bind TCP\" /t REG_SZ /d \"meterpreter_bind_tcp.exe\" /f\nParentUser: CLIENT1\\ssh",
+                "process": {
+                    "args": [
+                        "c:\\windows\\system32\\cmd.exe",
+                        "/c",
+                        "REG",
+                        "ADD",
+                        "HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\Run",
+                        "/v",
+                        "Meterpreter Bind TCP",
+                        "/t",
+                        "REG_SZ",
+                        "/d",
+                        "meterpreter_bind_tcp.exe",
+                        "/f"
+                    ],
+                    "command_line": "c:\\windows\\system32\\cmd.exe /c REG ADD HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\Run /v \"Meterpreter Bind TCP\" /t REG_SZ /d meterpreter_bind_tcp.exe /f",
+                    "entity_id": "{0e37ca90-004d-6344-0212-000000000500}",
+                    "executable": "C:\\Windows\\System32\\cmd.exe",
+                    "hash": {
+                        "md5": "8a2122e8162dbef04694b9c3e0b6cdee",
+                        "sha256": "b99d61d874728edc0918ca0eb10eab93d381e7367e377406e65963366c874450"
+                    },
+                    "name": "cmd.exe",
+                    "parent": {
+                        "args": [
+                            "C:\\Windows\\system32\\conhost.exe",
+                            "--headless",
+                            "--width",
+                            "80",
+                            "--height",
+                            "24",
+                            "--signal",
+                            "0x1e0",
+                            "--",
+                            "c:\\windows\\system32\\cmd.exe",
+                            "/c",
+                            "REG",
+                            "ADD",
+                            "HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\Run",
+                            "/v",
+                            "Meterpreter Bind TCP",
+                            "/t",
+                            "REG_SZ",
+                            "/d",
+                            "meterpreter_bind_tcp.exe",
+                            "/f"
+                        ],
+                        "command_line": "C:\\Windows\\system32\\conhost.exe --headless --width 80 --height 24 --signal 0x1e0 -- \"c:\\windows\\system32\\cmd.exe\" /c REG ADD HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\Run /v \"Meterpreter Bind TCP\" /t REG_SZ /d \"meterpreter_bind_tcp.exe\" /f",
+                        "entity_id": "{0e37ca90-004d-6344-0112-000000000500}",
+                        "executable": "C:\\Windows\\System32\\conhost.exe",
+                        "name": "conhost.exe",
+                        "pid": 3244
+                    },
+                    "pe": {
+                        "imphash": "272245e2988e1e430500b852c4fb5e18"
+                    },
+                    "pid": 220,
+                    "working_directory": "C:\\Users\\ssh\\"
+                },
+                "related": {
+                    "hash": [
+                        "8a2122e8162dbef04694b9c3e0b6cdee",
+                        "b99d61d874728edc0918ca0eb10eab93d381e7367e377406e65963366c874450",
+                        "272245e2988e1e430500b852c4fb5e18"
+                    ],
+                    "user": "ssh"
+                },
+                "user": {
+                    "domain": "CLIENT1",
+                    "name": "ssh"
+                },
+                "winlog": {
+                    "api": "wineventlog",
+                    "channel": "Microsoft-Windows-Sysmon/Operational",
+                    "computer_name": "CLIENT1.breach.local",
+                    "event_data": {
+                        "Company": "Microsoft Corporation",
+                        "Description": "Windows Command Processor",
+                        "FileVersion": "10.0.19041.746 (WinBuild.160101.0800)",
+                        "IntegrityLevel": "High",
+                        "LogonGuid": "{0e37ca90-004d-6344-9197-e00000000000}",
+                        "LogonId": "0xe09791",
+                        "OriginalFileName": "Cmd.Exe",
+                        "ParentUser": "CLIENT1\\ssh",
+                        "Product": "Microsoft® Windows® Operating System",
+                        "RuleName": "-",
+                        "TerminalSessionId": "0"
+                    },
+                    "event_id": 1,
+                    "opcode": "Info",
+                    "process": {
+                        "pid": 1160,
+                        "thread": {
+                            "id": 2496
+                        }
+                    },
+                    "provider_guid": "{5770385f-c22a-43e0-bf4c-06f5698ffbd9}",
+                    "provider_name": "Microsoft-Windows-Sysmon",
+                    "record_id": 9259,
+                    "task": "Process Create (rule: ProcessCreate)",
+                    "user": {
+                        "domain": "NT AUTHORITY",
+                        "identifier": "S-1-5-18",
+                        "name": "SYSTEM",
+                        "type": "User"
+                    },
+                    "version": 5
+                }
+            }
+        },
+        "name": "Reg Add RUN Key",
+        "timestamp": "2022-10-10T11:21:49.829+00:00",
+        "authors": [
+            "Florian Roth"
+        ],
+        "level": "medium",
+        "source": "sigma",
+        "status": "experimental",
+        "falsepositives": [
+            "Unknown"
+        ],
+        "id": "de587dce-915e-4218-aac4-835ca6af6f70",
+        "logsource": {
+            "category": "process_creation",
+            "product": "windows"
+        },
+        "references": [
+            "https://app.any.run/tasks/9c0f37bc-867a-4314-b685-e101566766d7/",
+            "https://docs.microsoft.com/en-us/windows/win32/setupapi/run-and-runonce-registry-keys"
+        ],
+        "tags": [
+            "attack.persistence",
+            "attack.t1547.001"
+        ]
+    },
+    {
+        "group": "Sigma",
+        "kind": "individual",
+        "document": {
+            "kind": "jsonl",
+            "data": {
+                "@timestamp": "2022-10-10T11:21:49.841Z",
+                "agent": {
+                    "ephemeral_id": "64b72b79-c8b3-44d5-8efc-41706d768842",
+                    "hostname": "CLIENT1",
+                    "id": "cd699c72-0f46-4cd9-938a-43faf035a44a",
+                    "name": "CLIENT1",
+                    "type": "winlogbeat",
+                    "version": "7.10.2"
+                },
+                "ecs": {
+                    "version": "1.5.0"
+                },
+                "event": {
+                    "action": "Process Create (rule: ProcessCreate)",
+                    "category": [
+                        "process"
+                    ],
+                    "code": 1,
+                    "created": "2022-10-10T11:21:50.649Z",
+                    "kind": "event",
+                    "module": "sysmon",
+                    "provider": "Microsoft-Windows-Sysmon",
+                    "type": [
+                        "start",
+                        "process_start"
+                    ]
+                },
+                "hash": {
+                    "imphash": "be482be427fe212cfef2cda0e61f19ac",
+                    "md5": "227f63e1d9008b36bdbcc4b397780be4",
+                    "sha256": "c0e25b1f9b22de445298c1e96ddfcead265ca030fa6626f61a4a4786cc4a3b7d"
+                },
+                "host": {
+                    "name": "CLIENT1.breach.local"
+                },
+                "log": {
+                    "level": "information"
+                },
+                "message": "Process Create:\nRuleName: -\nUtcTime: 2022-10-10 11:21:49.841\nProcessGuid: {0e37ca90-004d-6344-0312-000000000500}\nProcessId: 4348\nImage: C:\\Windows\\System32\\reg.exe\nFileVersion: 10.0.19041.1 (WinBuild.160101.0800)\nDescription: Registry Console Tool\nProduct: Microsoft® Windows® Operating System\nCompany: Microsoft Corporation\nOriginalFileName: reg.exe\nCommandLine: REG  ADD HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\Run /v \"Meterpreter Bind TCP\" /t REG_SZ /d meterpreter_bind_tcp.exe /f\nCurrentDirectory: C:\\Users\\ssh\\\nUser: CLIENT1\\ssh\nLogonGuid: {0e37ca90-004d-6344-9197-e00000000000}\nLogonId: 0xE09791\nTerminalSessionId: 0\nIntegrityLevel: High\nHashes: MD5=227F63E1D9008B36BDBCC4B397780BE4,SHA256=C0E25B1F9B22DE445298C1E96DDFCEAD265CA030FA6626F61A4A4786CC4A3B7D,IMPHASH=BE482BE427FE212CFEF2CDA0E61F19AC\nParentProcessGuid: {0e37ca90-004d-6344-0212-000000000500}\nParentProcessId: 220\nParentImage: C:\\Windows\\System32\\cmd.exe\nParentCommandLine: c:\\windows\\system32\\cmd.exe /c REG ADD HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\Run /v \"Meterpreter Bind TCP\" /t REG_SZ /d meterpreter_bind_tcp.exe /f\nParentUser: CLIENT1\\ssh",
+                "process": {
+                    "args": [
+                        "REG",
+                        "ADD",
+                        "HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\Run",
+                        "/v",
+                        "Meterpreter Bind TCP",
+                        "/t",
+                        "REG_SZ",
+                        "/d",
+                        "meterpreter_bind_tcp.exe",
+                        "/f"
+                    ],
+                    "command_line": "REG  ADD HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\Run /v \"Meterpreter Bind TCP\" /t REG_SZ /d meterpreter_bind_tcp.exe /f",
+                    "entity_id": "{0e37ca90-004d-6344-0312-000000000500}",
+                    "executable": "C:\\Windows\\System32\\reg.exe",
+                    "hash": {
+                        "md5": "227f63e1d9008b36bdbcc4b397780be4",
+                        "sha256": "c0e25b1f9b22de445298c1e96ddfcead265ca030fa6626f61a4a4786cc4a3b7d"
+                    },
+                    "name": "reg.exe",
+                    "parent": {
+                        "args": [
+                            "c:\\windows\\system32\\cmd.exe",
+                            "/c",
+                            "REG",
+                            "ADD",
+                            "HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\Run",
+                            "/v",
+                            "Meterpreter Bind TCP",
+                            "/t",
+                            "REG_SZ",
+                            "/d",
+                            "meterpreter_bind_tcp.exe",
+                            "/f"
+                        ],
+                        "command_line": "c:\\windows\\system32\\cmd.exe /c REG ADD HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\Run /v \"Meterpreter Bind TCP\" /t REG_SZ /d meterpreter_bind_tcp.exe /f",
+                        "entity_id": "{0e37ca90-004d-6344-0212-000000000500}",
+                        "executable": "C:\\Windows\\System32\\cmd.exe",
+                        "name": "cmd.exe",
+                        "pid": 220
+                    },
+                    "pe": {
+                        "imphash": "be482be427fe212cfef2cda0e61f19ac"
+                    },
+                    "pid": 4348,
+                    "working_directory": "C:\\Users\\ssh\\"
+                },
+                "related": {
+                    "hash": [
+                        "227f63e1d9008b36bdbcc4b397780be4",
+                        "c0e25b1f9b22de445298c1e96ddfcead265ca030fa6626f61a4a4786cc4a3b7d",
+                        "be482be427fe212cfef2cda0e61f19ac"
+                    ],
+                    "user": "ssh"
+                },
+                "user": {
+                    "domain": "CLIENT1",
+                    "name": "ssh"
+                },
+                "winlog": {
+                    "api": "wineventlog",
+                    "channel": "Microsoft-Windows-Sysmon/Operational",
+                    "computer_name": "CLIENT1.breach.local",
+                    "event_data": {
+                        "Company": "Microsoft Corporation",
+                        "Description": "Registry Console Tool",
+                        "FileVersion": "10.0.19041.1 (WinBuild.160101.0800)",
+                        "IntegrityLevel": "High",
+                        "LogonGuid": "{0e37ca90-004d-6344-9197-e00000000000}",
+                        "LogonId": "0xe09791",
+                        "OriginalFileName": "reg.exe",
+                        "ParentUser": "CLIENT1\\ssh",
+                        "Product": "Microsoft® Windows® Operating System",
+                        "RuleName": "-",
+                        "TerminalSessionId": "0"
+                    },
+                    "event_id": 1,
+                    "opcode": "Info",
+                    "process": {
+                        "pid": 1160,
+                        "thread": {
+                            "id": 2496
+                        }
+                    },
+                    "provider_guid": "{5770385f-c22a-43e0-bf4c-06f5698ffbd9}",
+                    "provider_name": "Microsoft-Windows-Sysmon",
+                    "record_id": 9260,
+                    "task": "Process Create (rule: ProcessCreate)",
+                    "user": {
+                        "domain": "NT AUTHORITY",
+                        "identifier": "S-1-5-18",
+                        "name": "SYSTEM",
+                        "type": "User"
+                    },
+                    "version": 5
+                }
+            }
+        },
+        "name": "Reg Add RUN Key",
+        "timestamp": "2022-10-10T11:21:49.841+00:00",
+        "authors": [
+            "Florian Roth"
+        ],
+        "level": "medium",
+        "source": "sigma",
+        "status": "experimental",
+        "falsepositives": [
+            "Unknown"
+        ],
+        "id": "de587dce-915e-4218-aac4-835ca6af6f70",
+        "logsource": {
+            "category": "process_creation",
+            "product": "windows"
+        },
+        "references": [
+            "https://app.any.run/tasks/9c0f37bc-867a-4314-b685-e101566766d7/",
+            "https://docs.microsoft.com/en-us/windows/win32/setupapi/run-and-runonce-registry-keys"
+        ],
+        "tags": [
+            "attack.persistence",
+            "attack.t1547.001"
+        ]
+    },
+    {
+        "total_hits": 2
+    }
+]

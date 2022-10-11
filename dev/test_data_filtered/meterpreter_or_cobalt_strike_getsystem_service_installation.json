@@ -1,0 +1,191 @@
+[
+    {
+        "group": "Sigma",
+        "kind": "individual",
+        "document": {
+            "kind": "jsonl",
+            "data": {
+                "@timestamp": "2022-10-10T11:14:08.466Z",
+                "agent": {
+                    "ephemeral_id": "64b72b79-c8b3-44d5-8efc-41706d768842",
+                    "hostname": "CLIENT1",
+                    "id": "cd699c72-0f46-4cd9-938a-43faf035a44a",
+                    "name": "CLIENT1",
+                    "type": "winlogbeat",
+                    "version": "7.10.2"
+                },
+                "ecs": {
+                    "version": "1.5.0"
+                },
+                "event": {
+                    "code": 7045,
+                    "created": "2022-10-10T11:14:09.526Z",
+                    "kind": "event",
+                    "provider": "Service Control Manager"
+                },
+                "host": {
+                    "name": "CLIENT1.breach.local"
+                },
+                "log": {
+                    "level": "information"
+                },
+                "message": "A service was installed in the system.\n\nService Name:  fxpqtf\nService File Name:  cmd.exe /c echo fxpqtf > \\\\.\\pipe\\fxpqtf\nService Type:  user mode service\nService Start Type:  demand start\nService Account:  LocalSystem",
+                "winlog": {
+                    "api": "wineventlog",
+                    "channel": "System",
+                    "computer_name": "CLIENT1.breach.local",
+                    "event_data": {
+                        "AccountName": "LocalSystem",
+                        "ImagePath": "cmd.exe /c echo fxpqtf > \\\\.\\pipe\\fxpqtf",
+                        "ServiceName": "fxpqtf",
+                        "ServiceType": "user mode service",
+                        "StartType": "demand start"
+                    },
+                    "event_id": 7045,
+                    "keywords": [
+                        "Classic"
+                    ],
+                    "process": {
+                        "pid": 592,
+                        "thread": {
+                            "id": 5836
+                        }
+                    },
+                    "provider_guid": "{555908d1-a6d7-4695-8e1e-26931d2012f4}",
+                    "provider_name": "Service Control Manager",
+                    "record_id": 573,
+                    "task": "",
+                    "user": {
+                        "domain": "BREACH",
+                        "identifier": "S-1-5-21-3459850441-3495426577-3482648790-1103",
+                        "name": "client1",
+                        "type": "User"
+                    }
+                }
+            }
+        },
+        "name": "Meterpreter or Cobalt Strike Getsystem Service Installation",
+        "timestamp": "2022-10-10T11:14:08.466+00:00",
+        "authors": [
+            "Teymur Kheirkhabarov",
+            "Ecco",
+            "Florian Roth"
+        ],
+        "level": "critical",
+        "source": "sigma",
+        "status": "experimental",
+        "falsepositives": [
+            "Highly unlikely"
+        ],
+        "id": "843544a7-56e0-4dcc-a44f-5cc266dd97d6",
+        "logsource": {
+            "product": "windows",
+            "service": "system"
+        },
+        "references": [
+            "https://speakerdeck.com/heirhabarov/hunting-for-privilege-escalation-in-windows-environment",
+            "https://blog.cobaltstrike.com/2014/04/02/what-happens-when-i-type-getsystem/"
+        ],
+        "tags": [
+            "attack.privilege_escalation",
+            "attack.t1134.001",
+            "attack.t1134.002"
+        ]
+    },
+    {
+        "group": "Sigma",
+        "kind": "individual",
+        "document": {
+            "kind": "jsonl",
+            "data": {
+                "@timestamp": "2022-10-10T11:14:08.466Z",
+                "agent": {
+                    "ephemeral_id": "64b72b79-c8b3-44d5-8efc-41706d768842",
+                    "hostname": "CLIENT1",
+                    "id": "cd699c72-0f46-4cd9-938a-43faf035a44a",
+                    "name": "CLIENT1",
+                    "type": "winlogbeat",
+                    "version": "7.10.2"
+                },
+                "ecs": {
+                    "version": "1.5.0"
+                },
+                "event": {
+                    "code": 7045,
+                    "created": "2022-10-10T11:14:09.526Z",
+                    "kind": "event",
+                    "provider": "Service Control Manager"
+                },
+                "host": {
+                    "name": "CLIENT1.breach.local"
+                },
+                "log": {
+                    "level": "information"
+                },
+                "message": "A service was installed in the system.\n\nService Name:  fxpqtf\nService File Name:  cmd.exe /c echo fxpqtf > \\\\.\\pipe\\fxpqtf\nService Type:  user mode service\nService Start Type:  demand start\nService Account:  LocalSystem",
+                "winlog": {
+                    "api": "wineventlog",
+                    "channel": "System",
+                    "computer_name": "CLIENT1.breach.local",
+                    "event_data": {
+                        "AccountName": "LocalSystem",
+                        "ImagePath": "cmd.exe /c echo fxpqtf > \\\\.\\pipe\\fxpqtf",
+                        "ServiceName": "fxpqtf",
+                        "ServiceType": "user mode service",
+                        "StartType": "demand start"
+                    },
+                    "event_id": 7045,
+                    "keywords": [
+                        "Classic"
+                    ],
+                    "process": {
+                        "pid": 592,
+                        "thread": {
+                            "id": 5836
+                        }
+                    },
+                    "provider_guid": "{555908d1-a6d7-4695-8e1e-26931d2012f4}",
+                    "provider_name": "Service Control Manager",
+                    "record_id": 573,
+                    "task": "",
+                    "user": {
+                        "domain": "BREACH",
+                        "identifier": "S-1-5-21-3459850441-3495426577-3482648790-1103",
+                        "name": "client1",
+                        "type": "User"
+                    }
+                }
+            }
+        },
+        "name": "Meterpreter or Cobalt Strike Getsystem Service Installation",
+        "timestamp": "2022-10-10T11:14:08.466+00:00",
+        "authors": [
+            "Teymur Kheirkhabarov",
+            "Ecco",
+            "Florian Roth"
+        ],
+        "level": "critical",
+        "source": "sigma",
+        "status": "experimental",
+        "falsepositives": [
+            "Highly unlikely"
+        ],
+        "id": "d585ab5a-6a69-49a8-96e8-4a726a54de46",
+        "logsource": {
+            "category": "driver_load",
+            "product": "windows"
+        },
+        "references": [
+            "https://speakerdeck.com/heirhabarov/hunting-for-privilege-escalation-in-windows-environment",
+            "https://blog.cobaltstrike.com/2014/04/02/what-happens-when-i-type-getsystem/"
+        ],
+        "tags": [
+            "attack.privilege_escalation",
+            "attack.t1134.001",
+            "attack.t1134.002"
+        ]
+    },
+    {
+        "total_hits": 2
+    }
+]

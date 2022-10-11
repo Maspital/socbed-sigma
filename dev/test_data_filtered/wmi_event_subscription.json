@@ -1,0 +1,515 @@
+[
+    {
+        "group": "Sigma",
+        "kind": "individual",
+        "document": {
+            "kind": "jsonl",
+            "data": {
+                "@timestamp": "2022-10-10T09:55:55.940Z",
+                "agent": {
+                    "ephemeral_id": "64b72b79-c8b3-44d5-8efc-41706d768842",
+                    "hostname": "CLIENT1",
+                    "id": "cd699c72-0f46-4cd9-938a-43faf035a44a",
+                    "name": "CLIENT1",
+                    "type": "winlogbeat",
+                    "version": "7.10.2"
+                },
+                "ecs": {
+                    "version": "1.5.0"
+                },
+                "event": {
+                    "code": 20,
+                    "created": "2022-10-10T10:00:26.930Z",
+                    "kind": "event",
+                    "provider": "Microsoft-Windows-Kernel-Boot"
+                },
+                "host": {
+                    "name": "CLIENT"
+                },
+                "log": {
+                    "level": "information"
+                },
+                "message": "The last shutdown's success status was true. The last boot's success status was true.",
+                "winlog": {
+                    "api": "wineventlog",
+                    "channel": "System",
+                    "computer_name": "CLIENT",
+                    "event_data": {
+                        "BootStatusPolicy": "2",
+                        "LastBootGood": "true",
+                        "LastBootId": "2",
+                        "LastShutdownGood": "true"
+                    },
+                    "event_id": 20,
+                    "opcode": "Info",
+                    "process": {
+                        "pid": 4,
+                        "thread": {
+                            "id": 8
+                        }
+                    },
+                    "provider_guid": "{15ca44ff-4d7a-4baa-bba5-0998955e531e}",
+                    "provider_name": "Microsoft-Windows-Kernel-Boot",
+                    "record_id": 325,
+                    "task": "",
+                    "user": {
+                        "domain": "NT AUTHORITY",
+                        "identifier": "S-1-5-18",
+                        "name": "SYSTEM",
+                        "type": "User"
+                    },
+                    "version": 1
+                }
+            }
+        },
+        "name": "WMI Event Subscription",
+        "timestamp": "2022-10-10T09:55:55.940+00:00",
+        "authors": [
+            "Tom Ueltschi (@c_APT_ure)"
+        ],
+        "level": "medium",
+        "source": "sigma",
+        "status": "experimental",
+        "falsepositives": [
+            "Exclude legitimate (vetted) use of WMI event subscription in your network"
+        ],
+        "id": "0f06a3a5-6a09-413f-8743-e6cf35561297",
+        "logsource": {
+            "category": "wmi_event",
+            "product": "windows"
+        },
+        "tags": [
+            "attack.persistence",
+            "attack.t1546.003"
+        ]
+    },
+    {
+        "group": "Sigma",
+        "kind": "individual",
+        "document": {
+            "kind": "jsonl",
+            "data": {
+                "@timestamp": "2022-10-10T09:55:55.945Z",
+                "agent": {
+                    "ephemeral_id": "64b72b79-c8b3-44d5-8efc-41706d768842",
+                    "hostname": "CLIENT1",
+                    "id": "cd699c72-0f46-4cd9-938a-43faf035a44a",
+                    "name": "CLIENT1",
+                    "type": "winlogbeat",
+                    "version": "7.10.2"
+                },
+                "ecs": {
+                    "version": "1.5.0"
+                },
+                "event": {
+                    "code": 20,
+                    "created": "2022-10-10T10:00:26.930Z",
+                    "kind": "event",
+                    "provider": "Microsoft-Windows-Kernel-General"
+                },
+                "host": {
+                    "name": "CLIENT"
+                },
+                "log": {
+                    "level": "information"
+                },
+                "message": "The leap second configuration has been updated.\nReason: Leap second data initialized from registry during boot\nLeap seconds enabled: true\nNew leap second count: 0\nOld leap second count: 0",
+                "winlog": {
+                    "api": "wineventlog",
+                    "channel": "System",
+                    "computer_name": "CLIENT",
+                    "event_data": {
+                        "CountNew": "0",
+                        "CountOld": "0",
+                        "EnabledNew": "true",
+                        "UpdateReason": "0"
+                    },
+                    "event_id": 20,
+                    "keywords": [
+                        "Time"
+                    ],
+                    "opcode": "Info",
+                    "process": {
+                        "pid": 4,
+                        "thread": {
+                            "id": 8
+                        }
+                    },
+                    "provider_guid": "{a68ca8b7-004f-d7b6-a698-07e2de0f1f5d}",
+                    "provider_name": "Microsoft-Windows-Kernel-General",
+                    "record_id": 330,
+                    "task": "",
+                    "user": {
+                        "domain": "NT AUTHORITY",
+                        "identifier": "S-1-5-18",
+                        "name": "SYSTEM",
+                        "type": "User"
+                    }
+                }
+            }
+        },
+        "name": "WMI Event Subscription",
+        "timestamp": "2022-10-10T09:55:55.945+00:00",
+        "authors": [
+            "Tom Ueltschi (@c_APT_ure)"
+        ],
+        "level": "medium",
+        "source": "sigma",
+        "status": "experimental",
+        "falsepositives": [
+            "Exclude legitimate (vetted) use of WMI event subscription in your network"
+        ],
+        "id": "0f06a3a5-6a09-413f-8743-e6cf35561297",
+        "logsource": {
+            "category": "wmi_event",
+            "product": "windows"
+        },
+        "tags": [
+            "attack.persistence",
+            "attack.t1546.003"
+        ]
+    },
+    {
+        "group": "Sigma",
+        "kind": "individual",
+        "document": {
+            "kind": "jsonl",
+            "data": {
+                "@timestamp": "2022-10-10T09:57:21.721Z",
+                "agent": {
+                    "ephemeral_id": "64b72b79-c8b3-44d5-8efc-41706d768842",
+                    "hostname": "CLIENT1",
+                    "id": "cd699c72-0f46-4cd9-938a-43faf035a44a",
+                    "name": "CLIENT1",
+                    "type": "winlogbeat",
+                    "version": "7.10.2"
+                },
+                "ecs": {
+                    "version": "1.5.0"
+                },
+                "event": {
+                    "code": 20,
+                    "created": "2022-10-10T10:00:27.085Z",
+                    "kind": "event",
+                    "provider": "Microsoft-Windows-Kernel-Boot"
+                },
+                "host": {
+                    "name": "CLIENT1"
+                },
+                "log": {
+                    "level": "information"
+                },
+                "message": "The last shutdown's success status was true. The last boot's success status was true.",
+                "winlog": {
+                    "api": "wineventlog",
+                    "channel": "System",
+                    "computer_name": "CLIENT1",
+                    "event_data": {
+                        "BootStatusPolicy": "2",
+                        "LastBootGood": "true",
+                        "LastBootId": "3",
+                        "LastShutdownGood": "true"
+                    },
+                    "event_id": 20,
+                    "opcode": "Info",
+                    "process": {
+                        "pid": 4,
+                        "thread": {
+                            "id": 8
+                        }
+                    },
+                    "provider_guid": "{15ca44ff-4d7a-4baa-bba5-0998955e531e}",
+                    "provider_name": "Microsoft-Windows-Kernel-Boot",
+                    "record_id": 436,
+                    "task": "",
+                    "user": {
+                        "domain": "NT AUTHORITY",
+                        "identifier": "S-1-5-18",
+                        "name": "SYSTEM",
+                        "type": "User"
+                    },
+                    "version": 1
+                }
+            }
+        },
+        "name": "WMI Event Subscription",
+        "timestamp": "2022-10-10T09:57:21.721+00:00",
+        "authors": [
+            "Tom Ueltschi (@c_APT_ure)"
+        ],
+        "level": "medium",
+        "source": "sigma",
+        "status": "experimental",
+        "falsepositives": [
+            "Exclude legitimate (vetted) use of WMI event subscription in your network"
+        ],
+        "id": "0f06a3a5-6a09-413f-8743-e6cf35561297",
+        "logsource": {
+            "category": "wmi_event",
+            "product": "windows"
+        },
+        "tags": [
+            "attack.persistence",
+            "attack.t1546.003"
+        ]
+    },
+    {
+        "group": "Sigma",
+        "kind": "individual",
+        "document": {
+            "kind": "jsonl",
+            "data": {
+                "@timestamp": "2022-10-10T09:57:21.724Z",
+                "agent": {
+                    "ephemeral_id": "64b72b79-c8b3-44d5-8efc-41706d768842",
+                    "hostname": "CLIENT1",
+                    "id": "cd699c72-0f46-4cd9-938a-43faf035a44a",
+                    "name": "CLIENT1",
+                    "type": "winlogbeat",
+                    "version": "7.10.2"
+                },
+                "ecs": {
+                    "version": "1.5.0"
+                },
+                "event": {
+                    "code": 20,
+                    "created": "2022-10-10T10:00:27.085Z",
+                    "kind": "event",
+                    "provider": "Microsoft-Windows-Kernel-General"
+                },
+                "host": {
+                    "name": "CLIENT1"
+                },
+                "log": {
+                    "level": "information"
+                },
+                "message": "The leap second configuration has been updated.\nReason: Leap second data initialized from registry during boot\nLeap seconds enabled: true\nNew leap second count: 0\nOld leap second count: 0",
+                "winlog": {
+                    "api": "wineventlog",
+                    "channel": "System",
+                    "computer_name": "CLIENT1",
+                    "event_data": {
+                        "CountNew": "0",
+                        "CountOld": "0",
+                        "EnabledNew": "true",
+                        "UpdateReason": "0"
+                    },
+                    "event_id": 20,
+                    "keywords": [
+                        "Time"
+                    ],
+                    "opcode": "Info",
+                    "process": {
+                        "pid": 4,
+                        "thread": {
+                            "id": 8
+                        }
+                    },
+                    "provider_guid": "{a68ca8b7-004f-d7b6-a698-07e2de0f1f5d}",
+                    "provider_name": "Microsoft-Windows-Kernel-General",
+                    "record_id": 441,
+                    "task": "",
+                    "user": {
+                        "domain": "NT AUTHORITY",
+                        "identifier": "S-1-5-18",
+                        "name": "SYSTEM",
+                        "type": "User"
+                    }
+                }
+            }
+        },
+        "name": "WMI Event Subscription",
+        "timestamp": "2022-10-10T09:57:21.724+00:00",
+        "authors": [
+            "Tom Ueltschi (@c_APT_ure)"
+        ],
+        "level": "medium",
+        "source": "sigma",
+        "status": "experimental",
+        "falsepositives": [
+            "Exclude legitimate (vetted) use of WMI event subscription in your network"
+        ],
+        "id": "0f06a3a5-6a09-413f-8743-e6cf35561297",
+        "logsource": {
+            "category": "wmi_event",
+            "product": "windows"
+        },
+        "tags": [
+            "attack.persistence",
+            "attack.t1546.003"
+        ]
+    },
+    {
+        "group": "Sigma",
+        "kind": "individual",
+        "document": {
+            "kind": "jsonl",
+            "data": {
+                "@timestamp": "2022-10-10T09:58:19.752Z",
+                "agent": {
+                    "ephemeral_id": "64b72b79-c8b3-44d5-8efc-41706d768842",
+                    "hostname": "CLIENT1",
+                    "id": "cd699c72-0f46-4cd9-938a-43faf035a44a",
+                    "name": "CLIENT1",
+                    "type": "winlogbeat",
+                    "version": "7.10.2"
+                },
+                "ecs": {
+                    "version": "1.5.0"
+                },
+                "event": {
+                    "code": 20,
+                    "created": "2022-10-10T10:00:27.087Z",
+                    "kind": "event",
+                    "provider": "Microsoft-Windows-Kernel-Boot"
+                },
+                "host": {
+                    "name": "CLIENT1.breach.local"
+                },
+                "log": {
+                    "level": "information"
+                },
+                "message": "The last shutdown's success status was true. The last boot's success status was true.",
+                "winlog": {
+                    "api": "wineventlog",
+                    "channel": "System",
+                    "computer_name": "CLIENT1.breach.local",
+                    "event_data": {
+                        "BootStatusPolicy": "2",
+                        "LastBootGood": "true",
+                        "LastBootId": "4",
+                        "LastShutdownGood": "true"
+                    },
+                    "event_id": 20,
+                    "opcode": "Info",
+                    "process": {
+                        "pid": 4,
+                        "thread": {
+                            "id": 8
+                        }
+                    },
+                    "provider_guid": "{15ca44ff-4d7a-4baa-bba5-0998955e531e}",
+                    "provider_name": "Microsoft-Windows-Kernel-Boot",
+                    "record_id": 490,
+                    "task": "",
+                    "user": {
+                        "domain": "NT AUTHORITY",
+                        "identifier": "S-1-5-18",
+                        "name": "SYSTEM",
+                        "type": "User"
+                    },
+                    "version": 1
+                }
+            }
+        },
+        "name": "WMI Event Subscription",
+        "timestamp": "2022-10-10T09:58:19.752+00:00",
+        "authors": [
+            "Tom Ueltschi (@c_APT_ure)"
+        ],
+        "level": "medium",
+        "source": "sigma",
+        "status": "experimental",
+        "falsepositives": [
+            "Exclude legitimate (vetted) use of WMI event subscription in your network"
+        ],
+        "id": "0f06a3a5-6a09-413f-8743-e6cf35561297",
+        "logsource": {
+            "category": "wmi_event",
+            "product": "windows"
+        },
+        "tags": [
+            "attack.persistence",
+            "attack.t1546.003"
+        ]
+    },
+    {
+        "group": "Sigma",
+        "kind": "individual",
+        "document": {
+            "kind": "jsonl",
+            "data": {
+                "@timestamp": "2022-10-10T09:58:19.757Z",
+                "agent": {
+                    "ephemeral_id": "64b72b79-c8b3-44d5-8efc-41706d768842",
+                    "hostname": "CLIENT1",
+                    "id": "cd699c72-0f46-4cd9-938a-43faf035a44a",
+                    "name": "CLIENT1",
+                    "type": "winlogbeat",
+                    "version": "7.10.2"
+                },
+                "ecs": {
+                    "version": "1.5.0"
+                },
+                "event": {
+                    "code": 20,
+                    "created": "2022-10-10T10:00:27.087Z",
+                    "kind": "event",
+                    "provider": "Microsoft-Windows-Kernel-General"
+                },
+                "host": {
+                    "name": "CLIENT1.breach.local"
+                },
+                "log": {
+                    "level": "information"
+                },
+                "message": "The leap second configuration has been updated.\nReason: Leap second data initialized from registry during boot\nLeap seconds enabled: true\nNew leap second count: 0\nOld leap second count: 0",
+                "winlog": {
+                    "api": "wineventlog",
+                    "channel": "System",
+                    "computer_name": "CLIENT1.breach.local",
+                    "event_data": {
+                        "CountNew": "0",
+                        "CountOld": "0",
+                        "EnabledNew": "true",
+                        "UpdateReason": "0"
+                    },
+                    "event_id": 20,
+                    "keywords": [
+                        "Time"
+                    ],
+                    "opcode": "Info",
+                    "process": {
+                        "pid": 4,
+                        "thread": {
+                            "id": 8
+                        }
+                    },
+                    "provider_guid": "{a68ca8b7-004f-d7b6-a698-07e2de0f1f5d}",
+                    "provider_name": "Microsoft-Windows-Kernel-General",
+                    "record_id": 495,
+                    "task": "",
+                    "user": {
+                        "domain": "NT AUTHORITY",
+                        "identifier": "S-1-5-18",
+                        "name": "SYSTEM",
+                        "type": "User"
+                    }
+                }
+            }
+        },
+        "name": "WMI Event Subscription",
+        "timestamp": "2022-10-10T09:58:19.757+00:00",
+        "authors": [
+            "Tom Ueltschi (@c_APT_ure)"
+        ],
+        "level": "medium",
+        "source": "sigma",
+        "status": "experimental",
+        "falsepositives": [
+            "Exclude legitimate (vetted) use of WMI event subscription in your network"
+        ],
+        "id": "0f06a3a5-6a09-413f-8743-e6cf35561297",
+        "logsource": {
+            "category": "wmi_event",
+            "product": "windows"
+        },
+        "tags": [
+            "attack.persistence",
+            "attack.t1546.003"
+        ]
+    },
+    {
+        "total_hits": 6
+    }
+]
