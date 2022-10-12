@@ -91,7 +91,7 @@ def convert_string_to_regex_pattern(string):
         string = string.replace(char, f"\\{char}")
 
     # convert keywords to appropriate regex expression
-    string = string.replace("ANY_WORD_CHAR", r"\w+")
+    string = string.replace("ANY_WORD_CHARS", r"\w+")
 
     return re.compile(string)
 

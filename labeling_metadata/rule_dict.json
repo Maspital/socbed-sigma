@@ -44,7 +44,7 @@
       ],
       "entry3": [
         "document.data.process.command_line",
-        "c:\\windows\\system32\\cmd.exe /c if exist C:\\Windows\\meterpreter_bind_tcp.exe (schtasks /create /sc once /st 23:59 /tn ANY_WORD_CHAR /tr C:\\Windows\\meterpreter_bind_tcp.exe /ru BREACH\\client1"
+        "c:\\windows\\system32\\cmd.exe /c if exist C:\\Windows\\meterpreter_bind_tcp.exe (schtasks /create /sc once /st 23:59 /tn ANY_WORD_CHARS /tr C:\\Windows\\meterpreter_bind_tcp.exe /ru BREACH\\client1"
       ]
     }
   },
@@ -138,7 +138,7 @@
     "conditions": {
       "entry1": [
         "document.data.winlog.event_data.ImagePath",
-        "cmd.exe /c echo ANY_WORD_CHAR > \\\\.\\pipe\\ANY_WORD_CHAR"
+        "cmd.exe /c echo ANY_WORD_CHARS > \\\\.\\pipe\\ANY_WORD_CHARS"
       ]
     }
   },
@@ -153,7 +153,7 @@
     "conditions": {
       "entry1": [
         "document.data.process.command_line",
-        "cmd.exe /c echo ANY_WORD_CHAR > \\\\.\\pipe\\ANY_WORD_CHAR"
+        "cmd.exe /c echo ANY_WORD_CHARS > \\\\.\\pipe\\ANY_WORD_CHARS"
       ]
     }
   },
@@ -318,7 +318,7 @@
     "conditions": {
       "entry1": [
         "document.data.process.command_line",
-        "cmd.exe /c echo ANY_WORD_CHAR > \\\\.\\pipe\\ANY_WORD_CHAR"
+        "cmd.exe /c echo ANY_WORD_CHARS > \\\\.\\pipe\\ANY_WORD_CHARS"
       ]
     }
   },
@@ -362,7 +362,7 @@
     "conditions": {
       "entry1": [
         "document.data.process.command_line",
-        "schtasks  /create /sc once /st 23:59 /tn ANY_WORD_CHAR /tr C:\\Windows\\meterpreter_bind_tcp.exe /ru BREACH\\client1"
+        "schtasks  /create /sc once /st 23:59 /tn ANY_WORD_CHARS /tr C:\\Windows\\meterpreter_bind_tcp.exe /ru BREACH\\client1"
       ]
     }
   },
