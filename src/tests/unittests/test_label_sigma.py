@@ -12,25 +12,26 @@ mock_sigma_alert_2 = {"rule": "Rule name two",
 
 
 def test_is_true_positive():
-    mock_rule_dict = {"Rule name one": {
-        "conditions": {
-            "entry1": [
-                "some_key.another_key",
-                "Some desired content"
-            ],
-            "entry2": [
-                "key2.key2-2",
-                "Specific content and some ANY_WORD_CHARS gibberish"
-            ]
-        },
-        "Rule name two": {
+    mock_rule_dict = {
+        "Rule name one": {
             "conditions": {
                 "entry1": [
                     "some_key.another_key",
                     "Some desired content"
+                ],
+                "entry2": [
+                    "key2.key2-2",
+                    "Specific content and some ANY_WORD_CHARS gibberish"
                 ]
-            }
-        }}}
+            },
+            "Rule name two": {
+                "conditions": {
+                    "entry1": [
+                        "some_key.another_key",
+                        "Some desired content"
+                    ]
+                }
+            }}}
 
     assert label_sigma.is_true_positive(sigma_alert=mock_sigma_alert_1,
                                         rule="Rule name one",
@@ -93,11 +94,10 @@ def test_rename_fields():
             "some_key": "other data"
         },
         "event": {
-                "some_key": "some_value",
-                "another_key": ["a", "list"]
+            "some_key": "some_value",
+            "another_key": ["a", "list"]
         },
         "rule": "Rule name"
     }
     label_sigma.rename_fields(some_sigma_alert)
     assert expected_dict == some_sigma_alert
-
