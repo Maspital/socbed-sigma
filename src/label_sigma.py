@@ -38,6 +38,7 @@ def is_true_positive(sigma_alert, rule, rules_dict):
     label = False
     target_rule_content = {}
 
+    # there are certainly more efficient ways to do this, but runtime is still fairly short, so ¯\_(ツ)_/¯
     for rule_name, content in rules_dict.items():
         if rule_name == rule:
             target_rule_content = content
@@ -59,6 +60,7 @@ def condition_is_met(sigma_alert, condition):
     desired_content = convert_string_to_regex_pattern(condition[1])
     actual_content = sigma_alert
 
+    # iterate into the dict structure
     for key in relevant_dict_entry:
         try:
             actual_content = actual_content.get(key)
