@@ -22,13 +22,18 @@ Further instructions assume that your _**current directory is the base directory
   mv chainsaw/chainsaw src/
   rm -rf chainsaw* # we only need the binary
     ```
+- Install SOCBED-SIGMA in your virtual environment
+    ```shell
+  pip install --editable .
+    ```
+After finishing the steps above, run `tox` and `socbed_sigma -h` to verify correct installation.
 
 
 ## Generating datasets
 This process will take approximately 125 minutes.
 ```shell
 source ~/.virtualenvs/socbed/bin/activate
-./generate_dataset
+socbed_sigma generate
 ```
 Afterwards, you will find another directory named after the starting time of your simulation (note that all times are UTC).
 Therein, you will find three types of files, once for each attack and once for the entire simulation:
@@ -41,16 +46,13 @@ Therein, you will find three types of files, once for each attack and once for t
 Evaluate and label the created SIGMA alerts for a single file by running
 ```shell
 source ~/.virtualenvs/socbed/bin/activate
-./label_dataset <sim_id>/<attack>_sigma.jsonl
+socbed_sigma label --path /path/to/your/sigma.json
 
 # for example:
-# ./label_dataset 2022-09-23T09_35_12Z/EntireSimulation_sigma.json
+# socbed_sigma label --path 2022-09-23T09_35_12Z/EntireSimulation_sigma.json
 ```
 The example above would produce the file `EntireSimulation_sigma_LABELED.json`.
 It contains a JSON array, with each item having the following fields of interest:
 - `rule`: Contains the full name of the triggered SIGMA rule (string)
 - `metadata.misuse`: Labels the alert as true or false positive (bool)
 - `event`: Contains the original event from winlogbeat the SIGMA rule triggered on (dict)
-
-## TODO
-- Further examine the labeling process of generated datasets and make adjustments where appropriate
