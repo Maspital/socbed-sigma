@@ -1,0 +1,18 @@
+Rule hits (true positives):
+{'Cleartext Protocol Usage': 8,
+ 'Conhost Parent Process Executions': 3,
+ 'Creation of an Executable by an Executable': 2,
+ 'Direct Autorun Keys Modification': 1,
+ 'Meterpreter or Cobalt Strike Getsystem Service Installation': 2,
+ 'Meterpreter or Cobalt Strike Getsystem Service Start': 1,
+ 'Non Interactive PowerShell': 1,
+ 'PowerShell DownloadFile': 15,
+ 'PowerShell Web Download': 15,
+ 'Process Start From Suspicious Folder': 8,
+ 'Raw Disk Access Using Illegitimate Tools': 10,
+ 'Redirect Output in CommandLine': 1,
+ 'Reg Add RUN Key': 2,
+ 'Scheduled Task Creation': 1,
+ 'Suspicious Driver Load from Temp': 1,
+ 'Suspicious Remote Thread Source': 3,
+ 'Windows Suspicious Use Of Web Request in CommandLine': 15}
