@@ -56,6 +56,7 @@ def is_true_positive(sigma_alert, rule, rules_dict):
 
 
 def condition_is_met(sigma_alert, condition):
+    # NOTE: assumes key name itself NEVER contains a dot (.)
     relevant_dict_entry = condition[0].split(".")
     desired_content = convert_string_to_regex_pattern(condition[1])
     actual_content = sigma_alert
