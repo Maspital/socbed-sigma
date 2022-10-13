@@ -10,11 +10,12 @@ def print_with_timestamp(text):
     print(f"\033[1m{get_iso_time()}:\033[0m {text}")
 
 
-def get_iso_time(time_in_seconds=None):
+def get_iso_time(time_in_seconds=None, include_ms=True):
     if time_in_seconds:
-        return datetime.utcfromtimestamp(time_in_seconds).isoformat() + "Z"
+        time_value = datetime.utcfromtimestamp(time_in_seconds).isoformat()
     else:
-        return datetime.utcnow().isoformat() + "Z"
+        time_value = datetime.utcnow().isoformat()
+    return time_value + "Z" if include_ms else time_value[:-7] + "Z"
 
 
 def get_epoch():

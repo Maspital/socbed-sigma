@@ -74,7 +74,7 @@ def test_convert_string_to_regex_pattern():
 def test_label_alert():
     some_sigma_alert = {}
     expected_dict = {"metadata": {"misuse": True}}
-    label_sigma.label_alert(some_sigma_alert, True)
+    label_sigma.apply_label(some_sigma_alert, True)
     assert expected_dict == some_sigma_alert
 
 

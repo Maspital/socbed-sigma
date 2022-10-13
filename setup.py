@@ -15,5 +15,9 @@ setup(
         "elasticsearch-dsl",
         "socbed-sigma"
     ],
-    entry_points={}
+    entry_points={
+        'console_scripts': [
+            'socbed_sigma = socbed_sigma_entry:main',
+        ]
+    }
 )

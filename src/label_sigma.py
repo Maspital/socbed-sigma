@@ -8,11 +8,7 @@ from helper import extend_filename
 
 def main():
     args = parse_args()
-    logfile, rules_dict = open_json_files(args.logfile, args.rules_dict)
-
-    label_dataset(logfile, rules_dict)
-    save_result(data=logfile,
-                new_filename=extend_filename(args.logfile, "LABELED"))
+    label_sigma(args.logfile, args.rule_dict)
 
 
 def parse_args():
@@ -22,16 +18,24 @@ def parse_args():
     return parser.parse_args()
 
 
-def label_dataset(logfile, rules_dict):
+def label_sigma(logfile_name, rules_dict):
+    logfile, rules_dict = open_json_files(logfile_name, rules_dict)
+
+    label_alerts(logfile, rules_dict)
+    save_result(data=logfile,
+                new_filename=extend_filename(logfile_name, "LABELED"))
+
+
+def label_alerts(logfile, rules_dict):
     rule_counts = {}
 
     for sigma_alert in logfile:
         rule = sigma_alert["name"]
         if is_true_positive(sigma_alert, rule, rules_dict):
             rule_counts[rule] = rule_counts.get(rule, 0) + 1
-            label_alert(sigma_alert, True)
+            apply_label(sigma_alert, True)
         else:
-            label_alert(sigma_alert, False)
+            apply_label(sigma_alert, False)
         rename_fields(sigma_alert)
 
     print("Rule hits (true positives):")
@@ -75,7 +79,7 @@ def condition_is_met(sigma_alert, condition):
     return desired_content.match(actual_content)
 
 
-def label_alert(sigma_alert, label):
+def apply_label(sigma_alert, label):
     sigma_alert["metadata"] = {}
     sigma_alert["metadata"]["misuse"] = label
 

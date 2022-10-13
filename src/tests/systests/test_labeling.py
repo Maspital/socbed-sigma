@@ -27,7 +27,7 @@ class TestLabeling:
         expected_output = self.get_expected_output(log_source)
         logfile, rules_dict = label_sigma.open_json_files(full_logfile_path, full_rule_dict_path)
 
-        label_sigma.label_dataset(logfile, rules_dict)
+        label_sigma.label_alerts(logfile, rules_dict)
         clean_up(full_logfile_path)
 
         actual_out, error = capfd.readouterr()
