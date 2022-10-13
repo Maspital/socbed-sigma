@@ -9,6 +9,20 @@ from helper import extend_filename
 def main():
     args = parse_args()
     logfile, rules_dict = open_json_files(args.logfile, args.rules_dict)
+
+    label_dataset(logfile, rules_dict)
+    save_result(data=logfile,
+                new_filename=extend_filename(args.logfile, "LABELED"))
+
+
+def parse_args():
+    parser = argparse.ArgumentParser(description='Count True Positives')
+    parser.add_argument("logfile", help='JSON log file')
+    parser.add_argument("rules_dict", help="dictionary containing rules for labeling")
+    return parser.parse_args()
+
+
+def label_dataset(logfile, rules_dict):
     rule_counts = {}
 
     for sigma_alert in logfile:
@@ -22,16 +36,6 @@ def main():
 
     print("Rule hits (true positives):")
     pprint(rule_counts)
-
-    save_result(data=logfile,
-                new_filename=extend_filename(args.logfile, "LABELED"))
-
-
-def parse_args():
-    parser = argparse.ArgumentParser(description='Count True Positives')
-    parser.add_argument("logfile", help='JSON log file')
-    parser.add_argument("rules_dict", help="dictionary containing rules for labeling")
-    return parser.parse_args()
 
 
 def is_true_positive(sigma_alert, rule, rules_dict):
