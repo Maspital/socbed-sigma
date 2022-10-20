@@ -18,12 +18,12 @@ def parse_args():
     return parser.parse_args()
 
 
-def label_sigma(logfile_name, rules_dict):
-    logfile, rules_dict = open_json_files(logfile_name, rules_dict)
+def label_sigma(sim_id, rules_dict):
+    logfile, rules_dict = open_json_files(sim_id, rules_dict)
 
     label_alerts(logfile, rules_dict)
     save_result(data=logfile,
-                new_filename=extend_filename(logfile_name, "LABELED"))
+                new_filename=extend_filename(sim_id, "LABELED"))
 
 
 def label_alerts(logfile, rules_dict):

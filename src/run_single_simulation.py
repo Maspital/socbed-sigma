@@ -44,15 +44,15 @@ def parse_args():
     return parser.parse_args()
 
 
-def run_simulation(sim_name):
+def run_simulation(sim_id):
     sim_start = get_epoch()
     sim_end = get_epoch() + TOTAL_SIM_DURATION
     sh = SessionHandler(VBoxController())
 
-    print_with_timestamp(f"Creating directory {sim_name}/ for log storage...")
-    mkdir(sim_name)
+    print_with_timestamp(f"Creating directory {sim_id}/ for log storage...")
+    mkdir(sim_id)
 
-    print_with_timestamp(f"Starting session {sim_name}...")
+    print_with_timestamp(f"Starting session {sim_id}...")
     sh.start_session()
 
     print_with_timestamp(f"Session is up. Waiting until {int(START_WAIT_DURATION / 60)} minutes have passed...")
@@ -75,7 +75,7 @@ def run_simulation(sim_name):
         download_logs(attack_start_time,
                       attack_end_time,
                       attack_name,
-                      sim_name)
+                      sim_id)
 
     print_with_timestamp(f"Waiting until {int(TOTAL_SIM_DURATION / 60)} minutes have passed...")
     sleep(sim_end - get_epoch())
@@ -83,7 +83,7 @@ def run_simulation(sim_name):
     download_logs(get_iso_time(sim_start),
                   get_iso_time(sim_end),
                   "EntireSimulation",
-                  sim_name)
+                  sim_id)
 
     print_with_timestamp("Closing session...")
     sh.close_session()
