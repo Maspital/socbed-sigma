@@ -3,24 +3,24 @@ name: Chainsaw's groupless Sigma mappings for Event Logs
 kind: jsonl
 rules: sigma
 
+extensions:
+  preconditions:
+    - for: # Space After Filename - macOS
+        logsource.product: macos
+      filter:
+        Provider: something macOS # doesn't really matter, we don't have any macOS devices
+    - for: # Sysmon Blocked Executable
+        logsource.category: file_block
+      filter:
+        int(EventID): 27
+        Provider: Microsoft-Windows-Sysmon
+    - for: # Sysmon Configuration Change, incorrectly triggered on EventId 16 from Windows-Kernel
+        logsource.service: sysmon
+      filter:
+        Provider: Microsoft-Windows-Sysmon
+
 #exclusions:
-#- System File Execution Location Anomaly
-#- Defense evasion via process reimaging
-#- Exports Registry Key To an Alternate Data Stream
-#- NetNTLM Downgrade Attack
-#- Non Interactive PowerShell
-#- Wuauclt Network Connection
-#- Raw Disk Access Using Illegitimate Tools
-#- Executable in ADS
-#- Space After Filename - macOS
-#- Execution Of Non-Existing File
-#- Execution of Suspicious File Type Extension
-#- Execution from Suspicious Folder
-#- Process Start From Suspicious Folder
-#- Setting Change in Windows Firewall with Advanced Security
-#- Group Modification Logging
-#- WMI Event Subscription
-#- USB Device Plugged
+#- None
 
 # A mapping marked as "not found" means that this field could not be found in neither the old
 # mapping file[1] (used with logprep) nor the currently generated logs.
@@ -295,7 +295,7 @@ groups:
         to: winlog.event_data.OriginalFileName
         visible: false
       - from: OriginalName # not found
-        to: winlog.event_data.OriginalName
+        to: winlog.event_data.OriginalFileName
         visible: false
       - from: ParentCommandLine
         to: process.parent.command_line

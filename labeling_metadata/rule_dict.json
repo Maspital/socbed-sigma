@@ -10,7 +10,7 @@
       "Communication of the meterpreter .exe with the attacker | MimikatzAttack"
     ],
     "_false_hits": [
-      "OneDrive"
+      "OneDrive connects to EdgeCast via 93.184.220.29:80, see https://mspoweruser.com/microsoft-partners-with-verizon-to-use-edgecast-cdn-for-its-media-services/"
     ],
     "conditions": {
       "entry1": [
@@ -220,8 +220,8 @@
       "CLR usage logs",
       "BitLocker",
       "Creation of a ton of {some_hash}.tmp files???",
-      "Some SIGMA misses due to mapping errors???",
-      "mscorsvw.exe aka .NET framework optimization service"
+      "mscorsvw.exe aka .NET framework optimization service",
+      "In general images that have 'powershell' even somewhere in their path"
     ],
     "conditions": {}
   },
@@ -286,7 +286,10 @@
       "triggering_action_and_attack_name2"
     ],
     "_false_hits": [
-      "Literally thousands of false positives, most triggered by the userbehavior"
+      "Literally thousands of false positives, most triggered by the userbehavior",
+      "Mailing, Writing, etc",
+      "geckodriver.exe",
+      "OneDriveSetup.exe"
     ],
     "conditions": {
       "entry1": [
@@ -368,19 +371,6 @@
   },
 
 
-  "Space After Filename - macOS": {
-    "_link": "https://github.com/SigmaHQ/sigma/blob/0.22/rules/macos/process_creation/proc_creation_macos_space_after_filename.yml",
-    "_true_hits": [
-      "Technically triggers for most of our attack commands, but only due to the way info is stored. Unsure whether or not to include this"
-    ],
-    "_false_hits": [
-      "Same as true hits, just for benign processes",
-      "Designed for macOS, why does this even trigger"
-    ],
-    "conditions": {}
-  },
-
-
   "Startup Folder File Write": {
     "_link": "https://github.com/SigmaHQ/sigma/blob/0.22/rules/windows/file_event/file_event_win_startup_folder_file_write.yml",
     "_true_hits": [],
@@ -398,8 +388,7 @@
     ],
     "_false_hits": [
       "mscorsvw.exe",
-      "noscript.jar by userbehavior",
-      "High number of false positives might be caused by missing field ImageLoaded. Not sure though"
+      "noscript.jar by userbehavior"
     ],
     "conditions": {
       "entry1": [
@@ -429,7 +418,7 @@
     "_false_hits": [
       "spoolssv.exe",
       "noscript.jar",
-      "Again, mapping might by incorrect (SourceImage missing). Everything python does seems to trigger this alert"
+      "Everything python-related"
     ],
     "conditions": {
       "entry1": [
@@ -448,27 +437,6 @@
     "_link": "https://github.com/SigmaHQ/sigma/blob/0.22/rules/windows/process_creation/proc_creation_win_susp_schtasks_schedule_type.yml",
     "_true_hits": [],
     "_false_hits": [],
-    "conditions": {}
-  },
-
-
-  "Sysmon Blocked Executable": {
-    "_link": "https://github.com/SigmaHQ/sigma/blob/0.22/rules/windows/sysmon/sysmon_file_block_exe.yml",
-    "_true_hits": [],
-    "_false_hits": [
-      "Definitely caused by incorrect mapping. Is supposed to catch file block events from sysmon, which we haven't even set up afaik"
-    ],
-    "conditions": {}
-  },
-
-
-  "Sysmon Configuration Change": {
-    "_link": "https://github.com/SigmaHQ/sigma/blob/0.22/rules/windows/sysmon/sysmon_config_modification.yml",
-    "_true_hits": [],
-    "_false_hits": [
-      "IOMMU fault reporting initialization",
-      "Windows registry cleanup on all kinds of entries, XBox, BingWeather, WindowsAlarms, etc"
-    ],
     "conditions": {}
   },
 
