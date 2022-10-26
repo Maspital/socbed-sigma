@@ -33,23 +33,35 @@ After finishing the steps above, run `tox` and `socbed_sigma -h` to verify corre
 This process will take approximately 125 minutes.
 ```shell
 source ~/.virtualenvs/socbed/bin/activate
-socbed_sigma generate
+socbed_sigma --generate
 ```
 Afterwards, you will find another directory named after the starting time of your simulation (note that all times are UTC).
-Therein, you will find three types of files, once for each attack and once for the entire simulation:
-- `*_winlogbeat.jsonl`, containing all logs produced by SOCBED clients during a given time
-- `*_sigma.txt`, containing generated SIGMA alerts from the log-file of the same name in human-readable form
-- `*_sigma.json`, containing generated SIGMA alerts from the log-file of the same name in json format for further processing
+Therein, you will find several `*_winlogbeat.jsonl` files containing all logs produced by SOCBED clients during a given time;
+once for the entire simulation, and once for each attack.
+
+
+## Processing a dataset
+Process the generated dataset using chainsaw and Sigma by running
+```shell
+source ~/.virtualenvs/socbed/bin/activate
+socbed_sigma --label /path/to/your/dataset/
+
+# for example:
+# socbed_sigma --label ./2022-09-23T09_35_12Z
+```
+After execution has finished, the dataset directory will contain two additional files per `*_winlogbeat.jsonl`:
+- `*_sigma.txt`, containing generated SIGMA alerts from the log file of the same name in human-readable form
+- `*_sigma.json`, containing generated SIGMA alerts from the log file of the same name in json format for further processing
 
 
 ## Labeling a dataset
 Evaluate and label the created SIGMA alerts for a single file by running
 ```shell
 source ~/.virtualenvs/socbed/bin/activate
-socbed_sigma label --path /path/to/your/sigma.json
+socbed_sigma --label /path/to/your/sigma.json
 
 # for example:
-# socbed_sigma label --path 2022-09-23T09_35_12Z/EntireSimulation_sigma.json
+# socbed_sigma --label ./2022-09-23T09_35_12Z/EntireSimulation_sigma.json
 ```
 The example above would produce the file `EntireSimulation_sigma_LABELED.json`.
 It contains a JSON array, with each item having the following fields of interest:
