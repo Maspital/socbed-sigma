@@ -27,6 +27,21 @@ def parse_args():
     return parser.parse_args()
 
 
+def process_logs(sim_id):
+    for log_file in log_files:
+        print_with_timestamp(f"Processing logs for {log_file}")
+
+        jsonl_input = f"{sim_id}/{log_file}_winlogbeat.jsonl"
+        output = f"{sim_id}/{log_file}_sigma.txt"
+
+        command = get_command(jsonl_input, output)
+        call(command)
+
+        output = f"{sim_id}/{log_file}_sigma.json"
+        command = get_command(jsonl_input, output)
+        call(command)
+
+
 def get_command(jsonl_input, output):
     command = ["./src/chainsaw",
                "hunt",
@@ -41,21 +56,6 @@ def get_command(jsonl_input, output):
     if ".json" in output:
         command.append("--json")
     return command
-
-
-def process_logs(sim_id):
-    for log_file in log_files:
-        print_with_timestamp(f"Processing logs for {log_file}")
-
-        jsonl_input = f"{sim_id}/{log_file}_winlogbeat.jsonl"
-        output = f"{sim_id}/{log_file}_sigma.txt"
-
-        command = get_command(jsonl_input, output)
-        call(command)
-
-        output = f"{sim_id}/{log_file}_sigma.json"
-        command = get_command(jsonl_input, output)
-        call(command)
 
 
 if __name__ == "__main__":
