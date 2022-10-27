@@ -3,21 +3,61 @@ name: Chainsaw's groupless Sigma mappings for Event Logs
 kind: jsonl
 rules: sigma
 
+
+# Most filters are taken from https://github.com/SigmaHQ/sigma/blob/master/tools/config/generic/sysmon.yml#L102
 extensions:
   preconditions:
-    - for: # Space After Filename - macOS
-        logsource.product: macos
+    - for: # Execution Of Non-Existing File
+        logsource.category: process_creation
       filter:
-        Provider: something macOS # doesn't really matter, we don't have any macOS devices
+        int(EventID): 1
+        Provider: Microsoft-Windows-Sysmon
+
+    - for: # Suspicious Driver Load from Temp
+        logsource.category: driver_load
+      filter:
+        int(EventID): 6
+        Provider: Microsoft-Windows-Sysmon
+
+    - for: # DLL Load By System Process From Suspicious Locations
+        logsource.category: image_load
+      filter:
+        int(EventID): 7
+        Provider: Microsoft-Windows-Sysmon
+
+    - for: # Suspicious Remote Thread Source
+        logsource.category: create_remote_thread
+      filter:
+        int(EventID): 8
+        Provider: Microsoft-Windows-Sysmon
+
+    - for: # Raw Disk Access Using Illegitimate Tools
+        logsource.category: raw_access_thread
+      filter:
+        int(EventID): 9
+        Provider: Microsoft-Windows-Sysmon
+
+    - for: # Creation of an Executable by an Executable
+        logsource.category: file_event
+      filter:
+        int(EventID): 11
+        Provider: Microsoft-Windows-Sysmon
+
     - for: # Sysmon Blocked Executable
         logsource.category: file_block
       filter:
         int(EventID): 27
         Provider: Microsoft-Windows-Sysmon
+
     - for: # Sysmon Configuration Change, incorrectly triggered on EventId 16 from Windows-Kernel
         logsource.service: sysmon
       filter:
         Provider: Microsoft-Windows-Sysmon
+
+    - for: # Space After Filename - macOS
+        logsource.product: macos
+      filter:
+        Provider: something-macOS # doesn't really matter, we don't have any macOS devices
 
 #exclusions:
 #- None
@@ -93,7 +133,7 @@ groups:
       - from: CallTrace
         to: winlog.event_data.CallTrace
         visible: false
-      - from: CallerProcessName # not found, maybe "CallingProcessName"?
+      - from: CallerProcessName # not found
         to: winlog.event_data.CallerProcessName
         visible: false
       - from: Caption # not found

