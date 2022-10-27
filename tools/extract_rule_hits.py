@@ -3,13 +3,35 @@ import json
 from os.path import dirname
 from os import mkdir
 
+rule_json = {"Cleartext Protocol Usage": 11,
+             "Conhost Parent Process Executions": 3,
+             "Creation of an Executable by an Executable": 57,
+             "Direct Autorun Keys Modification": 1,
+             "Encoded PowerShell Command Line Usage of ConvertTo-SecureString": 3,
+             "Meterpreter or Cobalt Strike Getsystem Service Installation": 1,
+             "Meterpreter or Cobalt Strike Getsystem Service Start": 1,
+             "NTLMv1 Logon Between Client and Server": 1,
+             "Non Interactive PowerShell": 16,
+             "PowerShell DownloadFile": 3,
+             "PowerShell Web Download": 3,
+             "Process Start From Suspicious Folder": 1,
+             "Rare Service Installations": 1,
+             "Redirect Output in CommandLine": 1,
+             "Reg Add RUN Key": 2,
+             "Rename Common File to DLL File": 841,
+             "Scheduled Task Creation": 1,
+             "Startup Folder File Write": 12,
+             "Suspicious Network Command": 18,
+             "Verclsid.exe Runs COM Object": 5,
+             "WMI Event Subscription": 18,
+             "Windows Suspicious Use Of Web Request in CommandLine": 3}
+
 
 def main():
     args = parse_args()
     mkdir(f"{dirname(args.logfile)}/{args.target_dir}")
 
-    with open(args.rule_dict) as rule_file, open(args.logfile) as sigma_file:
-        rule_json = json.load(rule_file)
+    with open(args.logfile) as sigma_file:
         sigma_hits = json.load(sigma_file)
 
     filtered_json_by_user = filter_by_user("CLIENT1", sigma_hits)
@@ -23,9 +45,8 @@ def main():
 
 
 def parse_args():
-    parser = argparse.ArgumentParser(description='Count True Positives')
+    parser = argparse.ArgumentParser(description='Extract hits for each separate alert')
     parser.add_argument('logfile', help='JSON log file')
-    parser.add_argument('rule_dict', help='dict of SIGMA rules to extract')
     parser.add_argument('target_dir', help='new dir inside target folder to store results')
     return parser.parse_args()
 
