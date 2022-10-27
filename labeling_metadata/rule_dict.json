@@ -276,7 +276,7 @@
     "_link": "https://github.com/SigmaHQ/sigma/blob/0.22/rules/windows/file_rename/file_rename_win_not_dll_to_dll.yml",
     "_true_hits": [],
     "_false_hits": [
-      "Caused by flawed mapping, OriginalFilename field is almost always missing"
+      "Caused by flawed mapping, OriginalFilename field is almost always missing. Rule has been commented out"
     ],
     "conditions": {}
   },
