@@ -13,7 +13,7 @@ def main():
 
 def parse_args():
     parser = argparse.ArgumentParser(description='Count True Positives')
-    parser.add_argument("logfile", help='JSON log file')
+    parser.add_argument("logfile", help='JSON log file containing Sigma alerts to label')
     parser.add_argument("rules_dict", help="dictionary containing rules for labeling")
     return parser.parse_args()
 
