@@ -8,7 +8,7 @@ from helper import extend_filename
 
 def main():
     args = parse_args()
-    label_sigma(args.logfile, args.rule_dict)
+    label_sigma(args.logfile, args.rules_dict)
 
 
 def parse_args():
@@ -73,6 +73,9 @@ def condition_is_met(sigma_alert, condition):
     for key in relevant_dict_entry:
         try:
             actual_content = actual_content.get(key)
+            # Some entries may come as lists. If that's the case, we only want the first entry to proceed
+            if isinstance(actual_content, list):
+                actual_content = actual_content[0]
         except AttributeError:
             return False
 

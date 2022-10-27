@@ -223,7 +223,7 @@
   },
 
 
-  "Rare Service Installation": {
+  "Rare Service Installations": {
     "_link": "https://github.com/SigmaHQ/sigma/blob/0.22/rules/windows/builtin/system/win_rare_service_installs.yml",
     "_true_hits": [
       "Usage of getsystem command by meterpreter | MimikatzAttack"
@@ -231,7 +231,7 @@
     "_false_hits": [],
     "conditions": {
       "entry1": [
-        "document.data.winlog.event_data.ImagePath",
+        "documents.data.winlog.event_data.ImagePath",
         "cmd.exe /c echo ANY_WORD_CHARS > \\\\.\\pipe\\ANY_WORD_CHARS"
       ]
     }
