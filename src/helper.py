@@ -10,11 +10,13 @@ def print_with_timestamp(text):
     print(f"\033[1m{get_iso_time()}:\033[0m {text}")
 
 
-def get_iso_time(time_in_seconds=None, include_ms=True):
+def get_iso_time(time_in_seconds=None, include_ms=True, remove_colons=False):
     if time_in_seconds:
         time_value = datetime.utcfromtimestamp(time_in_seconds).isoformat()
     else:
         time_value = datetime.utcnow().isoformat()
+    if remove_colons:
+        time_value = time_value.replace(":", "_")
     return time_value + "Z" if include_ms else time_value[:-7] + "Z"
 
 

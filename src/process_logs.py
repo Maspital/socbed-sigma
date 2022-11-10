@@ -28,6 +28,8 @@ def parse_args():
 
 
 def process_logs(sim_id):
+    sim_id = sim_id.rstrip("/")
+
     for log_file in log_files:
         print_with_timestamp(f"Processing logs for {log_file}")
 

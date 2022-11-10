@@ -18,17 +18,20 @@ def main():
         print_error_msg_and_exit(error="Please select exactly one action", err_code=1)
 
     elif args.generate:
-        sim_id = get_iso_time(include_ms=False)
+        sim_id = get_iso_time(include_ms=False, remove_colons=True)
         run_simulation(sim_id=sim_id)
+
     elif args.process and args.path:
         process_logs(sim_id=args.path)
+
     elif args.label and args.path:
         label_sigma(sim_id=args.path, rules_dict=rules_dict_path)
+
     elif args.full:
-        sim_id = get_iso_time(include_ms=False)
+        sim_id = get_iso_time(include_ms=False, remove_colons=True)
         run_simulation(sim_id)
         process_logs(sim_id)
-        label_sigma(sim_id=sim_id+"Entire_Simulation_sigma.json", rules_dict=rules_dict_path)
+        label_sigma(sim_id=sim_id+"/Entire_Simulation_sigma.json", rules_dict=rules_dict_path)
 
     else:
         print_error_msg_and_exit(error="Unknown action or missing path", err_code=1)
@@ -41,7 +44,7 @@ def parse_args():
                         help="Run a SOCBED simulation to generate log datasets.")
     parser.add_argument("--process", action="store_true",
                         help="Process a given log dataset using chainsaw, producing Sigma alerts. "
-                        "Requires path to dataset.")
+                        "Requires path to dataset directory.")
     parser.add_argument("--label", action="store_true",
                         help="Label a given set of Sigma alerts. Requires path to dataset.")
     parser.add_argument("--full", action="store_true",

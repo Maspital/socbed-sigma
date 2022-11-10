@@ -72,18 +72,19 @@ def run_simulation(sim_id):
         attack_end_time = get_iso_time()
 
         print_with_timestamp(f"Downloading logs for {attack_name}...")
-        download_logs(attack_start_time,
-                      attack_end_time,
-                      attack_name,
-                      sim_id)
+        download_logs(start=attack_start_time,
+                      end=attack_end_time,
+                      suffix=attack_name,
+                      save_dir=sim_id)
 
     print_with_timestamp(f"Waiting until {int(TOTAL_SIM_DURATION / 60)} minutes have passed...")
     sleep(sim_end - get_epoch())
+
     print_with_timestamp("Downloading logs for entire simulation...")
-    download_logs(get_iso_time(sim_start),
-                  get_iso_time(sim_end),
-                  "EntireSimulation",
-                  sim_id)
+    download_logs(start=get_iso_time(sim_start),
+                  end=get_iso_time(sim_end),
+                  suffix="EntireSimulation",
+                  save_dir=sim_id)
 
     print_with_timestamp("Closing session...")
     sh.close_session()
