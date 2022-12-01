@@ -7,7 +7,6 @@ from run_single_simulation import run_simulation
 from process_logs import process_logs
 from label_sigma import label_sigma
 
-
 repo_root_dir = pathlib.Path(__file__).resolve().parents[1]
 rules_dict_path = repo_root_dir.joinpath("labeling_metadata/rule_dict.json")
 
@@ -18,33 +17,38 @@ def main():
         print_error_msg_and_exit(error="Please select exactly one action", err_code=1)
 
     elif args.generate:
-        sim_id = get_iso_time(include_ms=False, remove_colons=True)
-        run_simulation(sim_id=sim_id)
-
+        generate()
     elif args.process and args.path:
         process_logs(sim_id=args.path)
-
     elif args.label and args.path:
         label_sigma(sim_id=args.path, rules_dict=rules_dict_path)
-
     elif args.full:
-        sim_id = get_iso_time(include_ms=False, remove_colons=True)
-        run_simulation(sim_id)
-        process_logs(sim_id)
-        label_sigma(sim_id=sim_id+"/Entire_Simulation_sigma.json", rules_dict=rules_dict_path)
+        do_everything()
 
     else:
         print_error_msg_and_exit(error="Unknown action or missing path", err_code=1)
 
 
+def generate():
+    sim_id = get_iso_time(include_ms=False, remove_colons=True)
+    run_simulation(sim_id=sim_id)
+
+
+def do_everything():
+    sim_id = get_iso_time(include_ms=False, remove_colons=True)
+    run_simulation(sim_id)
+    process_logs(sim_id)
+    label_sigma(sim_id=sim_id + "/Entire_Simulation_sigma.json", rules_dict=rules_dict_path)
+
+
 def parse_args():
     parser = argparse.ArgumentParser(description="Generate, process and label a log dataset using SOCBED and Sigma.\n"
-                                     "Only one action can be selected at once.")
+                                                 "Only one action can be selected at once.")
     parser.add_argument("--generate", action="store_true",
                         help="Run a SOCBED simulation to generate log datasets.")
     parser.add_argument("--process", action="store_true",
                         help="Process a given log dataset using chainsaw, producing Sigma alerts. "
-                        "Requires path to dataset directory.")
+                             "Requires path to dataset directory.")
     parser.add_argument("--label", action="store_true",
                         help="Label a given set of Sigma alerts. Requires path to dataset.")
     parser.add_argument("--full", action="store_true",

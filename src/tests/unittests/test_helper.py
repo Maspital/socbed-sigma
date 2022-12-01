@@ -21,9 +21,6 @@ def test_get_iso_time():
 def test_get_epoch():
     out = helper.get_epoch()
     digits = len(str(out))
-    # note: above a certain number length (~10**12), using log10 is way faster, but may
-    # actually output incorrect results due to rounding errors for certain numbers
-    # digits = int(math.log10(out))+1
     assert digits == 10
 
 

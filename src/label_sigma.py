@@ -43,7 +43,6 @@ def label_alerts(logfile, rules_dict):
 
 
 def is_true_positive(sigma_alert, rule, rules_dict):
-    label = False
     target_rule_content = {}
 
     # there are certainly more efficient ways to do this, but runtime is still fairly short, so ¯\_(ツ)_/¯
@@ -52,13 +51,8 @@ def is_true_positive(sigma_alert, rule, rules_dict):
             target_rule_content = content
             break
 
-    try:
-        for condition in target_rule_content["conditions"].values():
-            if condition_is_met(sigma_alert, condition):
-                label = True
-                break
-    except KeyError:
-        return label
+    conditions = target_rule_content["conditions"].values()
+    label = len(conditions) > 0 and any(condition_is_met(sigma_alert, con) for con in conditions)
 
     return label
 

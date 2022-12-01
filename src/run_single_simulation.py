@@ -46,33 +46,33 @@ def parse_args():
 
 
 def run_simulation(sim_id):
-    sim_start, sim_end, session_handler = initialize_session(sim_id)
+    sim_start, sim_end, session_handler = start_session(sim_id)
     try:
         # check_time_on_logserver()
         run_attacks(sim_start, sim_id)
         # check_time_on_logserver()
-        conclude_session(sim_start, sim_end, sim_id, session_handler)
+        close_session(sim_start, sim_end, sim_id, session_handler)
     except (ValueError, AttackException) as e:
         print("Something went wrong, shutting down session and exiting...")
         session_handler.close_session()
         exit(-1)
 
 
-def initialize_session(sim_id):
+def start_session(sim_id):
     sim_start = get_epoch()
     sim_end = get_epoch() + TOTAL_SIM_DURATION
-    sh = SessionHandler(VBoxController())
+    session_handler = SessionHandler(VBoxController())
 
     print_with_timestamp(f"Creating directory {sim_id}/ for log storage...")
     mkdir(sim_id)
 
     print_with_timestamp(f"Starting session {sim_id}...")
-    sh.start_session()
+    session_handler.start_session()
 
     print_with_timestamp(f"Session is up. Waiting until {int(START_WAIT_DURATION / 60)} minutes have passed...")
     sleep(sim_start + START_WAIT_DURATION - get_epoch())
 
-    return sim_start, sim_end, sh
+    return sim_start, sim_end, session_handler
 
 
 def run_attacks(sim_start, sim_id):
@@ -102,7 +102,7 @@ def run_single_attack(attack, sim_start, sim_id, counter):
                   save_dir=sim_id)
 
 
-def conclude_session(sim_start, sim_end, sim_id, session_handler):
+def close_session(sim_start, sim_end, sim_id, session_handler):
     print_with_timestamp(f"Waiting until {int(TOTAL_SIM_DURATION / 60)} minutes have passed...")
     sleep(sim_end - get_epoch())
 
