@@ -9,7 +9,7 @@ _[Using Sigma rules v0.22, changing may break labeling]_
 ## Prerequisites
 - Configure and build SOCBED as described in the base [SOCBED repository](https://github.com/fkie-cad/socbed)
 
-Further instructions assume that your _**current directory is the base directory of this repository**_.
+Further instructions assume that your _**current directory is the base directory of this README**_.
 - Install additional dependencies in your SOCBED virtual environment (that you created while installing SOCBED)
     ```shell
     source ~/.virtualenvs/socbed/bin/activate
@@ -30,7 +30,7 @@ After finishing the steps above, run `tox` and `socbed_sigma -h` to verify corre
 
 
 ## Generating datasets
-This process will take approximately 125 minutes.
+This process will take approximately 120 minutes.
 ```shell
 source ~/.virtualenvs/socbed/bin/activate
 socbed_sigma --generate
