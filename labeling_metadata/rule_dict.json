@@ -1,6 +1,4 @@
 {
-  "_top_level_comment": "this json contains entries for all sigma hits observed during testing",
-
   "Cleartext Protocol Usage": {
     "_link": "https://github.com/SigmaHQ/sigma/blob/0.22/rules/compliance/netflow_cleartext_protocols.yml",
     "_true_hits": [
