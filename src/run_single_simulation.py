@@ -9,6 +9,7 @@ from helper import print_with_timestamp, get_iso_time, get_epoch
 from download_logs import download_logs
 from vmcontrol.sessionhandler import SessionHandler
 from vmcontrol.vmmcontroller import VBoxController
+from attacks.attack import AttackException
 
 from attacks.attack_sqlmap import SQLMapAttack
 from attacks.attack_email_exe import EmailEXEAttack
@@ -28,9 +29,9 @@ attacks = [SQLMapAttack(),
            SetAutostartAttack(),
            ExecuteMalwareAttack()]
 
-TOTAL_SIM_DURATION = 125 * 60
+TOTAL_SIM_DURATION = 120 * 60
 START_WAIT_DURATION = 60 * 60
-WAIT_BETWEEN_STEPS = 4 * 60
+WAIT_BETWEEN_STEPS = 5 * 60
 
 
 def main():
@@ -45,6 +46,19 @@ def parse_args():
 
 
 def run_simulation(sim_id):
+    sim_start, sim_end, session_handler = initialize_session(sim_id)
+    try:
+        # check_time_on_logserver()
+        run_attacks(sim_start, sim_id)
+        # check_time_on_logserver()
+        conclude_session(sim_start, sim_end, sim_id, session_handler)
+    except (ValueError, AttackException) as e:
+        print("Something went wrong, shutting down session and exiting...")
+        session_handler.close_session()
+        exit(-1)
+
+
+def initialize_session(sim_id):
     sim_start = get_epoch()
     sim_end = get_epoch() + TOTAL_SIM_DURATION
     sh = SessionHandler(VBoxController())
@@ -58,38 +72,57 @@ def run_simulation(sim_id):
     print_with_timestamp(f"Session is up. Waiting until {int(START_WAIT_DURATION / 60)} minutes have passed...")
     sleep(sim_start + START_WAIT_DURATION - get_epoch())
 
-    print_with_timestamp(f"Running multi-step attack (pausing ~{int(WAIT_BETWEEN_STEPS / 60 / 2)} minutes "
-                         "before and after each step)...")
+    return sim_start, sim_end, sh
+
+
+def run_attacks(sim_start, sim_id):
+    print_with_timestamp("Running multi-step attack (pausing ~1 minute before "
+                         f"and ~{int((WAIT_BETWEEN_STEPS-60)/60)} minutes after each step)...")
     for counter, attack in enumerate(attacks, start=1):
-        attack_start_time = get_iso_time()
-        attack_name = attack.__class__.__name__
-        sleep(int(WAIT_BETWEEN_STEPS / 2))
+        run_single_attack(attack, sim_start, sim_id, counter)
 
-        print_with_timestamp(f"Running {attack_name}...")
-        attack.run()
 
-        sleep(sim_start + START_WAIT_DURATION + counter * WAIT_BETWEEN_STEPS - get_epoch())
-        attack_end_time = get_iso_time()
+def run_single_attack(attack, sim_start, sim_id, counter):
+    attack_start_time = get_iso_time()
+    attack_name = attack.__class__.__name__
+    sleep(60)
 
-        print_with_timestamp(f"Downloading logs for {attack_name}...")
-        download_logs(start=attack_start_time,
-                      end=attack_end_time,
-                      suffix=attack_name,
-                      save_dir=sim_id)
+    print_with_timestamp(f"Running {attack_name}...")
+    attack.run()
 
+    sleep(sim_start + START_WAIT_DURATION + counter * WAIT_BETWEEN_STEPS - get_epoch())
+    attack_end_time = get_iso_time()
+
+    print_with_timestamp(f"Downloading logs for {attack_name}...\n"
+                         f"Start timestamp: {attack_start_time}\n"
+                         f"End timestamp: {attack_end_time}")
+    download_logs(start=attack_start_time,
+                  end=attack_end_time,
+                  suffix=attack_name,
+                  save_dir=sim_id)
+
+
+def conclude_session(sim_start, sim_end, sim_id, session_handler):
     print_with_timestamp(f"Waiting until {int(TOTAL_SIM_DURATION / 60)} minutes have passed...")
     sleep(sim_end - get_epoch())
 
-    print_with_timestamp("Downloading logs for entire simulation...")
+    print_with_timestamp("Downloading logs for entire simulation...\n"
+                         f"Start timestamp: {get_iso_time(sim_start)}\n"
+                         f"End timestamp: {get_iso_time(sim_end)}")
     download_logs(start=get_iso_time(sim_start),
                   end=get_iso_time(sim_end),
                   suffix="EntireSimulation",
                   save_dir=sim_id)
 
     print_with_timestamp("Closing session...")
-    sh.close_session()
+    session_handler.close_session()
 
     print_with_timestamp("Done.")
+
+
+def check_time_on_logserver():
+    # TODO check if local time matches the time on our logserver (both converted to UTC) and print the diff
+    print("Two time values in UTC and diff between them")
 
 
 if __name__ == "__main__":
