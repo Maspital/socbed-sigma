@@ -1,10 +1,10 @@
-# SOCBED-SIGMA
+# SOCBED-Sigma
 This plugin is intended to extend the functionality of the [SOCBED framework](https://github.com/fkie-cad/socbed)
-by enabling the user to generate datasets of [SIGMA](https://github.com/SigmaHQ/sigma)-alerts in a reproducible manner, 
+by enabling the user to generate datasets of [Sigma](https://github.com/SigmaHQ/sigma)-alerts in a reproducible manner, 
 and then automatically label the contents of those datasets as true or false positives.
 The labeled datasets could then be used for further research.
 
-_[Using SIGMA rules v0.22, changing may break labeling]_
+_[Using Sigma rules v0.22, changing may break labeling]_
 
 ## Prerequisites
 - Configure and build SOCBED as described in the base [SOCBED repository](https://github.com/fkie-cad/socbed)
@@ -22,7 +22,7 @@ Further instructions assume that your _**current directory is the base directory
   mv chainsaw/chainsaw src/
   rm -rf chainsaw* # we only need the binary
     ```
-- Install SOCBED-SIGMA in your virtual environment
+- Install SOCBED-Sigma in your virtual environment
     ```shell
   pip install --editable .
     ```
@@ -50,12 +50,12 @@ socbed_sigma --label /path/to/your/dataset/
 # socbed_sigma --label ./2022-09-23T09_35_12Z
 ```
 After execution has finished, the dataset directory will contain two additional files per `*_winlogbeat.jsonl`:
-- `*_sigma.txt`, containing generated SIGMA alerts from the log file of the same name in human-readable form
-- `*_sigma.json`, containing generated SIGMA alerts from the log file of the same name in json format for further processing
+- `*_sigma.txt`, containing generated Sigma alerts from the log file of the same name in human-readable form
+- `*_sigma.json`, containing generated Sigma alerts from the log file of the same name in json format for further processing
 
 
 ## Labeling a dataset
-Evaluate and label the created SIGMA alerts for a single file by running
+Evaluate and label the created Sigma alerts for a single file by running
 ```shell
 source ~/.virtualenvs/socbed/bin/activate
 socbed_sigma --label /path/to/your/sigma.json
@@ -65,6 +65,6 @@ socbed_sigma --label /path/to/your/sigma.json
 ```
 The example above would produce the file `EntireSimulation_sigma_LABELED.json`.
 It contains a JSON array, with each item having the following fields of interest:
-- `rule`: Contains the full name of the triggered SIGMA rule (string)
+- `rule`: Contains the full name of the triggered Sigma rule (string)
 - `metadata.misuse`: Labels the alert as true or false positive (bool)
-- `event`: Contains the original event from winlogbeat the SIGMA rule triggered on (dict)
+- `event`: Contains the original event from winlogbeat the Sigma rule triggered on (dict)
