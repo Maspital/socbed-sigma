@@ -21,17 +21,19 @@ def test_is_true_positive():
                 ],
                 "entry2": [
                     "key2.key2-2",
-                    "Specific content and some ANY_WORD_CHARS gibberish"
+                    r"Specific content and some \w+ gibberish"
                 ]
-            },
-            "Rule name two": {
-                "conditions": {
-                    "entry1": [
-                        "some_key.another_key",
-                        "Some desired content"
-                    ]
-                }
-            }}}
+            }
+        },
+        "Rule name two": {
+            "conditions": {
+                "entry1": [
+                    "some_key.another_key",
+                    r"Some desired content"
+                ]
+            }
+        }
+    }
 
     assert label_sigma.is_true_positive(sigma_alert=mock_sigma_alert_1,
                                         rule="Rule name one",
@@ -44,11 +46,11 @@ def test_is_true_positive():
 def test_condition_is_met():
     condition_1 = [
         "some_key.another_key",
-        "These are not the droids you're looking for"
+        r"These are not the droids you're looking for"
     ]
     condition_2 = [
         "key2.key2-2",
-        "Specific content and some ANY_WORD_CHARS gibberish"
+        r"Specific content and some \w+ gibberish"
     ]
 
     assert not label_sigma.condition_is_met(sigma_alert=mock_sigma_alert_1,

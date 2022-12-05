@@ -21,17 +21,17 @@ def test_get_iso_time():
 def test_get_epoch():
     out = helper.get_epoch()
     digits = len(str(out))
-    # note: above a certain number length (~10**12), using log10 is way faster, but may
-    # actually output incorrect results due to rounding errors for certain numbers
-    # digits = int(math.log10(out))+1
     assert digits == 10
 
 
 def test_extend_filename():
     original_filename = "/some/path/some_file.type"
-    expected_filename = "/some/path/some_file_with_a_suffix.type"
-    resulting_filename = helper.extend_filename(original_filename, "with_a_suffix")
-    assert resulting_filename == expected_filename
+    expected_filename_1 = "/some/path/some_file_with_a_suffix.type"
+    expected_filename_2 = "/some/path/some_file_with_a_suffix.new_type"
+    resulting_filename_1 = helper.extend_filename(original_filename, "with_a_suffix")
+    resulting_filename_2 = helper.extend_filename(original_filename, "with_a_suffix", ".new_type")
+    assert resulting_filename_1 == expected_filename_1
+    assert resulting_filename_2 == expected_filename_2
 
 
 def test_remove_ansi_escapes():

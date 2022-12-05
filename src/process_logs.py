@@ -36,15 +36,15 @@ def process_logs(sim_id):
         jsonl_input = f"{sim_id}/{log_file}_winlogbeat.jsonl"
         output = f"{sim_id}/{log_file}_sigma.txt"
 
-        command = get_command(jsonl_input, output)
+        command = chainsaw_command(jsonl_input, output)
         call(command)
 
         output = f"{sim_id}/{log_file}_sigma.json"
-        command = get_command(jsonl_input, output)
+        command = chainsaw_command(jsonl_input, output)
         call(command)
 
 
-def get_command(jsonl_input, output):
+def chainsaw_command(jsonl_input, output):
     command = ["./src/chainsaw",
                "hunt",
                f"{jsonl_input}",

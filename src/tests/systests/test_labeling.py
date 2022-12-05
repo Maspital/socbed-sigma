@@ -31,7 +31,7 @@ class TestLabeling:
         clean_up(full_logfile_path)
 
         actual_out, error = capfd.readouterr()
-        assert expected_output == actual_out
+        assert expected_output in actual_out
 
     def get_testing_data(self, log_source):
         sim_filename = "EntireSimulation_" + log_source + "_sigma.json"

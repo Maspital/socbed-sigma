@@ -151,9 +151,6 @@ groups:
       - from: CommandLine
         to: process.command_line
         visible: false
-      - from: Commandline
-        to: process.command_line
-        visible: false
       - from: Company
         to: winlog.event_data.Company
         visible: false

@@ -7,7 +7,6 @@
 
 # Ignore produced log directories
 *-*-*T*_*_*Z/
-dev/test_data/
 
 # Ignore specific file formats
 *.jsonl
