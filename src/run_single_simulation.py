@@ -125,5 +125,10 @@ def close_session(sim_start, sim_end, sim_id, session_handler):
     print_with_timestamp("Done.")
 
 
+def check_time_on_logserver():
+    # TODO check if local time matches the time on our logserver (both converted to UTC) and print the diff
+    print("Two time values in UTC and diff between them")
+
+
 if __name__ == "__main__":
     main()
