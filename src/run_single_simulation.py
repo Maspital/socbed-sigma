@@ -48,14 +48,12 @@ def parse_args():
 def run_simulation(sim_id):
     sim_start, sim_end, session_handler = start_session(sim_id)
     try:
-        # check_time_on_logserver()
         run_attacks(sim_start, sim_id)
-        # check_time_on_logserver()
         close_session(sim_start, sim_end, sim_id, session_handler)
-    except (ValueError, AttackException) as e:
+    except (ValueError, AttackException, KeyboardInterrupt) as e:
         print("Something went wrong, shutting down session and exiting...")
         session_handler.close_session()
-        exit(-1)
+        exit(1)
 
 
 def start_session(sim_id):
@@ -70,7 +68,12 @@ def start_session(sim_id):
     session_handler.start_session()
 
     print_with_timestamp(f"Session is up. Waiting until {int(START_WAIT_DURATION / 60)} minutes have passed...")
-    sleep(sim_start + START_WAIT_DURATION - get_epoch())
+    try:
+        sleep(sim_start + START_WAIT_DURATION - get_epoch())
+    except KeyboardInterrupt:
+        print("Closing session and exiting...")
+        session_handler.close_session()
+        exit(1)
 
     return sim_start, sim_end, session_handler
 
@@ -83,7 +86,7 @@ def run_attacks(sim_start, sim_id):
 
 
 def run_single_attack(attack, sim_start, sim_id, counter):
-    attack_start_time = get_iso_time()
+    attack_start_time = get_epoch()
     attack_name = attack.__class__.__name__
     sleep(60)
 
@@ -91,13 +94,14 @@ def run_single_attack(attack, sim_start, sim_id, counter):
     attack.run()
 
     sleep(sim_start + START_WAIT_DURATION + counter * WAIT_BETWEEN_STEPS - get_epoch())
-    attack_end_time = get_iso_time()
+    attack_end_time = get_epoch()
 
+    # Due to a bug with the SOCBED clients, timestamps for winlogbeat need to be set back by one hour
     print_with_timestamp(f"Downloading logs for {attack_name}...\n"
-                         f"Start timestamp: {attack_start_time}\n"
-                         f"End timestamp: {attack_end_time}")
-    download_logs(start=attack_start_time,
-                  end=attack_end_time,
+                         f"Start timestamp: {get_iso_time(attack_start_time-3600)}\n"
+                         f"End timestamp: {get_iso_time(attack_end_time-3600)}")
+    download_logs(start=get_iso_time(attack_start_time-3600),
+                  end=get_iso_time(attack_end_time-3600),
                   suffix=attack_name,
                   save_dir=sim_id)
 
@@ -106,11 +110,12 @@ def close_session(sim_start, sim_end, sim_id, session_handler):
     print_with_timestamp(f"Waiting until {int(TOTAL_SIM_DURATION / 60)} minutes have passed...")
     sleep(sim_end - get_epoch())
 
+    # Due to a bug with the SOCBED clients, timestamps for winlogbeat need to be set back by one hour
     print_with_timestamp("Downloading logs for entire simulation...\n"
-                         f"Start timestamp: {get_iso_time(sim_start)}\n"
-                         f"End timestamp: {get_iso_time(sim_end)}")
-    download_logs(start=get_iso_time(sim_start),
-                  end=get_iso_time(sim_end),
+                         f"Start timestamp: {get_iso_time(sim_start-3600)}\n"
+                         f"End timestamp: {get_iso_time(sim_end-3600)}")
+    download_logs(start=get_iso_time(sim_start-3600),
+                  end=get_iso_time(sim_end-3600),
                   suffix="EntireSimulation",
                   save_dir=sim_id)
 

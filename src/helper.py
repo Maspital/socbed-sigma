@@ -24,11 +24,16 @@ def get_epoch():
     return int(time())
 
 
-def extend_filename(original_name, new_suffix):
+def extend_filename(original_name, new_suffix, new_ending=None):
     path = Path(original_name)
-    return "{0}_{2}{1}".format(Path.joinpath(path.parent, path.stem),
-                               path.suffix,
-                               new_suffix)
+    if new_ending:
+        return "{0}_{2}{1}".format(Path.joinpath(path.parent, path.stem),
+                                   new_ending,
+                                   new_suffix)
+    else:
+        return "{0}_{2}{1}".format(Path.joinpath(path.parent, path.stem),
+                                   path.suffix,
+                                   new_suffix)
 
 
 def remove_ansi_escapes(text):

@@ -19,11 +19,13 @@ def main():
     elif args.generate:
         generate()
     elif args.process and args.path:
-        process_logs(sim_id=args.path)
+        process(args.path)
     elif args.label and args.path:
-        label_sigma(sim_id=args.path, rules_dict=rules_dict_path)
+        label(args.path)
     elif args.full:
-        do_everything()
+        sim_id = generate()
+        process(sim_id)
+        label(sim_id + "/Entire_Simulation_sigma.json")
 
     else:
         print_error_msg_and_exit(error="Unknown action or missing path", err_code=1)
@@ -32,13 +34,15 @@ def main():
 def generate():
     sim_id = get_iso_time(include_ms=False, remove_colons=True)
     run_simulation(sim_id=sim_id)
+    return sim_id
 
 
-def do_everything():
-    sim_id = get_iso_time(include_ms=False, remove_colons=True)
-    run_simulation(sim_id)
-    process_logs(sim_id)
-    label_sigma(sim_id=sim_id + "/Entire_Simulation_sigma.json", rules_dict=rules_dict_path)
+def process(sim_id):
+    process_logs(sim_id=sim_id)
+
+
+def label(sim_id):
+    label_sigma(sim_id=sim_id, rules_dict=rules_dict_path)
 
 
 def parse_args():
@@ -50,16 +54,16 @@ def parse_args():
                         help="Process a given log dataset using chainsaw, producing Sigma alerts. "
                              "Requires path to dataset directory.")
     parser.add_argument("--label", action="store_true",
-                        help="Label a given set of Sigma alerts. Requires path to dataset.")
+                        help="Label a given set of Sigma alerts. Requires path to single .json file.")
     parser.add_argument("--full", action="store_true",
                         help="Generate, process and label a dataset (aka do everything).")
     parser.add_argument('path', type=str, nargs='?',
-                        help="Path to *sigma.json dataset, required when using '--process' or '--label'.")
+                        help="Path to *sigma.json dataset directory or file, "
+                             "required when using '--process' or '--label'.")
     return parser.parse_args()
 
 
 def print_error_msg_and_exit(error, err_code):
-    print(repo_root_dir, rules_dict_path)
     print(f"{error}.\n"
           "Run 'socbed_sigma --help' for more information.")
     exit(err_code)

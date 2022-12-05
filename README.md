@@ -15,9 +15,9 @@ Further instructions assume that your _**current directory is the base directory
     source ~/.virtualenvs/socbed/bin/activate
     pip install elasticsearch elasticsearch-dsl
     ```
-- Download and extract [Chainsaw](https://github.com/WithSecureLabs/chainsaw) v2.1.0
+- Download and extract [Chainsaw](https://github.com/WithSecureLabs/chainsaw) v2.3.0
     ```shell
-  wget -O chainsaw.tar.gz https://github.com/WithSecureLabs/chainsaw/releases/download/v2.1.0/chainsaw_x86_64-unknown-linux-gnu.tar.gz
+  wget -O chainsaw.tar.gz https://github.com/WithSecureLabs/chainsaw/releases/download/v2.3.0/chainsaw_x86_64-unknown-linux-gnu.tar.gz
   tar -xf chainsaw.tar.gz
   mv chainsaw/chainsaw src/
   rm -rf chainsaw* # we only need the binary
